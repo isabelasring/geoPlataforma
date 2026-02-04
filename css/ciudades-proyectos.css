@@ -11,7 +11,7 @@
     background: #0a0e1a;
 }
 
-/* Fondo hero con imagen */
+/* Fondo hero con imagen y blur */
 .proyectos-hero-bg {
     position: absolute;
     inset: 0;
@@ -19,6 +19,9 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    transform: scale(1.08);
     z-index: 0;
 }
 
