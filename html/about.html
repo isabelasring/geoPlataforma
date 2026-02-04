@@ -33,77 +33,70 @@
                     </ul>
                 </li>
                 <li><a href="about.html" class="active">Nosotros</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="about-page">
         <div class="about-bg" aria-hidden="true"></div>
-        <div class="about-blur" aria-hidden="true"></div>
 
         <div class="about-wrap">
-            <section class="about-top" aria-label="Sobre nosotros">
-                <div>
-                    <h1 class="about-title">Sobre nosotros</h1>
-                    <div class="about-copy">
-                        <p>
-                            Aplicamos tecnologías avanzadas basadas en inteligencia artificial y análisis espacial para realizar análisis predictivo, brindando a los negocios una ventaja competitiva distintiva. En GeoPlataforma, nos apasiona desbloquear el potencial de los datos geoespaciales para impulsar tu éxito empresarial. Con una combinación de tecnología avanzada y análisis profundo, convertimos datos en decisiones. Nuestro compromiso constante con la innovación y la excelencia en el servicio al cliente es cómo marcamos la diferencia.
-                        </p>
-                    </div>
+            <div class="about-left">
+                <div class="about-image" style="background-image: url('../img%3Avideo/sobreNosotros/GTR00517.JPG');" aria-hidden="true"></div>
+            </div>
+
+            <div class="about-right">
+                <span class="about-subtitle">Sobre nosotros</span>
+                <h1 class="about-title">Nuestro objetivo: satisfacer clientes locales y globales</h1>
+
+                <div class="about-tabs" role="tablist" aria-label="Secciones">
+                    <button class="about-tab active" type="button" data-tab="quienes-somos" role="tab" aria-selected="true">Quiénes somos</button>
+                    <button class="about-tab" type="button" data-tab="mision" role="tab" aria-selected="false">Misión</button>
+                    <button class="about-tab" type="button" data-tab="vision" role="tab" aria-selected="false">Visión</button>
                 </div>
 
-                <div class="about-cards" aria-label="Misión y visión">
-                    <div class="about-card">
-                        <h2 class="about-card-title">Misión</h2>
-                        <p class="about-card-text">
-                            Transformar datos geoespaciales en decisiones claras y accionables mediante análisis espacial e inteligencia artificial, ayudando a organizaciones a planificar, gestionar y evolucionar territorios de forma sostenible.
-                        </p>
+                <section class="about-panel" id="about-panel" aria-live="polite">
+                    <h2 class="about-panel-title" id="about-panel-title">Quiénes somos</h2>
+                    <div class="about-panel-body" id="about-panel-body">
+                        <p>Aplicamos tecnologías avanzadas basadas en inteligencia artificial y análisis espacial para realizar análisis predictivo, brindando a los negocios una ventaja competitiva distintiva. En GeoPlataforma, nos apasiona desbloquear el potencial de los datos geoespaciales para impulsar tu éxito empresarial. Con una combinación de tecnología avanzada y análisis profundo, convertimos datos en decisiones. Nuestro compromiso constante con la innovación y la excelencia en el servicio al cliente es cómo marcamos la diferencia.</p>
                     </div>
-                    <div class="about-card">
-                        <h2 class="about-card-title">Visión</h2>
-                        <p class="about-card-text">
-                            Ser la plataforma de referencia en Colombia para el análisis territorial y la innovación geoespacial, conectando tecnología, ciencia de datos y experiencia local para construir ciudades e infraestructuras más inteligentes, resilientes y humanas.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="about-tabs" aria-label="Secciones">
-                <button class="about-tab" type="button" data-tab="valores" aria-selected="true">
-                    <div class="about-tab-circle" aria-hidden="true"></div>
-                    <div class="about-tab-label">Valores</div>
-                </button>
-                <button class="about-tab" type="button" data-tab="equipo" aria-selected="false">
-                    <div class="about-tab-circle" aria-hidden="true"></div>
-                    <div class="about-tab-label">Equipo</div>
-                </button>
-                <button class="about-tab" type="button" data-tab="tecnologias" aria-selected="false">
-                    <div class="about-tab-circle" aria-hidden="true"></div>
-                    <div class="about-tab-label">Tecnologías</div>
-                </button>
-                <button class="about-tab" type="button" data-tab="clientes" aria-selected="false">
-                    <div class="about-tab-circle" aria-hidden="true"></div>
-                    <div class="about-tab-label">Clientes</div>
-                </button>
-                <button class="about-tab" type="button" data-tab="reconocimientos" aria-selected="false">
-                    <div class="about-tab-circle" aria-hidden="true"></div>
-                    <div class="about-tab-label">Reconocimientos</div>
-                </button>
-            </section>
-
-            <section class="about-panel is-open" id="about-panel" aria-live="polite">
-                <h3 class="about-panel-title" id="about-panel-title">Valores</h3>
-                <p class="about-panel-body" id="about-panel-body">
-                    Innovación con propósito, rigor técnico, enfoque humano y compromiso con territorios sostenibles. Trabajamos con transparencia y excelencia para que cada decisión se apoye en evidencia.
-                </p>
-            </section>
+                </section>
+            </div>
         </div>
+
+        <!-- Fila de bolitas + contenido desplegable -->
+        <section class="about-bolitas-section" aria-label="Valores, Equipo, Clientes y Reconocimientos">
+            <div class="about-bolitas-wrap">
+                <div class="about-bolitas-row" role="tablist" aria-label="Selecciona una categoría">
+                    <button type="button" class="about-bolita active" data-bolita="valores" role="tab" aria-selected="true" aria-controls="about-bolita-panel">
+                        <span class="about-bolita-circle" aria-hidden="true"></span>
+                        <span class="about-bolita-label">Valores</span>
+                    </button>
+                    <button type="button" class="about-bolita" data-bolita="equipo" role="tab" aria-selected="false" aria-controls="about-bolita-panel">
+                        <span class="about-bolita-circle" aria-hidden="true"></span>
+                        <span class="about-bolita-label">Equipo</span>
+                    </button>
+                    <button type="button" class="about-bolita" data-bolita="clientes" role="tab" aria-selected="false" aria-controls="about-bolita-panel">
+                        <span class="about-bolita-circle" aria-hidden="true"></span>
+                        <span class="about-bolita-label">Clientes</span>
+                    </button>
+                    <button type="button" class="about-bolita" data-bolita="reconocimientos" role="tab" aria-selected="false" aria-controls="about-bolita-panel">
+                        <span class="about-bolita-circle" aria-hidden="true"></span>
+                        <span class="about-bolita-label">Reconocimientos</span>
+                    </button>
+                </div>
+                <div class="about-bolita-panel-wrap" id="about-bolita-panel" role="tabpanel" aria-live="polite">
+                    <div class="about-bolita-panel" id="about-bolita-content">
+                        <p class="about-bolita-panel-placeholder">Aquí se despliega el contenido de los círculos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script>
-        // Dropdowns navbar: clic para abrir/cerrar
         document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -121,72 +114,92 @@
             }
         });
 
-        // Tabs circulares: click => desplegar contenido abajo
         (function() {
             var content = {
-                valores: {
-                    title: 'Valores',
-                    body: 'Innovación con propósito, rigor técnico, enfoque humano y compromiso con territorios sostenibles. Trabajamos con transparencia y excelencia para que cada decisión se apoye en evidencia.'
+                'quienes-somos': {
+                    title: 'Quiénes somos',
+                    body: '<p>Aplicamos tecnologías avanzadas basadas en inteligencia artificial y análisis espacial para realizar análisis predictivo, brindando a los negocios una ventaja competitiva distintiva. En GeoPlataforma, nos apasiona desbloquear el potencial de los datos geoespaciales para impulsar tu éxito empresarial. Con una combinación de tecnología avanzada y análisis profundo, convertimos datos en decisiones. Nuestro compromiso constante con la innovación y la excelencia en el servicio al cliente es cómo marcamos la diferencia.</p>'
                 },
-                equipo: {
-                    title: 'Equipo',
-                    body: 'Un equipo interdisciplinario (GIS, datos, ingeniería y diseño) enfocado en resolver problemas reales. Colaboramos contigo de principio a fin, con entregables claros y medibles.'
+                mision: {
+                    title: 'Misión',
+                    body: '<p>Transformar datos geoespaciales en decisiones claras y accionables mediante análisis espacial e inteligencia artificial, ayudando a organizaciones a planificar, gestionar y evolucionar territorios de forma sostenible.</p>'
                 },
-                tecnologias: {
-                    title: 'Tecnologías',
-                    body: 'Cartografía digital, análisis espacial, IA aplicada, dashboards y plataformas WebGIS. Integramos APIs, datos abiertos y modelos predictivos para escalar soluciones.'
-                },
-                clientes: {
-                    title: 'Clientes',
-                    body: 'Acompañamos entidades públicas y privadas en proyectos territoriales, industriales y de infraestructura. Nos adaptamos al contexto, plazos y objetivos del proyecto.'
-                },
-                reconocimientos: {
-                    title: 'Reconocimientos',
-                    body: 'Certificaciones, alianzas y casos de éxito que respaldan nuestro trabajo. Priorizamos impacto, calidad técnica y resultados sostenibles.'
+                vision: {
+                    title: 'Visión',
+                    body: '<p>Ser la plataforma de referencia en Colombia para el análisis territorial y la innovación geoespacial, conectando tecnología, ciencia de datos y experiencia local para construir ciudades e infraestructuras más inteligentes, resilientes y humanas.</p>'
                 }
             };
 
             var tabs = document.querySelectorAll('.about-tab');
-            var panel = document.getElementById('about-panel');
             var panelTitle = document.getElementById('about-panel-title');
             var panelBody = document.getElementById('about-panel-body');
-            var activeKey = 'valores';
-
-            function setActive(key) {
-                activeKey = key;
-                tabs.forEach(function(t) {
-                    var isActive = t.getAttribute('data-tab') === key;
-                    t.setAttribute('aria-selected', isActive ? 'true' : 'false');
-                });
-            }
-
-            function openPanel(key) {
-                var c = content[key];
-                if (!c) return;
-                panelTitle.textContent = c.title;
-                panelBody.textContent = c.body;
-                panel.classList.add('is-open');
-            }
 
             tabs.forEach(function(tab) {
                 tab.addEventListener('click', function() {
                     var key = tab.getAttribute('data-tab');
-                    var isSame = key === activeKey;
-                    var isOpen = panel.classList.contains('is-open');
+                    var c = content[key];
+                    if (!c) return;
 
-                    setActive(key);
+                    tabs.forEach(function(t) {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
 
-                    if (isSame && isOpen) {
-                        panel.classList.remove('is-open');
-                        return;
-                    }
-
-                    openPanel(key);
-                    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    panelTitle.textContent = c.title;
+                    panelBody.innerHTML = c.body;
                 });
             });
+        })();
+
+        /* Bolitas: al hacer clic se despliega el contenido en el panel inferior */
+        (function() {
+            var bolitaContent = {
+                valores: {
+                    title: 'Valores',
+                    body: '<p>En GeoPlataforma priorizamos la <strong>innovación</strong>, la <strong>rigor técnico</strong> y el compromiso con el territorio. Trabajamos con transparencia, colaboración y enfoque en resultados que generen impacto real en ciudades, industria e infraestructura.</p>'
+                },
+                equipo: {
+                    title: 'Equipo',
+                    body: '<p>Nuestro equipo combina experiencia en GIS, análisis espacial, desarrollo de software y gestión de proyectos. Trabajamos de forma cercana con clientes y socios para entregar soluciones a medida y soporte continuo.</p>'
+                },
+                clientes: {
+                    title: 'Clientes',
+                    body: '<p>Trabajamos con entidades públicas, empresas industriales y organismos de planificación en Colombia y la región. Nuestros proyectos abarcan diagnósticos territoriales, mapas de ruido, análisis de coberturas y portales geoespaciales.</p>'
+                },
+                reconocimientos: {
+                    title: 'Reconocimientos',
+                    body: '<p>Hemos participado en proyectos destacados en planificación urbana, análisis ambiental e infraestructura. Nuestro trabajo se sustenta en metodologías reconocidas y estándares internacionales en el ámbito geoespacial.</p>'
+                }
+            };
+
+            var bolitas = document.querySelectorAll('.about-bolita');
+            var panel = document.getElementById('about-bolita-content');
+
+            function showBolitaContent(key) {
+                var c = bolitaContent[key];
+                if (!c || !panel) return;
+                panel.innerHTML = '<h3 class="about-bolita-panel-title">' + c.title + '</h3><div class="about-bolita-panel-body">' + c.body + '</div>';
+            }
+
+            bolitas.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var key = btn.getAttribute('data-bolita');
+                    if (!key) return;
+
+                    bolitas.forEach(function(b) {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected', 'true');
+                    showBolitaContent(key);
+                });
+            });
+
+            showBolitaContent('valores');
         })();
     </script>
 </body>
 </html>
-

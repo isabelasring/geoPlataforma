@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - GeoPlataforma</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/contacto.css">
+</head>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="../img%3Avideo/isologo-01.png" alt="GeoPlataforma" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios</button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="ciudades.html">Ciudades</a></li>
+                        <li><a href="industria.html">Industria</a></li>
+                        <li><a href="#">Infraestructura</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Proyectos</button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="ciudades-proyectos.html">Ciudades</a></li>
+                        <li><a href="industria-proyectos.html">Industria</a></li>
+                        <li><a href="#">Infraestructura</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Nosotros</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="contacto-page">
+        <div class="contacto-bg" aria-hidden="true"></div>
+
+        <section class="contacto-section" aria-label="Contacto">
+            <div class="contacto-wrap">
+                <div class="contacto-form-col">
+                    <form class="contacto-form" action="#" method="post" aria-label="Formulario de contacto">
+                        <div class="contacto-form-row contacto-form-row-two">
+                            <div class="contacto-field-wrap">
+                                <label class="contacto-label" for="contacto-nombre">Nombre completo</label>
+                                <input type="text" id="contacto-nombre" name="nombre" class="contacto-input" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="contacto-field-wrap">
+                                <label class="contacto-label" for="contacto-email">Correo electrónico</label>
+                                <input type="email" id="contacto-email" name="email" class="contacto-input" placeholder="Correo electrónico" required>
+                            </div>
+                        </div>
+                        <div class="contacto-form-row contacto-form-row-two">
+                            <div class="contacto-field-wrap">
+                                <label class="contacto-label" for="contacto-telefono">Teléfono</label>
+                                <input type="tel" id="contacto-telefono" name="telefono" class="contacto-input" placeholder="Teléfono">
+                            </div>
+                            <div class="contacto-field-wrap">
+                                <label class="contacto-label" for="contacto-sector">Selecciona tu sector</label>
+                                <select id="contacto-sector" name="sector" class="contacto-input contacto-select">
+                                    <option value="">Selecciona tu sector</option>
+                                    <option value="publico">Sector público</option>
+                                    <option value="privado">Sector privado</option>
+                                    <option value="academia">Academia</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="contacto-form-row">
+                            <label class="contacto-label" for="contacto-mensaje">Cuéntanos sobre tu proyecto</label>
+                            <textarea id="contacto-mensaje" name="mensaje" class="contacto-input contacto-textarea" placeholder="Cuéntanos sobre tu proyecto" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="contacto-submit">Comenzar ahora</button>
+                    </form>
+                </div>
+
+                <div class="contacto-info-col">
+                    <div class="contacto-info-card">
+                        <span class="contacto-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+                        </span>
+                        <div>
+                            <strong class="contacto-info-title">Correo</strong>
+                            <p class="contacto-info-text">contacto@geotrends.com</p>
+                        </div>
+                    </div>
+                    <div class="contacto-info-card">
+                        <span class="contacto-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </span>
+                        <div>
+                            <strong class="contacto-info-title">Dirección</strong>
+                            <p class="contacto-info-text">Calle 123 #45-67, Bogotá, Colombia</p>
+                        </div>
+                    </div>
+                    <div class="contacto-info-card">
+                        <span class="contacto-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </span>
+                        <div>
+                            <strong class="contacto-info-title">Teléfono</strong>
+                            <p class="contacto-info-text">+57 (1) 234 5678</p>
+                        </div>
+                    </div>
+                    <div class="contacto-info-card contacto-info-social">
+                        <strong class="contacto-info-title">Síguenos</strong>
+                        <div class="contacto-social-links">
+                            <a href="#" class="contacto-social-link" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            </a>
+                            <a href="#" class="contacto-social-link" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="#fff" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#fff" stroke-width="2"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var parent = this.closest('.nav-dropdown');
+                var isOpen = parent.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+                if (!isOpen) parent.classList.add('open');
+                btn.setAttribute('aria-expanded', !isOpen);
+            });
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+                document.querySelectorAll('.nav-dropdown-toggle').forEach(function(b) { b.setAttribute('aria-expanded', 'false'); });
+            }
+        });
+        document.querySelector('.contacto-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            /* aquí enviar formulario */
+        });
+    </script>
+</body>
+</html>

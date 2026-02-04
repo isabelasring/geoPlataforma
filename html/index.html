@@ -32,8 +32,8 @@
                     </ul>
                 </li>
                 <li><a href="about.html">Nosotros</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -503,50 +503,24 @@
         </div>
     </section>
 
-    <section class="recon-section">
-        <div class="recon-section-bg" aria-hidden="true"></div>
-        <div class="recon-header-wrap">
-            <h2 class="recon-title">Reconocimientos</h2>
-            <p class="recon-subtitle">Premios, certificaciones y reconocimientos que respaldan nuestro trabajo.</p>
-        </div>
-        <div class="recon-carousel-wrap">
-            <button type="button" class="recon-arrow recon-arrow-prev" aria-label="Anterior">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button type="button" class="recon-arrow recon-arrow-next" aria-label="Siguiente">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-            <div class="recon-track" id="recon-track">
-                <article class="recon-item">
-                    <span class="recon-label">Certificación ISO</span>
-                    <div class="recon-card" style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600');"></div>
-                </article>
-                <article class="recon-item">
-                    <span class="recon-label">Premio Innovación</span>
-                    <div class="recon-card" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600');"></div>
-                </article>
-                <article class="recon-item">
-                    <span class="recon-label">Mejor proyecto GIS</span>
-                    <div class="recon-card" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600');"></div>
-                </article>
-                <article class="recon-item">
-                    <span class="recon-label">Sello de calidad</span>
-                    <div class="recon-card" style="background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?w=600');"></div>
-                </article>
-                <article class="recon-item">
-                    <span class="recon-label">Partner del año</span>
-                    <div class="recon-card" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600');"></div>
-                </article>
-                <article class="recon-item">
-                    <span class="recon-label">Excelencia sostenible</span>
-                    <div class="recon-card" style="background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600');"></div>
-                </article>
+    <footer class="footer">
+        <div class="footer-bg" aria-hidden="true">
+            <div class="footer-bg-fallback"></div>
+            <div class="footer-video-container">
+                <video class="footer-video-bg" autoplay muted loop playsinline aria-hidden="true">
+                    <source src="../img%3Avideo/VID_20240912_071126_00_025.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="footer-luma-wrap" aria-hidden="true">
+                <iframe
+                    class="footer-luma-embed"
+                    src="https://lumalabs.ai/embed/a01cac2e-7732-4525-84e0-9006e7410ddf?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false"
+                    allowfullscreen
+                    allow="autoplay; fullscreen; xr-spatial-tracking"
+                    title="Luma - Fondo footer"
+                ></iframe>
             </div>
         </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-bg"></div>
         <div class="footer-overlay"></div>
         <div class="footer-content">
             <div class="footer-columns">
@@ -568,15 +542,15 @@
                         <li><a href="about.html">Sobre nosotros</a></li>
                         <li><a href="#">Descargas</a></li>
                         <li><a href="#">Servicios</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4 class="footer-col-title">Enlaces rápidos</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
                         <li><a href="#">Preguntas frecuentes</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="#">Galería</a></li>
                         <li><a href="#">Precios</a></li>
                     </ul>
@@ -640,8 +614,7 @@
                 // Secciones con fondo de imagen
                 else if (sectionClass.includes('hero') || 
                          sectionClass.includes('wind-section') || 
-                         sectionClass.includes('process-section') || 
-                         sectionClass.includes('recon-section')) {
+                         sectionClass.includes('process-section')) {
                     navbar.classList.add('section-image');
                 }
                 // Secciones oscuras
@@ -738,20 +711,6 @@
                 });
             });
         })();
-
-        // Carrusel Reconocimientos: flechas
-        var reconTrack = document.getElementById('recon-track');
-        var reconItemWidth = 312;
-        var reconGap = 24;
-        var reconStep = reconItemWidth + reconGap;
-        if (reconTrack) {
-            document.querySelector('.recon-arrow-prev').addEventListener('click', function() {
-                reconTrack.scrollBy({ left: -reconStep, behavior: 'smooth' });
-            });
-            document.querySelector('.recon-arrow-next').addEventListener('click', function() {
-                reconTrack.scrollBy({ left: reconStep, behavior: 'smooth' });
-            });
-        }
 
         // Panel de tecnologías: al hacer clic en una card se abre el panel desde la izquierda
         (function() {

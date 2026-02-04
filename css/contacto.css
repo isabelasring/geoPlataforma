@@ -1,0 +1,234 @@
+/* Contacto - formulario izquierda, tarjetas de info derecha */
+:root {
+  --contacto-ink: #0f172a;
+  --contacto-muted: rgba(15, 23, 42, 0.72);
+  --contacto-border: rgba(15, 23, 42, 0.12);
+  --contacto-accent: #065f46;
+  --contacto-accent-light: #0d9488;
+}
+
+.contacto-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 7.5rem 2rem 4rem;
+  background: #f8fafc;
+  color: var(--contacto-ink);
+}
+
+.contacto-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: #f8fafc;
+}
+
+.contacto-section {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contacto-wrap {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.contacto-form-col {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  padding: 2rem 2.25rem;
+}
+
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contacto-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contacto-form-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.contacto-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--contacto-ink);
+  display: block;
+}
+
+.contacto-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--contacto-border);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 1rem;
+  color: var(--contacto-ink);
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contacto-input::placeholder {
+  color: var(--contacto-muted);
+}
+
+.contacto-input:focus {
+  outline: none;
+  border-color: var(--contacto-accent);
+  box-shadow: 0 0 0 3px rgba(6, 95, 70, 0.12);
+}
+
+.contacto-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 2.5rem;
+}
+
+.contacto-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contacto-submit {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-top: 0.5rem;
+  background: var(--contacto-accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contacto-submit:hover {
+  background: #065f46;
+  transform: translateY(-1px);
+}
+
+.contacto-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contacto-info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 1.25rem 1.5rem;
+}
+
+.contacto-info-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(6, 95, 70, 0.1);
+  color: var(--contacto-accent);
+}
+
+.contacto-info-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.contacto-info-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--contacto-ink);
+  margin-bottom: 0.25rem;
+}
+
+.contacto-info-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--contacto-muted);
+  line-height: 1.5;
+}
+
+.contacto-info-social {
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contacto-social-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.contacto-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--contacto-border);
+  border-radius: 10px;
+  color: var(--contacto-ink);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.contacto-social-link:hover {
+  background: var(--contacto-accent);
+  border-color: var(--contacto-accent);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .contacto-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-info-col {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contacto-info-card {
+    flex: 1 1 280px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .contacto-page {
+    padding: 7rem 1rem 3rem;
+  }
+
+  .contacto-form-col {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .contacto-form-row-two {
+    grid-template-columns: 1fr;
+  }
+}
