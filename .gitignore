@@ -1,0 +1,9 @@
+# Ignorar vídeos pesados
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Ignorar toda la carpeta proyectos (imágenes y medios pesados)
+# Los archivos siguen en tu PC, solo no se suben al repo
+/proyectos/

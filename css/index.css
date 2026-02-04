@@ -1,0 +1,11 @@
+/* Index Home - importa estilos por sección (carpeta home) */
+@import url('home/base.css');
+@import url('home/navbar.css');
+@import url('home/hero.css');
+@import url('home/geotrends.css');
+@import url('home/wind.css');
+@import url('home/tech.css');
+@import url('home/process.css');
+@import url('home/dashboard.css');
+@import url('home/recon.css');
+@import url('home/footer.css');

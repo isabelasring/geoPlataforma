@@ -1,0 +1,219 @@
+/* Navbar - Home: transparente sobre hero con fondo ovalado, sólido al hacer scroll */
+.navbar {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 4rem;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    width: 98%;
+    max-width: 1400px;
+}
+
+/* Ocultar navbar cuando hay una card expandida */
+.navbar.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Navbar scrolled - adapta color según la sección */
+.navbar.scrolled {
+    top: 0.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Secciones con fondo verde oscuro */
+.navbar.scrolled.section-green {
+    background: rgba(13, 36, 24, 0.85);
+}
+
+/* Secciones con fondo de imagen (hero, wind, process, recon) */
+.navbar.scrolled.section-image {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Secciones con fondo oscuro (dashboard) */
+.navbar.scrolled.section-dark {
+    background: rgba(12, 18, 28, 0.85);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.navbar.scrolled .logo {
+    color: #fff;
+}
+
+.logo-img {
+    height: 56px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+/* Logo claro sobre hero transparente */
+.navbar:not(.scrolled) .logo-img {
+    filter: brightness(0) invert(1);
+}
+
+.navbar.scrolled .logo-img {
+    filter: brightness(0) invert(1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links > li {
+    position: relative;
+}
+
+.nav-links a,
+.nav-dropdown-toggle {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+    position: relative;
+}
+
+.navbar.scrolled .nav-links a,
+.navbar.scrolled .nav-dropdown-toggle {
+    color: #fff;
+}
+
+.nav-links > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after {
+    width: 100%;
+}
+
+.nav-dropdown::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #2d6a4f;
+    transition: width 0.3s ease;
+}
+
+.nav-dropdown:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-dropdown-toggle:hover {
+    opacity: 1;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.5rem;
+    min-width: 180px;
+    padding: 0.5rem 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background 0.3s ease;
+    z-index: 100;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Misma tonalidad que el navbar según la sección */
+.navbar:not(.scrolled) .nav-dropdown-menu {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.navbar.scrolled.section-green .nav-dropdown-menu {
+    background: rgba(13, 36, 24, 0.85);
+}
+
+.navbar.scrolled.section-image .nav-dropdown-menu {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.navbar.scrolled.section-dark .nav-dropdown-menu {
+    background: rgba(12, 18, 28, 0.85);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown-menu li {
+    margin: 0;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.nav-dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+
+/* Click para abrir/cerrar en móvil */
+.nav-dropdown .nav-dropdown-toggle:focus + .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

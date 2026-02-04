@@ -1,0 +1,243 @@
+/* Proceso / Orden metodológico - Home: sección propia con fondo imagen + blur */
+.process-section {
+    position: relative;
+    padding: 5rem 2rem 5rem;
+    overflow: hidden;
+    min-height: 60vh;
+    margin-top: 2rem;
+}
+
+/* Fondo: imagen industrial con blur */
+.process-section-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('../../img:video/home/PRMGS_PALOMINO_00005.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    transform: scale(1.08);
+}
+.process-section-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.process-section::before,
+.process-section::after {
+    display: none;
+}
+
+.process-title,
+.process-subtitle {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.process-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.process-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.process-wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Línea horizontal principal del timeline */
+.process-track {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 0 8px;
+    padding: 0 0 2rem;
+}
+
+.process-track::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-50%);
+    z-index: 0;
+    box-shadow: none;
+}
+
+.process-step {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: process-step-in 0.5s ease forwards;
+}
+
+.process-step:nth-child(1) { animation-delay: 0.1s; }
+.process-step:nth-child(2) { animation-delay: 0.2s; }
+.process-step:nth-child(3) { animation-delay: 0.3s; }
+.process-step:nth-child(4) { animation-delay: 0.4s; }
+.process-step:nth-child(5) { animation-delay: 0.5s; }
+.process-step:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes process-step-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.process-step-odd .process-spacer,
+.process-step-even .process-spacer {
+    flex: 1;
+    min-height: 20px;
+}
+
+/* Cajas de contenido: transparencia + blur tipo cristal */
+.process-box {
+    width: 100%;
+    padding: 1rem 0.75rem;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0;
+}
+
+.process-box-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.process-box-text {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
+
+/* Línea vertical conectora (del contenido al nodo) */
+.process-dash {
+    width: 2px;
+    height: 24px;
+    margin: 4px 0;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+}
+
+/* Nodos del timeline: círculos transparentes + blur tipo cristal */
+.process-circle {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.process-circle svg {
+    width: 26px;
+    height: 26px;
+    color: rgba(30, 41, 59, 0.9);
+}
+
+.process-color-1 svg { color: #1e40af; }
+.process-color-2 svg { color: #15803d; }
+.process-color-3 svg { color: #b91c1c; }
+.process-color-4 svg { color: #c2410c; }
+.process-color-5 svg { color: #a16207; }
+.process-color-6 svg { color: #be185d; }
+
+.process-connector {
+    display: none;
+}
+
+/* (removida) */
+
+@media (max-width: 900px) {
+    .process-track {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .process-track::before {
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        height: auto;
+        transform: translateX(-50%);
+    }
+
+    .process-step {
+        max-width: 320px;
+        flex-direction: row !important;
+        gap: 1rem;
+        text-align: left;
+    }
+
+    .process-step .process-box {
+        flex: 1;
+        margin: 0;
+    }
+
+    .process-step .process-spacer {
+        display: none;
+    }
+
+    .process-step .process-dash {
+        width: 24px;
+        height: 2px;
+        margin: 0 4px;
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .process-step-odd .process-box { order: 1; }
+    .process-step-odd .process-dash { order: 2; }
+    .process-step-odd .process-circle { order: 3; }
+    .process-step-even .process-box { order: 3; }
+    .process-step-even .process-dash { order: 2; }
+    .process-step-even .process-circle { order: 1; }
+}

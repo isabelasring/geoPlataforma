@@ -1,0 +1,201 @@
+/* Reconocimientos - Home: fondo imagen con blur */
+.recon-section {
+    position: relative;
+    width: 100%;
+    padding: 4rem 0 4.5rem;
+    overflow: hidden;
+    min-height: 50vh;
+}
+
+.recon-section::before,
+.recon-section::after {
+    display: none;
+}
+
+/* Fondo: imagen (ventana/ciudad/montaña) con blur + overlay */
+.recon-section-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('../../img:video/DSC00017.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    transform: scale(1.08);
+}
+.recon-section-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.recon-header-wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto 2.5rem;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.recon-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.recon-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.recon-carousel-wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.recon-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(13, 148, 136, 0.4);
+    background: rgba(13, 148, 136, 0.1);
+    color: #0d9488;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.recon-arrow:hover {
+    background: rgba(13, 148, 136, 0.2);
+    border-color: rgba(13, 148, 136, 0.7);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.recon-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+.recon-arrow-prev {
+    left: 1rem;
+}
+
+.recon-arrow-next {
+    right: 1rem;
+}
+
+.recon-track {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 4.5rem 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.recon-track::-webkit-scrollbar {
+    display: none;
+}
+
+.recon-item {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    scroll-snap-align: center;
+}
+
+/* Título encima de la tarjeta */
+.recon-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    order: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Tarjeta: borde verde + sombra */
+.recon-card {
+    order: 2;
+    width: 280px;
+    min-width: 280px;
+    height: 320px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-color: #334155;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border: 3px solid #16a34a;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.recon-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.25) 100%);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+.recon-item:hover .recon-card {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor de la tarjeta: transparencia + borde verde */
+.recon-item {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 24px;
+    border: 2px solid #16a34a;
+    transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.recon-item:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border-color: #16a34a;
+}
+
+@media (max-width: 768px) {
+    .recon-arrow-prev { left: 0.5rem; }
+    .recon-arrow-next { right: 0.5rem; }
+    .recon-arrow { width: 42px; height: 42px; }
+    .recon-track { padding-left: 3.5rem; padding-right: 3.5rem; }
+    .recon-card {
+        width: 240px;
+        min-width: 240px;
+        height: 280px;
+    }
+    .recon-item {
+        padding: 0.75rem;
+    }
+}

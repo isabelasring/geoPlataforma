@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos Ciudades - GeoPlataforma</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/ciudades-proyectos.css">
+</head>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="../img%3Avideo/isologo-01.png" alt="GeoPlataforma" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios</button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="ciudades.html">Ciudades</a></li>
+                        <li><a href="industria.html">Industria</a></li>
+                        <li><a href="#">Infraestructura</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Proyectos</button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="ciudades-proyectos.html">Ciudades</a></li>
+                        <li><a href="industria-proyectos.html">Industria</a></li>
+                        <li><a href="#">Infraestructura</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Nosotros</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="proyectos-page">
+        <div class="proyectos-hero-bg" aria-hidden="true"></div>
+        <div class="proyectos-hero-overlay" aria-hidden="true"></div>
+        
+        <div class="proyectos-filters-container">
+            <div class="proyectos-tags-top" role="tablist">
+                <button type="button" class="proyectos-tag active" data-servicio="iot" role="tab">IoT</button>
+                <button type="button" class="proyectos-tag" data-servicio="mapas-ruido" role="tab">Mapas de ruido</button>
+                <button type="button" class="proyectos-tag" data-servicio="webgis" role="tab">Ecosistemas WEBGIS</button>
+                <button type="button" class="proyectos-tag" data-servicio="descontaminacion" role="tab">Descontaminación acústica</button>
+                <button type="button" class="proyectos-tag" data-servicio="geoespacial" role="tab">Analítica geoespacial</button>
+            </div>
+            <div class="proyectos-search-bar">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input type="search" class="search-input" placeholder="Buscar proyectos..." aria-label="Buscar proyectos">
+            </div>
+        </div>
+        
+        <div class="proyectos-content">
+            <div class="proyectos-left">
+                <a href="ciudades.html" class="proyectos-back" aria-label="Volver a Ciudades">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14 12H8"/><path d="M10 8l-2 4 2 4"/></svg>
+                </a>
+                <div class="proyectos-title-section">
+                    <span class="proyectos-location">Colombia</span>
+                    <h1 class="proyectos-title">CIUDADES</h1>
+                    <p class="proyectos-description">Desarrollo y gestión inteligente de espacios urbanos. Soluciones geoespaciales para ciudades sostenibles y conectadas.</p>
+                </div>
+            </div>
+
+            <div class="proyectos-right">
+                <div class="proyectos-cards-container">
+                    <button type="button" class="carousel-btn carousel-prev" aria-label="Anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <div class="proyectos-carousel">
+                        <p class="proyectos-empty-message" id="ciudades-empty-message" style="display: none;" aria-live="polite">No hay proyectos disponibles</p>
+                        <div class="carousel-track" id="ciudades-carousel-track">
+                            <article class="proyecto-card proyecto-card-amva-usb" data-servicios="iot webgis" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=amva-usb&seccion=ciudades&titulo=AMVA-USB&categoria=ciudades&cliente=AMVA" class="proyecto-card-link-wrap" aria-label="Ver detalle AMVA-USB">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/ciudades/AMVA-USB/IMG_4277.jpeg');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">AMVA-USB</h3>
+                                        <p class="proyecto-card-desc">Monitoreo urbano y soluciones geoespaciales para el Área Metropolitana</p>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                    </div>
+                    <button type="button" class="carousel-btn carousel-next" aria-label="Siguiente">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var servicio = params.get('servicio') || 'iot';
+            var tagMap = { iot: 0, 'mapas-ruido': 1, webgis: 2, descontaminacion: 3, geoespacial: 4 };
+            var tags = document.querySelectorAll('.proyectos-tag');
+            var idx = tagMap[servicio] !== undefined ? tagMap[servicio] : 0;
+            tags.forEach(function(t, i) { t.classList.toggle('active', i === idx); });
+
+            var amvaCard = document.querySelector('.proyecto-card-amva-usb');
+            var emptyMsg = document.getElementById('ciudades-empty-message');
+            var carouselTrack = document.getElementById('ciudades-carousel-track');
+            function toggleCiudadesCards() {
+                var activeTag = document.querySelector('.proyectos-tag.active');
+                var s = activeTag ? (activeTag.getAttribute('data-servicio') || '').trim() : '';
+                var showAmva = s === 'iot' || s === 'webgis';
+                var hasAnyProject = showAmva;
+                if (amvaCard) amvaCard.style.display = showAmva ? 'block' : 'none';
+                if (emptyMsg) emptyMsg.style.display = hasAnyProject ? 'none' : 'flex';
+                if (carouselTrack) carouselTrack.style.display = hasAnyProject ? 'flex' : 'none';
+            }
+            toggleCiudadesCards();
+
+            tags.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    tags.forEach(function(t) { t.classList.remove('active'); });
+                    btn.classList.add('active');
+                    var s = btn.getAttribute('data-servicio');
+                    var url = new URL(window.location.href);
+                    url.searchParams.set('servicio', s);
+                    window.history.replaceState({}, '', url);
+                    toggleCiudadesCards();
+                });
+            });
+
+            var track = document.querySelector('.carousel-track');
+            var prev = document.querySelector('.carousel-prev');
+            var next = document.querySelector('.carousel-next');
+            var cardWidth = 320; // Ancho fijo de las cards
+            var gap = 20; // Gap entre cards
+
+            function go(delta) {
+                if (!track) return;
+                var scrollAmount = (cardWidth + gap) * delta;
+                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+
+            if (prev) prev.addEventListener('click', function() { go(-1); });
+            if (next) next.addEventListener('click', function() { go(1); });
+        })();
+    </script>
+    <script>
+        document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var parent = this.closest('.nav-dropdown');
+                var isOpen = parent.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+                if (!isOpen) parent.classList.add('open');
+                btn.setAttribute('aria-expanded', !isOpen);
+            });
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+                document.querySelectorAll('.nav-dropdown-toggle').forEach(function(b) { b.setAttribute('aria-expanded', 'false'); });
+            }
+        });
+    </script>
+</body>
+</html>

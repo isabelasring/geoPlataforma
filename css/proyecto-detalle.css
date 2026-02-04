@@ -1,0 +1,171 @@
+/* Vista detalle de proyecto: media izquierda, contenido derecha */
+.proyecto-detalle-page {
+    padding: 100px 2rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+.proyecto-detalle-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #fff;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.proyecto-detalle-back:hover {
+    background: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.proyecto-detalle-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.proyecto-detalle-media-col {
+    flex: 1 1 50%;
+    min-width: 0;
+}
+
+.proyecto-detalle-media {
+    aspect-ratio: 16/10;
+    min-height: 280px;
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.proyecto-detalle-media-placeholder {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #64748b;
+}
+
+.proyecto-detalle-carousel-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0;
+}
+
+.proyecto-detalle-carousel-prev,
+.proyecto-detalle-carousel-next {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #fff;
+    color: #0f172a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.proyecto-detalle-carousel-prev:hover,
+.proyecto-detalle-carousel-next:hover {
+    background: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.proyecto-detalle-carousel {
+    flex: 1;
+    min-width: 0;
+    min-height: 320px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #e2e8f0;
+}
+
+.proyecto-detalle-carousel-track {
+    display: flex;
+    height: 100%;
+    min-height: 320px;
+    transition: transform 0.35s ease;
+}
+
+.proyecto-detalle-carousel-slide {
+    flex-shrink: 0;
+    min-height: 320px;
+    background-size: cover;
+    background-position: center;
+    background-color: #94a3b8;
+}
+
+.proyecto-detalle-meta {
+    margin-top: 1.25rem;
+    padding: 0;
+}
+
+.proyecto-detalle-meta-item {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.95rem;
+    color: #334155;
+}
+
+.proyecto-detalle-meta-item strong {
+    color: #0f172a;
+}
+
+.proyecto-detalle-content-col {
+    flex: 1 1 50%;
+    min-width: 0;
+}
+
+.proyecto-detalle-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+}
+
+.proyecto-detalle-desc {
+    margin: 0;
+}
+
+.proyecto-detalle-desc-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #475569;
+    margin: 0 0 0.75rem 0;
+}
+
+.proyecto-detalle-desc-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #334155;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .proyecto-detalle-layout {
+        flex-direction: column;
+    }
+    .proyecto-detalle-media-col,
+    .proyecto-detalle-content-col {
+        flex: 1 1 100%;
+    }
+}

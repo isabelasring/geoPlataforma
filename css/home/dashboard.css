@@ -1,0 +1,296 @@
+/* Dashboard - Home: fondo blanco, elementos con transparencia + blur */
+.dashboard-section {
+    position: relative;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.dashboard-section::before,
+.dashboard-section::after {
+    display: none;
+}
+
+.dashboard-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: transparent;
+    pointer-events: none;
+}
+
+.dashboard-bg::after {
+    display: none;
+}
+
+.dashboard-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.dashboard-title-accent {
+    color: #16a34a;
+}
+
+/* KPIs: tarjetas transparentes + blur sobre fondo blanco */
+.dashboard-kpis {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-kpi {
+    flex: 1;
+    min-width: 0;
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid rgba(22, 163, 74, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.dashboard-kpi:hover {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(22, 163, 74, 0.4);
+    transform: translateY(-2px);
+}
+
+.dashboard-kpi-value {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: #1a1a1a;
+}
+
+.dashboard-kpi-label {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.65);
+    line-height: 1.3;
+}
+
+/* Filas de contenido */
+.dashboard-row {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.dashboard-row-mid .dashboard-card:first-child { flex: 1; }
+.dashboard-row-mid .dashboard-card:nth-child(2) { flex: 1.2; }
+.dashboard-row-mid .dashboard-card:last-child { flex: 1; }
+
+.dashboard-row-bottom .dashboard-card { flex: 1; }
+
+/* Tarjetas: transparencia + blur sobre fondo blanco */
+.dashboard-card {
+    padding: 1.75rem;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid rgba(22, 163, 74, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(22, 163, 74, 0.35);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.dashboard-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.dashboard-bar-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-bar-label {
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.dashboard-bar-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #16a34a;
+}
+
+.dashboard-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.dashboard-stacked-year {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.dashboard-stacked-year span:first-child {
+    min-width: 2.5rem;
+}
+
+.dashboard-stacked-bars {
+    flex: 1;
+    display: flex;
+    height: 22px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.dashboard-stacked-sales {
+    background: rgba(34, 197, 94, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: #fff;
+}
+
+.dashboard-stacked-purchase {
+    background: rgba(74, 222, 128, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: #0f172a;
+}
+
+.dashboard-legend {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.dashboard-legend-sales::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #22c55e;
+    border-radius: 3px;
+    margin-right: 0.35rem;
+    vertical-align: middle;
+}
+
+.dashboard-legend-purchase::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #4ade80;
+    border-radius: 3px;
+    margin-right: 0.35rem;
+    vertical-align: middle;
+}
+
+.dashboard-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+}
+
+.dashboard-list li {
+    margin-bottom: 0.45rem;
+}
+
+.dashboard-donut-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.dashboard-donut {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    min-width: 140px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #166534 0deg 126deg,
+        #4ade80 126deg 144deg,
+        #84cc16 144deg 234deg,
+        #a3e635 234deg 252deg,
+        #22c55e 252deg 360deg
+    );
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-donut::after {
+    content: '';
+    position: absolute;
+    inset: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.dashboard-donut-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 900px) {
+    .dashboard-kpis {
+        flex-wrap: wrap;
+    }
+    .dashboard-kpi {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+    .dashboard-row,
+    .dashboard-row-mid,
+    .dashboard-row-bottom {
+        flex-direction: column;
+    }
+    .dashboard-donut-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

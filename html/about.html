@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - GeoPlataforma</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/about.css">
+</head>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="../img%3Avideo/isologo-01.png" alt="GeoPlataforma" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios</button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="ciudades.html">Ciudades</a></li>
+                        <li><a href="industria.html">Industria</a></li>
+                        <li><a href="#">Infraestructura</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Proyectos</button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="ciudades-proyectos.html">Ciudades</a></li>
+                        <li><a href="industria-proyectos.html">Industria</a></li>
+                        <li><a href="#">Infraestructura</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="active">Nosotros</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="about-page">
+        <div class="about-bg" aria-hidden="true"></div>
+        <div class="about-blur" aria-hidden="true"></div>
+
+        <div class="about-wrap">
+            <section class="about-top" aria-label="Sobre nosotros">
+                <div>
+                    <h1 class="about-title">Sobre nosotros</h1>
+                    <div class="about-copy">
+                        <p>
+                            Aplicamos tecnologías avanzadas basadas en inteligencia artificial y análisis espacial para realizar análisis predictivo, brindando a los negocios una ventaja competitiva distintiva. En GeoPlataforma, nos apasiona desbloquear el potencial de los datos geoespaciales para impulsar tu éxito empresarial. Con una combinación de tecnología avanzada y análisis profundo, convertimos datos en decisiones. Nuestro compromiso constante con la innovación y la excelencia en el servicio al cliente es cómo marcamos la diferencia.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="about-cards" aria-label="Misión y visión">
+                    <div class="about-card">
+                        <h2 class="about-card-title">Misión</h2>
+                        <p class="about-card-text">
+                            Transformar datos geoespaciales en decisiones claras y accionables mediante análisis espacial e inteligencia artificial, ayudando a organizaciones a planificar, gestionar y evolucionar territorios de forma sostenible.
+                        </p>
+                    </div>
+                    <div class="about-card">
+                        <h2 class="about-card-title">Visión</h2>
+                        <p class="about-card-text">
+                            Ser la plataforma de referencia en Colombia para el análisis territorial y la innovación geoespacial, conectando tecnología, ciencia de datos y experiencia local para construir ciudades e infraestructuras más inteligentes, resilientes y humanas.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-tabs" aria-label="Secciones">
+                <button class="about-tab" type="button" data-tab="valores" aria-selected="true">
+                    <div class="about-tab-circle" aria-hidden="true"></div>
+                    <div class="about-tab-label">Valores</div>
+                </button>
+                <button class="about-tab" type="button" data-tab="equipo" aria-selected="false">
+                    <div class="about-tab-circle" aria-hidden="true"></div>
+                    <div class="about-tab-label">Equipo</div>
+                </button>
+                <button class="about-tab" type="button" data-tab="tecnologias" aria-selected="false">
+                    <div class="about-tab-circle" aria-hidden="true"></div>
+                    <div class="about-tab-label">Tecnologías</div>
+                </button>
+                <button class="about-tab" type="button" data-tab="clientes" aria-selected="false">
+                    <div class="about-tab-circle" aria-hidden="true"></div>
+                    <div class="about-tab-label">Clientes</div>
+                </button>
+                <button class="about-tab" type="button" data-tab="reconocimientos" aria-selected="false">
+                    <div class="about-tab-circle" aria-hidden="true"></div>
+                    <div class="about-tab-label">Reconocimientos</div>
+                </button>
+            </section>
+
+            <section class="about-panel is-open" id="about-panel" aria-live="polite">
+                <h3 class="about-panel-title" id="about-panel-title">Valores</h3>
+                <p class="about-panel-body" id="about-panel-body">
+                    Innovación con propósito, rigor técnico, enfoque humano y compromiso con territorios sostenibles. Trabajamos con transparencia y excelencia para que cada decisión se apoye en evidencia.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Dropdowns navbar: clic para abrir/cerrar
+        document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var parent = this.closest('.nav-dropdown');
+                var isOpen = parent.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+                if (!isOpen) parent.classList.add('open');
+                btn.setAttribute('aria-expanded', !isOpen);
+            });
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+                document.querySelectorAll('.nav-dropdown-toggle').forEach(function(b) { b.setAttribute('aria-expanded', 'false'); });
+            }
+        });
+
+        // Tabs circulares: click => desplegar contenido abajo
+        (function() {
+            var content = {
+                valores: {
+                    title: 'Valores',
+                    body: 'Innovación con propósito, rigor técnico, enfoque humano y compromiso con territorios sostenibles. Trabajamos con transparencia y excelencia para que cada decisión se apoye en evidencia.'
+                },
+                equipo: {
+                    title: 'Equipo',
+                    body: 'Un equipo interdisciplinario (GIS, datos, ingeniería y diseño) enfocado en resolver problemas reales. Colaboramos contigo de principio a fin, con entregables claros y medibles.'
+                },
+                tecnologias: {
+                    title: 'Tecnologías',
+                    body: 'Cartografía digital, análisis espacial, IA aplicada, dashboards y plataformas WebGIS. Integramos APIs, datos abiertos y modelos predictivos para escalar soluciones.'
+                },
+                clientes: {
+                    title: 'Clientes',
+                    body: 'Acompañamos entidades públicas y privadas en proyectos territoriales, industriales y de infraestructura. Nos adaptamos al contexto, plazos y objetivos del proyecto.'
+                },
+                reconocimientos: {
+                    title: 'Reconocimientos',
+                    body: 'Certificaciones, alianzas y casos de éxito que respaldan nuestro trabajo. Priorizamos impacto, calidad técnica y resultados sostenibles.'
+                }
+            };
+
+            var tabs = document.querySelectorAll('.about-tab');
+            var panel = document.getElementById('about-panel');
+            var panelTitle = document.getElementById('about-panel-title');
+            var panelBody = document.getElementById('about-panel-body');
+            var activeKey = 'valores';
+
+            function setActive(key) {
+                activeKey = key;
+                tabs.forEach(function(t) {
+                    var isActive = t.getAttribute('data-tab') === key;
+                    t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+            }
+
+            function openPanel(key) {
+                var c = content[key];
+                if (!c) return;
+                panelTitle.textContent = c.title;
+                panelBody.textContent = c.body;
+                panel.classList.add('is-open');
+            }
+
+            tabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    var key = tab.getAttribute('data-tab');
+                    var isSame = key === activeKey;
+                    var isOpen = panel.classList.contains('is-open');
+
+                    setActive(key);
+
+                    if (isSame && isOpen) {
+                        panel.classList.remove('is-open');
+                        return;
+                    }
+
+                    openPanel(key);
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
+

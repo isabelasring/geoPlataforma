@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos Industria - GeoPlataforma</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/ciudades-proyectos.css">
+    <style>
+        /* Imagen de fondo específica para industria */
+        .proyectos-hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1920&q=80');
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="../img%3Avideo/isologo-01.png" alt="GeoPlataforma" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios</button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="ciudades.html">Ciudades</a></li>
+                        <li><a href="industria.html">Industria</a></li>
+                        <li><a href="#">Infraestructura</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Proyectos</button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="ciudades-proyectos.html">Ciudades</a></li>
+                        <li><a href="industria-proyectos.html">Industria</a></li>
+                        <li><a href="#">Infraestructura</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">Nosotros</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="proyectos-page">
+        <div class="proyectos-hero-bg" aria-hidden="true"></div>
+        <div class="proyectos-hero-overlay" aria-hidden="true"></div>
+        
+        <div class="proyectos-filters-container">
+            <div class="proyectos-tags-top" role="tablist">
+                <button type="button" class="proyectos-tag active" data-servicio="iot" role="tab">IoT</button>
+                <button type="button" class="proyectos-tag" data-servicio="control-ruido" role="tab">Control de ruido</button>
+                <button type="button" class="proyectos-tag" data-servicio="clasificacion-fuentes" role="tab">Clasificación de fuentes</button>
+                <button type="button" class="proyectos-tag" data-servicio="modelacion-ruido" role="tab">Modelación de ruido</button>
+                <button type="button" class="proyectos-tag" data-servicio="holografia-acustica" role="tab">Holografía acústica</button>
+                <button type="button" class="proyectos-tag" data-servicio="medicion-vibraciones" role="tab">Medición de vibraciones</button>
+                <button type="button" class="proyectos-tag" data-servicio="modelacion-vibraciones" role="tab">Modelación de vibraciones</button>
+                <button type="button" class="proyectos-tag" data-servicio="modelacion-ruido-subacuatico" role="tab">Modelación ruido subacuático</button>
+                <button type="button" class="proyectos-tag" data-servicio="medicion-ruido-subacuatico" role="tab">Medición ruido subacuático</button>
+                <button type="button" class="proyectos-tag" data-servicio="geoespacial" role="tab">Analítica geoespacial</button>
+                <button type="button" class="proyectos-tag" data-servicio="fotogrametria" role="tab">Fotogrametría</button>
+            </div>
+            <div class="proyectos-search-bar">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input type="search" class="search-input" placeholder="Buscar proyectos..." aria-label="Buscar proyectos">
+            </div>
+        </div>
+        
+        <div class="proyectos-content">
+            <div class="proyectos-left">
+                <a href="industria.html" class="proyectos-back" aria-label="Volver a Industria">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14 12H8"/><path d="M10 8l-2 4 2 4"/></svg>
+                </a>
+                <div class="proyectos-title-section">
+                    <span class="proyectos-location">Colombia</span>
+                    <h1 class="proyectos-title">INDUSTRIA</h1>
+                    <p class="proyectos-description">Transformación digital y optimización de procesos industriales. Soluciones geoespaciales para la industria sostenible y eficiente.</p>
+                </div>
+            </div>
+
+            <div class="proyectos-right">
+                <div class="proyectos-cards-container">
+                    <button type="button" class="carousel-btn carousel-prev" aria-label="Anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <div class="proyectos-carousel">
+                        <p class="proyectos-empty-message" id="proyectos-empty-message" style="display: none;" aria-live="polite">No hay proyectos disponibles</p>
+                        <div class="carousel-track" id="industria-carousel-track">
+                            <article class="proyecto-card proyecto-card-refineria" data-servicio="control-ruido" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=refineria-cartagena&seccion=industria&titulo=Refiner%C3%ADa+Cartagena&categoria=industria&cliente=Refiner%C3%ADa+Cartagena" class="proyecto-card-link-wrap" aria-label="Ver detalle Refinería Cartagena">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/refineriaCartagena/KIMG0855.JPG');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">Refinería Cartagena</h3>
+                                        <p class="proyecto-card-desc">Control de ruido y gestión ambiental industrial</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="proyecto-card proyecto-card-viva-magdalena" data-servicio="control-ruido" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=viva-magdalena&seccion=industria&titulo=Viva+Magdalena&categoria=industria&cliente=Viva+Magdalena" class="proyecto-card-link-wrap" aria-label="Ver detalle Viva Magdalena">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/vivaMagdalena/IMG_6897.jpeg');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">Viva Magdalena</h3>
+                                        <p class="proyecto-card-desc">Análisis acústico y control de ruido industrial</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="proyecto-card proyecto-card-arclad" data-servicios="control-ruido clasificacion-fuentes modelacion-ruido fotogrametria" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=arclad&seccion=industria&titulo=ARCLAD&categoria=industria&cliente=ARCLAD" class="proyecto-card-link-wrap" aria-label="Ver detalle ARCLAD">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/ARCLAD/GTR00661.JPG');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">ARCLAD</h3>
+                                        <p class="proyecto-card-desc">Control de ruido, clasificación de fuentes y modelación acústica industrial</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="proyecto-card proyecto-card-segovia" data-servicio="medicion-vibraciones" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=segovia&seccion=industria&titulo=Segovia&categoria=industria&cliente=Segovia" class="proyecto-card-link-wrap" aria-label="Ver detalle Segovia">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/segovia/20200919_115240.jpg');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">Segovia</h3>
+                                        <p class="proyecto-card-desc">Medición de vibraciones y monitoreo industrial</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="proyecto-card proyecto-card-ccr-palagua" data-servicio="fotogrametria" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=ccr-palagua&seccion=industria&titulo=CCR+Palagua&categoria=industria&cliente=CCR+Palagua" class="proyecto-card-link-wrap" aria-label="Ver detalle CCR Palagua">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/ccrPalagua/PRMGS_PALOMINO_00008.jpg');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">CCR Palagua</h3>
+                                        <p class="proyecto-card-desc">Fotogrametría y levantamiento geoespacial industrial</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="proyecto-card proyecto-card-colcafe" data-servicios="control-ruido holografia-acustica medicion-vibraciones" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=colcafe&seccion=industria&titulo=Colcaf%C3%A9&categoria=industria&cliente=Colcaf%C3%A9" class="proyecto-card-link-wrap" aria-label="Ver detalle Colcafé">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/colcafe/WhatsApp%20Image%202024-12-23%20at%2011.03.16%20AM%20%281%29.jpeg');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">Colcafé</h3>
+                                        <p class="proyecto-card-desc">Control de ruido, holografía acústica y medición de vibraciones</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="proyecto-card proyecto-card-cerrejon" data-servicios="holografia-acustica" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=cerrejon&seccion=industria&titulo=Cerrej%C3%B3n&categoria=industria&cliente=Cerrej%C3%B3n" class="proyecto-card-link-wrap" aria-label="Ver detalle Cerrejón">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/cerrejon/IMG_7326.jpeg');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">Cerrejón</h3>
+                                        <p class="proyecto-card-desc">Holografía acústica y diagnóstico de fuentes de ruido industrial</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="proyecto-card proyecto-card-mineros-bic" data-servicios="holografia-acustica" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=mineros-bic&seccion=industria&titulo=Mineros+BIC&categoria=industria&cliente=Mineros+BIC" class="proyecto-card-link-wrap" aria-label="Ver detalle Mineros BIC">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/minerosBic/IMG_3163.JPG');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">Mineros BIC</h3>
+                                        <p class="proyecto-card-desc">Holografía acústica y diagnóstico de fuentes de ruido industrial</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="proyecto-card proyecto-card-pepsico" data-servicios="control-ruido clasificacion-fuentes modelacion-ruido fotogrametria" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=pepsico&seccion=industria&titulo=PepsiCo&categoria=industria&cliente=PepsiCo" class="proyecto-card-link-wrap" aria-label="Ver detalle PepsiCo">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/pepsico/IMG_6783.jpeg');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">PepsiCo</h3>
+                                        <p class="proyecto-card-desc">Control de ruido, clasificación de fuentes, modelación de ruido y fotogrametría</p>
+                                    </div>
+                                </a>
+                            </article>
+                            <article class="proyecto-card proyecto-card-spia" data-servicios="modelacion-ruido-subacuatico medicion-ruido-subacuatico" style="display: none;">
+                                <a href="proyecto-detalle.html?proyecto=spia&seccion=industria&titulo=SPIA&categoria=industria&cliente=SPIA" class="proyecto-card-link-wrap" aria-label="Ver detalle SPIA">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/industria/spia/IMG_3413.jpeg');"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">SPIA</h3>
+                                        <p class="proyecto-card-desc">Medición y modelación de ruido subacuático</p>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                    </div>
+                    <button type="button" class="carousel-btn carousel-next" aria-label="Siguiente">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var servicio = params.get('servicio') || 'iot';
+            var tagMap = {
+                iot: 0, 'control-ruido': 1, 'clasificacion-fuentes': 2, 'modelacion-ruido': 3,
+                'holografia-acustica': 4, 'medicion-vibraciones': 5, 'modelacion-vibraciones': 6,
+                'modelacion-ruido-subacuatico': 7, 'medicion-ruido-subacuatico': 8,
+                geoespacial: 9, fotogrametria: 10
+            };
+            var tags = document.querySelectorAll('.proyectos-tag');
+            var idx = tagMap[servicio] !== undefined ? tagMap[servicio] : 0;
+            tags.forEach(function(t, i) { t.classList.toggle('active', i === idx); });
+
+            function toggleIndustryCards() {
+                var activeTag = document.querySelector('.proyectos-tag.active');
+                var s = activeTag ? (activeTag.getAttribute('data-servicio') || '').trim() : '';
+                var isControlRuido = s === 'control-ruido';
+                var isClasificacionFuentes = s === 'clasificacion-fuentes';
+                var isModelacionRuido = s === 'modelacion-ruido';
+                var isFotogrametria = s === 'fotogrametria';
+                var isMedicionVibraciones = s === 'medicion-vibraciones';
+                var isHolografiaAcustica = s === 'holografia-acustica';
+                var isModelacionRuidoSubacuatico = s === 'modelacion-ruido-subacuatico';
+                var isMedicionRuidoSubacuatico = s === 'medicion-ruido-subacuatico';
+                var showArclad = isControlRuido || isClasificacionFuentes || isModelacionRuido || isFotogrametria;
+                var showPepsico = isControlRuido || isClasificacionFuentes || isModelacionRuido || isFotogrametria;
+                var showSpia = isModelacionRuidoSubacuatico || isMedicionRuidoSubacuatico;
+                var showColcafe = isControlRuido || isHolografiaAcustica || isMedicionVibraciones;
+                var refineria = document.querySelector('.proyecto-card-refineria');
+                var vivaMagdalena = document.querySelector('.proyecto-card-viva-magdalena');
+                var arclad = document.querySelector('.proyecto-card-arclad');
+                var segovia = document.querySelector('.proyecto-card-segovia');
+                var ccrPalagua = document.querySelector('.proyecto-card-ccr-palagua');
+                var colcafe = document.querySelector('.proyecto-card-colcafe');
+                var cerrejon = document.querySelector('.proyecto-card-cerrejon');
+                var minerosBic = document.querySelector('.proyecto-card-mineros-bic');
+                var pepsico = document.querySelector('.proyecto-card-pepsico');
+                var spia = document.querySelector('.proyecto-card-spia');
+                var emptyMsg = document.getElementById('proyectos-empty-message');
+                var carouselTrack = document.getElementById('industria-carousel-track');
+                var hasAnyProject = isControlRuido || showArclad || isMedicionVibraciones || isFotogrametria || showColcafe || isHolografiaAcustica || showPepsico || showSpia;
+                if (refineria) refineria.style.display = isControlRuido ? 'block' : 'none';
+                if (vivaMagdalena) vivaMagdalena.style.display = isControlRuido ? 'block' : 'none';
+                if (arclad) arclad.style.display = showArclad ? 'block' : 'none';
+                if (segovia) segovia.style.display = isMedicionVibraciones ? 'block' : 'none';
+                if (ccrPalagua) ccrPalagua.style.display = isFotogrametria ? 'block' : 'none';
+                if (colcafe) colcafe.style.display = showColcafe ? 'block' : 'none';
+                if (cerrejon) cerrejon.style.display = isHolografiaAcustica ? 'block' : 'none';
+                if (minerosBic) minerosBic.style.display = isHolografiaAcustica ? 'block' : 'none';
+                if (pepsico) pepsico.style.display = showPepsico ? 'block' : 'none';
+                if (spia) spia.style.display = showSpia ? 'block' : 'none';
+                if (emptyMsg) emptyMsg.style.display = hasAnyProject ? 'none' : 'flex';
+                if (carouselTrack) carouselTrack.style.display = hasAnyProject ? 'flex' : 'none';
+            }
+            toggleIndustryCards();
+
+            tags.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    tags.forEach(function(t) { t.classList.remove('active'); });
+                    btn.classList.add('active');
+                    var s = btn.getAttribute('data-servicio');
+                    var url = new URL(window.location.href);
+                    url.searchParams.set('servicio', s);
+                    window.history.replaceState({}, '', url);
+                    toggleIndustryCards();
+                });
+            });
+
+            var track = document.querySelector('.carousel-track');
+            var prev = document.querySelector('.carousel-prev');
+            var next = document.querySelector('.carousel-next');
+            var cardWidth = 320; // Ancho fijo de las cards
+            var gap = 20; // Gap entre cards
+
+            function go(delta) {
+                if (!track) return;
+                var scrollAmount = (cardWidth + gap) * delta;
+                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+
+            if (prev) prev.addEventListener('click', function() { go(-1); });
+            if (next) next.addEventListener('click', function() { go(1); });
+        })();
+    </script>
+    <script>
+        document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var parent = this.closest('.nav-dropdown');
+                var isOpen = parent.classList.contains('open');
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+                if (!isOpen) parent.classList.add('open');
+                btn.setAttribute('aria-expanded', !isOpen);
+            });
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+                document.querySelectorAll('.nav-dropdown-toggle').forEach(function(b) { b.setAttribute('aria-expanded', 'false'); });
+            }
+        });
+    </script>
+</body>
+</html>

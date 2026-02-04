@@ -1,0 +1,587 @@
+/* Sección Servicios - Home: fondo con transparencia, intro izquierda, carrusel derecha */
+.wind-section {
+    position: relative;
+    min-height: 85vh;
+    padding: 0 1.5rem;
+    overflow: visible;
+    display: flex;
+    align-items: stretch;
+}
+
+/* Transición suave desde la sección anterior */
+.wind-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, 
+        rgba(10, 25, 20, 0.5) 0%,
+        rgba(10, 25, 20, 0.3) 30%,
+        rgba(10, 25, 20, 0.15) 60%,
+        rgba(10, 25, 20, 0.05) 85%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Transición suave hacia la siguiente sección */
+.wind-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, 
+        rgba(10, 25, 20, 0.5) 0%,
+        rgba(10, 25, 20, 0.35) 30%,
+        rgba(10, 25, 20, 0.2) 60%,
+        rgba(10, 25, 20, 0.08) 85%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Video de fondo (mismo que el hero) */
+.wind-video-bg-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.wind-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    pointer-events: none;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .wind-video-bg {
+        width: 100vw;
+        height: calc(100vw * 9 / 16);
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .wind-video-bg {
+        width: calc(100vh * 16 / 9);
+        height: 100vh;
+    }
+}
+
+/* Overlay oscuro sobre el video para legibilidad (semi-transparente para que se vea el video) */
+.wind-section-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(10, 25, 20, 0.65) 0%, rgba(15, 35, 28, 0.55) 50%, rgba(10, 25, 20, 0.6) 100%);
+    pointer-events: none;
+}
+
+.wind-wrap {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 42% 1fr;
+    gap: 0;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 85vh;
+    align-items: center;
+}
+
+/* Columna izquierda: intro a los servicios (transparencia, margen pequeña a la izquierda) */
+.wind-intro-col {
+    display: flex;
+    align-items: center;
+    padding: 3rem 2rem 3rem 1rem;
+    min-height: 85vh;
+}
+
+.wind-intro {
+    max-width: 480px;
+    min-height: 420px;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    background: rgba(20, 35, 28, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 0;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-left: none;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateX(-16px);
+    animation: wind-intro-in 0.6s ease forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes wind-intro-in {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.wind-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.wind-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.wind-intro-cta {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+    width: auto;
+}
+
+.wind-cta-explore {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    background: #0d9488;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wind-cta-explore:hover {
+    background: #0f766e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.35);
+}
+
+.wind-cta-explore svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Columna derecha: carrusel de 3 servicios */
+.wind-carousel-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem 2rem 1rem;
+    min-height: 85vh;
+    overflow: visible;
+}
+
+.wind-cards-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+    box-sizing: border-box;
+}
+
+/* Flechas del carrusel removidas (solo 3 servicios) */
+
+.wind-cards {
+    display: flex;
+    flex: 1;
+    gap: 0;
+    min-height: 420px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 0.5rem 0 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
+
+/* Cuando una card está expandida, evitamos que el carrusel recorte/oculte el contenido */
+.wind-cards.is-expanded {
+    overflow-x: visible;
+    scroll-snap-type: none;
+}
+
+.wind-cards::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tarjetas largas y pegadas: imagen a toda altura, overlay con transparencia */
+.wind-card {
+    position: relative;
+    flex: 0 0 220px;
+    min-width: 220px;
+    border-radius: 0;
+    overflow: hidden;
+    min-height: 420px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s ease, box-shadow 0.4s ease;
+    scroll-snap-align: start;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: wind-card-in 0.7s ease forwards;
+}
+
+.wind-card:last-child {
+    border-right: none;
+}
+
+.wind-card:nth-child(1) { animation-delay: 0.1s; }
+.wind-card:nth-child(2) { animation-delay: 0.2s; }
+.wind-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes wind-card-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wind-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+.wind-card.expanded {
+    flex: 1 1 85%;
+    min-width: 75%;
+    max-width: 92%;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wind-card.hidden {
+    display: none;
+}
+
+/* Botón cerrar (X) - visible solo cuando la card está expandida */
+.wind-card-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.wind-card.expanded .wind-card-close {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wind-card-close:hover {
+    background: rgba(0, 0, 0, 0.75);
+    transform: scale(1.05);
+}
+
+.wind-card-close:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+}
+
+.wind-more-projects {
+    position: absolute;
+    left: 50%;
+    bottom: 0.5rem;
+    transform: translateX(-50%);
+    z-index: 3;
+    /* Oculto por defecto (aunque tenga clase .hero-cta con animación) */
+    opacity: 0 !important;
+    pointer-events: none;
+    animation: none !important;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.wind-card.expanded .wind-more-projects {
+    opacity: 1 !important;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.wind-card-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Primera card: imagen anclada a la izquierda para que no se vea cortada */
+.wind-card:first-child .wind-card-img {
+    background-position: left center;
+}
+
+.wind-card:hover .wind-card-img {
+    transform: scale(1.08);
+}
+
+/* Overlay con transparencia: degradado suave y texto semi-transparente */
+.wind-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.7) 100%);
+    pointer-events: none;
+    z-index: 0;
+    transition: background 0.4s ease;
+}
+
+.wind-card:hover::after {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.82) 100%);
+}
+
+.wind-card-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.75rem 1.25rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    z-index: 1;
+    transition: background 0.4s ease;
+}
+
+.wind-card:hover .wind-card-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 100%);
+}
+
+.wind-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.02em;
+}
+
+.wind-card-desc {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.35s ease, visibility 0.35s ease, max-height 0.35s ease, padding 0.35s ease, margin 0.35s ease;
+}
+
+.wind-card:hover .wind-card-desc {
+    opacity: 1;
+    visibility: visible;
+    max-height: 100px;
+    padding: 0.5rem 0 0;
+    margin-top: 0.25rem;
+}
+
+.wind-card.expanded .wind-card-desc {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* Mini tarjetas - solo visibles al expandir (imagen + título + resumen breve), centradas */
+.wind-mini-cards {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 640px;
+    top: 1rem;
+    bottom: auto;
+    max-height: 200px;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+    justify-content: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(12px);
+    transition: opacity 0.35s ease 0.2s, visibility 0.35s ease 0.2s, transform 0.35s ease 0.2s;
+}
+
+.wind-card.expanded .wind-mini-cards {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.wind-mini-card {
+    flex: 1;
+    min-width: 0;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wind-mini-card:hover {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.wind-mini-card-img {
+    width: 100%;
+    height: 72px;
+    min-height: 72px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(45, 106, 79, 0.5);
+}
+
+.wind-mini-card-body {
+    flex: 1;
+    min-height: 0;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.wind-mini-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #1a2618;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.wind-mini-desc {
+    font-size: 0.65rem;
+    line-height: 1.35;
+    color: #374151;
+    margin: 0;
+}
+
+.wind-mini-cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #fff;
+    background: #16a34a;
+    border: 1px solid #16a34a;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+.wind-mini-cta:hover {
+    background: #16a34a;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+    .wind-wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        min-height: auto;
+        padding: 2rem 0;
+    }
+
+    .wind-intro-col {
+        min-height: auto;
+        padding: 2rem 1rem 1rem 1rem;
+    }
+
+    .wind-intro {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .wind-carousel-col {
+        min-height: auto;
+        padding: 1rem 1rem 2rem;
+    }
+
+    .wind-cards-wrap {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Flechas removidas */
+
+    .wind-cards {
+        flex-direction: row;
+        min-height: 360px;
+        order: 1;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    .wind-card {
+        flex: 0 0 200px;
+        min-width: 200px;
+        min-height: 360px;
+    }
+
+    .wind-card.expanded {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+}
