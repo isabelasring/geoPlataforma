@@ -155,6 +155,35 @@
 
         /* Bolitas: al hacer clic se despliega el contenido en el panel inferior */
         (function() {
+            var equipoMembers = [
+                { photo: '../img%3Avideo/sobreNosotros/GTR00517.JPG', name: 'Nombre del líder', role: 'Director general', bio: 'Breve biografía y funciones del ejecutivo de nivel C o jefe de área.' },
+                { photo: '../img%3Avideo/sobreNosotros/GTR00517.JPG', name: 'Nombre del líder', role: 'Director técnico', bio: 'Breve biografía y funciones del ejecutivo de nivel C o jefe de área.' },
+                { photo: '../img%3Avideo/sobreNosotros/GTR00517.JPG', name: 'Nombre del líder', role: 'Jefe de proyectos', bio: 'Breve biografía y funciones del ejecutivo de nivel C o jefe de área.' },
+                { photo: '../img%3Avideo/sobreNosotros/GTR00517.JPG', name: 'Nombre del líder', role: 'Líder de análisis', bio: 'Breve biografía y funciones del ejecutivo de nivel C o jefe de área.' },
+                { photo: '../img%3Avideo/sobreNosotros/GTR00517.JPG', name: 'Nombre del líder', role: 'Coordinador territorial', bio: 'Breve biografía y funciones del ejecutivo de nivel C o jefe de área.' }
+            ];
+
+            function renderEquipo() {
+                var html = '<div class="about-equipo-section">' +
+                    '<h3 class="about-equipo-title">Equipo de liderazgo detrás del proyecto</h3>' +
+                    '<p class="about-equipo-desc">Aquí se muestra el nombre, cargo y breve biografía de los ejecutivos clave y jefes de área.</p>' +
+                    '<div class="about-equipo-members">';
+                equipoMembers.forEach(function(m, i) {
+                    html += '<div class="about-equipo-member" data-member="' + i + '">' +
+                        '<button type="button" class="about-equipo-photo-wrap" aria-expanded="false" aria-controls="about-equipo-box-' + i + '">' +
+                        '<span class="about-equipo-photo" style="background-image: url(\'' + m.photo + '\');" aria-hidden="true"></span>' +
+                        '</button>' +
+                        '<span class="about-equipo-line" aria-hidden="true"></span>' +
+                        '<div class="about-equipo-box" id="about-equipo-box-' + i + '" role="region" aria-labelledby="about-equipo-name-' + i + '">' +
+                        '<h4 class="about-equipo-name" id="about-equipo-name-' + i + '">' + m.name + '</h4>' +
+                        '<p class="about-equipo-role">' + m.role + '</p>' +
+                        '<p class="about-equipo-bio">' + m.bio + '</p>' +
+                        '</div></div>';
+                });
+                html += '</div></div>';
+                return html;
+            }
+
             var bolitaContent = {
                 valores: {
                     title: 'Valores',
@@ -162,7 +191,7 @@
                 },
                 equipo: {
                     title: 'Equipo',
-                    body: '<p>Nuestro equipo combina experiencia en GIS, análisis espacial, desarrollo de software y gestión de proyectos. Trabajamos de forma cercana con clientes y socios para entregar soluciones a medida y soporte continuo.</p>'
+                    body: renderEquipo()
                 },
                 clientes: {
                     title: 'Clientes',
@@ -176,11 +205,39 @@
 
             var bolitas = document.querySelectorAll('.about-bolita');
             var panel = document.getElementById('about-bolita-content');
+            var panelWrap = document.getElementById('about-bolita-panel');
 
             function showBolitaContent(key) {
                 var c = bolitaContent[key];
                 if (!c || !panel) return;
-                panel.innerHTML = '<h3 class="about-bolita-panel-title">' + c.title + '</h3><div class="about-bolita-panel-body">' + c.body + '</div>';
+                if (panelWrap) panelWrap.classList.toggle('has-equipo', key === 'equipo');
+                if (key === 'equipo') {
+                    panel.innerHTML = c.body;
+                    initEquipoClicks();
+                } else {
+                    panel.innerHTML = '<h3 class="about-bolita-panel-title">' + c.title + '</h3><div class="about-bolita-panel-body">' + c.body + '</div>';
+                }
+            }
+
+            function initEquipoClicks() {
+                var members = panel.querySelectorAll('.about-equipo-member');
+                members.forEach(function(el, i) {
+                    var btn = el.querySelector('.about-equipo-photo-wrap');
+                    if (!btn) return;
+                    btn.addEventListener('click', function() {
+                        var isExpanded = el.classList.contains('expanded');
+                        members.forEach(function(m) { m.classList.remove('expanded'); m.querySelector('.about-equipo-photo-wrap') && m.querySelector('.about-equipo-photo-wrap').setAttribute('aria-expanded', 'false'); });
+                        if (!isExpanded) {
+                            el.classList.add('expanded');
+                            btn.setAttribute('aria-expanded', 'true');
+                        }
+                    });
+                });
+                if (members.length) {
+                    members[0].classList.add('expanded');
+                    var firstBtn = members[0].querySelector('.about-equipo-photo-wrap');
+                    if (firstBtn) firstBtn.setAttribute('aria-expanded', 'true');
+                }
             }
 
             bolitas.forEach(function(btn) {

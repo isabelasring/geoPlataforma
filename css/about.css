@@ -250,7 +250,11 @@
   background: #f1f5f9;
   border: 2px solid var(--about-accent);
   border-radius: 12px;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.about-bolita-panel-wrap.has-equipo {
+  min-height: 320px;
 }
 
 .about-bolita-panel {
@@ -310,5 +314,150 @@
 
   .about-bolita-panel {
     padding: 1.25rem 1.5rem;
+  }
+}
+
+/* Sección Equipo de liderazgo (desplegada al hacer clic en bolita Equipo) */
+.about-equipo-section {
+  width: 100%;
+}
+
+.about-equipo-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--about-ink);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.about-equipo-desc {
+  font-size: 0.9rem;
+  color: var(--about-muted);
+  line-height: 1.5;
+  margin: 0 0 2rem;
+}
+
+.about-equipo-members {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.about-equipo-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-equipo-photo-wrap {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: visible;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-equipo-photo-wrap:hover {
+  transform: scale(1.05);
+}
+
+.about-equipo-photo-wrap:focus {
+  outline: 2px solid var(--about-accent);
+  outline-offset: 4px;
+}
+
+.about-equipo-photo {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--about-border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-equipo-member.expanded .about-equipo-photo {
+  border-color: var(--about-accent);
+  box-shadow: 0 4px 16px rgba(6, 95, 70, 0.25);
+}
+
+.about-equipo-line {
+  display: block;
+  width: 2px;
+  height: 24px;
+  margin: 0 auto;
+  background: var(--about-border);
+  flex-shrink: 0;
+}
+
+.about-equipo-box {
+  width: 100%;
+  min-height: 100px;
+  max-height: 0;
+  overflow: hidden;
+  background: #e2e8f0;
+  border: 1px solid var(--about-border);
+  border-radius: 12px;
+  padding: 0 1rem;
+  transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+
+.about-equipo-member.expanded .about-equipo-box {
+  max-height: 220px;
+  padding: 1rem 1rem;
+  margin-top: 0;
+  opacity: 1;
+}
+
+.about-equipo-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--about-ink);
+  margin: 0 0 0.25rem;
+}
+
+.about-equipo-role {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--about-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.5rem;
+}
+
+.about-equipo-bio {
+  font-size: 0.8rem;
+  color: var(--about-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .about-equipo-members {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .about-equipo-members {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-equipo-photo {
+    width: 88px;
+    height: 88px;
+  }
+
+  .about-equipo-member.expanded .about-equipo-box {
+    max-height: 280px;
   }
 }
