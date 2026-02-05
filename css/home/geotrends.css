@@ -7,43 +7,10 @@
     display: flex;
     align-items: center;
     background: #ffffff;
+    margin-top: -140px; /* solapa con el sombreado del hero para transición continua */
 }
 
-/* Transición suave desde la sección anterior */
-.geotrends-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0.5) 0%,
-        rgba(255, 255, 255, 0.3) 30%,
-        rgba(255, 255, 255, 0.15) 60%,
-        rgba(255, 255, 255, 0.05) 85%,
-        transparent 100%);
-    pointer-events: none;
-    z-index: 1;
-}
 
-/* Transición suave hacia la siguiente sección */
-.geotrends-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(to top, 
-        rgba(255, 255, 255, 0.6) 0%,
-        rgba(255, 255, 255, 0.4) 30%,
-        rgba(255, 255, 255, 0.2) 60%,
-        rgba(255, 255, 255, 0.05) 85%,
-        transparent 100%);
-    pointer-events: none;
-    z-index: 1;
-}
 
 .geotrends-container {
     position: relative;
@@ -142,7 +109,7 @@
     position: relative;
     width: 100%;
     aspect-ratio: 1;
-    max-width: min(100%, 620px);
+    max-width: min(100%, 420px);
     margin: 0 auto;
     border-radius: 50%;
     overflow: hidden;
@@ -193,7 +160,7 @@
     }
 
     .geotrends-image-wrapper {
-        max-width: min(100%, 420px);
+        max-width: min(100%, 320px);
     }
 
     .geotrends-image-wrapper {

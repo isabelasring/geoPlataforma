@@ -3,25 +3,28 @@
     position: relative;
     min-height: 85vh;
     padding: 0 1.5rem;
+    margin-top: -140px; /* solapa con el fade de geotrends (como hero arriba) para que no se vea la línea */
     overflow: visible;
     display: flex;
     align-items: stretch;
 }
 
-/* Transición suave desde la sección anterior */
+/* Fade blanco en la parte superior: igual que hero→geotrends, funde el blanco en esta sección */
 .wind-section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, 
-        rgba(10, 25, 20, 0.5) 0%,
-        rgba(10, 25, 20, 0.3) 30%,
-        rgba(10, 25, 20, 0.15) 60%,
-        rgba(10, 25, 20, 0.05) 85%,
-        transparent 100%);
+    height: 280px;
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.92) 20%,
+        rgba(255, 255, 255, 0.55) 50%,
+        rgba(255, 255, 255, 0.2) 78%,
+        transparent 100%
+    );
     pointer-events: none;
     z-index: 2;
 }

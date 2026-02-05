@@ -11,41 +11,36 @@
   --about-glass-dark-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Navbar blanco en página Nosotros (sin barra/borde inferior que se ve detrás) */
+/* Navbar con la misma transparencia que el inicio: oscuro, blur, borde verde */
 .page-about .navbar {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(6, 95, 70, 0.35);
-  border-bottom-color: transparent;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(6, 95, 70, 0.7);
+  border-radius: 50px;
   box-shadow: none;
 }
 .page-about .navbar .logo {
-  color: #0f172a;
+  color: #fff;
 }
 .page-about .navbar .logo-img {
-  filter: none;
+  filter: brightness(0) invert(1);
 }
 .page-about .navbar .nav-links a,
 .page-about .navbar .nav-dropdown-toggle {
-  color: #0f172a;
+  color: #fff;
 }
 .page-about .navbar .nav-dropdown-menu {
-  background: rgba(255, 255, 255, 0.98);
-  border-color: rgba(15, 23, 42, 0.12);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 .page-about .navbar .nav-dropdown-menu a {
-  color: #0f172a;
+  color: #fff;
 }
 .page-about .navbar .nav-dropdown-menu a:hover {
-  background: rgba(6, 95, 70, 0.08);
-}
-
-.page-about .navbar .nav-theme-btn {
-  color: #0f172a;
-  background: rgba(0, 0, 0, 0.06);
-}
-.page-about .navbar .nav-theme-btn:hover {
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .about-page {
@@ -58,18 +53,18 @@
   color: var(--about-ink);
 }
 
-/* Fondo: foto sobreNosotros con blur sutil */
+/* Fondo: foto sobreNosotros con blur */
 .about-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url('../img:video/sobreNosotros/DJI_20250929161331_0140_D_GTR.JPG');
+  background-image: url('../img:video/sobreNosotros/DJI_20250929160710_0054_D_GTR.JPG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(6px);
-  -webkit-filter: blur(6px);
+  filter: blur(14px);
+  -webkit-filter: blur(14px);
   transform: scale(1.06);
 }
 .about-bg::after {
@@ -120,35 +115,69 @@
   align-items: start;
 }
 
-/* Tarjetas: modo claro = transparencia clara (cristal); modo oscuro se define en theme.css */
+/* Tarjetas: misma transparencia que el navbar (oscuro, blur, borde sutil) */
 .about-card {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(6, 95, 70, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* Columna izquierda: 3 tarjetas (Proyectos, Metodologías, Certificaciones) */
+/* Título pequeño de sección (Reconocimientos / Valores) */
+.about-sidebar-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 0.85rem;
+  line-height: 1.2;
+}
+
+/* Columna izquierda: Reconocimientos con altura limitada y scroll interno */
 .about-sidebar-recon {
   padding: 0.25rem 0;
+  max-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .about-recon-cards {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(6, 95, 70, 0.5) transparent;
+  padding-right: 0.25rem;
+}
+
+.about-recon-cards::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-recon-cards::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.about-recon-cards::-webkit-scrollbar-thumb {
+  background: rgba(6, 95, 70, 0.5);
+  border-radius: 3px;
 }
 
 .about-recon-card {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(6, 95, 70, 0.6);
   padding: 1.25rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -156,7 +185,7 @@
 }
 .about-recon-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
 }
 
 .about-recon-card-icon {
@@ -175,63 +204,63 @@
 }
 
 .about-recon-card-green .about-recon-card-icon {
-  background: rgba(45, 74, 62, 0.2);
-  color: var(--geo-military-green, #2d4a3e);
+  background: rgba(255, 255, 255, 0.15);
+  color: #86efac;
 }
 
 .about-recon-card-green .about-recon-card-title {
-  color: var(--geo-military-green, #2d4a3e);
+  color: #86efac;
 }
 
 .about-recon-card-green .about-recon-card-btn {
-  color: var(--geo-military-green, #2d4a3e);
-  border-color: var(--geo-military-green, #2d4a3e);
+  color: #86efac;
+  border-color: rgba(134, 239, 172, 0.6);
 }
 
 .about-recon-card-green .about-recon-card-btn:hover {
-  background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
-  border-color: var(--geo-military-green, #2d4a3e);
-  color: var(--geo-military-green, #2d4a3e);
+  background: rgba(134, 239, 172, 0.15);
+  border-color: #86efac;
+  color: #86efac;
 }
 
 .about-recon-card-purple .about-recon-card-btn {
-  color: #6d28d9;
-  border-color: #6d28d9;
+  color: #c4b5fd;
+  border-color: rgba(196, 181, 253, 0.6);
 }
 
 .about-recon-card-purple .about-recon-card-icon {
-  background: rgba(124, 58, 237, 0.2);
-  color: #6d28d9;
+  background: rgba(255, 255, 255, 0.15);
+  color: #c4b5fd;
 }
 
 .about-recon-card-purple .about-recon-card-title {
-  color: #6d28d9;
+  color: #c4b5fd;
 }
 
 .about-recon-card-purple .about-recon-card-btn:hover {
-  background: rgba(109, 40, 217, 0.2);
-  border-color: #6d28d9;
-  color: #6d28d9;
+  background: rgba(196, 181, 253, 0.15);
+  border-color: #c4b5fd;
+  color: #c4b5fd;
 }
 
 .about-recon-card-orange .about-recon-card-btn {
-  color: #c2410c;
-  border-color: #c2410c;
+  color: #fdba74;
+  border-color: rgba(253, 186, 116, 0.6);
 }
 
 .about-recon-card-orange .about-recon-card-icon {
-  background: rgba(194, 65, 12, 0.2);
-  color: #c2410c;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fdba74;
 }
 
 .about-recon-card-orange .about-recon-card-title {
-  color: #c2410c;
+  color: #fdba74;
 }
 
 .about-recon-card-orange .about-recon-card-btn:hover {
-  background: rgba(194, 65, 12, 0.2);
-  border-color: #c2410c;
-  color: #c2410c;
+  background: rgba(253, 186, 116, 0.15);
+  border-color: #fdba74;
+  color: #fdba74;
 }
 
 .about-recon-card-title {
@@ -239,13 +268,13 @@
   font-weight: 700;
   margin: 0;
   line-height: 1.3;
-  color: var(--about-ink);
+  color: #fff;
 }
 
 .about-recon-card-desc {
   font-size: 0.85rem;
   line-height: 1.55;
-  color: var(--about-muted);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
 }
 
@@ -258,12 +287,12 @@
 }
 
 .about-main-card {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(6, 95, 70, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   padding: 1.75rem 2rem;
 }
 
@@ -274,13 +303,13 @@
   margin-bottom: 1.5rem;
 }
 
-/* Tabs modo claro: como en inicio (borde verde, texto verde, activo relleno suave) */
+/* Tabs sobre fondo oscuro: borde verde, texto claro */
 .about-tab {
   padding: 0.55rem 1.25rem;
   border-radius: 9999px;
-  border: 2px solid var(--geo-military-green, #2d4a3e);
+  border: 2px solid rgba(6, 95, 70, 0.7);
   background: transparent;
-  color: var(--geo-military-green, #2d4a3e);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -288,16 +317,16 @@
   transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .about-tab:hover {
-  background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
-  border-color: var(--geo-military-green, #2d4a3e);
-  color: var(--geo-military-green, #2d4a3e);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(6, 95, 70, 0.9);
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(45, 74, 62, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 .about-tab.active {
-  background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
-  border-color: var(--geo-military-green, #2d4a3e);
-  color: var(--geo-military-green, #2d4a3e);
+  background: rgba(6, 95, 70, 0.4);
+  border-color: rgba(6, 95, 70, 0.9);
+  color: #fff;
 }
 
 .about-panel[hidden],
@@ -317,12 +346,12 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--geo-military-green, #2d4a3e);
+  color: #86efac;
 }
 
 .about-panel-body {
   margin: 0;
-  color: var(--about-ink);
+  color: rgba(255, 255, 255, 0.92);
   line-height: 1.7;
   font-size: 0.95rem;
 }
@@ -335,21 +364,21 @@
   margin-bottom: 0;
 }
 
-/* Video con transparencia clara en modo claro */
+/* Video: misma transparencia que navbar */
 .about-video-wrap {
   margin-top: 1.5rem;
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(6, 95, 70, 0.6);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .about-video-wrap:hover {
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: 0 12px 36px rgba(59, 130, 246, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
 }
 
 .about-video {
@@ -358,11 +387,11 @@
   max-height: 360px;
 }
 
-/* Botón Equipo modo claro: activo = relleno verde suave como tabs */
+/* Botón Equipo: activo = relleno verde sobre fondo oscuro */
 .about-equipo-trigger[aria-expanded="true"] {
-  background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
-  border-color: var(--geo-military-green, #2d4a3e);
-  color: var(--geo-military-green, #2d4a3e);
+  background: rgba(6, 95, 70, 0.4);
+  border-color: rgba(6, 95, 70, 0.9);
+  color: #fff;
 }
 
 /* Grid 6 cards (2 por fila): foto, descripción, LinkedIn */
@@ -516,9 +545,13 @@
   min-width: 0;
 }
 
-/* Valores: tarjetas horizontales apiladas (círculo + título + subtítulo + flecha derecha), estilo soft UI */
+/* Valores: tarjetas horizontales apiladas (círculo + título + subtítulo + flecha derecha) */
 .about-sidebar-valores {
   padding: 0.25rem 0;
+}
+
+.about-sidebar-valores .about-sidebar-title {
+  margin-bottom: 0.85rem;
 }
 
 .about-valores-cards {
@@ -532,18 +565,18 @@
   align-items: center;
   gap: 0.85rem;
   padding: 0.9rem 1rem;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(6, 95, 70, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   min-width: 0;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .about-valores-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
 }
 
 .about-valores-card-circle {
@@ -554,20 +587,20 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  color: var(--about-ink);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 .about-valores-card-innovation .about-valores-card-circle {
-  background: rgba(234, 179, 8, 0.25);
-  color: #b45309;
+  background: rgba(234, 179, 8, 0.35);
+  color: #fde047;
 }
 .about-valores-card-rigor .about-valores-card-circle {
-  background: rgba(59, 130, 246, 0.25);
-  color: #2563eb;
+  background: rgba(59, 130, 246, 0.35);
+  color: #93c5fd;
 }
 .about-valores-card-territorio .about-valores-card-circle {
-  background: rgba(45, 74, 62, 0.2);
-  color: var(--geo-military-green, #2d4a3e);
+  background: rgba(6, 95, 70, 0.4);
+  color: #86efac;
 }
 
 .about-valores-card-circle svg {
@@ -587,14 +620,14 @@
   display: block;
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--about-ink);
+  color: #fff;
   margin: 0;
   line-height: 1.25;
 }
 
 .about-valores-card-sub {
   font-size: 0.8rem;
-  color: var(--about-muted);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.3;
 }
 
@@ -606,12 +639,12 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  color: var(--about-ink);
+  color: rgba(255, 255, 255, 0.9);
   transition: background 0.2s ease, color 0.2s ease;
 }
 
 .about-valores-card-arrow:hover {
-  background: var(--about-accent);
+  background: rgba(6, 95, 70, 0.6);
   color: #fff;
 }
 
@@ -636,8 +669,65 @@
 .about-clientes-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--about-ink);
+  color: #fff;
   margin: 0;
+}
+
+/* Carrusel de logos de clientes (fila horizontal) */
+.about-clientes-carousel-wrap {
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(6, 95, 70, 0.6);
+}
+
+.about-clientes-logos {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1.25rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.about-clientes-logos::-webkit-scrollbar {
+  height: 6px;
+}
+
+.about-clientes-logos::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.about-clientes-logos::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.about-clientes-logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  padding: 0.5rem 0;
+}
+
+.about-clientes-logo-img {
+  width: auto;
+  max-width: 160px;
+  max-height: 72px;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .about-clientes-actions {
@@ -654,14 +744,14 @@
   padding: 0;
   border: none;
   border-radius: 8px;
-  background: var(--about-glass);
-  color: var(--about-ink);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
 .about-clientes-icon-btn:hover {
-  background: var(--about-accent);
+  background: rgba(6, 95, 70, 0.6);
   color: #fff;
 }
 
@@ -684,17 +774,17 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.9rem 1rem;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .about-clientes-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
 }
 
 .about-clientes-icon {
@@ -705,24 +795,24 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  color: var(--about-ink);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 .about-clientes-icon svg {
   width: 24px;
   height: 24px;
 }
 .about-clientes-icon-publico {
-  background: rgba(45, 74, 62, 0.2);
-  color: var(--geo-military-green, #2d4a3e);
+  background: rgba(6, 95, 70, 0.4);
+  color: #86efac;
 }
 .about-clientes-icon-privado {
-  background: rgba(59, 130, 246, 0.2);
-  color: #2563eb;
+  background: rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
 }
 .about-clientes-icon-academia {
-  background: rgba(124, 58, 237, 0.2);
-  color: #6d28d9;
+  background: rgba(124, 58, 237, 0.4);
+  color: #c4b5fd;
 }
 
 .about-clientes-info {
@@ -737,13 +827,13 @@
   display: block;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--about-ink);
+  color: #fff;
   line-height: 1.25;
 }
 
 .about-clientes-status {
   font-size: 0.8rem;
-  color: var(--about-muted);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.4;
 }
 
@@ -766,6 +856,15 @@
   .about-sidebar-recon {
     max-height: none;
     order: 2;
+  }
+
+  .about-recon-cards {
+    overflow-y: visible;
+  }
+
+  .about-sidebar-right {
+    max-height: none;
+    overflow-y: visible;
   }
 
   .about-center {

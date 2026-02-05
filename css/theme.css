@@ -393,6 +393,30 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Hero: fade hacia la sección siguiente en modo oscuro (tono oscuro en lugar de blanco) */
+[data-theme="dark"] .hero-fade-to-white {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(15, 20, 25, 0.2) 25%,
+    rgba(15, 20, 25, 0.5) 55%,
+    rgba(15, 20, 25, 0.85) 80%,
+    #0f1419 100%
+  );
+}
+
+/* Wind section: fade superior en modo oscuro (tono oscuro) */
+[data-theme="dark"] .wind-section::before {
+  background: linear-gradient(
+    to bottom,
+    #0f1419 0%,
+    rgba(15, 20, 25, 0.92) 20%,
+    rgba(15, 20, 25, 0.55) 50%,
+    rgba(15, 20, 25, 0.2) 78%,
+    transparent 100%
+  );
+}
+
 /* Sección Geotrends – fondo blanco → oscuro */
 [data-theme="dark"] .geotrends-section {
   background: #0f1419;
@@ -524,4 +548,38 @@
 
 [data-theme="dark"] .section-card-carousel-bg::after {
   background: rgba(10, 25, 20, 0.5);
+}
+
+/* Página Proyectos: panel de detalle en modo oscuro (transparencia oscura) */
+[data-theme="dark"] .proyecto-panel {
+  background: rgba(25, 32, 40, 0.85);
+  border-left-color: rgba(6, 95, 70, 0.5);
+}
+[data-theme="dark"] .proyecto-panel-image-wrap {
+  background: rgba(15, 20, 25, 0.5);
+  border-right-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .proyecto-panel-content {
+  background: rgba(20, 28, 35, 0.5);
+}
+[data-theme="dark"] .proyecto-panel-title,
+[data-theme="dark"] .proyecto-panel-meta-item span {
+  color: #fff;
+}
+[data-theme="dark"] .proyecto-panel-meta-item {
+  color: rgba(255, 255, 255, 0.75);
+}
+[data-theme="dark"] .proyecto-panel-label {
+  color: var(--about-accent-light);
+}
+[data-theme="dark"] .proyecto-panel-desc {
+  color: rgba(255, 255, 255, 0.88);
+}
+[data-theme="dark"] .proyecto-panel-close {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+[data-theme="dark"] .proyecto-panel-close:hover {
+  background: var(--about-accent);
+  color: #fff;
 }

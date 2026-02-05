@@ -87,14 +87,21 @@
                     <div class="proyectos-carousel">
                         <p class="proyectos-empty-message" id="ciudades-empty-message" style="display: none;" aria-live="polite">No hay proyectos disponibles</p>
                         <div class="carousel-track" id="ciudades-carousel-track">
-                            <article class="proyecto-card proyecto-card-amva-usb" data-servicios="iot webgis" style="display: none;">
-                                <a href="proyecto-detalle.html?proyecto=amva-usb&seccion=ciudades&titulo=AMVA-USB&categoria=ciudades&cliente=AMVA" class="proyecto-card-link-wrap" aria-label="Ver detalle AMVA-USB">
-                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/ciudades/AMVA-USB/IMG_4277.jpeg');"></div>
+                            <article class="proyecto-card proyecto-card-amva-usb" data-servicios="iot webgis" data-proyecto="amva-usb" style="display: none;"
+                                data-proyecto-img="../proyectos/ciudades/AMVA-USB/IMG_4278.jpeg"
+                                data-proyecto-titulo="AMVA-USB"
+                                data-proyecto-desc="Monitoreo urbano y soluciones geoespaciales para el Área Metropolitana"
+                                data-proyecto-desc-long="Monitoreo urbano y soluciones geoespaciales para el Área Metropolitana del Valle de Aburrá (AMVA), incluyendo mediciones ambientales, mapas de ruido, sensores IoT y plataformas de información territorial para la gestión de ciudades inteligentes. Integración de datos en tiempo real, analítica geoespacial y acústica para apoyar la toma de decisiones y el cumplimiento normativo en entornos urbanos."
+                                data-proyecto-categoria="ciudades"
+                                data-proyecto-ano="2024"
+                                data-proyecto-cliente="AMVA">
+                                <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle AMVA-USB">
+                                    <div class="proyecto-card-img" style="background-image: url('../proyectos/ciudades/AMVA-USB/IMG_4278.jpeg');"></div>
                                     <div class="proyecto-card-content">
                                         <h3 class="proyecto-card-title">AMVA-USB</h3>
                                         <p class="proyecto-card-desc">Monitoreo urbano y soluciones geoespaciales para el Área Metropolitana</p>
                                     </div>
-                                </a>
+                                </div>
                             </article>
                         </div>
                     </div>
@@ -105,8 +112,42 @@
             </div>
         </div>
 
+        <!-- Panel de detalle: se despliega desde la derecha; izquierda = carrusel de imágenes del proyecto -->
+        <div class="proyecto-panel" id="proyecto-panel" aria-hidden="true">
+            <div class="proyecto-panel-inner">
+                <button type="button" class="proyecto-panel-close" id="proyecto-panel-close" aria-label="Cerrar panel">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+                <div class="proyecto-panel-image-wrap">
+                    <div class="proyecto-panel-carousel-wrap">
+                        <button type="button" class="proyecto-panel-carousel-prev" id="proyecto-panel-carousel-prev" aria-label="Imagen anterior">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                        </button>
+                        <div class="proyecto-panel-carousel-track" id="proyecto-panel-carousel-track">
+                            <!-- Imágenes del proyecto se inyectan por JS -->
+                        </div>
+                        <button type="button" class="proyecto-panel-carousel-next" id="proyecto-panel-carousel-next" aria-label="Siguiente imagen">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="proyecto-panel-content">
+                    <h2 id="proyecto-panel-title" class="proyecto-panel-title"></h2>
+                    <div class="proyecto-panel-meta">
+                        <p class="proyecto-panel-meta-item">Categoría: <span id="proyecto-panel-categoria"></span></p>
+                        <p class="proyecto-panel-meta-item">Año: <span id="proyecto-panel-ano"></span></p>
+                        <p class="proyecto-panel-meta-item">Cliente: <span id="proyecto-panel-cliente"></span></p>
+                    </div>
+                    <p class="proyecto-panel-label">Descripción del proyecto</p>
+                    <p id="proyecto-panel-desc" class="proyecto-panel-desc"></p>
+                </div>
+            </div>
+        </div>
+        <div class="proyecto-panel-backdrop" id="proyecto-panel-backdrop" aria-hidden="true"></div>
+
     </main>
 
+    <script src="data/amva-usb-images.js"></script>
     <script>
         (function() {
             var params = new URLSearchParams(window.location.search);
@@ -156,6 +197,101 @@
 
             if (prev) prev.addEventListener('click', function() { go(-1); });
             if (next) next.addEventListener('click', function() { go(1); });
+
+            /* Panel de detalle: abrir al hacer clic en una card; izquierda = carrusel de imágenes del proyecto */
+            var page = document.querySelector('.proyectos-page');
+            var panel = document.getElementById('proyecto-panel');
+            var backdrop = document.getElementById('proyecto-panel-backdrop');
+            var closeBtn = document.getElementById('proyecto-panel-close');
+            var panelCarouselTrack = document.getElementById('proyecto-panel-carousel-track');
+            var panelCarouselPrev = document.getElementById('proyecto-panel-carousel-prev');
+            var panelCarouselNext = document.getElementById('proyecto-panel-carousel-next');
+            var panelTitle = document.getElementById('proyecto-panel-title');
+            var panelCategoria = document.getElementById('proyecto-panel-categoria');
+            var panelAno = document.getElementById('proyecto-panel-ano');
+            var panelCliente = document.getElementById('proyecto-panel-cliente');
+            var panelDesc = document.getElementById('proyecto-panel-desc');
+
+            var panelCarouselIndex = 0;
+            var panelCarouselImages = [];
+
+            function buildPanelCarousel(proyectoId, titulo) {
+                if (!panelCarouselTrack) return;
+                panelCarouselTrack.innerHTML = '';
+                panelCarouselImages = [];
+                var images = [];
+                var base = '';
+                if (proyectoId === 'amva-usb' && typeof AMVA_USB_IMAGES !== 'undefined' && AMVA_USB_IMAGES.length) {
+                    images = AMVA_USB_IMAGES;
+                    base = '../proyectos/ciudades/AMVA-USB/';
+                }
+                if (images.length === 0) return;
+                panelCarouselImages = images.map(function(f) { return base + f; });
+                var wrap = panelCarouselTrack.closest('.proyecto-panel-carousel-wrap');
+                if (wrap) wrap.classList.toggle('multiple', panelCarouselImages.length > 1);
+                panelCarouselImages.forEach(function(src, i) {
+                    var slide = document.createElement('div');
+                    slide.className = 'proyecto-panel-carousel-slide' + (i === 0 ? ' active' : '');
+                    var img = document.createElement('img');
+                    img.src = src;
+                    img.alt = titulo + ' - Imagen ' + (i + 1);
+                    img.className = 'proyecto-panel-img';
+                    slide.appendChild(img);
+                    panelCarouselTrack.appendChild(slide);
+                });
+                panelCarouselIndex = 0;
+            }
+
+            function goPanelCarousel(delta) {
+                if (panelCarouselImages.length <= 1) return;
+                var slides = panelCarouselTrack ? panelCarouselTrack.querySelectorAll('.proyecto-panel-carousel-slide') : [];
+                if (slides.length === 0) return;
+                slides[panelCarouselIndex].classList.remove('active');
+                panelCarouselIndex = (panelCarouselIndex + delta + slides.length) % slides.length;
+                slides[panelCarouselIndex].classList.add('active');
+            }
+
+            function openProyectoPanel() {
+                if (page) page.classList.add('proyecto-panel-open');
+                document.body.classList.add('proyecto-panel-open');
+                if (panel) { panel.setAttribute('aria-hidden', 'false'); }
+                if (backdrop) { backdrop.setAttribute('aria-hidden', 'false'); }
+            }
+            function closeProyectoPanel() {
+                if (page) page.classList.remove('proyecto-panel-open');
+                document.body.classList.remove('proyecto-panel-open');
+                if (panel) { panel.setAttribute('aria-hidden', 'true'); }
+                if (backdrop) { backdrop.setAttribute('aria-hidden', 'true'); }
+            }
+
+            document.querySelectorAll('.proyecto-card').forEach(function(card) {
+                var linkWrap = card.querySelector('.proyecto-card-link-wrap');
+                if (!linkWrap) return;
+                linkWrap.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var proyectoId = card.getAttribute('data-proyecto') || '';
+                    var titulo = card.getAttribute('data-proyecto-titulo') || '';
+                    var desc = card.getAttribute('data-proyecto-desc-long') || card.getAttribute('data-proyecto-desc') || '';
+                    var categoria = card.getAttribute('data-proyecto-categoria') || '';
+                    var ano = card.getAttribute('data-proyecto-ano') || '';
+                    var cliente = card.getAttribute('data-proyecto-cliente') || '';
+                    buildPanelCarousel(proyectoId, titulo);
+                    if (panelTitle) panelTitle.textContent = titulo;
+                    if (panelCategoria) panelCategoria.textContent = categoria;
+                    if (panelAno) panelAno.textContent = ano;
+                    if (panelCliente) panelCliente.textContent = cliente;
+                    if (panelDesc) panelDesc.textContent = desc;
+                    openProyectoPanel();
+                });
+                linkWrap.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); linkWrap.click(); }
+                });
+            });
+
+            if (panelCarouselPrev) panelCarouselPrev.addEventListener('click', function() { goPanelCarousel(-1); });
+            if (panelCarouselNext) panelCarouselNext.addEventListener('click', function() { goPanelCarousel(1); });
+            if (closeBtn) closeBtn.addEventListener('click', closeProyectoPanel);
+            if (backdrop) backdrop.addEventListener('click', closeProyectoPanel);
         })();
     </script>
     <script>
