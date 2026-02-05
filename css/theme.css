@@ -1,0 +1,470 @@
+/* Modo oscuro: se activa con data-theme="dark" en <html> */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] body {
+  background: #0f1419;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Navbar en modo oscuro (todas las páginas) */
+[data-theme="dark"] .navbar {
+  background: rgba(15, 20, 25, 0.95);
+  border-color: rgba(6, 95, 70, 0.5);
+}
+
+[data-theme="dark"] .navbar .logo {
+  color: #fff;
+}
+
+[data-theme="dark"] .navbar .logo-img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="dark"] .navbar .nav-links a,
+[data-theme="dark"] .navbar .nav-dropdown-toggle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .navbar .nav-dropdown-menu {
+  background: rgba(20, 26, 32, 0.98);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .navbar .nav-dropdown-menu a {
+  color: #fff;
+}
+
+[data-theme="dark"] .navbar .nav-dropdown-menu a:hover {
+  background: rgba(6, 95, 70, 0.25);
+}
+
+/* Página Nosotros (about) */
+[data-theme="dark"] .about-bg {
+  background: #0f1419;
+}
+
+[data-theme="dark"] .about-page {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .about-main-card {
+  background: rgba(25, 32, 40, 0.95);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .about-subtitle {
+  color: #fff;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .about-tab {
+  border-color: var(--about-accent-light);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .about-tab:hover {
+  color: var(--about-accent-light);
+}
+
+[data-theme="dark"] .about-tab.active,
+[data-theme="dark"] .about-equipo-trigger[aria-expanded="true"] {
+  background: var(--about-accent);
+  border-color: var(--about-accent);
+  color: #fff;
+}
+
+[data-theme="dark"] .about-panel {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .about-panel-title,
+[data-theme="dark"] .about-panel-body,
+[data-theme="dark"] .about-panel-body p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .about-recon-card {
+  background: rgba(25, 32, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .about-recon-card-title {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .about-recon-card-desc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .about-recon-card-btn {
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .about-recon-card-btn:hover {
+  background: rgba(6, 95, 70, 0.3);
+  border-color: var(--about-accent);
+  color: #fff;
+}
+
+[data-theme="dark"] .about-valores-card {
+  background: rgba(25, 32, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .about-valores-card-title,
+[data-theme="dark"] .about-valores-card-sub {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .about-equipo-card {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .about-clientes-title,
+[data-theme="dark"] .about-clientes-card-name {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .about-clientes-card-status {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Página Nosotros: navbar blanco → en dark sigue oscuro (ya aplicado arriba) */
+[data-theme="dark"] .page-about .navbar {
+  background: rgba(15, 20, 25, 0.95);
+  border-color: rgba(6, 95, 70, 0.5);
+}
+
+[data-theme="dark"] .page-about .navbar .logo,
+[data-theme="dark"] .page-about .navbar .nav-links a,
+[data-theme="dark"] .page-about .navbar .nav-dropdown-toggle {
+  color: #fff;
+}
+
+[data-theme="dark"] .page-about .navbar .nav-dropdown-menu {
+  background: rgba(20, 26, 32, 0.98);
+}
+
+[data-theme="dark"] .page-about .navbar .nav-dropdown-menu a {
+  color: #fff;
+}
+
+/* Páginas Servicios (ciudades, industria) */
+[data-theme="dark"] body.page-servicios .navbar.scrolled {
+  background: rgba(15, 20, 25, 0.95);
+}
+
+[data-theme="dark"] body.page-servicios .navbar.scrolled .nav-links a,
+[data-theme="dark"] body.page-servicios .navbar.scrolled .nav-dropdown-toggle {
+  color: #fff;
+}
+
+[data-theme="dark"] body.page-servicios .navbar.scrolled .nav-dropdown-menu {
+  background: rgba(20, 26, 32, 0.98);
+}
+
+[data-theme="dark"] body.page-servicios .navbar.scrolled .nav-dropdown-menu a {
+  color: #fff;
+}
+
+/* Blog */
+[data-theme="dark"] .blog-page {
+  background: #0f1419;
+}
+
+[data-theme="dark"] .blog-hero-title,
+[data-theme="dark"] .blog-card-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .blog-card {
+  background: rgba(25, 32, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .blog-card-body,
+[data-theme="dark"] .blog-card-excerpt {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Contacto */
+[data-theme="dark"] .contacto-page {
+  background: #0f1419;
+}
+
+[data-theme="dark"] .contacto-form-wrap,
+[data-theme="dark"] .contacto-info-card {
+  background: rgba(25, 32, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .contacto-form label,
+[data-theme="dark"] .contacto-info-title {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .contacto-form input,
+[data-theme="dark"] .contacto-form select,
+[data-theme="dark"] .contacto-form textarea {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+[data-theme="dark"] .contacto-form input::placeholder,
+[data-theme="dark"] .contacto-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Footer en modo oscuro */
+[data-theme="dark"] .footer {
+  border-top-color: rgba(6, 95, 70, 0.5);
+}
+
+[data-theme="dark"] .footer a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .footer a:hover {
+  color: #fff;
+}
+
+/* ========== INICIO (Home) – todo lo blanco → oscuro, texto claro ========== */
+
+/* Sección Tecnologías – fondo blanco → oscuro */
+[data-theme="dark"] .tech-section {
+  background: #0f1419;
+}
+
+[data-theme="dark"] .tech-section-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .tech-card {
+  background: rgba(25, 32, 40, 0.9);
+  border-color: rgba(6, 95, 70, 0.5);
+}
+
+[data-theme="dark"] .tech-card:hover {
+  background: rgba(30, 40, 50, 0.95);
+}
+
+[data-theme="dark"] .tech-card-title,
+[data-theme="dark"] .tech-card-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .tech-icon-wrap {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .tech-panel {
+  background: rgba(18, 24, 30, 0.95);
+  border-color: rgba(6, 95, 70, 0.5);
+}
+
+[data-theme="dark"] .tech-panel-image-wrap {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(6, 95, 70, 0.3);
+}
+
+[data-theme="dark"] .tech-panel-content {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .tech-panel-title,
+[data-theme="dark"] .tech-panel-uso {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .tech-panel-label {
+  color: #0d9488;
+}
+
+[data-theme="dark"] .tech-panel-close {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Sección Dashboard – fondo blanco → oscuro */
+[data-theme="dark"] .dashboard-section {
+  background: #0f1419;
+}
+
+[data-theme="dark"] .dashboard-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .dashboard-kpi {
+  background: rgba(25, 32, 40, 0.8);
+  border-color: rgba(6, 95, 70, 0.4);
+}
+
+[data-theme="dark"] .dashboard-kpi:hover {
+  background: rgba(30, 40, 50, 0.9);
+}
+
+[data-theme="dark"] .dashboard-kpi-value {
+  color: #fff;
+}
+
+[data-theme="dark"] .dashboard-kpi-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .dashboard-card {
+  background: rgba(25, 32, 40, 0.8);
+  border-color: rgba(6, 95, 70, 0.3);
+}
+
+[data-theme="dark"] .dashboard-card:hover {
+  background: rgba(30, 40, 50, 0.9);
+}
+
+[data-theme="dark"] .dashboard-card-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .dashboard-bar-item {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dashboard-bar-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .dashboard-stacked-year {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .dashboard-legend {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Sección Geotrends – fondo blanco → oscuro */
+[data-theme="dark"] .geotrends-section {
+  background: #0f1419;
+}
+
+[data-theme="dark"] .geotrends-section::before {
+  background: linear-gradient(to bottom, rgba(15, 20, 25, 0.5) 0%, rgba(15, 20, 25, 0.2) 50%, transparent 100%);
+}
+
+[data-theme="dark"] .geotrends-section::after {
+  background: linear-gradient(to top, rgba(15, 20, 25, 0.5) 0%, rgba(15, 20, 25, 0.2) 50%, transparent 100%);
+}
+
+[data-theme="dark"] .geotrends-title,
+[data-theme="dark"] .geotrends-text {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .geotrends-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .geotrends-cta {
+  color: #0d9488;
+  border-color: #0d9488;
+}
+
+[data-theme="dark"] .geotrends-cta:hover {
+  background: #0d9488;
+  color: #fff;
+}
+
+/* Sección Wind (Servicios home) – mini cards blancas → oscuro */
+[data-theme="dark"] .wind-mini-card {
+  background: rgba(25, 32, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .wind-mini-title {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .wind-mini-desc {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ========== SERVICIOS (Ciudades / Industria) – título vertical y fondos blancos → oscuro ========== */
+
+/* Label vertical "CIUDADES" / "INDUSTRIA" – fondo blanco → oscuro, texto claro */
+[data-theme="dark"] .section-label {
+  background: #1a1d24;
+  border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .section-label-text {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .section-label {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .section-view {
+  background: #0f1419;
+}
+
+[data-theme="dark"] .section-content {
+  background: #0f1419;
+}
+
+/* Panel expandido de la tarjeta – fondo claro → oscuro */
+[data-theme="dark"] .section-card-expanded {
+  background: #1a1d24;
+}
+
+[data-theme="dark"] .section-card-desc {
+  background: rgba(20, 26, 32, 0.95);
+  border-left-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .section-card-desc-title {
+  color: #0d9488;
+}
+
+[data-theme="dark"] .section-card-desc p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .section-card-proyectos-link {
+  color: #0d9488;
+  border-color: #0d9488;
+}
+
+[data-theme="dark"] .section-card-proyectos-link:hover {
+  background: #0d9488;
+  color: #fff;
+}
+
+/* Botones cerrar y flechas del carrusel */
+[data-theme="dark"] .section-card-back,
+[data-theme="dark"] .section-card-carousel-prev,
+[data-theme="dark"] .section-card-carousel-next {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+[data-theme="dark"] .section-card-back:hover,
+[data-theme="dark"] .section-card-carousel-prev:hover,
+[data-theme="dark"] .section-card-carousel-next:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Tarjetas de servicios (lista) con fondo blanco */
+[data-theme="dark"] .section-card-expanded .section-card-desc {
+  background: rgba(20, 26, 32, 0.98);
+}

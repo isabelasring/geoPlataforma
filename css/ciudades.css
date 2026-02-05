@@ -473,3 +473,11 @@ body.page-servicios .navbar.scrolled .nav-dropdown-menu a {
 body.page-servicios .navbar.scrolled .nav-dropdown-menu a:hover {
     background: rgba(0, 0, 0, 0.06);
 }
+
+body.page-servicios .navbar.scrolled .nav-theme-btn {
+    color: #111;
+    background: rgba(0, 0, 0, 0.06);
+}
+body.page-servicios .navbar.scrolled .nav-theme-btn:hover {
+    background: rgba(0, 0, 0, 0.12);
+}
