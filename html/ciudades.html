@@ -208,16 +208,20 @@
             }
         });
 
-        // Servicios: expandir card al clic (contenido dentro de la misma card)
+        // Servicios: expandir card al clic (animación de expansión)
         var navbar = document.getElementById('navbar');
+        var sectionContent = document.querySelector('.section-content');
+        function updateExpandedState() {
+            var hasExpanded = document.querySelector('.section-content .section-card.expanded');
+            if (sectionContent) sectionContent.classList.toggle('has-expanded', !!hasExpanded);
+        }
         document.querySelectorAll('.section-card').forEach(function(card) {
             card.addEventListener('click', function(e) {
                 if (e.target.closest('.section-card-back') || e.target.closest('.section-card-proyectos-link') || e.target.closest('.section-card-carousel-prev') || e.target.closest('.section-card-carousel-next')) return;
                 var expanded = document.querySelector('.section-content .section-card.expanded');
                 if (expanded && expanded !== card) expanded.classList.remove('expanded');
                 card.classList.toggle('expanded');
-                
-                // Ocultar/mostrar navbar según si hay una card expandida
+                updateExpandedState();
                 if (card.classList.contains('expanded')) {
                     navbar.classList.add('hidden');
                 } else {
@@ -230,7 +234,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 btn.closest('.section-card').classList.remove('expanded');
-                // Mostrar navbar cuando se cierra la card
+                updateExpandedState();
                 navbar.classList.remove('hidden');
             });
         });

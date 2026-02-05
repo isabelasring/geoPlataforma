@@ -45,7 +45,7 @@
     }
 }
 
-/* Contenido: 5 paneles pegados, sin hueco */
+/* Contenido: paneles pegados; con has-expanded no hace wrap para ver la animación */
 .section-content {
     position: relative;
     flex: 1;
@@ -63,14 +63,14 @@
 
 .section-card {
     position: relative;
-    flex: 1;
+    flex: 1 1 0;
     min-width: 0;
     height: 100%;
     border-radius: 0;
     overflow: hidden;
     border-right: 1px solid rgba(255, 255, 255, 0.12);
     cursor: pointer;
-    transition: flex 0.45s ease, transform 0.35s ease;
+    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s ease;
     display: flex;
 }
 
@@ -78,15 +78,20 @@
     transform: scale(1.04);
 }
 
+/* Cuando hay una card expandida, las demás se encogen para que se vea la animación */
+.section-content.has-expanded .section-card:not(.expanded) {
+    flex: 0 0 0;
+    min-width: 0;
+    overflow: hidden;
+    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .section-card.expanded {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
+    position: relative;
     z-index: 2;
-    flex: none;
+    flex: 1 1 100%;
+    min-width: 0;
+    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-card:last-child {
@@ -150,17 +155,30 @@
     letter-spacing: 0.02em;
 }
 
-/* Vista expandida: carrusel izquierda | título + descripción derecha */
+/* Vista expandida: carrusel izquierda + contenedor transparente (descripción) derecha */
 .section-card-expanded {
     position: absolute;
     inset: 0;
     display: flex;
+    flex-direction: row;
     align-items: stretch;
-    background: #f1f5f9;
+    justify-content: flex-start;
+    padding: 0;
+    background: transparent;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.3s ease 0.15s, visibility 0.3s ease 0.15s;
+    transition: opacity 0.35s ease 0.4s, visibility 0.35s ease 0.4s;
+}
+
+/* Overlay suave en modo claro (en modo oscuro se sobrescribe en theme.css) */
+.section-card-expanded::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.95) 100%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .section-card.expanded .section-card-expanded {
@@ -169,6 +187,7 @@
     pointer-events: auto;
 }
 
+/* Botón cerrar: modo claro = blanco (en modo oscuro se sobrescribe en theme.css) */
 .section-card-back {
     position: absolute;
     top: 1rem;
@@ -177,7 +196,7 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     background: #fff;
     color: #0f172a;
     cursor: pointer;
@@ -185,45 +204,47 @@
     align-items: center;
     justify-content: center;
     transition: background 0.2s, border-color 0.2s;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .section-card-back:hover {
-    background: #e2e8f0;
-    border-color: rgba(0, 0, 0, 0.2);
+    background: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
-/* Carrusel a la izquierda - mismo ancho que la descripción */
+/* Columna izquierda: carrusel de imágenes visible */
 .section-card-carousel-wrap {
-    flex: 1 1 50%;
+    position: relative;
+    flex: 1 1 42%;
     min-width: 0;
     max-width: 50%;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 1.5rem;
-    order: 1;
-    position: relative;
+    padding: 1.5rem 1rem;
+    z-index: 0.5;
     overflow: hidden;
+    order: 1;
 }
 
-/* Fondo del carrusel: misma imagen/vídeo de la tarjeta con blur */
+/* Fondo suave detrás del carrusel (solo en esta columna) */
 .section-card-carousel-bg {
     position: absolute;
-    inset: -20px;
+    inset: -30px;
     z-index: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(20px);
-    -webkit-filter: blur(20px);
-    transform: scale(1.08);
+    filter: blur(14px);
+    -webkit-filter: blur(14px);
+    transform: scale(1.03);
 }
 
 .section-card-carousel-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(10, 25, 20, 0.35);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .section-card-carousel-bg-video {
@@ -243,26 +264,19 @@
     object-fit: cover;
 }
 
-.section-card-carousel-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0.5;
-    pointer-events: none;
-}
-
 .section-card-carousel-wrap > *:not(.section-card-carousel-bg) {
     position: relative;
     z-index: 1;
 }
 
+/* Flechas carrusel: modo claro = blanco (en modo oscuro se sobrescribe en theme.css) */
 .section-card-carousel-prev,
 .section-card-carousel-next {
     flex-shrink: 0;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     background: #fff;
     color: #0f172a;
     cursor: pointer;
@@ -270,37 +284,40 @@
     align-items: center;
     justify-content: center;
     transition: background 0.2s, border-color 0.2s;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .section-card-carousel-prev:hover,
 .section-card-carousel-next:hover {
-    background: #e2e8f0;
-    border-color: rgba(0, 0, 0, 0.2);
+    background: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
 .section-card-carousel {
     flex: 1;
     min-width: 0;
-    min-height: 480px;
-    height: 480px;
+    min-height: 400px;
+    height: 70vh;
+    max-height: 520px;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
     background: transparent;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .section-card-carousel-track {
     display: flex;
     gap: 0;
     height: 100%;
-    min-height: 480px;
+    min-height: 400px;
     transition: transform 0.35s ease;
 }
 
 .section-card-carousel-slide {
     flex: 0 0 100%;
     width: 100%;
-    min-height: 480px;
-    height: 480px;
+    min-height: 400px;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-color: #94a3b8;
@@ -320,33 +337,53 @@
     object-fit: cover;
 }
 
-/* Título + descripción a la derecha - mismo ancho que el carrusel */
+/* Columna derecha: contenedor grande para descripción. Modo claro = blanco (modo oscuro en theme.css) */
 .section-card-desc {
-    flex: 1 1 50%;
-    min-width: 0;
-    max-width: 50%;
-    padding: 2rem 1.5rem;
+    position: relative;
+    z-index: 2;
+    flex: 1 1 58%;
+    min-width: 320px;
+    max-width: none;
+    width: 100%;
+    min-height: 100%;
+    max-height: 100vh;
+    margin: 0;
+    padding: 2.5rem 2rem 3rem;
     overflow-y: auto;
-    background: #fff;
-    border-left: 1px solid #e2e8f0;
+    -webkit-overflow-scrolling: touch;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0;
+    box-sizing: border-box;
     order: 2;
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity 0.35s ease 0.45s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.06);
+}
+
+.section-card.expanded .section-card-desc {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .section-card-desc-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    color: #065f46;
+    color: #0f172a;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.25rem 0;
     line-height: 1.2;
 }
 
 .section-card-desc p {
-    margin: 0 0 1.25rem 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    font-size: 1rem;
+    line-height: 1.7;
     color: #334155;
+    max-width: 56em;
 }
 
 .section-card-proyectos-link {
@@ -366,6 +403,18 @@
 .section-card-proyectos-link:hover {
     background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
     color: var(--geo-military-green, #2d4a3e);
+}
+
+/* Enlace "Ver proyectos" en modo claro: verde militar (en modo oscuro se sobrescribe en theme.css) */
+.section-card-desc .section-card-proyectos-link {
+    color: var(--geo-military-green, #2d4a3e);
+    border-color: var(--geo-military-green, #2d4a3e);
+}
+
+.section-card-desc .section-card-proyectos-link:hover {
+    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+    color: var(--geo-military-green, #2d4a3e);
+    border-color: var(--geo-military-green, #2d4a3e);
 }
 
 @media (max-width: 900px) {
@@ -418,18 +467,37 @@
 
     .section-card-expanded {
         flex-direction: column;
+        justify-content: flex-start;
+        padding: 1rem;
+        overflow-y: auto;
     }
 
     .section-card-carousel-wrap {
+        flex: 0 0 auto;
+        max-width: none;
+        width: 100%;
         min-height: 280px;
+        padding: 1rem 0.5rem;
         order: 1;
     }
 
+    .section-card-carousel {
+        height: 280px;
+        min-height: 280px;
+        max-height: 280px;
+    }
+
+    .section-card-carousel-track,
+    .section-card-carousel-slide {
+        min-height: 280px;
+    }
+
     .section-card-desc {
+        flex: 1 1 auto;
+        min-height: auto;
+        max-height: none;
         width: 100%;
-        max-width: none;
-        border-left: none;
-        border-top: 1px solid #e2e8f0;
+        padding: 1.5rem 1.25rem 2rem;
         order: 2;
     }
 

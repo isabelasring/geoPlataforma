@@ -426,50 +426,65 @@
   background: #0f1419;
 }
 
-/* Panel expandido de la tarjeta – fondo claro → oscuro */
-[data-theme="dark"] .section-card-expanded {
-  background: #1a1d24;
+/* Expandido: contenedor con transparencia en modo oscuro */
+[data-theme="dark"] .section-card-expanded::before {
+  background: linear-gradient(135deg, rgba(8, 18, 15, 0.95) 0%, rgba(12, 25, 22, 0.92) 100%);
 }
 
 [data-theme="dark"] .section-card-desc {
-  background: rgba(20, 26, 32, 0.95);
-  border-left-color: rgba(255, 255, 255, 0.08);
+  background: rgba(15, 28, 24, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
 }
 
 [data-theme="dark"] .section-card-desc-title {
-  color: #0d9488;
+  color: rgba(255, 255, 255, 0.98);
 }
 
 [data-theme="dark"] .section-card-desc p {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
 }
 
-[data-theme="dark"] .section-card-proyectos-link {
-  color: var(--geo-military-green);
-  border-color: var(--geo-military-green);
-}
-
-[data-theme="dark"] .section-card-proyectos-link:hover {
-  background: var(--geo-military-green-hover-bg);
+[data-theme="dark"] .section-card-desc .section-card-proyectos-link {
   color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Botones cerrar y flechas del carrusel */
-[data-theme="dark"] .section-card-back,
-[data-theme="dark"] .section-card-carousel-prev,
-[data-theme="dark"] .section-card-carousel-next {
+[data-theme="dark"] .section-card-desc .section-card-proyectos-link:hover {
   background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Botón cerrar en expandido – modo oscuro */
+[data-theme="dark"] .section-card-back {
+  background: rgba(0, 0, 0, 0.5);
   border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
+  box-shadow: none;
 }
 
-[data-theme="dark"] .section-card-back:hover,
+[data-theme="dark"] .section-card-back:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Flechas del carrusel – modo oscuro */
+[data-theme="dark"] .section-card-carousel-prev,
+[data-theme="dark"] .section-card-carousel-next {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow: none;
+}
+
 [data-theme="dark"] .section-card-carousel-prev:hover,
 [data-theme="dark"] .section-card-carousel-next:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
-/* Tarjetas de servicios (lista) con fondo blanco */
-[data-theme="dark"] .section-card-expanded .section-card-desc {
-  background: rgba(20, 26, 32, 0.98);
+[data-theme="dark"] .section-card-carousel-bg::after {
+  background: rgba(10, 25, 20, 0.5);
 }
