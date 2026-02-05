@@ -355,17 +355,17 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #065f46;
+    color: var(--geo-military-green, #2d4a3e);
     text-decoration: none;
-    border: 1px solid #065f46;
+    border: 2px solid var(--geo-military-green, #2d4a3e);
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 9999px;
     transition: background 0.2s, color 0.2s;
 }
 
 .section-card-proyectos-link:hover {
-    background: #065f46;
-    color: #fff;
+    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+    color: var(--geo-military-green, #2d4a3e);
 }
 
 @media (max-width: 900px) {

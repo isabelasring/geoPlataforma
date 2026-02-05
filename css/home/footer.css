@@ -244,19 +244,19 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.65rem 1.25rem;
-    background: rgba(6, 95, 70, 0.9);
-    color: #fff;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.95);
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 999px;
-    border: 2px solid rgba(167, 243, 208, 0.6);
+    border-radius: 9999px;
+    border: 2px solid var(--geo-military-green, #2d4a3e);
     transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .footer-call:hover {
-    background: #065f46;
-    border-color: rgba(167, 243, 208, 0.9);
+    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.35));
+    border-color: var(--geo-military-green, #2d4a3e);
     transform: scale(1.03);
 }
 

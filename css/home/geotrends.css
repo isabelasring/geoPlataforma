@@ -111,12 +111,12 @@
     margin-top: 0.5rem;
     padding: 0.875rem 1.75rem;
     background: transparent;
-    color: #1a2618;
+    color: var(--geo-military-green, #2d4a3e);
     font-weight: 600;
     font-size: 1rem;
     text-decoration: none;
-    border-radius: 0;
-    border: 2px solid #16a34a;
+    border-radius: 9999px;
+    border: 2px solid var(--geo-military-green, #2d4a3e);
     cursor: pointer;
     transition: all 0.3s ease;
     align-self: flex-start;
@@ -125,11 +125,11 @@
 .geotrends-cta:hover,
 .geotrends-cta:active,
 .geotrends-cta:focus {
-    background: #16a34a;
-    border-color: #16a34a;
-    color: #fff;
+    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+    border-color: var(--geo-military-green, #2d4a3e);
+    color: var(--geo-military-green, #2d4a3e);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.4);
+    box-shadow: 0 6px 20px rgba(45, 74, 62, 0.2);
 }
 
 .geotrends-cta svg {

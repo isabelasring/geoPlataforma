@@ -109,10 +109,10 @@
   width: 100%;
   padding: 1rem 1.5rem;
   margin-top: 0.5rem;
-  background: var(--contacto-accent);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
+  background: transparent;
+  color: var(--geo-military-green, #2d4a3e);
+  border: 2px solid var(--geo-military-green, #2d4a3e);
+  border-radius: 9999px;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -122,7 +122,7 @@
 }
 
 .contacto-submit:hover {
-  background: #065f46;
+  background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
   transform: translateY(-1px);
 }
 

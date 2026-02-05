@@ -167,19 +167,20 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.85rem 1.5rem;
-    background: #0d9488;
-    color: #fff;
+    background: transparent;
+    color: var(--geo-military-green, #2d4a3e);
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 9999px;
+    border: 2px solid var(--geo-military-green, #2d4a3e);
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .wind-cta-explore:hover {
-    background: #0f766e;
+    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.35);
+    box-shadow: 0 6px 20px rgba(45, 74, 62, 0.25);
 }
 
 .wind-cta-explore svg {
@@ -553,17 +554,17 @@
     padding: 0.5rem 0.85rem;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #fff;
-    background: rgba(22, 163, 74, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.95);
+    background: transparent;
+    border: 2px solid var(--geo-military-green, #2d4a3e);
+    border-radius: 9999px;
     align-self: flex-start;
     transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .wind-project-card:hover .wind-project-card-cta {
-    background: rgba(21, 128, 61, 0.95);
-    border-color: rgba(255, 255, 255, 0.35);
+    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+    border-color: var(--geo-military-green, #2d4a3e);
     transform: translateX(2px);
 }
 

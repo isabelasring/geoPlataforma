@@ -128,17 +128,28 @@
 }
 
 .about-recon-card-green .about-recon-card-icon {
-  background: rgba(6, 95, 70, 0.2);
-  color: #065f46;
+  background: rgba(45, 74, 62, 0.2);
+  color: var(--geo-military-green, #2d4a3e);
 }
 
 .about-recon-card-green .about-recon-card-title {
-  color: #065f46;
+  color: var(--geo-military-green, #2d4a3e);
+}
+
+.about-recon-card-green .about-recon-card-btn {
+  color: var(--geo-military-green, #2d4a3e);
+  border-color: var(--geo-military-green, #2d4a3e);
 }
 
 .about-recon-card-green .about-recon-card-btn:hover {
-  border-color: #065f46;
-  color: #065f46;
+  background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+  border-color: var(--geo-military-green, #2d4a3e);
+  color: var(--geo-military-green, #2d4a3e);
+}
+
+.about-recon-card-purple .about-recon-card-btn {
+  color: #6d28d9;
+  border-color: #6d28d9;
 }
 
 .about-recon-card-purple .about-recon-card-icon {
@@ -151,8 +162,14 @@
 }
 
 .about-recon-card-purple .about-recon-card-btn:hover {
+  background: rgba(109, 40, 217, 0.2);
   border-color: #6d28d9;
   color: #6d28d9;
+}
+
+.about-recon-card-orange .about-recon-card-btn {
+  color: #c2410c;
+  border-color: #c2410c;
 }
 
 .about-recon-card-orange .about-recon-card-icon {
@@ -165,6 +182,7 @@
 }
 
 .about-recon-card-orange .about-recon-card-btn:hover {
+  background: rgba(194, 65, 12, 0.2);
   border-color: #c2410c;
   color: #c2410c;
 }
@@ -186,14 +204,14 @@
 .about-recon-card-btn {
   align-self: flex-start;
   padding: 0.5rem 1rem;
-  border-radius: 999px;
+  border-radius: 9999px;
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.5);
-  color: var(--about-ink);
-  border: 1px solid var(--about-glass-border);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  background: transparent;
+  color: var(--geo-military-green, #2d4a3e);
+  border: 2px solid var(--geo-military-green, #2d4a3e);
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
 /* Centro: azul = Quiénes somos + tabs + contenido */

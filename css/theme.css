@@ -1,5 +1,10 @@
 /* Modo oscuro: se activa con data-theme="dark" en <html> */
 
+:root {
+  --geo-military-green: #2d4a3e;
+  --geo-military-green-hover-bg: rgba(45, 74, 62, 0.28);
+}
+
 [data-theme="dark"] {
   color-scheme: dark;
 }
@@ -374,13 +379,13 @@
 }
 
 [data-theme="dark"] .geotrends-cta {
-  color: #0d9488;
-  border-color: #0d9488;
+  color: var(--geo-military-green);
+  border-color: var(--geo-military-green);
 }
 
 [data-theme="dark"] .geotrends-cta:hover {
-  background: #0d9488;
-  color: #fff;
+  background: var(--geo-military-green-hover-bg);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* Sección Wind (Servicios home) – mini cards blancas → oscuro */
@@ -440,13 +445,13 @@
 }
 
 [data-theme="dark"] .section-card-proyectos-link {
-  color: #0d9488;
-  border-color: #0d9488;
+  color: var(--geo-military-green);
+  border-color: var(--geo-military-green);
 }
 
 [data-theme="dark"] .section-card-proyectos-link:hover {
-  background: #0d9488;
-  color: #fff;
+  background: var(--geo-military-green-hover-bg);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* Botones cerrar y flechas del carrusel */
