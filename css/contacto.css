@@ -1,40 +1,67 @@
-/* Contacto - formulario izquierda, tarjetas de info derecha */
+/* Contacto: hero + formulario + tarjeta lateral + 3 cards + mapa (estilo limpio, bordes redondeados) */
 :root {
   --contacto-ink: #0f172a;
   --contacto-muted: rgba(15, 23, 42, 0.72);
   --contacto-border: rgba(15, 23, 42, 0.12);
-  --contacto-accent: #065f46;
-  --contacto-accent-light: #0d9488;
+  --contacto-hero-bg: #e8f0f4;
+  --contacto-card-bg: #1e3a32;
 }
 
 .contacto-page {
-  position: relative;
   min-height: 100vh;
-  overflow: hidden;
-  padding: 7.5rem 2rem 4rem;
+  padding: 0;
+  padding-top: 70px;
   background: #f8fafc;
   color: var(--contacto-ink);
 }
 
-.contacto-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: #f8fafc;
+/* Hero */
+.contacto-hero {
+  background: var(--contacto-hero-bg);
+  padding: 3rem 2rem 3.5rem;
+  text-align: center;
 }
 
-.contacto-section {
-  position: relative;
-  z-index: 2;
-  max-width: 1100px;
+.contacto-hero-inner {
+  max-width: 640px;
   margin: 0 auto;
 }
 
-.contacto-wrap {
+.contacto-hero-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--contacto-ink);
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.02em;
+}
+
+.contacto-hero-underline {
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin: 0 auto 1.25rem;
+  background: var(--geo-military-green, #2d4a3e);
+  border-radius: 2px;
+}
+
+.contacto-hero-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--contacto-muted);
+  margin: 0;
+}
+
+/* Formulario + tarjeta lateral */
+.contacto-main {
+  padding: 3rem 2rem 4rem;
+}
+
+.contacto-main-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 2.5rem;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
   align-items: start;
 }
 
@@ -51,16 +78,16 @@
   gap: 1.25rem;
 }
 
-.contacto-form-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
 .contacto-form-row-two {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
+}
+
+.contacto-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .contacto-label {
@@ -72,10 +99,10 @@
 
 .contacto-input {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
   border: 1px solid var(--contacto-border);
-  border-radius: 10px;
-  background: #fff;
+  border-radius: 12px;
+  background: #f8fafc;
   font-size: 1rem;
   color: var(--contacto-ink);
   font-family: inherit;
@@ -88,16 +115,8 @@
 
 .contacto-input:focus {
   outline: none;
-  border-color: var(--contacto-accent);
-  box-shadow: 0 0 0 3px rgba(6, 95, 70, 0.12);
-}
-
-.contacto-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 2.5rem;
+  border-color: var(--geo-military-green, #2d4a3e);
+  box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.12);
 }
 
 .contacto-textarea {
@@ -106,19 +125,17 @@
 }
 
 .contacto-submit {
-  width: 100%;
-  padding: 1rem 1.5rem;
-  margin-top: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  margin-top: 0.25rem;
   background: transparent;
   color: var(--geo-military-green, #2d4a3e);
   border: 2px solid var(--geo-military-green, #2d4a3e);
   border-radius: 9999px;
   font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
+  align-self: flex-start;
 }
 
 .contacto-submit:hover {
@@ -126,102 +143,165 @@
   transform: translateY(-1px);
 }
 
-.contacto-info-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+/* Tarjeta lateral (¿Tienes preguntas?) */
+.contacto-card-col {
+  position: sticky;
+  top: 90px;
+}
+
+.contacto-card {
+  background: var(--contacto-card-bg);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(30, 58, 50, 0.25);
+}
+
+.contacto-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.contacto-card-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 0.75rem 0;
+}
+
+.contacto-card-text:last-of-type {
+  margin-bottom: 1.25rem;
+}
+
+.contacto-card-cta {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  padding: 0.6rem 1.25rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.contacto-card-cta:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Tres tarjetas: Teléfono, Correo, Ubicación */
+.contacto-cards {
+  padding: 0 2rem 4rem;
+}
+
+.contacto-cards-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 .contacto-info-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .contacto-info-icon {
-  flex-shrink: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(6, 95, 70, 0.1);
-  color: var(--contacto-accent);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(45, 74, 62, 0.1);
+  color: var(--geo-military-green, #2d4a3e);
+  flex-shrink: 0;
 }
 
 .contacto-info-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
 }
 
-.contacto-info-title {
-  display: block;
-  font-size: 0.9rem;
+.contacto-info-card-title {
+  font-size: 1rem;
   font-weight: 700;
   color: var(--contacto-ink);
-  margin-bottom: 0.25rem;
+  margin: 0;
 }
 
-.contacto-info-text {
+.contacto-info-card-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--contacto-ink);
   margin: 0;
-  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.contacto-info-card-desc {
+  font-size: 0.85rem;
   color: var(--contacto-muted);
+  margin: 0;
   line-height: 1.5;
 }
 
-.contacto-info-social {
-  flex-direction: column;
-  gap: 0.75rem;
+/* Mapa Google */
+.contacto-map-section {
+  padding: 0;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
 }
 
-.contacto-social-links {
-  display: flex;
-  gap: 0.75rem;
+.contacto-map-container {
+  width: 100%;
+  height: 420px;
+  background: #e2e8f0;
 }
 
-.contacto-social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--contacto-border);
-  border-radius: 10px;
-  color: var(--contacto-ink);
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+.contacto-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
-.contacto-social-link:hover {
-  background: var(--contacto-accent);
-  border-color: var(--contacto-accent);
-  color: #fff;
-}
-
+/* Responsive */
 @media (max-width: 900px) {
-  .contacto-wrap {
+  .contacto-main-wrap {
     grid-template-columns: 1fr;
   }
 
-  .contacto-info-col {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  .contacto-card-col {
+    position: static;
   }
 
-  .contacto-info-card {
-    flex: 1 1 280px;
-    max-width: 100%;
+  .contacto-cards-wrap {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .contacto-page {
-    padding: 7rem 1rem 3rem;
+    padding-top: 70px;
+  }
+
+  .contacto-hero {
+    padding: 2rem 1rem 2.5rem;
+  }
+
+  .contacto-main {
+    padding: 2rem 1rem 3rem;
   }
 
   .contacto-form-col {
@@ -231,4 +311,74 @@
   .contacto-form-row-two {
     grid-template-columns: 1fr;
   }
+
+  .contacto-cards {
+    padding: 0 1rem 3rem;
+  }
+
+  .contacto-map-container {
+    height: 320px;
+  }
+}
+
+/* Modo oscuro */
+[data-theme="dark"] .contacto-page {
+  background: #0f1419;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+[data-theme="dark"] .contacto-hero {
+  background: #1a1d24;
+}
+
+[data-theme="dark"] .contacto-hero-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .contacto-hero-desc {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] .contacto-form-col {
+  background: #1a1d24;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .contacto-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .contacto-input {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+[data-theme="dark"] .contacto-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .contacto-card {
+  background: #162a24;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .contacto-info-card {
+  background: #1a1d24;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .contacto-info-card-title,
+[data-theme="dark"] .contacto-info-card-value {
+  color: #fff;
+}
+
+[data-theme="dark"] .contacto-info-card-desc {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="dark"] .contacto-info-icon {
+  background: rgba(45, 74, 62, 0.3);
+  color: rgba(255, 255, 255, 0.9);
 }

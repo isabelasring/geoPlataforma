@@ -43,8 +43,9 @@
     var isDark = theme === THEME_DARK;
     btn.setAttribute('aria-label', isDark ? 'Usar modo claro' : 'Usar modo oscuro');
     btn.setAttribute('title', isDark ? 'Modo claro' : 'Modo oscuro');
-    btn.querySelector('.nav-theme-icon-sun').hidden = isDark;
-    btn.querySelector('.nav-theme-icon-moon').hidden = !isDark;
+    /* En modo oscuro mostramos el sol para volver a tema claro; en modo claro mostramos la luna para ir a oscuro */
+    btn.querySelector('.nav-theme-icon-sun').hidden = !isDark;
+    btn.querySelector('.nav-theme-icon-moon').hidden = isDark;
   }
 
   function init() {

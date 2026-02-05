@@ -47,6 +47,23 @@
   background: rgba(6, 95, 70, 0.25);
 }
 
+/* Toggle tema: en modo oscuro el solecito se ve blanco para poder dar click */
+[data-theme="dark"] .navbar .nav-theme-btn,
+[data-theme="dark"] .page-about .navbar .nav-theme-btn,
+[data-theme="dark"] body.page-servicios .navbar .nav-theme-btn {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+[data-theme="dark"] .navbar .nav-theme-btn:hover,
+[data-theme="dark"] .page-about .navbar .nav-theme-btn:hover,
+[data-theme="dark"] body.page-servicios .navbar .nav-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+[data-theme="dark"] .navbar .nav-theme-btn .nav-theme-icon {
+  color: #fff;
+}
+
 /* Página Nosotros (about) */
 [data-theme="dark"] .about-bg {
   background: #0f1419;

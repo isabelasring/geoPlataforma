@@ -250,12 +250,13 @@
   margin-bottom: 1.25rem;
 }
 
+/* Tabs mismo estilo que botones de inicio: oval, borde verde militar, hover relleno transparente */
 .about-tab {
   padding: 0.5rem 1.15rem;
-  border-radius: 999px;
-  border: 2px solid var(--about-accent);
+  border-radius: 9999px;
+  border: 2px solid var(--geo-military-green, #2d4a3e);
   background: transparent;
-  color: var(--about-muted);
+  color: var(--geo-military-green, #2d4a3e);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -264,13 +265,15 @@
 }
 
 .about-tab:hover {
-  color: var(--about-accent);
+  background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+  border-color: var(--geo-military-green, #2d4a3e);
+  color: var(--geo-military-green, #2d4a3e);
 }
 
 .about-tab.active {
-  background: var(--about-accent);
-  border-color: var(--about-accent);
-  color: #fff;
+  background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+  border-color: var(--geo-military-green, #2d4a3e);
+  color: var(--geo-military-green, #2d4a3e);
 }
 
 .about-panel[hidden],
