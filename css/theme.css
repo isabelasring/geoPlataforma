@@ -64,9 +64,9 @@
   color: #fff;
 }
 
-/* Página Nosotros (about) */
-[data-theme="dark"] .about-bg {
-  background: #0f1419;
+/* Página Nosotros (about): en dark se mantiene la foto con overlay más oscuro */
+[data-theme="dark"] .about-bg::after {
+  background: rgba(0, 0, 0, 0.65);
 }
 
 [data-theme="dark"] .about-page {
@@ -80,12 +80,20 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme="dark"] .about-subtitle {
+[data-theme="dark"] .about-hero-pattern {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(6, 95, 70, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+    linear-gradient(180deg, transparent 0%, rgba(15, 20, 25, 0.4) 100%);
+}
+[data-theme="dark"] .about-hero-pattern::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+[data-theme="dark"] .about-hero-title {
   color: #fff;
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.3),
-    0 2px 8px rgba(0, 0, 0, 0.4),
-    0 4px 16px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .about-tab {
@@ -94,13 +102,15 @@
 }
 
 [data-theme="dark"] .about-tab:hover {
-  color: var(--about-accent-light);
+  background: rgba(6, 95, 70, 0.35);
+  border-color: var(--about-accent-light);
+  color: #fff;
 }
 
 [data-theme="dark"] .about-tab.active,
 [data-theme="dark"] .about-equipo-trigger[aria-expanded="true"] {
-  background: var(--about-accent);
-  border-color: var(--about-accent);
+  background: rgba(6, 95, 70, 0.35);
+  border-color: var(--about-accent-light);
   color: #fff;
 }
 
@@ -153,12 +163,22 @@
 }
 
 [data-theme="dark"] .about-clientes-title,
-[data-theme="dark"] .about-clientes-card-name {
+[data-theme="dark"] .about-clientes-name {
   color: rgba(255, 255, 255, 0.95);
 }
 
-[data-theme="dark"] .about-clientes-card-status {
+[data-theme="dark"] .about-clientes-status {
   color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .about-clientes-item {
+  background: rgba(25, 32, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .about-video-wrap {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Página Nosotros: navbar blanco → en dark sigue oscuro (ya aplicado arriba) */

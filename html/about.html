@@ -48,9 +48,14 @@
 
     <main class="about-page">
         <div class="about-bg" aria-hidden="true"></div>
+        <!-- Hero: título SOBRE NOSOTROS + fondo con patrón -->
+        <header class="about-hero" aria-label="Sobre nosotros">
+            <div class="about-hero-pattern" aria-hidden="true"></div>
+            <h1 class="about-hero-title">Sobre nosotros</h1>
+        </header>
 
         <div class="about-layout">
-            <!-- Reconocimientos: tarjetas verticales con icono, título, descripción y Leer más -->
+            <!-- Columna izquierda: 3 tarjetas (Proyectos, Metodologías, Certificaciones) -->
             <aside class="about-sidebar-recon" aria-label="Reconocimientos">
                 <div class="about-recon-cards">
                     <article class="about-recon-card about-recon-card-green">
@@ -58,50 +63,28 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L22 8v8l-10 6L2 16V8l10-6z"/></svg>
                         </span>
                         <h4 class="about-recon-card-title">Proyectos destacados</h4>
-                        <p class="about-recon-card-desc">Hemos participado en proyectos de planificación urbana, análisis ambiental e infraestructura en Colombia y la región.</p>
+                        <p class="about-recon-card-desc">Participación en planificación urbana, análisis ambiental e infraestructura.</p>
                     </article>
                     <article class="about-recon-card about-recon-card-purple">
                         <span class="about-recon-card-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
                         </span>
                         <h4 class="about-recon-card-title">Metodologías reconocidas</h4>
-                        <p class="about-recon-card-desc">Nuestro trabajo se sustenta en estándares internacionales y buenas prácticas en el ámbito geoespacial.</p>
+                        <p class="about-recon-card-desc">Mejores prácticas en análisis geoespacial.</p>
                     </article>
                     <article class="about-recon-card about-recon-card-orange">
                         <span class="about-recon-card-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
                         </span>
                         <h4 class="about-recon-card-title">Certificaciones</h4>
-                        <p class="about-recon-card-desc">Equipo con formación y certificaciones en GIS, análisis espacial y gestión de datos territoriales.</p>
-                    </article>
-                    <article class="about-recon-card about-recon-card-green">
-                        <span class="about-recon-card-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13.5 13.5 0 0 1 4 9 13.5 13.5 0 0 1-4 9 13.5 13.5 0 0 1-4-9 13.5 13.5 0 0 1 4-9z"/></svg>
-                        </span>
-                        <h4 class="about-recon-card-title">Prototipos y pilotos</h4>
-                        <p class="about-recon-card-desc">Desarrollamos prototipos funcionales e interactivos para visualizar soluciones antes del despliegue.</p>
-                    </article>
-                    <article class="about-recon-card about-recon-card-purple">
-                        <span class="about-recon-card-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="4"/></svg>
-                        </span>
-                        <h4 class="about-recon-card-title">Diseño de soluciones</h4>
-                        <p class="about-recon-card-desc">Diseño de interfaces y experiencias para portales geoespaciales y dashboards de análisis territorial.</p>
-                    </article>
-                    <article class="about-recon-card about-recon-card-orange">
-                        <span class="about-recon-card-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                        </span>
-                        <h4 class="about-recon-card-title">Alianzas estratégicas</h4>
-                        <p class="about-recon-card-desc">Colaboración con entidades públicas, academia y sector privado para proyectos de impacto.</p>
+                        <p class="about-recon-card-desc">Expertos en GIS y gestión territorial.</p>
                     </article>
                 </div>
             </aside>
 
-            <!-- Centro: azul = Quiénes somos + tabs + contenido; debajo carrusel equipo -->
+            <!-- Centro: tabs + contenido + video -->
             <div class="about-center">
-                <div class="about-card about-main-card" aria-label="Quiénes somos">
-                    <h1 class="about-subtitle">Sobre nosotros</h1>
+                <div class="about-card about-main-card" aria-label="Contenido principal">
                     <div class="about-tabs" role="tablist" aria-label="Secciones">
                         <button class="about-tab active" type="button" data-tab="quienes-somos" role="tab" aria-selected="true">Quiénes somos</button>
                         <button class="about-tab" type="button" data-tab="mision" role="tab" aria-selected="false">Misión</button>
@@ -111,10 +94,12 @@
                     <section class="about-panel" id="about-panel" aria-live="polite">
                         <h2 class="about-panel-title" id="about-panel-title">Quiénes somos</h2>
                         <div class="about-panel-body" id="about-panel-body">
-                            <p>Aplicamos tecnologías avanzadas basadas en inteligencia artificial y análisis espacial para realizar análisis predictivo, brindando a los negocios una ventaja competitiva distintiva. En GeoPlataforma, nos apasiona desbloquear el potencial de los datos geoespaciales para impulsar tu éxito empresarial. Con una combinación de tecnología avanzada y análisis profundo, convertimos datos en decisiones. Nuestro compromiso constante con la innovación y la excelencia en el servicio al cliente es cómo marcamos la diferencia.</p>
+                            <p>Aplicamos tecnologías avanzadas basadas en inteligencia artificial y análisis espacial para realizar análisis predictivo, brindando a los negocios una ventaja competitiva distintiva.</p>
+                            <p>En GeoPlataforma, nos apasiona desbloquear el potencial de los datos geoespaciales para impulsar tu éxito empresarial. Con una combinación de tecnología avanzada y análisis profundo, convertimos datos en decisiones.</p>
+                            <p>Nuestro compromiso constante con la innovación y la excelencia en el servicio al cliente es cómo marcamos la diferencia.</p>
                         </div>
                     </section>
-                    <!-- Video debajo de la descripción (sobre Nosotros) -->
+                    <!-- Video con borde azul y esquinas redondeadas -->
                     <div class="about-video-wrap">
                         <video class="about-video" controls playsinline preload="metadata" poster="../img%3Avideo/sobreNosotros/GTR00517.JPG">
                             <source src="../img%3Avideo/sobreNosotros/video.mp4" type="video/mp4">
@@ -233,64 +218,70 @@
 
             <!-- Columna derecha: Valores + Clientes -->
             <div class="about-sidebar-right">
-                <!-- Valores: tarjetas horizontales apiladas -->
+                <!-- Valores: 3 tarjetas ovales (Innovación, Rigor Técnico, Compromiso Territorial) -->
                 <aside class="about-sidebar-valores" aria-label="Valores">
                     <div class="about-valores-cards">
-                        <article class="about-valores-card">
+                        <article class="about-valores-card about-valores-card-innovation">
                             <span class="about-valores-card-circle" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M12 2v4"/><path d="M4.93 4.93l1.41 1.41"/><circle cx="12" cy="12" r="4"/></svg>
                             </span>
                             <div class="about-valores-card-text">
                                 <strong class="about-valores-card-title">Innovación</strong>
-                                <span class="about-valores-card-sub">Soluciones geoespaciales con impacto real</span>
+                                <span class="about-valores-card-sub">Soluciones geoespaciales.</span>
                             </div>
                         </article>
-                        <article class="about-valores-card">
+                        <article class="about-valores-card about-valores-card-rigor">
                             <span class="about-valores-card-circle" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/></svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/><path d="M4.93 19.07l1.41-1.41"/><path d="M19.07 19.07l-1.41-1.41"/></svg>
                             </span>
                             <div class="about-valores-card-text">
                                 <strong class="about-valores-card-title">Rigor técnico</strong>
-                                <span class="about-valores-card-sub">Estándares internacionales y buenas prácticas</span>
+                                <span class="about-valores-card-sub">Estándares internacionales.</span>
                             </div>
                         </article>
-                        <article class="about-valores-card">
+                        <article class="about-valores-card about-valores-card-territorio">
                             <span class="about-valores-card-circle" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             </span>
                             <div class="about-valores-card-text">
                                 <strong class="about-valores-card-title">Compromiso territorial</strong>
-                                <span class="about-valores-card-sub">Datos, ciencia y experiencia local</span>
+                                <span class="about-valores-card-sub">Datos y territorio.</span>
                             </div>
                         </article>
                     </div>
                 </aside>
 
-                <!-- Clientes: título con búsqueda y +, lista con miniatura + nombre + estado (punto verde) -->
+                <!-- Clientes: 3 tarjetas (Sector Público, Sector Privado, Academia y Cooperación) -->
                 <section class="about-sidebar-clientes" aria-label="Clientes">
                     <header class="about-clientes-header">
                         <h3 class="about-clientes-title">Clientes</h3>
                     </header>
                     <ul class="about-clientes-list">
                         <li class="about-clientes-item">
-                            <div class="about-clientes-thumb" style="background-image: url('../img%3Avideo/sobreNosotros/GTR00517.JPG');" aria-hidden="true"></div>
+                            <span class="about-clientes-icon about-clientes-icon-publico" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M12 11v4"/><path d="M9 15h6"/></svg>
+                            </span>
                             <div class="about-clientes-info">
                                 <strong class="about-clientes-name">Sector público</strong>
-                                <span class="about-clientes-status"><span class="about-clientes-dot"></span> Entidades con proyectos activos</span>
+                                <span class="about-clientes-status">Entidades activas.</span>
                             </div>
                         </li>
                         <li class="about-clientes-item">
-                            <div class="about-clientes-thumb" style="background-image: url('../img%3Avideo/home/ciudades/cards/DSC00439.JPG');" aria-hidden="true"></div>
+                            <span class="about-clientes-icon about-clientes-icon-privado" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M12 12v4"/><path d="M10 16h4"/></svg>
+                            </span>
                             <div class="about-clientes-info">
                                 <strong class="about-clientes-name">Sector privado</strong>
-                                <span class="about-clientes-status"><span class="about-clientes-dot"></span> Empresas e industria</span>
+                                <span class="about-clientes-status">Empresas e industria.</span>
                             </div>
                         </li>
                         <li class="about-clientes-item">
-                            <div class="about-clientes-thumb" style="background-image: url('../img%3Avideo/home/industria/cards/IMG_3322.jpeg');" aria-hidden="true"></div>
+                            <span class="about-clientes-icon about-clientes-icon-academia" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M15 12l-3-2-3 2"/><path d="M12 10v6"/></svg>
+                            </span>
                             <div class="about-clientes-info">
                                 <strong class="about-clientes-name">Academia y cooperación</strong>
-                                <span class="about-clientes-status"><span class="about-clientes-dot"></span> Alianzas activas</span>
+                                <span class="about-clientes-status">Alianzas activas.</span>
                             </div>
                         </li>
                     </ul>
@@ -321,7 +312,7 @@
             var content = {
                 'quienes-somos': {
                     title: 'Quiénes somos',
-                    body: '<p>Aplicamos tecnologías avanzadas basadas en inteligencia artificial y análisis espacial para realizar análisis predictivo, brindando a los negocios una ventaja competitiva distintiva. En GeoPlataforma, nos apasiona desbloquear el potencial de los datos geoespaciales para impulsar tu éxito empresarial. Con una combinación de tecnología avanzada y análisis profundo, convertimos datos en decisiones. Nuestro compromiso constante con la innovación y la excelencia en el servicio al cliente es cómo marcamos la diferencia.</p>'
+                    body: '<p>Aplicamos tecnologías avanzadas basadas en inteligencia artificial y análisis espacial para realizar análisis predictivo, brindando a los negocios una ventaja competitiva distintiva.</p><p>En GeoPlataforma, nos apasiona desbloquear el potencial de los datos geoespaciales para impulsar tu éxito empresarial. Con una combinación de tecnología avanzada y análisis profundo, convertimos datos en decisiones.</p><p>Nuestro compromiso constante con la innovación y la excelencia en el servicio al cliente es cómo marcamos la diferencia.</p>'
                 },
                 mision: {
                     title: 'Misión',
@@ -344,18 +335,43 @@
             function showPanel(key) {
                 var c = content[key];
                 if (!c) return;
-                if (panel) { panel.hidden = false; panel.removeAttribute('aria-hidden'); }
-                if (panelTitle) panelTitle.textContent = c.title;
-                if (panelBody) panelBody.innerHTML = c.body;
+                if (panel) {
+                    panel.hidden = false;
+                    panel.removeAttribute('aria-hidden');
+                    panel.style.opacity = '1';
+                }
+                if (panelBody && panelTitle) {
+                    panelBody.style.opacity = '0';
+                    panelBody.style.transition = 'opacity 0.25s ease';
+                    setTimeout(function() {
+                        panelTitle.textContent = c.title;
+                        panelBody.innerHTML = c.body;
+                        panelBody.style.opacity = '1';
+                    }, 180);
+                }
                 if (videoWrap) videoWrap.hidden = key !== 'quienes-somos';
                 if (gridWrap) { gridWrap.setAttribute('hidden', ''); gridWrap.setAttribute('aria-hidden', 'true'); }
                 if (equipoBtn) { equipoBtn.classList.remove('active'); equipoBtn.setAttribute('aria-expanded', 'false'); }
             }
 
             function showEquipo() {
-                if (panel) { panel.hidden = true; panel.setAttribute('aria-hidden', 'true'); }
+                if (panel) {
+                    panel.style.opacity = '0';
+                    panel.style.transition = 'opacity 0.25s ease';
+                    setTimeout(function() {
+                        panel.hidden = true;
+                        panel.setAttribute('aria-hidden', 'true');
+                        panel.style.opacity = '1';
+                    }, 200);
+                }
                 if (videoWrap) videoWrap.hidden = true;
-                if (gridWrap) { gridWrap.removeAttribute('hidden'); gridWrap.setAttribute('aria-hidden', 'false'); }
+                if (gridWrap) {
+                    gridWrap.removeAttribute('hidden');
+                    gridWrap.setAttribute('aria-hidden', 'false');
+                    gridWrap.style.opacity = '0';
+                    gridWrap.style.transition = 'opacity 0.3s ease';
+                    requestAnimationFrame(function() { gridWrap.style.opacity = '1'; });
+                }
                 if (equipoBtn) { equipoBtn.classList.add('active'); equipoBtn.setAttribute('aria-expanded', 'true'); }
             }
 
