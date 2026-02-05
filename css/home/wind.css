@@ -121,7 +121,7 @@
     background: rgba(20, 35, 28, 0.45);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 0;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-left: none;
     box-sizing: border-box;
@@ -241,7 +241,7 @@
     position: relative;
     flex: 0 0 220px;
     min-width: 220px;
-    border-radius: 0;
+    border-radius: 12px;
     overflow: hidden;
     min-height: 420px;
     cursor: pointer;
