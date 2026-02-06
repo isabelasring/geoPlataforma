@@ -49,29 +49,30 @@
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0 0 3rem;
-  padding-top: 70px;
+  /* Espacio para navbar fixed (logo alto + padding + top) */
+  padding-top: 132px;
   color: var(--about-ink);
 }
 
-/* Fondo: foto sobreNosotros con blur */
+/* Fondo: imagen aérea ciudad/valle con blur (igual que en Proyectos) */
 .about-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url('../img:video/sobreNosotros/DJI_20250929160710_0054_D_GTR.JPG');
+  background-image: url('../img:video/sobreNosotros/DJI_20250412151539_0054_D.JPG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(14px);
-  -webkit-filter: blur(14px);
-  transform: scale(1.06);
+  filter: blur(18px);
+  -webkit-filter: blur(18px);
+  transform: scale(1.08);
 }
 .about-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
 
@@ -115,14 +116,14 @@
   align-items: start;
 }
 
-/* Tarjetas: misma transparencia que el navbar (oscuro, blur, borde sutil) */
+/* Tarjetas: blur y tonalidad como Proyectos (glass, sin borde verde, sombreado) */
 .about-card {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
-  border: 1px solid rgba(6, 95, 70, 0.6);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 /* Título pequeño de sección (Reconocimientos / Valores) */
@@ -153,7 +154,7 @@
   min-height: 0;
   flex: 1 1 auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(6, 95, 70, 0.5) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
   padding-right: 0.25rem;
 }
 
@@ -166,18 +167,18 @@
 }
 
 .about-recon-cards::-webkit-scrollbar-thumb {
-  background: rgba(6, 95, 70, 0.5);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 3px;
 }
 
 .about-recon-card {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 12px;
-  border: 1px solid rgba(6, 95, 70, 0.6);
+  border: none;
   padding: 1.25rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -185,7 +186,7 @@
 }
 .about-recon-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
 }
 
 .about-recon-card-icon {
@@ -287,12 +288,12 @@
 }
 
 .about-main-card {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
-  border: 1px solid rgba(6, 95, 70, 0.6);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   padding: 1.75rem 2rem;
 }
 
@@ -303,30 +304,32 @@
   margin-bottom: 1.5rem;
 }
 
-/* Tabs sobre fondo oscuro: borde verde, texto claro */
+/* Tabs: mismo estilo glass, sin borde verde, sombreado */
 .about-tab {
   padding: 0.55rem 1.25rem;
   border-radius: 9999px;
-  border: 2px solid rgba(6, 95, 70, 0.7);
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
   transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 .about-tab:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(6, 95, 70, 0.9);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 .about-tab.active {
-  background: rgba(6, 95, 70, 0.4);
-  border-color: rgba(6, 95, 70, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
   color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .about-panel[hidden],
@@ -364,21 +367,20 @@
   margin-bottom: 0;
 }
 
-/* Video: misma transparencia que navbar */
+/* Video: blur y tonalidad como Proyectos, sombreado */
 .about-video-wrap {
   margin-top: 1.5rem;
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(6, 95, 70, 0.6);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.25s ease;
 }
 .about-video-wrap:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
 }
 
 .about-video {
@@ -387,11 +389,12 @@
   max-height: 360px;
 }
 
-/* Botón Equipo: activo = relleno verde sobre fondo oscuro */
+/* Botón Equipo activo: mismo estilo que tab activo (glass + sombra) */
 .about-equipo-trigger[aria-expanded="true"] {
-  background: rgba(6, 95, 70, 0.4);
-  border-color: rgba(6, 95, 70, 0.9);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
   color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* Grid 6 cards (2 por fila): foto, descripción, LinkedIn */
@@ -476,7 +479,7 @@
 .about-equipo-card-hover {
   position: absolute;
   inset: 0;
-  background: rgba(6, 95, 70, 0.88);
+  background: rgba(0, 0, 0, 0.82);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -565,18 +568,18 @@
   align-items: center;
   gap: 0.85rem;
   padding: 0.9rem 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 9999px;
-  border: 1px solid rgba(6, 95, 70, 0.6);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   min-width: 0;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .about-valores-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
 }
 
 .about-valores-card-circle {
@@ -644,7 +647,7 @@
 }
 
 .about-valores-card-arrow:hover {
-  background: rgba(6, 95, 70, 0.6);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
 }
 
@@ -677,10 +680,11 @@
 .about-clientes-carousel-wrap {
   overflow: hidden;
   border-radius: 12px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(6, 95, 70, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 .about-clientes-logos {
@@ -751,7 +755,7 @@
 }
 
 .about-clientes-icon-btn:hover {
-  background: rgba(6, 95, 70, 0.6);
+  background: rgba(255, 255, 255, 0.25);
   color: #fff;
 }
 
@@ -774,17 +778,17 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.9rem 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .about-clientes-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
 }
 
 .about-clientes-icon {
@@ -878,7 +882,7 @@
 
 @media (max-width: 560px) {
   .about-page {
-    padding-top: 70px;
+    padding-top: 120px;
     padding-bottom: 2rem;
   }
 
