@@ -11,12 +11,12 @@
   --about-glass-dark-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Navbar con la misma transparencia que el inicio: oscuro, blur, borde verde */
+/* Navbar con la misma transparencia que el inicio: oscuro, blur, sin borde */
 .page-about .navbar {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 2px solid rgba(6, 95, 70, 0.7);
+  border: none;
   border-radius: 50px;
   box-shadow: none;
 }

@@ -14,10 +14,12 @@
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* Navbar en modo oscuro (todas las páginas) */
+/* Navbar en modo oscuro: se mantiene con transparencia (blur del fondo visible) */
 [data-theme="dark"] .navbar {
-  background: rgba(15, 20, 25, 0.95);
-  border-color: rgba(6, 95, 70, 0.5);
+  background: rgba(15, 20, 25, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
 }
 
 [data-theme="dark"] .navbar .logo {
@@ -62,6 +64,15 @@
 }
 [data-theme="dark"] .navbar .nav-theme-btn .nav-theme-icon {
   color: #fff;
+}
+
+/* En modo oscuro el navbar scrolled (por sección) también mantiene transparencia */
+[data-theme="dark"] .navbar.scrolled.section-green,
+[data-theme="dark"] .navbar.scrolled.section-image,
+[data-theme="dark"] .navbar.scrolled.section-dark {
+  background: rgba(15, 20, 25, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Página Nosotros (about): en dark se mantiene la foto con overlay más oscuro */
@@ -181,10 +192,12 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Página Nosotros: navbar blanco → en dark sigue oscuro (ya aplicado arriba) */
+/* Página Nosotros: navbar en dark con transparencia */
 [data-theme="dark"] .page-about .navbar {
-  background: rgba(15, 20, 25, 0.95);
-  border-color: rgba(6, 95, 70, 0.5);
+  background: rgba(15, 20, 25, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
 }
 
 [data-theme="dark"] .page-about .navbar .logo,
@@ -201,9 +214,11 @@
   color: #fff;
 }
 
-/* Páginas Servicios (ciudades, industria) */
+/* Páginas Servicios (ciudades, industria): navbar con transparencia en dark */
 [data-theme="dark"] body.page-servicios .navbar.scrolled {
-  background: rgba(15, 20, 25, 0.95);
+  background: rgba(15, 20, 25, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 [data-theme="dark"] body.page-servicios .navbar.scrolled .nav-links a,
@@ -599,13 +614,13 @@
 }
 
 [data-theme="dark"] .geotrends-cta {
-  color: var(--geo-military-green);
+  color: #fff;
   border-color: var(--geo-military-green);
 }
 
 [data-theme="dark"] .geotrends-cta:hover {
   background: var(--geo-military-green-hover-bg);
-  color: rgba(255, 255, 255, 0.95);
+  color: #fff;
 }
 
 /* Sección Wind (Servicios home) – mini cards blancas → oscuro */

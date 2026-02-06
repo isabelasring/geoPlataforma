@@ -33,6 +33,57 @@
     z-index: 1;
 }
 
+/* Animación al cargar/entrar en vista: tags se deslizan, texto izquierda aparece */
+.proyectos-page:not(.proyectos-animated) .proyectos-tag {
+    opacity: 0;
+    transform: translateY(-24px);
+}
+.proyectos-page:not(.proyectos-animated) .proyectos-left .proyectos-title-section {
+    opacity: 0;
+    transform: translateX(-32px);
+}
+
+.proyectos-page.proyectos-animated .proyectos-tag {
+    animation: proyectos-tag-slide 0.7s cubic-bezier(0.34, 1.1, 0.64, 1) forwards;
+}
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(1) { animation-delay: 0.05s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(2) { animation-delay: 0.12s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(3) { animation-delay: 0.19s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(4) { animation-delay: 0.26s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(5) { animation-delay: 0.33s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(6) { animation-delay: 0.4s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(7) { animation-delay: 0.47s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(8) { animation-delay: 0.54s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(9) { animation-delay: 0.61s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(10) { animation-delay: 0.68s; }
+.proyectos-page.proyectos-animated .proyectos-tag:nth-child(11) { animation-delay: 0.75s; }
+
+@keyframes proyectos-tag-slide {
+    from {
+        opacity: 0;
+        transform: translateY(-24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.proyectos-page.proyectos-animated .proyectos-left .proyectos-title-section {
+    animation: proyectos-left-enter 1s cubic-bezier(0.34, 1.1, 0.64, 1) 0.2s forwards;
+}
+
+@keyframes proyectos-left-enter {
+    from {
+        opacity: 0;
+        transform: translateX(-32px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Contenedor principal: layout flex */
 .proyectos-content {
     position: relative;
