@@ -116,18 +116,19 @@
     height: 18px;
 }
 
-/* Panel derecho: video en círculo – más ancho, entrada al hacer scroll */
+/* Panel derecho: imagen/video en cuadrado con bordes – entrada al hacer scroll */
 .geotrends-image-wrapper {
     position: relative;
     width: 100%;
     aspect-ratio: 1;
     max-width: min(100%, 560px);
     margin: 0 auto;
-    border-radius: 50%;
+    border-radius: 16px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid rgba(6, 95, 70, 0.6);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateX(60px) scale(0.75);
@@ -162,11 +163,11 @@
     height: 100%;
     max-width: 100%;
     object-fit: contain;
-    border-radius: 12px;
+    border-radius: 14px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Video en círculo */
+/* Video en cuadrado */
 .geotrends-video {
     position: absolute;
     inset: 0;

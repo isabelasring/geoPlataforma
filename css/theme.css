@@ -309,7 +309,7 @@
 
 [data-theme="dark"] .tech-card {
   background: rgba(25, 32, 40, 0.9);
-  border-color: rgba(6, 95, 70, 0.5);
+  border-color: rgba(255, 255, 255, 0.85);
 }
 
 [data-theme="dark"] .tech-card:hover {
@@ -327,12 +327,12 @@
 
 [data-theme="dark"] .tech-panel {
   background: rgba(18, 24, 30, 0.95);
-  border-color: rgba(6, 95, 70, 0.5);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 [data-theme="dark"] .tech-panel-image-wrap {
   background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(6, 95, 70, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="dark"] .tech-panel-content {
@@ -345,7 +345,7 @@
 }
 
 [data-theme="dark"] .tech-panel-label {
-  color: #0d9488;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 [data-theme="dark"] .tech-panel-close {
