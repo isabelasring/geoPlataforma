@@ -67,6 +67,7 @@
     align-items: center;
     text-align: center;
     gap: 1rem;
+    perspective: 800px;
 }
 
 .impact-icon {
@@ -110,6 +111,61 @@
     line-height: 1.45;
     color: #475569;
     margin: 0;
+}
+
+/* Animación al hacer scroll: números saltan, descripciones giran */
+.impact-section:not(.impact-animated) .impact-value {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+}
+.impact-section:not(.impact-animated) .impact-desc {
+    opacity: 0;
+    transform: rotateY(-25deg);
+    transform-origin: center top;
+}
+
+.impact-section.impact-animated .impact-value {
+    animation: impact-value-jump 1s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+}
+.impact-section.impact-animated .impact-block:nth-child(1) .impact-value { animation-delay: 0.1s; }
+.impact-section.impact-animated .impact-block:nth-child(2) .impact-value { animation-delay: 0.25s; }
+.impact-section.impact-animated .impact-block:nth-child(3) .impact-value { animation-delay: 0.4s; }
+.impact-section.impact-animated .impact-block:nth-child(4) .impact-value { animation-delay: 0.55s; }
+.impact-section.impact-animated .impact-block:nth-child(5) .impact-value { animation-delay: 0.7s; }
+
+@keyframes impact-value-jump {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    65% {
+        opacity: 1;
+        transform: translateY(-8px) scale(1.06);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.impact-section.impact-animated .impact-desc {
+    animation: impact-desc-spin 1.1s cubic-bezier(0.34, 1.15, 0.64, 1) forwards;
+}
+.impact-section.impact-animated .impact-block:nth-child(1) .impact-desc { animation-delay: 0.2s; }
+.impact-section.impact-animated .impact-block:nth-child(2) .impact-desc { animation-delay: 0.35s; }
+.impact-section.impact-animated .impact-block:nth-child(3) .impact-desc { animation-delay: 0.5s; }
+.impact-section.impact-animated .impact-block:nth-child(4) .impact-desc { animation-delay: 0.65s; }
+.impact-section.impact-animated .impact-block:nth-child(5) .impact-desc { animation-delay: 0.8s; }
+
+@keyframes impact-desc-spin {
+    0% {
+        opacity: 0;
+        transform: rotateY(-25deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
 }
 
 @media (max-width: 1000px) {
