@@ -393,6 +393,165 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+[data-theme="dark"] .dashboard-kpi-change-up {
+  color: #4ade80;
+}
+
+[data-theme="dark"] .dashboard-kpi-change-down {
+  color: #f87171;
+}
+
+[data-theme="dark"] .dashboard-mini-donut-legend {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] .dashboard-mini-donut-legend em {
+  color: #fff;
+}
+
+[data-theme="dark"] .dashboard-bar-chart-x {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .dashboard-chart-year {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .dashboard-side-card {
+  background: rgba(25, 32, 40, 0.7);
+  border-color: rgba(6, 95, 70, 0.35);
+}
+
+[data-theme="dark"] .dashboard-side-card-value {
+  color: #fff;
+}
+
+[data-theme="dark"] .dashboard-side-card-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] .dashboard-side-card-sub {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .dashboard-side-card-bubble-up {
+  background: rgba(34, 197, 94, 0.25);
+  color: #4ade80;
+}
+
+[data-theme="dark"] .impact-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .impact-value {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .impact-desc {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="dark"] .insights-hero-card {
+  background: #0d5c55;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .insights-card-subtitle {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="dark"] .insights-trips-name {
+  color: #fff;
+}
+
+[data-theme="dark"] .insights-trips-email {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="dark"] .insights-trips-type {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .insights-trips-header {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .insights-stacked-x {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="dark"] .insights-donut::after {
+  background: #1e293b;
+}
+
+[data-theme="dark"] .insights-donut-center {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .faq-section {
+  background: #0f1419;
+}
+
+[data-theme="dark"] .faq-subtitle {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="dark"] .faq-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .faq-nav-item {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .faq-nav-item:hover {
+  color: #5eead4;
+  background: rgba(15, 118, 110, 0.2);
+}
+
+[data-theme="dark"] .faq-nav-item.active {
+  color: #5eead4;
+  background: rgba(15, 118, 110, 0.25);
+}
+
+[data-theme="dark"] .faq-item {
+  background: rgba(25, 32, 40, 0.8);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .faq-item:hover,
+[data-theme="dark"] .faq-item.faq-item-open {
+  border-color: rgba(6, 95, 70, 0.4);
+}
+
+[data-theme="dark"] .faq-question {
+  color: #fff;
+}
+
+[data-theme="dark"] .faq-question:hover {
+  color: #5eead4;
+}
+
+[data-theme="dark"] .faq-icon {
+  background: rgba(15, 118, 110, 0.25);
+}
+
+[data-theme="dark"] .faq-icon-minus,
+[data-theme="dark"] .faq-icon-plus,
+[data-theme="dark"] .faq-icon-plus::after {
+  background: #5eead4;
+}
+
+[data-theme="dark"] .faq-answer p {
+  color: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .faq-rain-char {
+  color: #4ade80;
+  opacity: 0.35;
+}
+
 /* Hero: fade hacia la sección siguiente en modo oscuro (tono oscuro en lugar de blanco) */
 [data-theme="dark"] .hero-fade-to-white {
   background: linear-gradient(
