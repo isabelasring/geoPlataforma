@@ -99,7 +99,7 @@ html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hov
   width: 60px;
   height: 4px;
   margin: 0 auto 1rem;
-  background: var(--blog-accent-light);
+  background: var(--blog-accent);
   border-radius: 2px;
 }
 

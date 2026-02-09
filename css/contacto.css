@@ -15,10 +15,68 @@
   color: var(--contacto-ink);
 }
 
+/* Modo claro: navbar y header blancos (como en Blog) */
+html:not([data-theme="dark"]) body.page-contacto .navbar,
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled {
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .logo {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .logo-img {
+  filter: none;
+}
+
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-links a,
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-dropdown-toggle {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-dropdown-menu {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-dropdown-menu a {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-dropdown-menu a:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-theme-btn {
+  color: #111;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-theme-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+html:not([data-theme="dark"]) body.page-contacto .contacto-page {
+  background: #ffffff;
+}
+
+html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
+  background: #ffffff;
+}
+
+/* Modo oscuro: header y lo que está arriba del header, misma tonalidad */
+[data-theme="dark"] body.page-contacto .contacto-page,
+[data-theme="dark"] body.page-contacto .contacto-hero {
+  background: #0f1419;
+}
+
 /* Hero */
 .contacto-hero {
   background: var(--contacto-hero-bg);
-  padding: 3rem 2rem 3.5rem;
+  padding: 4.5rem 2rem 3.5rem;
   text-align: center;
 }
 

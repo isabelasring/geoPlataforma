@@ -375,9 +375,21 @@
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Contacto */
+/* Contacto modo oscuro: texto del hero */
 [data-theme="dark"] .contacto-page {
   background: #0f1419;
+}
+
+[data-theme="dark"] .contacto-hero-title {
+  color: #fff;
+}
+
+[data-theme="dark"] .contacto-hero-desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .contacto-hero-underline {
+  background: rgba(255, 255, 255, 0.4);
 }
 
 [data-theme="dark"] .contacto-form-wrap,
