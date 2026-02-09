@@ -128,8 +128,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgba(6, 95, 70, 0.6);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
     opacity: 0;
     transform: translateX(60px) scale(0.75);
     filter: blur(4px);

@@ -29,7 +29,7 @@
     z-index: 2;
 }
 
-/* Transición suave hacia la siguiente sección */
+/* Transición suave hacia la siguiente sección (mismo tono que Proyectos) */
 .wind-section::after {
     content: '';
     position: absolute;
@@ -38,10 +38,10 @@
     right: 0;
     height: 120px;
     background: linear-gradient(to top, 
-        rgba(10, 25, 20, 0.5) 0%,
-        rgba(10, 25, 20, 0.35) 30%,
-        rgba(10, 25, 20, 0.2) 60%,
-        rgba(10, 25, 20, 0.08) 85%,
+        rgba(10, 14, 26, 0.5) 0%,
+        rgba(10, 14, 26, 0.35) 30%,
+        rgba(10, 14, 26, 0.2) 60%,
+        rgba(10, 14, 26, 0.08) 85%,
         transparent 100%);
     pointer-events: none;
     z-index: 2;
@@ -87,12 +87,12 @@
     }
 }
 
-/* Overlay oscuro sobre el video para legibilidad (semi-transparente para que se vea el video) */
+/* Overlay: en light tono Proyectos; en dark se sobrescribe más abajo */
 .wind-section-bg {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(135deg, rgba(10, 25, 20, 0.65) 0%, rgba(15, 35, 28, 0.55) 50%, rgba(10, 25, 20, 0.6) 100%);
+    background: linear-gradient(135deg, rgba(10, 14, 26, 0.85) 0%, rgba(10, 14, 26, 0.6) 50%, rgba(10, 14, 26, 0.4) 100%);
     pointer-events: none;
 }
 
@@ -117,17 +117,19 @@
     min-height: 85vh;
 }
 
+/* Panel izquierdo: en modo light glass claro (Proyectos); en dark se sobrescribe */
 .wind-intro {
     max-width: 580px;
     min-height: 500px;
     padding: 2.5rem 2rem 2.5rem 2rem;
-    background: rgba(20, 35, 28, 0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-left: none;
     box-sizing: border-box;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateX(-120px);
     display: flex;
@@ -254,7 +256,7 @@
     cursor: pointer;
     background: transparent;
     border: none;
-    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: none;
     transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s ease, box-shadow 0.4s ease;
     scroll-snap-align: start;
@@ -295,7 +297,7 @@
     flex: 1 1 85%;
     min-width: 75%;
     max-width: 92%;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .wind-card.hidden {
@@ -471,6 +473,7 @@
     transition: opacity 0.35s ease 0.2s, visibility 0.35s ease 0.2s, transform 0.35s ease 0.2s;
     padding: 0 0.5rem;
     box-sizing: border-box;
+    isolation: isolate;
 }
 
 .wind-card.expanded .wind-project-cards {
@@ -479,6 +482,20 @@
     transform: translateY(0);
 }
 
+/* Fondo muy blur cuando se despliegan las 3 cards: en light glass claro; en dark se sobrescribe */
+.wind-card.expanded .wind-project-cards::before {
+    content: '';
+    position: absolute;
+    inset: -1.5rem;
+    z-index: -1;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+/* Tarjetas de servicio: en light glass claro + sombra blanquecina; en dark se sobrescribe */
 .wind-project-card {
     flex: 1;
     min-width: 0;
@@ -486,21 +503,29 @@
     max-height: 380px;
     display: flex;
     flex-direction: column;
-    background: rgba(20, 35, 28, 0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 14px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 12px 28px rgba(255, 255, 255, 0.06);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     text-decoration: none;
     color: inherit;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
+/* Cuando la card está expandida: blur muy fuerte en cada una de las 3 cards */
+.wind-card.expanded .wind-project-card {
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
 .wind-project-card:hover {
-    background: rgba(20, 35, 28, 0.55);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 18px 36px rgba(255, 255, 255, 0.08);
     transform: translateY(-4px);
 }
 
@@ -528,6 +553,7 @@
     transform: scale(1.05);
 }
 
+/* Cuerpo de la card: mismo contenido glass que .proyecto-card-content en Proyectos */
 .wind-project-card-body {
     flex: 1;
     min-height: 0;
@@ -535,9 +561,16 @@
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
-    background: rgba(15, 28, 22, 0.35);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
+}
+
+/* Blur muy fuerte en el cuerpo de la card cuando está desplegada */
+.wind-card.expanded .wind-project-card-body {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .wind-project-card-title {
@@ -583,19 +616,65 @@
     transform: translateX(2px);
 }
 
-/* Modo oscuro: mismo tono verde-gris, un poco más oscuro */
+/* ========== Modo oscuro: transparencia oscura (sin glass claro ni sombra blanquecina) ========== */
+[data-theme="dark"] .wind-section::after {
+    background: linear-gradient(to top,
+        rgba(6, 10, 18, 0.6) 0%,
+        rgba(6, 10, 18, 0.4) 30%,
+        rgba(6, 10, 18, 0.25) 60%,
+        rgba(6, 10, 18, 0.1) 85%,
+        transparent 100%);
+}
+
+[data-theme="dark"] .wind-section-bg {
+    background: linear-gradient(135deg, rgba(6, 10, 18, 0.92) 0%, rgba(6, 10, 18, 0.78) 50%, rgba(6, 10, 18, 0.65) 100%);
+}
+
+[data-theme="dark"] .wind-intro {
+    background: rgba(15, 22, 32, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: none;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .wind-card {
+    border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .wind-card.expanded {
+    border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .wind-card.expanded .wind-project-cards::before {
+    background: rgba(10, 18, 28, 0.7);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+}
+
 [data-theme="dark"] .wind-project-card {
-    background: rgba(15, 28, 24, 0.5);
-    border-color: rgba(255, 255, 255, 0.06);
+    background: rgba(15, 24, 36, 0.65);
+    border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
 }
 
+[data-theme="dark"] .wind-card.expanded .wind-project-card {
+    background: rgba(18, 28, 42, 0.7);
+}
+
 [data-theme="dark"] .wind-project-card:hover {
-    background: rgba(18, 32, 28, 0.6);
+    background: rgba(20, 32, 48, 0.75);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] .wind-project-card-body {
-    background: rgba(10, 22, 18, 0.4);
+    background: rgba(10, 18, 28, 0.5);
+}
+
+[data-theme="dark"] .wind-card.expanded .wind-project-card-body {
+    background: rgba(12, 20, 32, 0.6);
 }
 
 [data-theme="dark"] .wind-project-card-title {
@@ -603,7 +682,7 @@
 }
 
 [data-theme="dark"] .wind-project-card-desc {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 900px) {
