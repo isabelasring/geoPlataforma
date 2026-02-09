@@ -270,24 +270,109 @@
   color: #fff;
 }
 
-/* Blog */
+/* Blog: modo oscuro — fondo, cards y navbar coherentes */
 [data-theme="dark"] .blog-page {
+  background: #0f1419;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .blog-bg {
   background: #0f1419;
 }
 
-[data-theme="dark"] .blog-hero-title,
+[data-theme="dark"] .blog-title,
 [data-theme="dark"] .blog-card-title {
   color: #fff;
 }
 
+[data-theme="dark"] .blog-desc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .blog-search-form {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .blog-search-input {
+  color: #fff;
+}
+
+[data-theme="dark"] .blog-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .blog-search-btn {
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+[data-theme="dark"] .blog-search-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 [data-theme="dark"] .blog-card {
   background: rgba(25, 32, 40, 0.9);
-  border-color: rgba(255, 255, 255, 0.06);
+  border: none;
+}
+
+[data-theme="dark"] .blog-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .blog-card-body,
-[data-theme="dark"] .blog-card-excerpt {
+[data-theme="dark"] .blog-card-intro {
   color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .blog-card-link {
+  color: #166534;
+}
+
+[data-theme="dark"] .blog-card-link:hover {
+  color: #15803d;
+}
+
+[data-theme="dark"] .blog-card-link-icon {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .blog-card-link:hover .blog-card-link-icon {
+  background: rgba(22, 101, 52, 0.5);
+  border-color: rgba(22, 101, 52, 0.6);
+  color: #fff;
+}
+
+/* Navbar oscuro en Blog cuando está en modo oscuro */
+[data-theme="dark"] body.page-blog .navbar,
+[data-theme="dark"] body.page-blog .navbar.scrolled {
+  background: rgba(15, 20, 25, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] body.page-blog .navbar .logo,
+[data-theme="dark"] body.page-blog .navbar .nav-links a,
+[data-theme="dark"] body.page-blog .navbar .nav-dropdown-toggle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] body.page-blog .navbar .nav-dropdown-menu {
+  background: rgba(20, 26, 32, 0.98);
+}
+
+[data-theme="dark"] body.page-blog .navbar .nav-dropdown-menu a {
+  color: #fff;
+}
+
+[data-theme="dark"] body.page-blog .navbar .nav-theme-btn {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] body.page-blog .navbar .nav-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* Contacto */

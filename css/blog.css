@@ -7,6 +7,7 @@
   --blog-accent-light: #0d9488;
 }
 
+/* Modo claro: fondo y cards blancos; navbar blanco (como en Servicios) */
 .blog-page {
   position: relative;
   min-height: 100vh;
@@ -22,6 +23,50 @@
   z-index: 0;
   pointer-events: none;
   background: #ffffff;
+}
+
+/* Navbar blanco en modo claro solo en Blog */
+html:not([data-theme="dark"]) body.page-blog .navbar,
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled {
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .logo {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .logo-img {
+  filter: none;
+}
+
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-links a,
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-dropdown-toggle {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-dropdown-menu {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-dropdown-menu a {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-dropdown-menu a:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn {
+  color: #111;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .blog-section {
@@ -124,18 +169,17 @@
 }
 
 .blog-card {
-  background: #fff;
-  border: 1px solid var(--blog-border);
+  background: #ffffff;
+  border: none;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .blog-card:hover {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  border-color: rgba(6, 95, 70, 0.25);
 }
 
 .blog-card-img {
