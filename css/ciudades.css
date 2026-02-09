@@ -585,3 +585,29 @@ body.page-servicios .navbar.scrolled .nav-theme-btn {
 body.page-servicios .navbar.scrolled .nav-theme-btn:hover {
     background: rgba(0, 0, 0, 0.12);
 }
+
+/* Solo paneles: no hay cards, solo un panel visible; el título vertical (Ciudades/Industria) siempre se ve */
+.section-content .section-card {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    flex: none;
+    min-width: 100%;
+    border: none;
+}
+
+.section-content .section-card.active-panel {
+    display: flex;
+    z-index: 1;
+    animation: none;
+    opacity: 1;
+    transform: none;
+}
+
+.section-content .section-card.active-panel .section-card-expanded {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
