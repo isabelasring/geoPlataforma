@@ -1,19 +1,99 @@
-/* Vista sección Ciudades (Servicios): 5 paneles pegados, label vertical, transparencias */
+/* Vista sección Ciudades/Industria: columna = barra óvalos debajo del navbar + cuerpo (label + contenido) */
 .section-view {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     min-height: 100vh;
-    padding-top: 0;
+    padding-top: 140px; /* espacio para navbar fijo: óvalos más abajo */
     background: #1a1d24;
     gap: 0;
 }
 
-/* Label vertical "CIUDADES" a la izquierda - fondo blanco con texto verde oscuro */
+/* Modo claro en Servicios: toda la zona subrayada (óvalos + contenido) con fondo blanco */
+html:not([data-theme="dark"]) body.page-servicios .section-view {
+    background: #ffffff;
+}
+html:not([data-theme="dark"]) body.page-servicios .section-content {
+    background: #ffffff;
+}
+
+/* Sección superior: óvalos de servicios (estilo Proyectos). Modo claro = fondo blanco */
+.section-services-top {
+    flex: 0 0 auto;
+    padding: 1rem 2rem 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    z-index: 5;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.section-services-top .section-service-pill {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0f172a;
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+
+.section-services-top .section-service-pill:hover {
+    color: #0f172a;
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.section-services-top .section-service-pill.active {
+    color: #fff;
+    background: var(--geo-military-green, #2d4a3e);
+    border-color: rgba(45, 74, 62, 0.8);
+    box-shadow: 0 2px 12px rgba(45, 74, 62, 0.3);
+}
+
+[data-theme="dark"] .section-services-top {
+    background: transparent;
+    border-bottom-color: transparent;
+}
+
+[data-theme="dark"] .section-services-top .section-service-pill {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+[data-theme="dark"] .section-services-top .section-service-pill:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="dark"] .section-services-top .section-service-pill.active {
+    background: rgba(167, 243, 208, 0.3);
+    border-color: rgba(167, 243, 208, 0.5);
+    box-shadow: 0 4px 16px rgba(167, 243, 208, 0.25);
+}
+
+/* Cuerpo: label vertical + contenido */
+.section-view-body {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* Label vertical "CIUDADES" / "INDUSTRIA" a la izquierda - fondo blanco con texto verde oscuro */
 .section-label {
     flex-shrink: 0;
     width: 100px;
-    height: 100vh;
-    min-height: 100vh;
+    height: 100%;
+    min-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,7 +130,7 @@
     position: relative;
     flex: 1;
     min-height: 0;
-    height: 100vh;
+    height: 100%;
     padding: 0;
     margin: 0;
     display: flex;
@@ -207,12 +287,12 @@
     transition: opacity 0.35s ease 0.4s, visibility 0.35s ease 0.4s;
 }
 
-/* Overlay en modo claro: izquierda transparente sobre carrusel, derecha blanco sin sombra oscura (modo oscuro en theme.css) */
+/* Overlay en modo claro: izquierda transparente sobre carrusel, derecha blanco sin sombra (modo oscuro en theme.css) */
 .section-card-expanded::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent 0%, transparent 35%, #ffffff 42%, #ffffff 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 30%, #ffffff 38%, #ffffff 100%);
     z-index: 0;
     pointer-events: none;
 }
@@ -285,7 +365,7 @@
     z-index: 1;
 }
 
-/* Flechas carrusel: modo claro = blanco (en modo oscuro se sobrescribe en theme.css) */
+/* Flechas carrusel: modo claro = blanco, sin sombra (en modo oscuro se sobrescribe en theme.css) */
 .section-card-carousel-prev,
 .section-card-carousel-next {
     flex-shrink: 0;
@@ -300,7 +380,7 @@
     align-items: center;
     justify-content: center;
     transition: background 0.2s, border-color 0.2s;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: none;
 }
 
 .section-card-carousel-prev:hover,
@@ -364,7 +444,7 @@
     min-height: 100%;
     max-height: 100vh;
     margin: 0;
-    padding: 2.5rem 2rem 3rem;
+    padding: 2.5rem 2rem 4.5rem;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     background: #ffffff;
@@ -379,7 +459,8 @@
     box-shadow: none;
 }
 
-.section-card.expanded .section-card-desc {
+.section-card.expanded .section-card-desc,
+.section-content .section-card.active-panel .section-card-desc {
     opacity: 1;
     transform: translateX(0);
 }
@@ -522,7 +603,8 @@
     }
 }
 
-/* Navbar blanco con texto negro solo en la sección Servicios (Ciudades / Industria) */
+/* Navbar blanco en modo claro solo en Servicios (Ciudades / Industria). Modo oscuro: theme.css [data-theme="dark"] */
+body.page-servicios .navbar,
 body.page-servicios .navbar.scrolled {
     background: #ffffff;
     backdrop-filter: none;
@@ -592,24 +674,9 @@ body.page-servicios .navbar.scrolled .nav-theme-btn:hover {
     pointer-events: auto;
 }
 
-/* Barra inferior del panel: mismo color que el lado derecho, óvalos de servicios (estilo proyectos) */
+/* Barra inferior (legacy): oculta; los óvalos están en .section-services-top */
 .section-services-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
-    min-height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0 1.25rem;
-    background: #ffffff;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    z-index: 6;
-    flex-wrap: wrap;
-    box-sizing: border-box;
+    display: none;
 }
 
 .section-service-pill {
