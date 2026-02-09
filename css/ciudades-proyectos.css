@@ -95,6 +95,17 @@
     align-items: center;
 }
 
+/* Flecha "siguiente servicio" arriba a la derecha, separada del carrusel */
+.proyectos-service-nav-top {
+    position: absolute;
+    top: 1.5rem;
+    right: 4rem;
+    z-index: 3;
+}
+.proyectos-service-nav-top .proyectos-service-next {
+    margin-left: 0;
+}
+
 /* Sección izquierda: título y descripción */
 .proyectos-left {
     flex: 0 0 40%;
@@ -104,7 +115,8 @@
     gap: 2rem;
 }
 
-.proyectos-back {
+/* Navegación entre servicios (Ciudades / Industria / Infraestructura), NO carrusel */
+.proyectos-service-nav {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -115,14 +127,44 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     color: #fff;
+    text-decoration: none;
     transition: all 0.3s ease;
-    margin-bottom: 1rem;
+    flex-shrink: 0;
 }
 
-.proyectos-back:hover {
+.proyectos-left .proyectos-service-nav {
+    margin-bottom: 0;
+}
+.proyectos-left > .proyectos-service-nav {
+    margin-bottom: 1rem;
+}
+.proyectos-service-nav-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+.proyectos-service-nav-row .proyectos-service-next {
+    margin-left: 0;
+}
+.proyectos-left .proyectos-service-next {
+    margin-left: 0;
+}
+.proyectos-service-prev:hover {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.4);
     transform: translateX(-4px);
+    color: #fff;
+}
+
+.proyectos-service-next {
+    margin-left: 0.5rem;
+}
+.proyectos-service-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateX(4px);
+    color: #fff;
 }
 
 .proyectos-title-section {
@@ -674,6 +716,11 @@ body.proyecto-panel-open .navbar {
         padding: 1.25rem 2rem;
     }
 
+    .proyectos-service-nav-top {
+        top: 1rem;
+        right: 2rem;
+    }
+
     .proyectos-content {
         flex-direction: column;
         padding: 300px 2rem 3rem;
@@ -724,6 +771,11 @@ body.proyecto-panel-open .navbar {
         top: 70px;
         padding: 1rem 1.5rem;
         gap: 1rem;
+    }
+
+    .proyectos-service-nav-top {
+        top: 0.75rem;
+        right: 1.5rem;
     }
 
     .proyectos-content {
