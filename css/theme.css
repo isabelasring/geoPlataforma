@@ -125,6 +125,52 @@ html:not([data-theme="dark"]) .navbar .nav-services-panel a:hover {
   background: rgba(0, 0, 0, 0.06);
 }
 
+/* Menú móvil (hamburguesa): fondo y texto en modo claro para que se lea */
+html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-links {
+  background: #ffffff;
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-links > li {
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-links a,
+html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-dropdown-toggle {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-dropdown-menu {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-dropdown-menu a {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel .nav-panel-label {
+  color: rgba(0, 0, 0, 0.6);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel {
+  background: rgba(0, 0, 0, 0.04);
+  border-left-color: rgba(0, 0, 0, 0.15);
+}
+
+html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
+  color: #111;
+}
+
+[data-theme="dark"] .navbar.nav-mobile-open .nav-links {
+  background: rgba(20, 26, 32, 0.98);
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .navbar.nav-mobile-open .nav-links > li {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
 /* Toggle tema: en modo oscuro el solecito se ve blanco para poder dar click */
 [data-theme="dark"] .navbar .nav-theme-btn,
 [data-theme="dark"] .page-about .navbar .nav-theme-btn,

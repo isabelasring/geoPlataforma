@@ -14,7 +14,7 @@
             <a href="index.html" class="logo">
                 <img src="../img%3Avideo/isologo-01.png" alt="GeoPlataforma" class="logo-img">
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li class="nav-dropdown nav-dropdown-servicios">
                     <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios</button>
@@ -62,10 +62,17 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
-            <div class="nav-theme-wrap">
-                <button type="button" class="nav-theme-btn" id="theme-toggle" aria-label="Usar modo oscuro" title="Modo oscuro">
-                    <span class="nav-theme-icon nav-theme-icon-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span>
-                    <span class="nav-theme-icon nav-theme-icon-moon" aria-hidden="true" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+            <div class="nav-actions">
+                <div class="nav-theme-wrap">
+                    <button type="button" class="nav-theme-btn" id="theme-toggle" aria-label="Usar modo oscuro" title="Modo oscuro">
+                        <span class="nav-theme-icon nav-theme-icon-sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span>
+                        <span class="nav-theme-icon nav-theme-icon-moon" aria-hidden="true" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+                    </button>
+                </div>
+                <button type="button" class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+                    <span class="nav-hamburger-bar"></span>
+                    <span class="nav-hamburger-bar"></span>
+                    <span class="nav-hamburger-bar"></span>
                 </button>
             </div>
         </div>
@@ -696,6 +703,58 @@
                 document.querySelectorAll('.nav-dropdown-toggle').forEach(function(b) { b.setAttribute('aria-expanded', 'false'); });
             }
         });
+
+        // Menú hamburguesa (móvil): abrir/cerrar y desplegables hacia abajo
+        (function() {
+            var navbar = document.getElementById('navbar');
+            var hamburger = document.getElementById('nav-hamburger');
+            var navLinks = document.getElementById('nav-links');
+            if (!navbar || !hamburger) return;
+
+            function isMobile() { return window.innerWidth <= 992; }
+
+            function closeMobileMenu() {
+                navbar.classList.remove('nav-mobile-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Abrir menú');
+                document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
+                document.querySelectorAll('.nav-dropdown-item-with-panel').forEach(function(d) { d.classList.remove('sub-open'); });
+            }
+
+            hamburger.addEventListener('click', function() {
+                if (!isMobile()) return;
+                var isOpen = navbar.classList.contains('nav-mobile-open');
+                if (isOpen) {
+                    closeMobileMenu();
+                } else {
+                    navbar.classList.add('nav-mobile-open');
+                    hamburger.setAttribute('aria-expanded', 'true');
+                    hamburger.setAttribute('aria-label', 'Cerrar menú');
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!isMobile()) return;
+                var itemWithPanel = e.target.closest('.nav-dropdown-item-with-panel');
+                var link = e.target.closest('a');
+                if (link && itemWithPanel && !e.target.closest('.nav-services-panel')) {
+                    e.preventDefault();
+                    itemWithPanel.classList.toggle('sub-open');
+                    return;
+                }
+                if (link && e.target.closest('.nav-services-panel')) {
+                    closeMobileMenu();
+                    return;
+                }
+                if (link && e.target.closest('.nav-links') && !e.target.closest('.nav-dropdown-toggle')) {
+                    closeMobileMenu();
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (!isMobile()) closeMobileMenu();
+            });
+        })();
 
         // FAQ: acordeón (expandir/colapsar) + filtro por categoría
         (function() {
