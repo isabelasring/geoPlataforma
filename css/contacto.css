@@ -251,6 +251,74 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Redes sociales: Síguenos en + iconos en círculos */
+.contacto-social {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.contacto-social-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--contacto-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 1rem 0;
+}
+
+.contacto-social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contacto-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid var(--geo-military-green, #2d4a3e);
+  color: var(--geo-military-green, #2d4a3e);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.contacto-social-icon:hover {
+  background: var(--geo-military-green, #2d4a3e);
+  color: #fff;
+  border-color: var(--geo-military-green, #2d4a3e);
+  transform: scale(1.08);
+}
+
+.contacto-social-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Modo oscuro: redes sociales (borde claro, hover verde) */
+[data-theme="dark"] .contacto-social-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .contacto-social-icon {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .contacto-social-icon:hover {
+  background: var(--geo-military-green, #2d4a3e);
+  border-color: var(--geo-military-green, #2d4a3e);
+  color: #fff;
+}
+
 /* Tres tarjetas: Teléfono, Correo, Ubicación */
 .contacto-cards {
   padding: 0 2rem 4rem;

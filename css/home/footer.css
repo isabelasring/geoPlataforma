@@ -188,7 +188,7 @@
 .footer-social-link {
     width: 40px;
     height: 40px;
-    border-radius: 8px;
+    border-radius: 50%;
     background: transparent;
     border: 2px solid rgba(6, 95, 70, 0.9);
     color: rgba(255, 255, 255, 0.95);
@@ -199,9 +199,9 @@
 }
 
 .footer-social-link:hover {
-    background: rgba(6, 95, 70, 0.4);
+    background: var(--geo-military-green, #2d4a3e);
     color: #fff;
-    border-color: rgba(167, 243, 208, 0.9);
+    border-color: var(--geo-military-green, #2d4a3e);
 }
 
 .footer-links {
