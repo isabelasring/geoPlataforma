@@ -1,8 +1,8 @@
 /* Sección Geotrends - Home: fondo blanco con imagen */
 .geotrends-section {
     position: relative;
-    min-height: 85vh;
-    padding: 14rem 2rem 4rem;
+    min-height: 110vh;
+    padding: 14rem 2rem 5rem;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -25,7 +25,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: stretch;
+    align-items: center;
 }
 
 /* Panel izquierdo: descripción – entrada con giro al hacer scroll */
@@ -62,8 +62,9 @@
 }
 
 
+/* Pantalla completa: título visible sin exceso */
 .geotrends-title {
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
     font-weight: 700;
     color: #1a2618;
     margin-bottom: 0.5rem;
@@ -122,13 +123,15 @@
     height: 18px;
 }
 
-/* Panel derecho: imagen/video en cuadrado con bordes – entrada al hacer scroll */
+/* Pantalla completa: rectángulo más alto y centrado */
 .geotrends-image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1;
-    max-width: min(100%, 560px);
+    min-width: 0;
+    aspect-ratio: 16 / 7;
+    max-width: min(100%, 900px);
     margin: 0 auto;
+    align-self: center;
     border-radius: 16px;
     overflow: hidden;
     display: flex;
@@ -173,22 +176,23 @@
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Video en cuadrado */
+/* Video: rellena el rectángulo ancho */
 .geotrends-video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
     background: #1a2618;
 }
 
-/* Tablet: una columna, texto arriba e imagen abajo; texto con buen espacio */
+/* Tablet: una columna, texto arriba e imagen abajo; sección más larga para que quepa el rectángulo */
 @media (max-width: 900px) {
     .geotrends-section {
-        padding: 10rem 1.5rem 3rem;
-        min-height: auto;
+        padding: 10rem 1.5rem 5rem;
+        min-height: 95vh;
     }
 
     .geotrends-content-wrapper {
@@ -206,19 +210,22 @@
     }
 
     .geotrends-title {
-        font-size: clamp(1.2rem, 3.5vw, 1.65rem);
+        font-size: clamp(1.25rem, 3.2vw, 1.6rem);
     }
 
     .geotrends-text {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         line-height: 1.7;
     }
 
     .geotrends-image-wrapper {
         order: 2;
-        max-width: min(100%, 380px);
+        width: 100%;
+        max-width: min(100%, 520px);
+        aspect-ratio: 16 / 6;
         margin-left: auto;
         margin-right: auto;
+        align-self: center;
         transform: translateY(40px) scale(0.8);
     }
 
@@ -245,10 +252,11 @@
     }
 }
 
-/* Móvil: menos padding, texto más compacto */
+/* Móvil: menos padding, texto más compacto; sección alargada para el rectángulo */
 @media (max-width: 768px) {
     .geotrends-section {
-        padding: 8rem 1.25rem 2.5rem;
+        padding: 8rem 1.25rem 4.5rem;
+        min-height: 90vh;
         margin-top: -120px;
     }
 
@@ -259,30 +267,32 @@
     }
 
     .geotrends-title {
-        font-size: clamp(1.15rem, 4.5vw, 1.5rem);
+        font-size: clamp(1.15rem, 4vw, 1.45rem);
         margin-bottom: 0.75rem;
     }
 
     .geotrends-text {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         line-height: 1.7;
         margin-bottom: 1.25rem;
     }
 
     .geotrends-cta {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.95rem;
+        padding: 0.7rem 1.25rem;
+        font-size: 0.9rem;
     }
 
     .geotrends-image-wrapper {
-        max-width: 100%;
+        max-width: min(100%, 440px);
+        aspect-ratio: 16 / 6;
     }
 }
 
 /* Móvil pequeño */
 @media (max-width: 560px) {
     .geotrends-section {
-        padding: 6rem 1rem 2rem;
+        padding: 6rem 1rem 4rem;
+        min-height: 88vh;
         margin-top: -100px;
     }
 
@@ -291,11 +301,16 @@
     }
 
     .geotrends-title {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
     .geotrends-text {
-        font-size: 0.875rem;
+        font-size: 0.85rem;
         line-height: 1.65;
+    }
+
+    .geotrends-image-wrapper {
+        max-width: min(100%, 380px);
+        aspect-ratio: 16 / 6;
     }
 }
