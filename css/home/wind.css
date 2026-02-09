@@ -637,6 +637,13 @@
     border-radius: 9999px;
     align-self: flex-start;
     transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+}
+a.wind-project-card-cta:hover {
+    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+    border-color: var(--geo-military-green, #2d4a3e);
+    color: rgba(255, 255, 255, 0.95);
+    transform: translateX(2px);
 }
 
 .wind-project-card:hover .wind-project-card-cta {
