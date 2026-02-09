@@ -1,10 +1,10 @@
-/* Tecnologías principales - Home: fondo oscuro, bordes e iconos blancos */
+/* Tecnologías principales - Home: modo light por defecto (fondo blanco, detalles negros) */
 .tech-section {
     position: relative;
     padding: 4rem 2rem 4rem;
     min-height: 70vh;
     overflow: hidden;
-    background: #1a1d24;
+    background: #ffffff;
     margin-bottom: 0;
 }
 
@@ -27,7 +27,7 @@
 .tech-section-title {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: 700;
-    color: #fff;
+    color: #1a1a1a;
     margin-bottom: 2.5rem;
     text-align: center;
 }
@@ -39,13 +39,15 @@
     perspective: 1400px;
 }
 
-/* Tarjetas informativas – entran girando como pelotas y se acomodan (al hacer scroll) */
+/* Tarjetas informativas – en light: transparencia blanca (glass); en dark se sobrescribe */
 .tech-card {
     position: relative;
     padding: 2rem 1.25rem 1.5rem;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,19 +88,19 @@
 }
 
 .tech-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Contenedor para icono o logo */
+/* Contenedor para icono o logo – en light transparencia blanca; en dark se sobrescribe */
 .tech-oval-wrap {
     width: 100px;
     height: 100px;
     margin: 0 auto 1.25rem;
     border-radius: 12px;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
     flex-shrink: 0;
 }
 
@@ -106,12 +108,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.4);
 }
 .tech-icon {
     width: 48px;
     height: 48px;
-    color: #fff;
+    color: #1a1a1a;
     flex-shrink: 0;
 }
 
@@ -125,7 +127,7 @@
 .tech-card-title {
     font-size: 1.05rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
     margin-top: 0;
     margin-bottom: 0.5rem;
     line-height: 1.3;
@@ -134,7 +136,7 @@
 .tech-card-desc {
     font-size: 0.88rem;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.75);
     margin: 0 0 1rem;
     flex: 1;
 }
@@ -143,19 +145,19 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #1a1a1a;
     text-decoration: none;
     transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 .tech-card-btn:hover {
-    background: rgba(255, 255, 255, 0.22);
-    border-color: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.5);
     transform: translateX(4px);
 }
 
@@ -164,7 +166,7 @@
     height: 18px;
 }
 
-/* Panel que se abre desde la derecha (hijo directo de .tech-section) - glassmorphism */
+/* Panel lateral que se abre desde la derecha – en light transparencia blanca; en dark se sobrescribe */
 .tech-panel {
     position: absolute;
     top: 0;
@@ -175,10 +177,10 @@
     height: 100%;
     min-height: 70vh;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-left: 2px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
     box-shadow: -8px 0 32px rgba(0, 0, 0, 0.08);
     transform: translateX(100%);
     transition: transform 0.35s ease;
@@ -195,14 +197,14 @@
 .tech-panel-image-wrap {
     width: 44%;
     min-width: 220px;
-    background: rgba(240, 248, 240, 0.5);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
 }
 .tech-panel-img {
     width: 100%;
@@ -218,9 +220,9 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 .tech-panel-title {
     font-size: 1.35rem;
@@ -281,6 +283,106 @@
 .tech-section.tech-panel-open .tech-panel-backdrop {
     opacity: 1;
     pointer-events: auto;
+}
+
+/* ========== Modo oscuro: fondo oscuro y detalles blancos ========== */
+[data-theme="dark"] .tech-section {
+    background: #1a1d24;
+}
+
+[data-theme="dark"] .tech-section-title {
+    color: #fff;
+}
+
+[data-theme="dark"] .tech-card {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .tech-card:hover {
+    background: rgba(0, 0, 0, 0.45);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .tech-oval-wrap {
+    border-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .tech-icon-wrap {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .tech-icon {
+    color: #fff;
+}
+
+[data-theme="dark"] .tech-card-title {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .tech-card-desc {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .tech-card-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+[data-theme="dark"] .tech-card-btn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .tech-panel {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left-color: rgba(255, 255, 255, 0.15);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .tech-panel-image-wrap {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .tech-panel-content {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+[data-theme="dark"] .tech-panel-title {
+    color: #fff;
+}
+
+[data-theme="dark"] .tech-panel-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .tech-panel-uso {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .tech-panel-close {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+[data-theme="dark"] .tech-panel-close:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+[data-theme="dark"] .tech-panel-backdrop {
+    background: rgba(0, 0, 0, 0.5);
 }
 
 /* Transiciones removidas para fondo blanco */
