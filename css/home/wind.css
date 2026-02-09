@@ -377,19 +377,24 @@
     transform: scale(1.08);
 }
 
-/* Overlay con transparencia: degradado suave y texto semi-transparente */
+/* Modo claro: degradado suave abajo para que el texto blanco con sombra se lea bien (estilo Proyectos) */
 .wind-card::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.5) 100%);
     pointer-events: none;
     z-index: 0;
     transition: background 0.4s ease;
 }
 
 .wind-card:hover::after {
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.82) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+/* Expandida: solo blur suave debajo de la imagen, sin barra sólida */
+.wind-card.expanded::after {
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.06) 40%, rgba(255, 255, 255, 0.25) 100%);
 }
 
 .wind-card-overlay {
@@ -398,7 +403,7 @@
     right: 0;
     bottom: 0;
     padding: 1.75rem 1.25rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.12) 60%, transparent 100%);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -408,15 +413,25 @@
 }
 
 .wind-card:hover .wind-card-overlay {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.18) 60%, transparent 100%);
+}
+
+/* Expandida: sin barra blanca, solo el blur de abajo de la imagen */
+.wind-card.expanded .wind-card-overlay {
+    background: transparent !important;
+}
+
+.wind-card.expanded .wind-card-title {
+    color: rgba(255, 255, 255, 0.98);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .wind-card-title {
     font-size: 1.45rem;
     font-weight: 700;
     margin-bottom: 0;
-    color: #fff;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.98);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4);
     letter-spacing: 0.02em;
 }
 
@@ -424,6 +439,7 @@
     font-size: 0.95rem;
     line-height: 1.45;
     color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
     opacity: 0;
     visibility: hidden;
     max-height: 0;
@@ -480,19 +496,31 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    bottom: 0;
+    max-height: none;
+    padding-bottom: 7rem;
 }
 
-/* Fondo muy blur cuando se despliegan las 3 cards: en light glass claro; en dark se sobrescribe */
+/* Fondo muy blur cuando se despliegan las 3 cards: se extiende hasta abajo; título y botón van encima */
 .wind-card.expanded .wind-project-cards::before {
     content: '';
     position: absolute;
     inset: -1.5rem;
+    bottom: -1.5rem;
     z-index: -1;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(32px);
     -webkit-backdrop-filter: blur(32px);
     border-radius: 16px;
     pointer-events: none;
+}
+
+.wind-card.expanded .wind-card-overlay {
+    z-index: 4;
+}
+
+.wind-card.expanded .wind-more-projects {
+    z-index: 5;
 }
 
 /* Tarjetas de servicio: en light glass claro + sombra blanquecina; en dark se sobrescribe */
@@ -603,6 +631,7 @@
     font-size: 0.8rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
     background: transparent;
     border: 2px solid var(--geo-military-green, #2d4a3e);
     border-radius: 9999px;
@@ -630,17 +659,58 @@
     background: linear-gradient(135deg, rgba(6, 10, 18, 0.92) 0%, rgba(6, 10, 18, 0.78) 50%, rgba(6, 10, 18, 0.65) 100%);
 }
 
+/* Misma transparencia oscura que las cards: se ve el fondo, no fondo entero */
 [data-theme="dark"] .wind-intro {
-    background: rgba(15, 22, 32, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 20, 25, 0.28);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-left: none;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .wind-card {
     border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Modo oscuro: overlay inferior oscuro y texto blanco */
+[data-theme="dark"] .wind-card::after {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+[data-theme="dark"] .wind-card:hover::after {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.82) 100%);
+}
+
+[data-theme="dark"] .wind-card-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    color: #fff;
+}
+
+[data-theme="dark"] .wind-card:hover .wind-card-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 100%);
+}
+
+[data-theme="dark"] .wind-card-title {
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .wind-card-desc {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .wind-card.expanded .wind-card-overlay {
+    background: transparent !important;
+}
+
+[data-theme="dark"] .wind-card.expanded::after {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.08) 40%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+[data-theme="dark"] .wind-card.expanded .wind-card-title {
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme="dark"] .wind-card.expanded {
@@ -648,33 +718,38 @@
 }
 
 [data-theme="dark"] .wind-card.expanded .wind-project-cards::before {
-    background: rgba(10, 18, 28, 0.7);
+    background: rgba(15, 20, 25, 0.2);
     backdrop-filter: blur(32px);
     -webkit-backdrop-filter: blur(32px);
 }
 
+/* Tonalidad oscura pero bien transparente para que se vea el fondo (no fondo entero) */
 [data-theme="dark"] .wind-project-card {
-    background: rgba(15, 24, 36, 0.65);
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    background: rgba(15, 20, 25, 0.28);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .wind-card.expanded .wind-project-card {
-    background: rgba(18, 28, 42, 0.7);
+    background: rgba(15, 20, 25, 0.35);
 }
 
 [data-theme="dark"] .wind-project-card:hover {
-    background: rgba(20, 32, 48, 0.75);
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    background: rgba(15, 20, 25, 0.4);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
 }
 
 [data-theme="dark"] .wind-project-card-body {
-    background: rgba(10, 18, 28, 0.5);
+    background: rgba(15, 20, 25, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 [data-theme="dark"] .wind-card.expanded .wind-project-card-body {
-    background: rgba(12, 20, 32, 0.6);
+    background: rgba(15, 20, 25, 0.22);
 }
 
 [data-theme="dark"] .wind-project-card-title {
