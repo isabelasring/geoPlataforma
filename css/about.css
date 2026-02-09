@@ -60,7 +60,7 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url('../img:video/sobreNosotros/DJI_20250412151539_0054_D.JPG');
+  background-image: url('../img:video/sobreNosotros/360_PEPSICO_42.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -100,7 +100,7 @@
   text-transform: uppercase;
   color: #fff;
   margin: 0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Layout: 3 columnas (recon | centro | valores) */
@@ -132,9 +132,10 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
+  color: #fff;
   margin: 0 0 0.85rem;
   line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* Columna izquierda: Reconocimientos con altura limitada y scroll interno */
@@ -210,7 +211,8 @@
 }
 
 .about-recon-card-green .about-recon-card-title {
-  color: #86efac;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .about-recon-card-green .about-recon-card-btn {
@@ -235,7 +237,8 @@
 }
 
 .about-recon-card-purple .about-recon-card-title {
-  color: #c4b5fd;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .about-recon-card-purple .about-recon-card-btn:hover {
@@ -255,7 +258,8 @@
 }
 
 .about-recon-card-orange .about-recon-card-title {
-  color: #fdba74;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .about-recon-card-orange .about-recon-card-btn:hover {
@@ -270,6 +274,7 @@
   margin: 0;
   line-height: 1.3;
   color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .about-recon-card-desc {
@@ -310,10 +315,11 @@
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.9);
+  color: #fff;
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6);
   cursor: pointer;
   transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -330,6 +336,7 @@
   border-color: rgba(255, 255, 255, 0.25);
   color: #fff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .about-panel[hidden],
@@ -349,7 +356,8 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #86efac;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .about-panel-body {
@@ -466,6 +474,8 @@
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .about-equipo-card-title {
@@ -473,6 +483,8 @@
   font-weight: 500;
   opacity: 0.95;
   line-height: 1.3;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* Capa hover sobre la imagen: funciones + LinkedIn */
@@ -626,6 +638,7 @@
   color: #fff;
   margin: 0;
   line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .about-valores-card-sub {
@@ -674,6 +687,7 @@
   font-weight: 700;
   color: #fff;
   margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* Carrusel de logos de clientes (fila horizontal) */
