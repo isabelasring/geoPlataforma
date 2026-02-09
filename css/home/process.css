@@ -363,7 +363,7 @@
     display: none;
 }
 
-/* Cards del carrusel: misma transparencia que Transformación Territorial (wind-project-card) */
+/* Cards del carrusel: modo claro = transparencia blanca (como cards de servicios); modo oscuro = transparencia oscura */
 .home-project-card {
     flex: 0 0 320px;
     min-width: 320px;
@@ -379,7 +379,7 @@
     color: inherit;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 .home-project-card:hover {
@@ -427,19 +427,19 @@
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Modo oscuro: card muy transparente para que se vea la imagen, sin franja oscura */
+/* Modo oscuro: misma transparencia oscura que cards de servicios */
 [data-theme="dark"] .home-project-card {
-    background: rgba(15, 20, 25, 0.08);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(15, 20, 25, 0.28);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-color: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .home-project-card:hover {
-    background: rgba(15, 20, 25, 0.12);
+    background: rgba(15, 20, 25, 0.4);
     border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
 }
 
 [data-theme="dark"] .home-project-card-img {
