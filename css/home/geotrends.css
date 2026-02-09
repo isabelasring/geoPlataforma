@@ -2,7 +2,7 @@
 .geotrends-section {
     position: relative;
     min-height: 85vh;
-    padding: 4rem 2rem;
+    padding: 14rem 2rem 4rem;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -34,7 +34,10 @@
     flex-direction: column;
     justify-content: center;
     padding: 3rem;
+    padding-top: 5rem;
+    margin-top: 5rem; /* baja el bloque para que el título quede bien bajo el sombreado */
     box-sizing: border-box;
+    max-width: 560px; /* ancho de lectura cómodo, aprovecha el espacio en blanco */
     opacity: 0;
     transform: perspective(900px) rotateY(-22deg) translateX(-24px) scale(0.94);
     filter: blur(6px);
@@ -60,11 +63,13 @@
 
 
 .geotrends-title {
-    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     font-weight: 700;
     color: #1a2618;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+    line-height: 1.25;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .geotrends-subtitle {
@@ -78,9 +83,10 @@
 
 .geotrends-text {
     font-size: 0.95rem;
-    line-height: 1.65;
+    line-height: 1.7;
     color: rgba(26, 38, 24, 0.88);
     margin-bottom: 1rem;
+    max-width: 100%;
 }
 
 .geotrends-cta {
@@ -178,18 +184,41 @@
     background: #1a2618;
 }
 
+/* Tablet: una columna, texto arriba e imagen abajo; texto con buen espacio */
 @media (max-width: 900px) {
+    .geotrends-section {
+        padding: 10rem 1.5rem 3rem;
+        min-height: auto;
+    }
+
     .geotrends-content-wrapper {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
+        align-items: center;
     }
 
     .geotrends-content {
-        padding: 2.5rem 1.5rem;
+        padding: 0 0.5rem;
+        padding-top: 3rem;
+        margin-top: 3rem;
+        max-width: 100%;
+        order: 1;
+    }
+
+    .geotrends-title {
+        font-size: clamp(1.2rem, 3.5vw, 1.65rem);
+    }
+
+    .geotrends-text {
+        font-size: 0.95rem;
+        line-height: 1.7;
     }
 
     .geotrends-image-wrapper {
+        order: 2;
         max-width: min(100%, 380px);
+        margin-left: auto;
+        margin-right: auto;
         transform: translateY(40px) scale(0.8);
     }
 
@@ -213,5 +242,60 @@
             transform: translateY(0) scale(1);
             filter: blur(0);
         }
+    }
+}
+
+/* Móvil: menos padding, texto más compacto */
+@media (max-width: 768px) {
+    .geotrends-section {
+        padding: 8rem 1.25rem 2.5rem;
+        margin-top: -120px;
+    }
+
+    .geotrends-content {
+        padding: 0;
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+    }
+
+    .geotrends-title {
+        font-size: clamp(1.15rem, 4.5vw, 1.5rem);
+        margin-bottom: 0.75rem;
+    }
+
+    .geotrends-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+    }
+
+    .geotrends-cta {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .geotrends-image-wrapper {
+        max-width: 100%;
+    }
+}
+
+/* Móvil pequeño */
+@media (max-width: 560px) {
+    .geotrends-section {
+        padding: 6rem 1rem 2rem;
+        margin-top: -100px;
+    }
+
+    .geotrends-content-wrapper {
+        gap: 2rem;
+    }
+
+    .geotrends-title {
+        font-size: 1.15rem;
+    }
+
+    .geotrends-text {
+        font-size: 0.875rem;
+        line-height: 1.65;
     }
 }
