@@ -49,6 +49,82 @@
   background: rgba(6, 95, 70, 0.25);
 }
 
+/* Modo oscuro: desplegables siempre oscuros (sin depender del scroll/sección) */
+[data-theme="dark"] .navbar .nav-dropdown-menu,
+[data-theme="dark"] .navbar:not(.scrolled) .nav-dropdown-menu,
+[data-theme="dark"] .navbar.scrolled .nav-dropdown-menu,
+[data-theme="dark"] .navbar.scrolled.section-green .nav-dropdown-menu,
+[data-theme="dark"] .navbar.scrolled.section-image .nav-dropdown-menu,
+[data-theme="dark"] .navbar.scrolled.section-dark .nav-dropdown-menu {
+  background: rgba(20, 26, 32, 0.98);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .navbar .nav-services-panel,
+[data-theme="dark"] .navbar.scrolled.section-green .nav-services-panel,
+[data-theme="dark"] .navbar.scrolled.section-image .nav-services-panel,
+[data-theme="dark"] .navbar.scrolled.section-dark .nav-services-panel {
+  background: rgba(20, 26, 32, 0.98);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .navbar .nav-services-panel .nav-panel-label {
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .navbar .nav-services-panel a {
+  color: #fff;
+}
+
+[data-theme="dark"] .navbar .nav-services-panel a:hover {
+  background: rgba(6, 95, 70, 0.25);
+}
+
+/* Modo claro: desplegables siempre blancos (sin depender del scroll/sección) */
+html:not([data-theme="dark"]) .navbar .nav-dropdown-menu,
+html:not([data-theme="dark"]) .navbar:not(.scrolled) .nav-dropdown-menu,
+html:not([data-theme="dark"]) .navbar.scrolled .nav-dropdown-menu,
+html:not([data-theme="dark"]) .navbar.scrolled.section-green .nav-dropdown-menu,
+html:not([data-theme="dark"]) .navbar.scrolled.section-image .nav-dropdown-menu,
+html:not([data-theme="dark"]) .navbar.scrolled.section-dark .nav-dropdown-menu {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+html:not([data-theme="dark"]) .navbar .nav-dropdown-menu a {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) .navbar .nav-dropdown-menu a:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="dark"]) .navbar .nav-services-panel,
+html:not([data-theme="dark"]) .navbar.scrolled.section-green .nav-services-panel,
+html:not([data-theme="dark"]) .navbar.scrolled.section-image .nav-services-panel,
+html:not([data-theme="dark"]) .navbar.scrolled.section-dark .nav-services-panel {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+html:not([data-theme="dark"]) .navbar .nav-services-panel .nav-panel-label {
+  color: rgba(0, 0, 0, 0.6);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+html:not([data-theme="dark"]) .navbar .nav-services-panel a {
+  color: #111;
+}
+
+html:not([data-theme="dark"]) .navbar .nav-services-panel a:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
 /* Toggle tema: en modo oscuro el solecito se ve blanco para poder dar click */
 [data-theme="dark"] .navbar .nav-theme-btn,
 [data-theme="dark"] .page-about .navbar .nav-theme-btn,
