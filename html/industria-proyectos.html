@@ -525,6 +525,44 @@
             if (panelCarouselNext) panelCarouselNext.addEventListener('click', function() { goPanelCarousel(1); });
             if (closeBtn) closeBtn.addEventListener('click', closeProyectoPanel);
             if (backdrop) backdrop.addEventListener('click', closeProyectoPanel);
+
+            /* Abrir panel al llegar desde inicio con ?proyecto=xxx */
+            var openParams = new URLSearchParams(window.location.search);
+            var openProyectoId = openParams.get('proyecto');
+            var proyectoToServicio = {
+                'refineria-cartagena': 'control-ruido', 'viva-magdalena': 'control-ruido', 'arclad': 'control-ruido',
+                'segovia': 'medicion-vibraciones', 'ccr-palagua': 'fotogrametria', 'colcafe': 'control-ruido',
+                'cerrejon': 'holografia-acustica', 'mineros-bic': 'holografia-acustica', 'pepsico': 'control-ruido',
+                'spia': 'modelacion-ruido-subacuatico'
+            };
+            if (openProyectoId && proyectoToServicio[openProyectoId] !== undefined) {
+                var servicioToOpen = proyectoToServicio[openProyectoId];
+                var tagIndex = tagMap[servicioToOpen];
+                if (tagIndex !== undefined) {
+                    tags.forEach(function(t, i) { t.classList.toggle('active', i === tagIndex); });
+                    var url = new URL(window.location.href);
+                    url.searchParams.set('servicio', servicioToOpen);
+                    window.history.replaceState({}, '', url);
+                }
+                toggleIndustryCards();
+                setTimeout(function() {
+                    var card = document.querySelector('.proyecto-card[data-proyecto="' + openProyectoId + '"]');
+                    if (card) {
+                        var titulo = card.getAttribute('data-proyecto-titulo') || '';
+                        var desc = card.getAttribute('data-proyecto-desc') || '';
+                        var categoria = card.getAttribute('data-proyecto-categoria') || '';
+                        var ano = card.getAttribute('data-proyecto-ano') || '';
+                        var cliente = card.getAttribute('data-proyecto-cliente') || '';
+                        buildPanelCarousel(openProyectoId, titulo);
+                        if (panelTitle) panelTitle.textContent = titulo;
+                        if (panelCategoria) panelCategoria.textContent = categoria;
+                        if (panelAno) panelAno.textContent = ano;
+                        if (panelCliente) panelCliente.textContent = cliente;
+                        if (panelDesc) panelDesc.textContent = desc;
+                        openProyectoPanel();
+                    }
+                }, 150);
+            }
         })();
     </script>
     <script>

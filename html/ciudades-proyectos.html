@@ -333,6 +333,29 @@
             if (panelCarouselNext) panelCarouselNext.addEventListener('click', function() { goPanelCarousel(1); });
             if (closeBtn) closeBtn.addEventListener('click', closeProyectoPanel);
             if (backdrop) backdrop.addEventListener('click', closeProyectoPanel);
+
+            /* Abrir panel al llegar desde inicio con ?proyecto=amva-usb */
+            var openParams = new URLSearchParams(window.location.search);
+            var openProyectoId = openParams.get('proyecto');
+            if (openProyectoId === 'amva-usb' && amvaCard) {
+                var tagIoT = document.querySelector('.proyectos-tag[data-servicio="iot"]');
+                if (tagIoT) { tags.forEach(function(t) { t.classList.remove('active'); }); tagIoT.classList.add('active'); }
+                toggleCiudadesCards();
+                setTimeout(function() {
+                    var titulo = amvaCard.getAttribute('data-proyecto-titulo') || '';
+                    var desc = amvaCard.getAttribute('data-proyecto-desc-long') || amvaCard.getAttribute('data-proyecto-desc') || '';
+                    var categoria = amvaCard.getAttribute('data-proyecto-categoria') || '';
+                    var ano = amvaCard.getAttribute('data-proyecto-ano') || '';
+                    var cliente = amvaCard.getAttribute('data-proyecto-cliente') || '';
+                    buildPanelCarousel('amva-usb', titulo);
+                    if (panelTitle) panelTitle.textContent = titulo;
+                    if (panelCategoria) panelCategoria.textContent = categoria;
+                    if (panelAno) panelAno.textContent = ano;
+                    if (panelCliente) panelCliente.textContent = cliente;
+                    if (panelDesc) panelDesc.textContent = desc;
+                    openProyectoPanel();
+                }, 100);
+            }
         })();
     </script>
     <script>
