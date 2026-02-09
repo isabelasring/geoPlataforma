@@ -287,6 +287,7 @@
                     </div>
                 </div>
             </div>
+            <div class="section-services-bar" id="section-services-bar" aria-label="Servicios de Industria"></div>
         </div>
     </main>
 
@@ -326,6 +327,32 @@
 
         var sectionContent = document.querySelector('.section-content');
         var firstCardId = 'servicio-iot';
+        var serviciosIndustria = [
+            { id: 'servicio-iot', label: 'IoT' },
+            { id: 'servicio-control-ruido', label: 'Control de ruido' },
+            { id: 'servicio-clasificacion-fuentes', label: 'Clasificación de fuentes' },
+            { id: 'servicio-modelacion-ruido', label: 'Modelación de ruido' },
+            { id: 'servicio-holografia-acustica', label: 'Holografía acústica' },
+            { id: 'servicio-medicion-vibraciones', label: 'Medición de vibraciones' },
+            { id: 'servicio-modelacion-vibraciones', label: 'Modelación de vibraciones' },
+            { id: 'servicio-modelacion-ruido-subacuatico', label: 'Modelación ruido subacuático' },
+            { id: 'servicio-medicion-ruido-subacuatico', label: 'Medición ruido subacuático' },
+            { id: 'servicio-geoespacial', label: 'Analítica geoespacial' },
+            { id: 'servicio-fotogrametria', label: 'Fotogrametría' }
+        ];
+
+        function renderServicesBar() {
+            var bar = document.getElementById('section-services-bar');
+            if (!bar) return;
+            bar.innerHTML = '';
+            serviciosIndustria.forEach(function(s) {
+                var a = document.createElement('a');
+                a.href = '#' + s.id;
+                a.className = 'section-service-pill';
+                a.textContent = s.label;
+                bar.appendChild(a);
+            });
+        }
 
         function setActivePanelFromHash() {
             var hash = window.location.hash;
@@ -335,17 +362,15 @@
             var card = document.getElementById(id);
             if (card && card.classList.contains('section-card')) {
                 card.classList.add('active-panel');
-                var backBtn = card.querySelector('.section-card-back');
-                if (backBtn) {
-                    backBtn.onclick = function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        window.location.href = 'index.html';
-                    };
-                }
             }
+            document.querySelectorAll('.section-service-pill').forEach(function(p) {
+                var href = p.getAttribute('href') || '';
+                p.classList.toggle('active', href === '#' + id);
+                p.setAttribute('aria-current', href === '#' + id ? 'page' : null);
+            });
         }
 
+        renderServicesBar();
         setActivePanelFromHash();
         window.addEventListener('hashchange', setActivePanelFromHash);
 

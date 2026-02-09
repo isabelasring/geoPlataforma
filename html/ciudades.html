@@ -189,6 +189,7 @@
                     </div>
                 </div>
             </div>
+            <div class="section-services-bar" id="section-services-bar" aria-label="Servicios de Ciudades"></div>
         </div>
     </main>
 
@@ -228,6 +229,26 @@
 
         var sectionContent = document.querySelector('.section-content');
         var firstCardId = 'servicio-iot';
+        var serviciosCiudades = [
+            { id: 'servicio-iot', label: 'IoT' },
+            { id: 'servicio-mapas-ruido', label: 'Mapas de ruido' },
+            { id: 'servicio-webgis', label: 'Ecosistemas WEBGIS' },
+            { id: 'servicio-descontaminacion', label: 'Descontaminación acústica' },
+            { id: 'servicio-geoespacial', label: 'Analítica geoespacial' }
+        ];
+
+        function renderServicesBar() {
+            var bar = document.getElementById('section-services-bar');
+            if (!bar) return;
+            bar.innerHTML = '';
+            serviciosCiudades.forEach(function(s) {
+                var a = document.createElement('a');
+                a.href = '#' + s.id;
+                a.className = 'section-service-pill';
+                a.textContent = s.label;
+                bar.appendChild(a);
+            });
+        }
 
         function setActivePanelFromHash() {
             var hash = window.location.hash;
@@ -237,17 +258,15 @@
             var card = document.getElementById(id);
             if (card && card.classList.contains('section-card')) {
                 card.classList.add('active-panel');
-                var backBtn = card.querySelector('.section-card-back');
-                if (backBtn) {
-                    backBtn.onclick = function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        window.location.href = 'index.html';
-                    };
-                }
             }
+            document.querySelectorAll('.section-service-pill').forEach(function(p) {
+                var href = p.getAttribute('href') || '';
+                p.classList.toggle('active', href === '#' + id);
+                p.setAttribute('aria-current', href === '#' + id ? 'page' : null);
+            });
         }
 
+        renderServicesBar();
         setActivePanelFromHash();
         window.addEventListener('hashchange', setActivePanelFromHash);
 
