@@ -390,6 +390,18 @@
         display: flex;
     }
 
+    /* Modo claro: hamburguesa visible (color oscuro sobre navbar claro) */
+    html:not([data-theme="dark"]) .nav-hamburger {
+        color: #313131;
+        background: rgba(0, 0, 0, 0.08);
+    }
+    html:not([data-theme="dark"]) .nav-hamburger:hover {
+        background: rgba(0, 0, 0, 0.12);
+    }
+    html:not([data-theme="dark"]) .nav-hamburger-bar {
+        background: currentColor;
+    }
+
     .navbar {
         flex-wrap: wrap;
         padding: 0.75rem 1.25rem;
@@ -436,6 +448,11 @@
         margin-top: 0.75rem;
         padding-left: 0;
         padding-right: 0;
+        overflow: visible;
+    }
+
+    .navbar.nav-mobile-open .nav-links > li.nav-dropdown {
+        overflow: visible;
     }
 
     .nav-links > li {
@@ -478,7 +495,11 @@
         transform: rotate(180deg);
     }
 
-    /* Desplegables hacia abajo: posición estática, ancho completo */
+    /* Desplegables Servicios y Proyectos: se despliegan al tocar en hamburguesa (todas las secciones) */
+    .nav-dropdown {
+        overflow: visible;
+    }
+
     .nav-dropdown-menu {
         position: static;
         margin-top: 0;
@@ -495,19 +516,37 @@
         border-top: none;
         padding: 0;
         background: rgba(0, 0, 0, 0.2);
+        overflow: visible;
     }
 
     .nav-dropdown.open .nav-dropdown-menu {
+        display: block !important;
+    }
+
+    /* Forzar que Servicios y Proyectos se desplieguen en todas las secciones (page-servicios, about, blog, etc.) */
+    .navbar.nav-mobile-open .nav-dropdown.open .nav-dropdown-menu {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .navbar.nav-mobile-open .nav-dropdown-item-with-panel.sub-open .nav-services-panel {
+        display: flex !important;
+        flex-direction: column;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .nav-dropdown-menu a,
+    .nav-dropdown-menu .nav-dropdown-item-with-panel > a {
+        padding: 0.7rem 1rem 0.7rem 1.5rem;
         display: block;
     }
 
-    .nav-dropdown-menu a {
-        padding: 0.7rem 1rem 0.7rem 1.5rem;
-    }
-
-    /* Panel Servicios (Ciudades/Industria): también hacia abajo, ancho completo */
+    /* Panel Servicios (Ciudades/Industria): desplegar subopciones al tocar Ciudades/Industria */
     .nav-dropdown-item-with-panel {
         flex-direction: column;
+        overflow: visible;
     }
 
     .nav-services-panel {
@@ -529,10 +568,12 @@
         border-left: 3px solid rgba(255, 255, 255, 0.3);
         margin-left: 1rem;
         margin-bottom: 0.5rem;
+        overflow: visible;
     }
 
     .nav-dropdown-item-with-panel.sub-open .nav-services-panel {
-        display: flex;
+        display: flex !important;
+        flex-direction: column;
     }
 
     .nav-services-panel .nav-panel-label {

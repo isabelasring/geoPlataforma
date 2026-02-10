@@ -1,23 +1,25 @@
 (function() {
     'use strict';
 
-    // Dropdowns navbar: clic para abrir/cerrar
-    document.querySelectorAll('.nav-dropdown-toggle').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
+    // Dropdowns navbar: clic en "Servicios" o "Proyectos" para abrir/cerrar (desktop y hamburguesa, todas las páginas)
+    document.addEventListener('click', function(e) {
+        var toggle = e.target.closest('.nav-dropdown-toggle');
+        if (toggle) {
             e.preventDefault();
-            var parent = this.closest('.nav-dropdown');
+            e.stopPropagation();
+            var parent = toggle.closest('.nav-dropdown');
+            if (!parent) return;
             var isOpen = parent.classList.contains('open');
             document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
             if (!isOpen) parent.classList.add('open');
-            btn.setAttribute('aria-expanded', !isOpen);
-        });
-    });
-    document.addEventListener('click', function(e) {
+            toggle.setAttribute('aria-expanded', !isOpen);
+            return;
+        }
         if (!e.target.closest('.nav-dropdown')) {
             document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('open'); });
             document.querySelectorAll('.nav-dropdown-toggle').forEach(function(b) { b.setAttribute('aria-expanded', 'false'); });
         }
-    });
+    }, true);
 
     // Menú hamburguesa (móvil): abrir/cerrar y desplegables hacia abajo
     var navbar = document.getElementById('navbar');
@@ -47,23 +49,37 @@
         }
     });
 
+    // Desplegar/plegar subopciones (Ciudades / Industria) al tocar en el menú móvil
+    if (navLinks) {
+        navLinks.addEventListener('click', function(e) {
+            if (!isMobile()) return;
+            var itemWithPanel = e.target.closest('.nav-dropdown-item-with-panel');
+            var link = e.target.closest('a');
+            var insidePanel = e.target.closest('.nav-services-panel');
+            // Clic en "Ciudades" o "Industria" (el <a> que es hijo directo del li): desplegar subopciones
+            if (link && itemWithPanel && !insidePanel && link.parentNode === itemWithPanel) {
+                e.preventDefault();
+                e.stopPropagation();
+                itemWithPanel.classList.toggle('sub-open');
+                return;
+            }
+            if (link && insidePanel) {
+                closeMobileMenu();
+                return;
+            }
+            if (link && !e.target.closest('.nav-dropdown-toggle')) {
+                closeMobileMenu();
+            }
+        }, true);
+    }
+
     document.addEventListener('click', function(e) {
         if (!isMobile()) return;
-        var itemWithPanel = e.target.closest('.nav-dropdown-item-with-panel');
         var link = e.target.closest('a');
-        if (link && itemWithPanel && !e.target.closest('.nav-services-panel')) {
-            e.preventDefault();
-            itemWithPanel.classList.toggle('sub-open');
-            return;
-        }
-        if (link && e.target.closest('.nav-services-panel')) {
-            closeMobileMenu();
-            return;
-        }
         if (link && e.target.closest('.nav-links') && !e.target.closest('.nav-dropdown-toggle')) {
             closeMobileMenu();
         }
-    });
+    }, false);
 
     window.addEventListener('resize', function() {
         if (!isMobile()) closeMobileMenu();
