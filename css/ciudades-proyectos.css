@@ -722,8 +722,8 @@ body.proyecto-panel-open .navbar {
 
 @media (max-width: 900px) {
     .proyectos-filters-container {
-        top: 80px;
-        padding: 1.25rem 2rem;
+        top: 110px;
+        padding: 1.75rem 2rem 1.25rem;
     }
 
     .proyectos-service-nav-top {
@@ -733,7 +733,7 @@ body.proyecto-panel-open .navbar {
 
     .proyectos-content {
         flex-direction: column;
-        padding: 300px 2rem 3rem;
+        padding: 400px 2rem 3rem;
         gap: 2rem;
     }
 
@@ -778,8 +778,8 @@ body.proyecto-panel-open .navbar {
 
 @media (max-width: 600px) {
     .proyectos-filters-container {
-        top: 70px;
-        padding: 1rem 1.5rem;
+        top: 100px;
+        padding: 1.5rem 1.5rem 1rem;
         gap: 1rem;
     }
 
@@ -789,7 +789,7 @@ body.proyecto-panel-open .navbar {
     }
 
     .proyectos-content {
-        padding: 280px 1.5rem 3rem;
+        padding: 380px 1.5rem 3rem;
     }
 
     .proyectos-title {
