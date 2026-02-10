@@ -298,15 +298,15 @@
 }
 
 [data-theme="dark"] .tech-card {
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: #313131;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-color: transparent;
 }
 
 [data-theme="dark"] .tech-card:hover {
-    background: rgba(0, 0, 0, 0.45);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
+    background: #313131;
+    box-shadow: none;
 }
 
 [data-theme="dark"] .tech-oval-wrap {
@@ -342,24 +342,25 @@
 }
 
 [data-theme="dark"] .tech-panel {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-left-color: rgba(255, 255, 255, 0.15);
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
+    background: #313131;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-left-color: transparent;
+    box-shadow: none;
 }
 
 [data-theme="dark"] .tech-panel-image-wrap {
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-right-color: rgba(255, 255, 255, 0.1);
+    background: #313131;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-right-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="dark"] .tech-panel-content {
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: #313131;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 [data-theme="dark"] .tech-panel-title {
