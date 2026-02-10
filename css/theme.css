@@ -780,13 +780,13 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 }
 
 [data-theme="dark"] .faq-nav-item:hover {
-  color: #39513B;
-  background: rgba(15, 118, 110, 0.2);
+  color: #fff;
+  background: rgba(57, 81, 59, 0.2);
 }
 
 [data-theme="dark"] .faq-nav-item.active {
-  color: #39513B;
-  background: rgba(15, 118, 110, 0.25);
+  color: #fff;
+  background: rgba(57, 81, 59, 0.25);
 }
 
 [data-theme="dark"] .faq-item {
@@ -991,17 +991,98 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
   background: rgba(10, 25, 20, 0.5);
 }
 
+/* ========== Vista Proyectos (Ciudades/Industria): transparencias OSCURAS solo en modo oscuro ========== */
+[data-theme="dark"] .proyectos-hero-overlay {
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.55) 0%, rgba(15, 20, 25, 0.35) 50%, rgba(15, 20, 25, 0.2) 100%);
+}
+
+[data-theme="dark"] .proyectos-tag {
+  background: rgba(15, 20, 25, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .proyectos-tag:hover {
+  background: rgba(20, 26, 32, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+[data-theme="dark"] .proyectos-tag.active {
+  background: rgba(57, 81, 59, 0.35);
+  border-color: rgba(57, 81, 59, 0.55);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(57, 81, 59, 0.3);
+}
+
+[data-theme="dark"] .proyectos-search-bar {
+  background: rgba(15, 20, 25, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .proyectos-search-bar:focus-within {
+  background: rgba(20, 26, 32, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .proyecto-card {
+  background: rgba(15, 20, 25, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .proyecto-card:hover {
+  background: rgba(15, 20, 25, 0.35);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .proyecto-card:focus,
+[data-theme="dark"] .proyecto-card:focus-within,
+[data-theme="dark"] .proyecto-card:active {
+  box-shadow: none;
+  outline: none;
+}
+
+[data-theme="dark"] .proyecto-card-content {
+  background: rgba(10, 14, 18, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme="dark"] .proyectos-service-nav {
+  background: rgba(15, 20, 25, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .proyectos-service-prev:hover,
+[data-theme="dark"] .proyectos-service-next:hover {
+  background: rgba(20, 26, 32, 0.55);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
 /* Página Proyectos: panel de detalle en modo oscuro (transparencia oscura) */
 [data-theme="dark"] .proyecto-panel {
-  background: rgba(25, 32, 40, 0.85);
+  background: rgba(15, 20, 25, 0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-left-color: rgba(57, 81, 59, 0.5);
 }
 [data-theme="dark"] .proyecto-panel-image-wrap {
-  background: rgba(15, 20, 25, 0.5);
+  background: rgba(15, 20, 25, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-right-color: rgba(255, 255, 255, 0.08);
 }
 [data-theme="dark"] .proyecto-panel-content {
-  background: rgba(20, 28, 35, 0.5);
+  background: rgba(15, 20, 25, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 [data-theme="dark"] .proyecto-panel-title,
 [data-theme="dark"] .proyecto-panel-meta-item span {

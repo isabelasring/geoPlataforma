@@ -284,14 +284,10 @@
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .proyecto-card:hover {
     transform: translateY(-8px) scale(1.02);
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
 }
 
 .proyecto-card-link-wrap {
@@ -301,6 +297,20 @@
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.proyecto-card-link-wrap:focus,
+.proyecto-card-link-wrap:focus-visible,
+.proyecto-card-link-wrap:active {
+    outline: none;
+    box-shadow: none;
+}
+.proyecto-card:focus,
+.proyecto-card:focus-within,
+.proyecto-card:active {
+    box-shadow: none;
+    outline: none;
 }
 
 .proyecto-card-img {
@@ -316,7 +326,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .proyecto-card-content {
@@ -817,4 +827,18 @@ body.proyecto-panel-open .navbar {
         width: 18px;
         height: 18px;
     }
+}
+
+/* Dark mode: transparencia en cards (prioridad sobre reglas base) */
+[data-theme="dark"] .proyecto-card {
+    background: rgba(15, 20, 25, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme="dark"] .proyecto-card-content {
+    background: rgba(15, 20, 25, 0.2) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
