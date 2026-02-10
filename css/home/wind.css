@@ -827,17 +827,19 @@ a.wind-project-card-cta:hover {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
         min-height: 92vh;
-        padding: 1rem 0 1.25rem;
+        padding: 1.5rem 0 1.25rem;
     }
 
     .wind-intro-col {
         min-height: auto;
-        padding: 1rem 1rem 0.75rem 1rem;
+        padding: 2rem 1rem 0.75rem 1rem;
+        padding-top: 2.25rem;
     }
 
     .wind-intro {
         min-height: 220px;
-        padding: 1.75rem 1rem 1.25rem 1rem;
+        padding: 2rem 1rem 1.25rem 1rem;
+        padding-top: 2.25rem;
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.06);
     }
@@ -1058,12 +1060,14 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-intro-col {
-        padding: 0.75rem 1rem 0.5rem;
+        padding: 1.75rem 1rem 0.5rem 1rem;
+        padding-top: 2rem;
     }
 
     .wind-intro {
         min-height: 200px;
-        padding: 1.5rem 1rem 1rem 1rem;
+        padding: 2rem 1rem 1rem 1rem;
+        padding-top: 2rem;
     }
 
     .wind-title {
@@ -1151,12 +1155,17 @@ a.wind-project-card-cta:hover {
 
 @media (max-width: 600px) {
     .wind-wrap {
-        padding: 1rem 0 1rem;
+        padding: 1.5rem 0 1rem;
+    }
+
+    .wind-intro-col {
+        padding-top: 2rem;
     }
 
     .wind-intro {
         min-height: 180px;
-        padding: 1.35rem 0.875rem 0.875rem 0.875rem;
+        padding: 1.75rem 0.875rem 0.875rem 0.875rem;
+        padding-top: 2rem;
     }
 
     .wind-title {
