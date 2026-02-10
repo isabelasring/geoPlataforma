@@ -6,7 +6,7 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    background: #ffffff;
+    background: #FAFAFA;
     margin-top: -140px; /* solapa con el sombreado del hero para transición continua */
 }
 
@@ -66,7 +66,7 @@
 .geotrends-title {
     font-size: clamp(1.5rem, 2.8vw, 2rem);
     font-weight: 700;
-    color: #1a2618;
+    color: #313131;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
     line-height: 1.25;
@@ -76,7 +76,7 @@
 .geotrends-subtitle {
     font-size: 0.7rem;
     font-weight: 600;
-    color: rgba(26, 38, 24, 0.65);
+    color: rgba(49, 49, 49, 0.65);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 1.25rem;
@@ -85,7 +85,7 @@
 .geotrends-text {
     font-size: 0.95rem;
     line-height: 1.7;
-    color: rgba(26, 38, 24, 0.88);
+    color: rgba(49, 49, 49, 0.88);
     margin-bottom: 1rem;
     max-width: 100%;
 }
@@ -97,12 +97,12 @@
     margin-top: 0.5rem;
     padding: 0.875rem 1.75rem;
     background: transparent;
-    color: var(--geo-military-green, #2d4a3e);
+    color: var(--geo-military-green);
     font-weight: 600;
     font-size: 1rem;
     text-decoration: none;
     border-radius: 9999px;
-    border: 2px solid var(--geo-military-green, #2d4a3e);
+    border: 2px solid var(--geo-military-green);
     cursor: pointer;
     transition: all 0.3s ease;
     align-self: flex-start;
@@ -111,11 +111,11 @@
 .geotrends-cta:hover,
 .geotrends-cta:active,
 .geotrends-cta:focus {
-    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
-    border-color: var(--geo-military-green, #2d4a3e);
-    color: var(--geo-military-green, #2d4a3e);
+    background: var(--geo-military-green-hover-bg);
+    border-color: var(--geo-military-green);
+    color: var(--geo-military-green);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(45, 74, 62, 0.2);
+    box-shadow: 0 6px 20px rgba(57, 81, 59, 0.2);
 }
 
 .geotrends-cta svg {
@@ -185,7 +185,7 @@
     object-fit: cover;
     object-position: center;
     display: block;
-    background: #1a2618;
+    background: #313131;
 }
 
 /* Tablet: una columna, texto arriba e imagen abajo; sección más larga para que quepa el rectángulo */

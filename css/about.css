@@ -1,12 +1,12 @@
 /* Nosotros (about) - fondo con blur, layout glassmorphism (azul / morado / rojo) */
 :root {
-  --about-ink: #0f172a;
-  --about-muted: rgba(15, 23, 42, 0.72);
-  --about-border: rgba(15, 23, 42, 0.12);
-  --about-accent: #065f46;
-  --about-accent-light: #0d9488;
+  --about-ink: #313131;
+  --about-muted: rgba(49, 49, 49, 0.72);
+  --about-border: #E4E4E4;
+  --about-accent: #39513B;
+  --about-accent-light: #39513B;
   --about-glass: rgba(248, 250, 252, 0.95);
-  --about-glass-border: rgba(15, 23, 42, 0.08);
+  --about-glass-border: rgba(49, 49, 49, 0.08);
   --about-glass-dark: rgba(30, 41, 59, 0.75);
   --about-glass-dark-border: rgba(255, 255, 255, 0.1);
 }
@@ -207,7 +207,7 @@
 
 .about-recon-card-green .about-recon-card-icon {
   background: rgba(255, 255, 255, 0.15);
-  color: #86efac;
+  color: #F4F0EF;
 }
 
 .about-recon-card-green .about-recon-card-title {
@@ -216,24 +216,24 @@
 }
 
 .about-recon-card-green .about-recon-card-btn {
-  color: #86efac;
-  border-color: rgba(134, 239, 172, 0.6);
+  color: #F4F0EF;
+  border-color: rgba(57, 81, 59, 0.6);
 }
 
 .about-recon-card-green .about-recon-card-btn:hover {
-  background: rgba(134, 239, 172, 0.15);
-  border-color: #86efac;
-  color: #86efac;
+  background: rgba(57, 81, 59, 0.15);
+  border-color: #F4F0EF;
+  color: #F4F0EF;
 }
 
 .about-recon-card-purple .about-recon-card-btn {
-  color: #c4b5fd;
-  border-color: rgba(196, 181, 253, 0.6);
+  color: #39513B;
+  border-color: rgba(57, 81, 59, 0.6);
 }
 
 .about-recon-card-purple .about-recon-card-icon {
   background: rgba(255, 255, 255, 0.15);
-  color: #c4b5fd;
+  color: #39513B;
 }
 
 .about-recon-card-purple .about-recon-card-title {
@@ -242,19 +242,19 @@
 }
 
 .about-recon-card-purple .about-recon-card-btn:hover {
-  background: rgba(196, 181, 253, 0.15);
-  border-color: #c4b5fd;
-  color: #c4b5fd;
+  background: rgba(57, 81, 59, 0.15);
+  border-color: #39513B;
+  color: #39513B;
 }
 
 .about-recon-card-orange .about-recon-card-btn {
-  color: #fdba74;
-  border-color: rgba(253, 186, 116, 0.6);
+  color: #39513B;
+  border-color: rgba(57, 81, 59, 0.6);
 }
 
 .about-recon-card-orange .about-recon-card-icon {
   background: rgba(255, 255, 255, 0.15);
-  color: #fdba74;
+  color: #39513B;
 }
 
 .about-recon-card-orange .about-recon-card-title {
@@ -263,9 +263,9 @@
 }
 
 .about-recon-card-orange .about-recon-card-btn:hover {
-  background: rgba(253, 186, 116, 0.15);
-  border-color: #fdba74;
-  color: #fdba74;
+  background: rgba(57, 81, 59, 0.15);
+  border-color: #39513B;
+  color: #39513B;
 }
 
 .about-recon-card-title {
@@ -533,15 +533,15 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #fff;
-  color: #0a66c2;
+  background: #FAFAFA;
+  color: #39513B;
   text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease;
   flex-shrink: 0;
 }
 
 .about-equipo-card-linkedin:hover {
-  background: #0a66c2;
+  background: #39513B;
   color: #fff;
   transform: scale(1.08);
 }
@@ -606,16 +606,16 @@
   color: #fff;
 }
 .about-valores-card-innovation .about-valores-card-circle {
-  background: rgba(234, 179, 8, 0.35);
-  color: #fde047;
+  background: rgba(57, 81, 59, 0.35);
+  color: #F4F0EF;
 }
 .about-valores-card-rigor .about-valores-card-circle {
-  background: rgba(59, 130, 246, 0.35);
-  color: #93c5fd;
+  background: rgba(57, 81, 59, 0.35);
+  color: #F4F0EF;
 }
 .about-valores-card-territorio .about-valores-card-circle {
-  background: rgba(6, 95, 70, 0.4);
-  color: #86efac;
+  background: rgba(57, 81, 59, 0.4);
+  color: #F4F0EF;
 }
 
 .about-valores-card-circle svg {
@@ -821,16 +821,16 @@
   height: 24px;
 }
 .about-clientes-icon-publico {
-  background: rgba(6, 95, 70, 0.4);
-  color: #86efac;
+  background: rgba(57, 81, 59, 0.4);
+  color: #F4F0EF;
 }
 .about-clientes-icon-privado {
-  background: rgba(59, 130, 246, 0.4);
-  color: #93c5fd;
+  background: rgba(57, 81, 59, 0.4);
+  color: #F4F0EF;
 }
 .about-clientes-icon-academia {
   background: rgba(124, 58, 237, 0.4);
-  color: #c4b5fd;
+  color: #39513B;
 }
 
 .about-clientes-info {

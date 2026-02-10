@@ -45,7 +45,7 @@
 .process-title {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: 700;
-    color: #ffffff;
+    color: #FAFAFA;
     text-align: center;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
@@ -233,12 +233,12 @@
 }
 
 /* Iconos con colores vivos para contraste sobre fondo oscuro */
-.process-color-1 svg { color: #60a5fa; }
-.process-color-2 svg { color: #4ade80; }
-.process-color-3 svg { color: #f87171; }
-.process-color-4 svg { color: #fb923c; }
-.process-color-5 svg { color: #fbbf24; }
-.process-color-6 svg { color: #f472b6; }
+.process-color-1 svg { color: #39513B; }
+.process-color-2 svg { color: #39513B; }
+.process-color-3 svg { color: #313131; }
+.process-color-4 svg { color: #39513B; }
+.process-color-5 svg { color: #39513B; }
+.process-color-6 svg { color: #F4F0EF; }
 
 .process-connector {
     display: none;

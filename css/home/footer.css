@@ -4,7 +4,7 @@
     width: 100%;
     color: rgba(255, 255, 255, 0.9);
     overflow: hidden;
-    border-top: 2px solid rgba(6, 95, 70, 0.7);
+    border-top: 2px solid rgba(57, 81, 59, 0.7);
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -190,7 +190,7 @@
     height: 40px;
     border-radius: 50%;
     background: transparent;
-    border: 2px solid rgba(6, 95, 70, 0.9);
+    border: 2px solid rgba(57, 81, 59, 0.9);
     color: rgba(255, 255, 255, 0.95);
     display: flex;
     align-items: center;
@@ -199,9 +199,9 @@
 }
 
 .footer-social-link:hover {
-    background: var(--geo-military-green, #2d4a3e);
+    background: var(--geo-military-green);
     color: #fff;
-    border-color: var(--geo-military-green, #2d4a3e);
+    border-color: var(--geo-military-green);
 }
 
 .footer-links {
@@ -222,7 +222,7 @@
 }
 
 .footer-links a:hover {
-    color: rgba(167, 243, 208, 0.95);
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .footer-hours {
@@ -250,13 +250,13 @@
     font-weight: 600;
     text-decoration: none;
     border-radius: 9999px;
-    border: 2px solid var(--geo-military-green, #2d4a3e);
+    border: 2px solid var(--geo-military-green);
     transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .footer-call:hover {
-    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.35));
-    border-color: var(--geo-military-green, #2d4a3e);
+    background: var(--geo-military-green-hover-bg);
+    border-color: var(--geo-military-green);
     transform: scale(1.03);
 }
 

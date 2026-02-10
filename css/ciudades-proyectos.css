@@ -9,7 +9,7 @@
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    background: #0a0e1a;
+    background: #313131;
 }
 
 /* Fondo hero con imagen local (edificio y paisaje ciudades) */
@@ -308,7 +308,7 @@
     height: 240px;
     background-size: cover;
     background-position: center;
-    background-color: #1a1d24;
+    background-color: #313131;
     position: relative;
 }
 
@@ -390,9 +390,9 @@
 
 .proyectos-tag.active {
     color: #fff;
-    background: rgba(167, 243, 208, 0.3);
-    border-color: rgba(167, 243, 208, 0.5);
-    box-shadow: 0 4px 16px rgba(167, 243, 208, 0.3);
+    background: rgba(57, 81, 59, 0.3);
+    border-color: rgba(57, 81, 59, 0.5);
+    box-shadow: 0 4px 16px rgba(57, 81, 59, 0.3);
 }
 
 /* Barra de búsqueda */

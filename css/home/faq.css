@@ -2,7 +2,7 @@
 .faq-section {
     position: relative;
     padding: 4rem 2rem;
-    background: #f8fafc;
+    background: #FAFAFA;
     overflow: hidden;
 }
 
@@ -19,7 +19,7 @@
     position: absolute;
     top: -1em;
     font-size: 1.5rem;
-    color: #16a34a;
+    color: #39513B;
     opacity: 0.38;
     font-weight: 400;
     animation: faq-rain-fall linear infinite;
@@ -100,7 +100,7 @@
 
 .faq-subtitle {
     font-size: 0.9rem;
-    color: #64748b;
+    color: #313131;
     text-align: center;
     margin: 0 0 0.5rem;
 }
@@ -108,7 +108,7 @@
 .faq-title {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: 700;
-    color: #1e293b;
+    color: #313131;
     text-align: center;
     margin: 0 0 2.5rem;
     letter-spacing: -0.02em;
@@ -134,7 +134,7 @@
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #475569;
+    color: #313131;
     text-align: left;
     background: transparent;
     border: none;
@@ -144,12 +144,12 @@
 }
 
 .faq-nav-item:hover {
-    color: #0f766e;
+    color: #39513B;
     background: rgba(15, 118, 110, 0.08);
 }
 
 .faq-nav-item.active {
-    color: #0f766e;
+    color: #39513B;
     background: rgba(15, 118, 110, 0.12);
     font-weight: 600;
 }
@@ -162,7 +162,7 @@
 }
 
 .faq-item {
-    background: #fff;
+    background: #FAFAFA;
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -188,7 +188,7 @@
     padding: 1rem 1.25rem;
     font-size: 0.95rem;
     font-weight: 600;
-    color: #1e293b;
+    color: #313131;
     text-align: left;
     background: none;
     border: none;
@@ -198,7 +198,7 @@
 }
 
 .faq-question:hover {
-    color: #0f766e;
+    color: #39513B;
 }
 
 .faq-question span:first-child {
@@ -223,7 +223,7 @@
     position: absolute;
     width: 12px;
     height: 2px;
-    background: #0f766e;
+    background: #39513B;
     border-radius: 1px;
 }
 
@@ -234,7 +234,7 @@
     top: 50%;
     width: 2px;
     height: 12px;
-    background: #0f766e;
+    background: #39513B;
     border-radius: 1px;
     transform: translate(-50%, -50%);
 }
@@ -266,7 +266,7 @@
     padding: 0 1.25rem 1.25rem;
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #64748b;
+    color: #313131;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     padding-top: 0.75rem;
     margin-top: -1px;

@@ -8,7 +8,7 @@
     justify-content: center;
     padding: 6rem 2rem 4rem;
     overflow: hidden;
-    background: #0a0c10;
+    background: #313131;
 }
 
 /* Sin transición en la parte inferior - corte directo */
@@ -216,7 +216,7 @@
     font-size: 1rem;
     text-decoration: none;
     border-radius: 9999px;
-    border: 2px solid var(--geo-military-green, #2d4a3e);
+    border: 2px solid var(--geo-military-green);
     cursor: pointer;
     transition: all 0.3s ease;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -226,10 +226,10 @@
 .hero-cta:hover,
 .hero-cta:active,
 .hero-cta:focus {
-    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
-    border-color: var(--geo-military-green, #2d4a3e);
+    background: var(--geo-military-green-hover-bg);
+    border-color: var(--geo-military-green);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(45, 74, 62, 0.25);
+    box-shadow: 0 6px 20px rgba(57, 81, 59, 0.25);
 }
 
 .hero-cta svg {
@@ -253,7 +253,7 @@
         rgba(255, 255, 255, 0.15) 25%,
         rgba(255, 255, 255, 0.45) 55%,
         rgba(255, 255, 255, 0.75) 80%,
-        #ffffff 100%
+        #FAFAFA 100%
     );
 }
 

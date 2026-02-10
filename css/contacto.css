@@ -1,31 +1,31 @@
 /* Contacto: hero + formulario + tarjeta lateral + 3 cards + mapa (estilo limpio, bordes redondeados) */
 :root {
-  --contacto-ink: #0f172a;
-  --contacto-muted: rgba(15, 23, 42, 0.72);
-  --contacto-border: rgba(15, 23, 42, 0.12);
-  --contacto-hero-bg: #e8f0f4;
-  --contacto-card-bg: #1e3a32;
+  --contacto-ink: #313131;
+  --contacto-muted: rgba(49, 49, 49, 0.72);
+  --contacto-border: #E4E4E4;
+  --contacto-hero-bg: #F4F0EF;
+  --contacto-card-bg: #39513B;
 }
 
 .contacto-page {
   min-height: 100vh;
   padding: 0;
   padding-top: 70px;
-  background: #f8fafc;
+  background: #FAFAFA;
   color: var(--contacto-ink);
 }
 
 /* Modo claro: navbar y header blancos (como en Blog) */
 html:not([data-theme="dark"]) body.page-contacto .navbar,
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled {
-  background: #ffffff;
+  background: #FAFAFA;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid #E4E4E4;
 }
 
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .logo {
-  color: #111;
+  color: #313131;
 }
 
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .logo-img {
@@ -34,16 +34,16 @@ html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .logo-img {
 
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-links a,
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-dropdown-toggle {
-  color: #111;
+  color: #313131;
 }
 
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-dropdown-menu {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #FAFAFA;
+  border: 1px solid #E4E4E4;
 }
 
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-dropdown-menu a {
-  color: #111;
+  color: #313131;
 }
 
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-dropdown-menu a:hover {
@@ -51,8 +51,8 @@ html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-dropdown-
 }
 
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-theme-btn {
-  color: #111;
-  background: rgba(0, 0, 0, 0.06);
+  color: #313131;
+  background: #F4F0EF;
 }
 
 html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-theme-btn:hover {
@@ -60,17 +60,17 @@ html:not([data-theme="dark"]) body.page-contacto .navbar.scrolled .nav-theme-btn
 }
 
 html:not([data-theme="dark"]) body.page-contacto .contacto-page {
-  background: #ffffff;
+  background: #FAFAFA;
 }
 
 html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
-  background: #ffffff;
+  background: #FAFAFA;
 }
 
 /* Modo oscuro: header y lo que está arriba del header, misma tonalidad */
 [data-theme="dark"] body.page-contacto .contacto-page,
 [data-theme="dark"] body.page-contacto .contacto-hero {
-  background: #0f1419;
+  background: #313131;
 }
 
 /* Hero */
@@ -98,7 +98,7 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
   width: 56px;
   height: 4px;
   margin: 0 auto 1.25rem;
-  background: var(--geo-military-green, #2d4a3e);
+  background: var(--geo-military-green);
   border-radius: 2px;
 }
 
@@ -124,7 +124,7 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 }
 
 .contacto-form-col {
-  background: #fff;
+  background: #FAFAFA;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   padding: 2rem 2.25rem;
@@ -160,7 +160,7 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
   padding: 0.85rem 1rem;
   border: 1px solid var(--contacto-border);
   border-radius: 12px;
-  background: #f8fafc;
+  background: #FAFAFA;
   font-size: 1rem;
   color: var(--contacto-ink);
   font-family: inherit;
@@ -173,8 +173,8 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 
 .contacto-input:focus {
   outline: none;
-  border-color: var(--geo-military-green, #2d4a3e);
-  box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.12);
+  border-color: var(--geo-military-green);
+  box-shadow: 0 0 0 3px rgba(57, 81, 59, 0.12);
 }
 
 .contacto-textarea {
@@ -186,8 +186,8 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
   padding: 0.9rem 1.75rem;
   margin-top: 0.25rem;
   background: transparent;
-  color: var(--geo-military-green, #2d4a3e);
-  border: 2px solid var(--geo-military-green, #2d4a3e);
+  color: var(--geo-military-green);
+  border: 2px solid var(--geo-military-green);
   border-radius: 9999px;
   font-size: 1rem;
   font-weight: 600;
@@ -197,7 +197,7 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 }
 
 .contacto-submit:hover {
-  background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+  background: var(--geo-military-green-hover-bg);
   transform: translateY(-1px);
 }
 
@@ -285,15 +285,15 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
   height: 44px;
   border-radius: 50%;
   background: transparent;
-  border: 2px solid var(--geo-military-green, #2d4a3e);
-  color: var(--geo-military-green, #2d4a3e);
+  border: 2px solid var(--geo-military-green);
+  color: var(--geo-military-green);
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .contacto-social-icon:hover {
-  background: var(--geo-military-green, #2d4a3e);
+  background: var(--geo-military-green);
   color: #fff;
-  border-color: var(--geo-military-green, #2d4a3e);
+  border-color: var(--geo-military-green);
   transform: scale(1.08);
 }
 
@@ -314,8 +314,8 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 }
 
 [data-theme="dark"] .contacto-social-icon:hover {
-  background: var(--geo-military-green, #2d4a3e);
-  border-color: var(--geo-military-green, #2d4a3e);
+  background: var(--geo-military-green);
+  border-color: var(--geo-military-green);
   color: #fff;
 }
 
@@ -333,7 +333,7 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 }
 
 .contacto-info-card {
-  background: #fff;
+  background: #FAFAFA;
   border-radius: 16px;
   padding: 1.75rem 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
@@ -350,8 +350,8 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(45, 74, 62, 0.1);
-  color: var(--geo-military-green, #2d4a3e);
+  background: rgba(57, 81, 59, 0.1);
+  color: var(--geo-military-green);
   flex-shrink: 0;
 }
 
@@ -392,7 +392,7 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 .contacto-map-container {
   width: 100%;
   height: 420px;
-  background: #e2e8f0;
+  background: #E4E4E4;
 }
 
 .contacto-map-iframe {
@@ -449,12 +449,12 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 
 /* Modo oscuro */
 [data-theme="dark"] .contacto-page {
-  background: #0f1419;
+  background: #313131;
   color: rgba(255, 255, 255, 0.92);
 }
 
 [data-theme="dark"] .contacto-hero {
-  background: #1a1d24;
+  background: #313131;
 }
 
 [data-theme="dark"] .contacto-hero-title {
@@ -466,7 +466,7 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 }
 
 [data-theme="dark"] .contacto-form-col {
-  background: #1a1d24;
+  background: #313131;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
@@ -485,12 +485,12 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 }
 
 [data-theme="dark"] .contacto-card {
-  background: #162a24;
+  background: #313131;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="dark"] .contacto-info-card {
-  background: #1a1d24;
+  background: #313131;
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
@@ -505,6 +505,6 @@ html:not([data-theme="dark"]) body.page-contacto .contacto-hero {
 }
 
 [data-theme="dark"] .contacto-info-icon {
-  background: rgba(45, 74, 62, 0.3);
+  background: rgba(57, 81, 59, 0.3);
   color: rgba(255, 255, 255, 0.9);
 }

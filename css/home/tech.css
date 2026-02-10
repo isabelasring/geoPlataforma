@@ -4,7 +4,7 @@
     padding: 4rem 2rem 4rem;
     min-height: 70vh;
     overflow: hidden;
-    background: #ffffff;
+    background: #FAFAFA;
     margin-bottom: 0;
 }
 
@@ -27,7 +27,7 @@
 .tech-section-title {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: 700;
-    color: #1a1a1a;
+    color: #313131;
     margin-bottom: 2.5rem;
     text-align: center;
 }
@@ -113,7 +113,7 @@
 .tech-icon {
     width: 48px;
     height: 48px;
-    color: #1a1a1a;
+    color: #313131;
     flex-shrink: 0;
 }
 
@@ -127,7 +127,7 @@
 .tech-card-title {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #313131;
     margin-top: 0;
     margin-bottom: 0.5rem;
     line-height: 1.3;
@@ -150,7 +150,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1a1a1a;
+    color: #313131;
     text-decoration: none;
     transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
@@ -230,7 +230,7 @@
 .tech-panel-title {
     font-size: 1.35rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #313131;
     margin: 0 0 0.25rem;
     line-height: 1.3;
 }
@@ -239,7 +239,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #374151;
+    color: #313131;
     margin: 0;
 }
 .tech-panel-uso {
@@ -257,7 +257,7 @@
     height: 40px;
     border: none;
     background: rgba(0, 0, 0, 0.06);
-    color: #1a1a1a;
+    color: #313131;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -268,7 +268,7 @@
 }
 .tech-panel-close:hover {
     background: rgba(0, 0, 0, 0.08);
-    color: #1a1a1a;
+    color: #313131;
 }
 .tech-panel-close svg {
     width: 20px;
@@ -290,7 +290,7 @@
 
 /* ========== Modo oscuro: fondo oscuro y detalles blancos ========== */
 [data-theme="dark"] .tech-section {
-    background: #1a1d24;
+    background: #313131;
 }
 
 [data-theme="dark"] .tech-section-title {

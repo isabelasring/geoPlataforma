@@ -19,7 +19,7 @@
     height: 280px;
     background: linear-gradient(
         to bottom,
-        #ffffff 0%,
+        #FAFAFA 0%,
         rgba(255, 255, 255, 0.92) 20%,
         rgba(255, 255, 255, 0.55) 50%,
         rgba(255, 255, 255, 0.2) 78%,
@@ -177,19 +177,19 @@
     gap: 0.5rem;
     padding: 0.85rem 1.5rem;
     background: transparent;
-    color: var(--geo-military-green, #2d4a3e);
+    color: var(--geo-military-green);
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
     border-radius: 9999px;
-    border: 2px solid var(--geo-military-green, #2d4a3e);
+    border: 2px solid var(--geo-military-green);
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .wind-cta-explore:hover {
-    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
+    background: var(--geo-military-green-hover-bg);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(45, 74, 62, 0.25);
+    box-shadow: 0 6px 20px rgba(57, 81, 59, 0.25);
 }
 
 .wind-cta-explore svg {
@@ -633,22 +633,22 @@
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
     background: transparent;
-    border: 2px solid var(--geo-military-green, #2d4a3e);
+    border: 2px solid var(--geo-military-green);
     border-radius: 9999px;
     align-self: flex-start;
     transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
     text-decoration: none;
 }
 a.wind-project-card-cta:hover {
-    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
-    border-color: var(--geo-military-green, #2d4a3e);
+    background: var(--geo-military-green-hover-bg);
+    border-color: var(--geo-military-green);
     color: rgba(255, 255, 255, 0.95);
     transform: translateX(2px);
 }
 
 .wind-project-card:hover .wind-project-card-cta {
-    background: var(--geo-military-green-hover-bg, rgba(45, 74, 62, 0.28));
-    border-color: var(--geo-military-green, #2d4a3e);
+    background: var(--geo-military-green-hover-bg);
+    border-color: var(--geo-military-green);
     transform: translateX(2px);
 }
 
@@ -771,7 +771,8 @@ a.wind-project-card-cta:hover {
     .wind-section {
         margin-top: -100px;
         padding-top: 0;
-        min-height: auto;
+        /* Sección más larga en responsive para que no se corte el contenido */
+        min-height: 110vh;
     }
 
     .wind-section::before {
@@ -781,8 +782,8 @@ a.wind-project-card-cta:hover {
     .wind-wrap {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
-        min-height: auto;
-        padding: 3rem 0 2rem;
+        min-height: 100vh;
+        padding: 3rem 0 3.5rem;
     }
 
     .wind-intro-col {
@@ -809,8 +810,8 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-carousel-col {
-        min-height: auto;
-        padding: 0.75rem 1rem 1.5rem;
+        min-height: 55vh;
+        padding: 0.75rem 1rem 2rem;
     }
 
     .wind-cards-wrap {
@@ -860,13 +861,15 @@ a.wind-project-card-cta:hover {
         border-radius: 4px;
     }
 
+    /* En móvil/tablet: al desplegar, se ve un solo servicio a la vez en carrusel horizontal */
     .wind-project-card {
-        flex: 0 0 140px;
-        min-width: 140px;
-        max-width: 140px;
+        flex: 0 0 80%;
+        min-width: 80%;
+        max-width: 80%;
         max-height: none;
         min-height: 150px;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
+        margin: 0 auto;
     }
 
     .wind-project-card-img {
@@ -908,10 +911,12 @@ a.wind-project-card-cta:hover {
 @media (max-width: 768px) {
     .wind-section {
         margin-top: -80px;
+        /* Un poco más alta en móviles medianos */
+        min-height: 105vh;
     }
 
     .wind-wrap {
-        padding: 3.5rem 0 1.5rem;
+        padding: 3.5rem 0 3rem;
     }
 
     .wind-intro-col {
@@ -932,13 +937,13 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-cards {
-        min-height: 260px;
+        min-height: 300px;
     }
 
     .wind-card {
-        flex: 0 0 155px;
-        min-width: 155px;
-        min-height: 260px;
+        flex: 0 0 70%;
+        min-width: 70%;
+        min-height: 280px;
     }
 
     .wind-project-cards {
@@ -947,10 +952,12 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-project-card {
-        flex: 0 0 120px;
-        min-width: 120px;
-        max-width: 120px;
-        min-height: 130px;
+        flex: 0 0 80%;
+        min-width: 80%;
+        max-width: 80%;
+        min-height: 180px;
+        scroll-snap-align: center;
+        margin: 0 auto;
     }
 
     .wind-project-card-img {
@@ -989,7 +996,7 @@ a.wind-project-card-cta:hover {
 
 @media (max-width: 600px) {
     .wind-wrap {
-        padding: 3rem 0 1rem;
+        padding: 3rem 0 3rem;
     }
 
     .wind-intro {
@@ -1015,11 +1022,12 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-project-card {
-        flex: 0 0 110px;
-        min-width: 110px;
-        max-width: 110px;
-        min-height: 120px;
-        scroll-snap-align: start;
+        flex: 0 0 85%;
+        min-width: 85%;
+        max-width: 85%;
+        min-height: 180px;
+        scroll-snap-align: center;
+        margin: 0 auto;
     }
 
     .wind-project-card-img {
