@@ -154,7 +154,9 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 6L6 18M6 6l12 12"/></svg>
                     </button>
                     <div class="wind-card-img" style="background-image: url('../img%3Avideo/home/ciudades/cards/DSC00439.JPG');"></div>
-                    <div class="wind-project-cards wind-service-cards">
+                    <div class="wind-inner-carousel-wrap">
+                        <button type="button" class="wind-inner-carousel-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M15 18l-6-6 6-6"/></svg></button>
+                        <div class="wind-project-cards wind-service-cards">
                         <div class="wind-project-card wind-service-card">
                             <div class="wind-project-card-img wind-service-card-img" style="background-image: url('../img%3Avideo/servicios/IMG_4278.jpeg');"></div>
                             <div class="wind-project-card-body wind-service-card-body">
@@ -179,6 +181,8 @@
                                 <a href="ciudades.html#servicio-webgis" class="wind-project-card-cta wind-service-card-cta">Ver servicio</a>
                             </div>
                         </div>
+                        </div>
+                        <button type="button" class="wind-inner-carousel-next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M9 18l6-6-6-6"/></svg></button>
                     </div>
                     <div class="wind-card-overlay">
                         <h3 class="wind-card-title">Ciudades</h3>
@@ -196,7 +200,9 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 6L6 18M6 6l12 12"/></svg>
                     </button>
                     <div class="wind-card-img" style="background-image: url('../img%3Avideo/home/industria/cards/IMG_3322.jpeg');"></div>
-                    <div class="wind-project-cards wind-service-cards">
+                    <div class="wind-inner-carousel-wrap">
+                        <button type="button" class="wind-inner-carousel-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M15 18l-6-6 6-6"/></svg></button>
+                        <div class="wind-project-cards wind-service-cards">
                         <div class="wind-project-card wind-service-card">
                             <div class="wind-project-card-img wind-service-card-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600');"></div>
                             <div class="wind-project-card-body wind-service-card-body">
@@ -221,6 +227,8 @@
                                 <a href="industria.html#servicio-modelacion-ruido" class="wind-project-card-cta wind-service-card-cta">Ver servicio</a>
                             </div>
                         </div>
+                        </div>
+                        <button type="button" class="wind-inner-carousel-next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M9 18l6-6-6-6"/></svg></button>
                     </div>
                     <div class="wind-card-overlay">
                         <h3 class="wind-card-title">Industria</h3>
@@ -238,7 +246,9 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 6L6 18M6 6l12 12"/></svg>
                     </button>
                     <div class="wind-card-img" style="background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfaba756?w=800');"></div>
-                    <div class="wind-project-cards wind-service-cards">
+                    <div class="wind-inner-carousel-wrap">
+                        <button type="button" class="wind-inner-carousel-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M15 18l-6-6 6-6"/></svg></button>
+                        <div class="wind-project-cards wind-service-cards">
                         <div class="wind-project-card wind-service-card">
                             <div class="wind-project-card-img wind-service-card-img" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600');"></div>
                             <div class="wind-project-card-body wind-service-card-body">
@@ -263,6 +273,8 @@
                                 <a href="#" class="wind-project-card-cta wind-service-card-cta">Ver servicio</a>
                             </div>
                         </div>
+                        </div>
+                        <button type="button" class="wind-inner-carousel-next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M9 18l6-6-6-6"/></svg></button>
                     </div>
                     <div class="wind-card-overlay">
                         <h3 class="wind-card-title">Infraestructura</h3>
@@ -891,6 +903,7 @@
 
         // Tarjetas wind (Inicio): al hacer clic, expandir y ocultar las otras; al volver a hacer clic, restaurar las 3
         (function() {
+            var windSection = document.querySelector('.wind-section');
             var windCards = document.querySelectorAll('.wind-card');
             var windCardsContainer = document.querySelector('.wind-cards');
             function restoreAll() {
@@ -899,6 +912,7 @@
                     c.classList.remove('hidden');
                 });
                 windCardsContainer && windCardsContainer.classList.remove('is-expanded');
+                windSection && windSection.classList.remove('wind-card-expanded');
             }
             windCards.forEach(function(card) {
                 var closeBtn = card.querySelector('.wind-card-close');
@@ -921,6 +935,7 @@
                     restoreAll();
                     card.classList.add('expanded');
                     windCardsContainer && windCardsContainer.classList.add('is-expanded');
+                    windSection && windSection.classList.add('wind-card-expanded');
                     windCards.forEach(function(other) {
                         if (other !== card) other.classList.add('hidden');
                     });
@@ -933,6 +948,21 @@
                         card.scrollIntoView(true);
                     }
                 });
+            });
+
+            // Carrusel interno (servicios): scroll con flechas; evitar que el clic cierre la card principal
+            document.querySelectorAll('.wind-inner-carousel-wrap').forEach(function(wrap) {
+                var track = wrap.querySelector('.wind-project-cards');
+                var prevBtn = wrap.querySelector('.wind-inner-carousel-prev');
+                var nextBtn = wrap.querySelector('.wind-inner-carousel-next');
+                if (!track || !prevBtn || !nextBtn) return;
+                function scrollBy(direction, e) {
+                    if (e) { e.preventDefault(); e.stopPropagation(); }
+                    var step = track.offsetWidth * 0.6;
+                    track.scrollBy({ left: direction * step, behavior: 'smooth' });
+                }
+                prevBtn.addEventListener('click', function(e) { scrollBy(-1, e); });
+                nextBtn.addEventListener('click', function(e) { scrollBy(1, e); });
             });
         })();
 

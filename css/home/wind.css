@@ -1,4 +1,4 @@
-/* Sección Servicios - Home: fondo con transparencia, intro izquierda, carrusel derecha */
+/* Sección Servicios - Home: pantalla completa como original; responsive se sobrescribe abajo */
 .wind-section {
     position: relative;
     min-height: 85vh;
@@ -94,32 +94,38 @@
     z-index: 1;
     background: linear-gradient(135deg, rgba(10, 14, 26, 0.85) 0%, rgba(10, 14, 26, 0.6) 50%, rgba(10, 14, 26, 0.4) 100%);
     pointer-events: none;
+    transition: backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease;
 }
+
+/* Blur al desplegar: solo en responsive (ver @media max-width: 900px) */
 
 .wind-wrap {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 44% 1fr;
+    grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
     gap: 0;
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
     min-height: 85vh;
     align-items: center;
+    padding: 0.5rem 0;
 }
 
 /* Columna izquierda: intro a los servicios (transparencia, margen pequeña a la izquierda) */
 .wind-intro-col {
     display: flex;
     align-items: center;
-    padding: 3rem 2rem 3rem 1rem;
+    padding: 1.25rem 2rem 1.25rem 1rem;
     min-height: 85vh;
+    min-width: 0;
 }
 
 /* Panel izquierdo: en modo light glass claro (Proyectos); en dark se sobrescribe */
 .wind-intro {
-    max-width: 580px;
+    max-width: 100%;
+    width: 100%;
     min-height: 500px;
     padding: 2.5rem 2rem 2.5rem 2rem;
     background: rgba(255, 255, 255, 0.1);
@@ -136,6 +142,8 @@
     flex-direction: column;
     justify-content: center;
     transition: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .wind-section.wind-animated .wind-intro {
@@ -163,6 +171,8 @@
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .wind-intro-cta {
@@ -205,12 +215,14 @@
     padding: 2rem 1rem 2rem 1rem;
     min-height: 85vh;
     overflow: visible;
+    min-width: 0;
 }
 
 .wind-cards-wrap {
     position: relative;
     width: 100%;
     max-width: 100%;
+    min-width: 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -223,6 +235,7 @@
 .wind-cards {
     display: flex;
     flex: 1;
+    min-width: 0;
     gap: 0;
     min-height: 500px;
     overflow-x: auto;
@@ -245,11 +258,13 @@
     display: none;
 }
 
-/* Tarjetas largas y pegadas: imagen a toda altura, overlay con transparencia – caen del cielo al hacer scroll */
+/* Pantalla completa: cards originales 320x500 */
 .wind-card {
     position: relative;
-    flex: 0 0 280px;
-    min-width: 280px;
+    flex: 0 0 320px;
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
     border-radius: 12px;
     overflow: hidden;
     min-height: 500px;
@@ -295,6 +310,7 @@
 
 .wind-card.expanded {
     flex: 1 1 85%;
+    width: auto;
     min-width: 75%;
     max-width: 92%;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
@@ -352,6 +368,14 @@
     pointer-events: none;
     animation: none !important;
     transition: opacity 0.25s ease, transform 0.25s ease;
+    /* Botón más pequeño que .hero-cta genérico */
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+}
+
+.wind-more-projects svg {
+    width: 14px !important;
+    height: 14px !important;
 }
 
 .wind-card.expanded .wind-more-projects {
@@ -463,6 +487,16 @@
     max-height: 0;
     padding: 0;
     margin: 0;
+}
+
+/* Wrapper del carrusel interno (flechas solo en responsive) */
+.wind-inner-carousel-wrap {
+    position: relative;
+}
+
+.wind-inner-carousel-prev,
+.wind-inner-carousel-next {
+    display: none;
 }
 
 /* Tarjetas de proyectos grandes - visibles al expandir (imagen grande + título + descripción + Ver proyecto) */
@@ -768,11 +802,21 @@ a.wind-project-card-cta:hover {
 }
 
 @media (max-width: 900px) {
+    /* Solo en responsive: sección más alta, blur al desplegar */
     .wind-section {
         margin-top: -100px;
         padding-top: 0;
-        /* Sección más larga en responsive para que no se corte el contenido */
-        min-height: 110vh;
+        min-height: 92vh;
+    }
+
+    .wind-section.wind-card-expanded .wind-section-bg {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    .wind-section.wind-card-expanded .wind-video-bg {
+        filter: blur(12px);
+        -webkit-filter: blur(12px);
     }
 
     .wind-section::before {
@@ -782,18 +826,18 @@ a.wind-project-card-cta:hover {
     .wind-wrap {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
-        min-height: 100vh;
-        padding: 3rem 0 3.5rem;
+        min-height: 92vh;
+        padding: 1rem 0 1.25rem;
     }
 
     .wind-intro-col {
         min-height: auto;
-        padding: 2rem 1rem 1rem 1rem;
+        padding: 1rem 1rem 0.75rem 1rem;
     }
 
     .wind-intro {
         min-height: 220px;
-        padding: 1.25rem 1rem;
+        padding: 1.75rem 1rem 1.25rem 1rem;
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.06);
     }
@@ -810,8 +854,8 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-carousel-col {
-        min-height: 55vh;
-        padding: 0.75rem 1rem 2rem;
+        min-height: auto;
+        padding: 0.5rem 1rem 1rem;
     }
 
     .wind-cards-wrap {
@@ -820,23 +864,103 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-cards {
-        flex-direction: row;
-        min-height: 300px;
+        flex-direction: column;
+        min-height: auto;
         order: 1;
         width: 100%;
         justify-content: flex-start;
-        gap: 0;
+        gap: 1rem;
+        overflow-x: visible;
+        overflow-y: visible;
+        scroll-snap-type: none;
+    }
+
+    .wind-cards.is-expanded {
+        min-height: auto;
     }
 
     .wind-card {
-        flex: 0 0 180px;
-        min-width: 180px;
-        min-height: 300px;
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 280px;
     }
 
     .wind-card.expanded {
-        flex: 1 1 100%;
+        flex: 0 0 auto;
+        width: 100%;
         min-width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        background: rgba(10, 14, 26, 0.25);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    [data-theme="dark"] .wind-card.expanded {
+        background: rgba(15, 20, 25, 0.4);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Botón Ver más servicios: justo debajo de las cards internas, sin hueco */
+    .wind-card.expanded .wind-more-projects {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        flex-shrink: 0;
+        margin: 0.75rem auto 1rem;
+        z-index: 10;
+        padding: 0.6rem 1.25rem !important;
+    }
+
+    /* Contenido en columna: las 3 cards internas (solo la altura del contenido) y abajo el botón pegado */
+    .wind-card.expanded .wind-inner-carousel-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        flex: 0 0 auto;
+        max-height: none;
+        padding: 1rem 0.75rem 0;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    .wind-card.expanded .wind-inner-carousel-wrap .wind-project-cards {
+        position: relative;
+        left: auto;
+        right: auto;
+        margin: 0;
+        max-width: none;
+        flex: 0 0 auto;
+        min-width: 0;
+        bottom: auto;
+        max-height: none;
+        padding-bottom: 0;
+        flex-direction: column;
+        overflow-x: visible;
+        overflow-y: visible;
+        scroll-snap-type: none;
+        gap: 0.75rem;
+        padding: 0.5rem 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .wind-card.expanded .wind-inner-carousel-prev,
+    .wind-card.expanded .wind-inner-carousel-next {
+        display: none;
     }
 
     .wind-project-cards {
@@ -861,15 +985,30 @@ a.wind-project-card-cta:hover {
         border-radius: 4px;
     }
 
-    /* En móvil/tablet: al desplegar, se ve un solo servicio a la vez en carrusel horizontal */
+    /* Cards internas (servicios) en columna hacia abajo */
+    .wind-card.expanded .wind-project-card {
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 120px;
+        scroll-snap-align: none;
+        margin: 0;
+    }
+
     .wind-project-card {
-        flex: 0 0 80%;
-        min-width: 80%;
-        max-width: 80%;
+        flex: 0 0 58%;
+        min-width: 58%;
+        max-width: 58%;
         max-height: none;
         min-height: 150px;
         scroll-snap-align: center;
         margin: 0 auto;
+    }
+
+    .wind-card.expanded .wind-project-card-img {
+        height: 80px;
+        min-height: 80px;
     }
 
     .wind-project-card-img {
@@ -911,21 +1050,20 @@ a.wind-project-card-cta:hover {
 @media (max-width: 768px) {
     .wind-section {
         margin-top: -80px;
-        /* Un poco más alta en móviles medianos */
-        min-height: 105vh;
+        min-height: auto;
     }
 
     .wind-wrap {
-        padding: 3.5rem 0 3rem;
+        padding: 1rem 0 1rem;
     }
 
     .wind-intro-col {
-        padding: 1.5rem 1rem 0.75rem;
+        padding: 0.75rem 1rem 0.5rem;
     }
 
     .wind-intro {
         min-height: 200px;
-        padding: 1rem;
+        padding: 1.5rem 1rem 1rem 1rem;
     }
 
     .wind-title {
@@ -936,14 +1074,31 @@ a.wind-project-card-cta:hover {
         font-size: 0.85rem;
     }
 
+    .wind-cards.is-expanded {
+        min-height: auto;
+    }
+
+    .wind-card.expanded {
+        min-height: auto;
+    }
+
     .wind-cards {
-        min-height: 300px;
+        flex-direction: column;
+        min-height: auto;
+        gap: 1rem;
     }
 
     .wind-card {
-        flex: 0 0 70%;
-        min-width: 70%;
-        min-height: 280px;
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 260px;
+    }
+
+    .wind-card.expanded {
+        width: 100%;
+        max-width: 100%;
     }
 
     .wind-project-cards {
@@ -952,9 +1107,9 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-project-card {
-        flex: 0 0 80%;
-        min-width: 80%;
-        max-width: 80%;
+        flex: 0 0 55%;
+        min-width: 55%;
+        max-width: 55%;
         min-height: 180px;
         scroll-snap-align: center;
         margin: 0 auto;
@@ -996,12 +1151,12 @@ a.wind-project-card-cta:hover {
 
 @media (max-width: 600px) {
     .wind-wrap {
-        padding: 3rem 0 3rem;
+        padding: 1rem 0 1rem;
     }
 
     .wind-intro {
         min-height: 180px;
-        padding: 0.875rem;
+        padding: 1.35rem 0.875rem 0.875rem 0.875rem;
     }
 
     .wind-title {
@@ -1022,9 +1177,9 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-project-card {
-        flex: 0 0 85%;
-        min-width: 85%;
-        max-width: 85%;
+        flex: 0 0 62%;
+        min-width: 62%;
+        max-width: 62%;
         min-height: 180px;
         scroll-snap-align: center;
         margin: 0 auto;
@@ -1060,14 +1215,31 @@ a.wind-project-card-cta:hover {
         height: 100px;
     }
 
+    .wind-cards.is-expanded {
+        min-height: auto;
+    }
+
+    .wind-card.expanded {
+        min-height: auto;
+    }
+
     .wind-cards {
-        min-height: 240px;
+        flex-direction: column;
+        min-height: auto;
+        gap: 0.75rem;
     }
 
     .wind-card {
-        flex: 0 0 140px;
-        min-width: 140px;
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
         min-height: 240px;
+    }
+
+    .wind-card.expanded {
+        width: 100%;
+        max-width: 100%;
     }
 
     .wind-card-title {
