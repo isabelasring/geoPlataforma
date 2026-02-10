@@ -1035,6 +1035,7 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
 }
 
 [data-theme="dark"] .proyecto-card:hover {
@@ -1050,9 +1051,10 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 }
 
 [data-theme="dark"] .proyecto-card-content {
-  background: rgba(10, 14, 18, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #313131;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0 0 16px 16px;
 }
 
 [data-theme="dark"] .proyectos-service-nav {

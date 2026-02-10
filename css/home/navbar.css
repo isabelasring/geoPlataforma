@@ -10,7 +10,7 @@
     backdrop-filter: blur(10px);
     border-radius: 50px;
     border: none;
-    transition: background 0.3s ease, backdrop-filter 0.3s ease, color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    transition: background 0.22s ease, backdrop-filter 0.22s ease, color 0.22s ease, opacity 0.22s ease, visibility 0.22s ease;
     width: 98%;
     max-width: 1400px;
 }
@@ -71,7 +71,7 @@
     max-width: 320px;
     object-fit: contain;
     display: block;
-    transition: filter 0.3s ease;
+    transition: filter 0.22s ease;
 }
 
 /* Logo en blanco sobre navbar transparente/oscuro (letras visibles) */
@@ -100,7 +100,7 @@
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
-    transition: opacity 0.3s ease, color 0.3s ease;
+    transition: opacity 0.22s ease, color 0.22s ease;
     background: none;
     border: none;
     cursor: pointer;
@@ -122,7 +122,7 @@
     width: 0;
     height: 2px;
     background: currentColor;
-    transition: width 0.3s ease;
+    transition: width 0.22s ease;
 }
 
 .nav-links > li > a:hover::after,
@@ -138,7 +138,7 @@
     width: 0;
     height: 2px;
     background: #39513B;
-    transition: width 0.3s ease;
+    transition: width 0.22s ease;
 }
 
 .nav-dropdown:hover::after {
@@ -165,7 +165,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(-6px);
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background 0.3s ease;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease, background 0.22s ease;
     z-index: 100;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }

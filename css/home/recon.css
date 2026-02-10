@@ -80,7 +80,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .recon-arrow:hover {
@@ -152,7 +152,7 @@
     border: 3px solid #39513B;
     position: relative;
     overflow: hidden;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .recon-card::after {
@@ -177,7 +177,7 @@
     -webkit-backdrop-filter: blur(8px);
     border-radius: 24px;
     border: 2px solid #39513B;
-    transition: background 0.35s ease, border-color 0.35s ease;
+    transition: background 0.25s ease, border-color 0.25s ease;
 }
 
 .recon-item:hover {

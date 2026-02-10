@@ -94,7 +94,7 @@
     z-index: 1;
     background: linear-gradient(135deg, rgba(10, 14, 26, 0.85) 0%, rgba(10, 14, 26, 0.6) 50%, rgba(10, 14, 26, 0.4) 100%);
     pointer-events: none;
-    transition: backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease;
+    transition: backdrop-filter 0.22s ease, -webkit-backdrop-filter 0.22s ease;
 }
 
 /* Blur al desplegar: solo en responsive (ver @media max-width: 900px) */
@@ -147,7 +147,7 @@
 }
 
 .wind-section.wind-animated .wind-intro {
-    animation: wind-intro-slide 4.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: wind-intro-slide 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes wind-intro-slide {
@@ -193,7 +193,7 @@
     text-decoration: none;
     border-radius: 9999px;
     border: 2px solid var(--geo-military-green);
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
 
 .wind-cta-explore:hover {
@@ -273,15 +273,15 @@
     border: none;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: none;
-    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s ease, box-shadow 0.4s ease;
+    transition: flex 0.26s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s ease, box-shadow 0.22s ease;
     scroll-snap-align: start;
     opacity: 0;
     transform: translateY(-180px);
-    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s ease, box-shadow 0.4s ease;
+    transition: flex 0.26s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s ease, box-shadow 0.22s ease;
 }
 
 .wind-section.wind-animated .wind-card {
-    animation: wind-card-fall 4s cubic-bezier(0.34, 1.1, 0.64, 1) forwards;
+    animation: wind-card-fall 2.5s cubic-bezier(0.34, 1.1, 0.64, 1) forwards;
 }
 
 .wind-card:last-child {
@@ -371,11 +371,26 @@
     /* Botón más pequeño que .hero-cta genérico */
     padding: 0.5rem 1rem !important;
     font-size: 0.8rem !important;
+    /* Fondo verde (pantalla completa y responsive) */
+    background: var(--geo-military-green) !important;
+    border-color: var(--geo-military-green) !important;
+    color: #fff !important;
+    box-shadow: none;
+}
+
+.wind-more-projects:hover,
+.wind-more-projects:focus {
+    background: var(--geo-military-green) !important;
+    border-color: var(--geo-military-green) !important;
+    color: #fff !important;
+    box-shadow: none;
+    transform: translateX(-50%) translateY(-4px);
 }
 
 .wind-more-projects svg {
     width: 14px !important;
     height: 14px !important;
+    color: #fff !important;
 }
 
 .wind-card.expanded .wind-more-projects {
@@ -384,12 +399,17 @@
     transform: translateX(-50%) translateY(0);
 }
 
+.wind-card.expanded .wind-more-projects:hover,
+.wind-card.expanded .wind-more-projects:focus {
+    transform: translateY(-4px);
+}
+
 .wind-card-img {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Primera card: imagen anclada a la izquierda para que no se vea cortada */
@@ -409,7 +429,7 @@
     background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.5) 100%);
     pointer-events: none;
     z-index: 0;
-    transition: background 0.4s ease;
+    transition: background 0.28s ease;
 }
 
 .wind-card:hover::after {
@@ -433,7 +453,7 @@
     flex-direction: column;
     gap: 0.35rem;
     z-index: 1;
-    transition: background 0.4s ease;
+    transition: background 0.28s ease;
 }
 
 .wind-card:hover .wind-card-overlay {
@@ -470,7 +490,7 @@
     overflow: hidden;
     padding: 0;
     margin: 0;
-    transition: opacity 0.35s ease, visibility 0.35s ease, max-height 0.35s ease, padding 0.35s ease, margin 0.35s ease;
+    transition: opacity 0.25s ease, visibility 0.25s ease, max-height 0.25s ease, padding 0.25s ease, margin 0.25s ease;
 }
 
 .wind-card:hover .wind-card-desc {
@@ -520,7 +540,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(12px);
-    transition: opacity 0.35s ease 0.2s, visibility 0.35s ease 0.2s, transform 0.35s ease 0.2s;
+    transition: opacity 0.25s ease 0.15s, visibility 0.25s ease 0.15s, transform 0.25s ease 0.15s;
     padding: 0 0.5rem;
     box-sizing: border-box;
     isolation: isolate;
@@ -574,7 +594,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     text-decoration: none;
     color: inherit;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 }
 
 /* Cuando la card está expandida: blur muy fuerte en cada una de las 3 cards */
@@ -599,7 +619,7 @@
     background-size: cover;
     background-position: center;
     background-color: rgba(20, 35, 28, 0.4);
-    transition: transform 0.4s ease;
+    transition: transform 0.28s ease;
     position: relative;
 }
 

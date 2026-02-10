@@ -2,7 +2,7 @@
 .geotrends-section {
     position: relative;
     min-height: 110vh;
-    padding: 14rem 2rem 5rem;
+    padding: 8rem 2rem 5rem;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -34,8 +34,8 @@
     flex-direction: column;
     justify-content: center;
     padding: 3rem;
-    padding-top: 5rem;
-    margin-top: 5rem; /* baja el bloque para que el título quede bien bajo el sombreado */
+    padding-top: 2rem;
+    margin-top: 0;
     box-sizing: border-box;
     max-width: 560px; /* ancho de lectura cómodo, aprovecha el espacio en blanco */
     opacity: 0;
@@ -45,7 +45,7 @@
 }
 
 .geotrends-section.geotrends-animated .geotrends-content {
-    animation: geotrends-text-giro 4.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: geotrends-text-giro 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes geotrends-text-giro {
@@ -62,9 +62,9 @@
 }
 
 
-/* Pantalla completa: título visible sin exceso */
+/* Pantalla completa: título y texto más grandes; en responsive los media queries los achican */
 .geotrends-title {
-    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
     font-weight: 700;
     color: #313131;
     margin-bottom: 0.5rem;
@@ -83,7 +83,7 @@
 }
 
 .geotrends-text {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     line-height: 1.7;
     color: rgba(49, 49, 49, 0.88);
     margin-bottom: 1rem;
@@ -104,7 +104,7 @@
     border-radius: 9999px;
     border: 2px solid var(--geo-military-green);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     align-self: flex-start;
 }
 
@@ -146,7 +146,7 @@
 }
 
 .geotrends-section.geotrends-animated .geotrends-image-wrapper {
-    animation: geotrends-bolita-enter 4s cubic-bezier(0.34, 1.2, 0.64, 1) 1.2s forwards;
+    animation: geotrends-bolita-enter 2.5s cubic-bezier(0.34, 1.2, 0.64, 1) 0.7s forwards;
 }
 
 @keyframes geotrends-bolita-enter {
@@ -230,7 +230,7 @@
     }
 
     .geotrends-section.geotrends-animated .geotrends-image-wrapper {
-        animation: geotrends-bolita-enter-mobile 4s cubic-bezier(0.34, 1.2, 0.64, 1) 1.2s forwards;
+        animation: geotrends-bolita-enter-mobile 2.5s cubic-bezier(0.34, 1.2, 0.64, 1) 0.7s forwards;
     }
 
     @keyframes geotrends-bolita-enter-mobile {

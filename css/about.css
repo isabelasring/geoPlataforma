@@ -414,7 +414,7 @@
 
 .about-equipo-grid-wrap:not([hidden]) {
   display: block;
-  animation: about-panel-in 0.35s ease;
+  animation: about-panel-in 0.25s ease;
 }
 @keyframes about-panel-in {
   from { opacity: 0; transform: translateY(8px); }
@@ -500,7 +500,7 @@
   padding: 1.25rem 1rem;
   gap: 1rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.22s ease;
 }
 
 .about-equipo-card:hover .about-equipo-card-hover {

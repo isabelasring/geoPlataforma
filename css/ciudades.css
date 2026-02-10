@@ -41,7 +41,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     background: rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 999px;
-    transition: all 0.3s ease;
+    transition: all 0.22s ease;
 }
 
 .section-services-top .section-service-pill:hover {
@@ -111,7 +111,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     transform: rotate(-90deg);
     margin: 0;
     opacity: 0;
-    animation: label-fade-in 0.8s ease-out 0.3s forwards;
+    animation: label-fade-in 0.5s ease-out 0.2s forwards;
 }
 
 @keyframes label-fade-in {
@@ -148,7 +148,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     transform: translateY(-100%);
 }
 .section-view.section-cards-animated .section-card {
-    animation: section-card-fall 1.15s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+    animation: section-card-fall 0.75s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
 }
 .section-view.section-cards-animated .section-card:nth-child(1) { animation-delay: 0.08s; }
 .section-view.section-cards-animated .section-card:nth-child(2) { animation-delay: 0.22s; }
@@ -186,7 +186,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     overflow: hidden;
     border-right: 1px solid rgba(255, 255, 255, 0.12);
     cursor: pointer;
-    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s ease;
+    transition: flex 0.28s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease;
     display: flex;
 }
 
@@ -199,7 +199,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     flex: 0 0 0;
     min-width: 0;
     overflow: hidden;
-    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: flex 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-card.expanded {
@@ -207,7 +207,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     z-index: 2;
     flex: 1 1 100%;
     min-width: 0;
-    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: flex 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-card:last-child {
@@ -220,7 +220,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     inset: 0;
     display: flex;
     align-items: flex-end;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.22s ease, visibility 0.22s ease;
 }
 
 .section-card.expanded .section-card-front {
@@ -235,7 +235,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     background-size: cover;
     background-position: center;
     background-color: #39513B;
-    transition: transform 0.5s ease;
+    transition: transform 0.25s ease;
 }
 
 .section-card-img video {
@@ -284,7 +284,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.35s ease 0.4s, visibility 0.35s ease 0.4s;
+    transition: opacity 0.2s ease 0.2s, visibility 0.2s ease 0.2s;
 }
 
 /* Overlay en modo claro: izquierda transparente sobre carrusel, derecha blanco sin sombra (modo oscuro en theme.css) */
@@ -406,7 +406,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     gap: 0;
     height: 100%;
     min-height: 400px;
-    transition: transform 0.35s ease;
+    transition: transform 0.25s ease;
 }
 
 .section-card-carousel-slide {
@@ -455,7 +455,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     order: 2;
     opacity: 0;
     transform: translateX(24px);
-    transition: opacity 0.35s ease 0.45s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+    transition: opacity 0.2s ease 0.22s, transform 0.22s cubic-bezier(0.4, 0, 0.2, 1) 0.22s;
     box-shadow: none;
 }
 
