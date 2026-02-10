@@ -557,12 +557,12 @@
     z-index: 5;
 }
 
-/* Tarjetas de servicio: en light glass claro + sombra blanquecina; en dark se sobrescribe */
+/* Tarjetas de servicio (pantalla completa): altura suficiente para texto y botón bien abajo */
 .wind-project-card {
     flex: 1;
     min-width: 0;
-    min-height: 280px;
-    max-height: 380px;
+    min-height: 380px;
+    max-height: none;
     display: flex;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.1);
@@ -570,7 +570,7 @@
     -webkit-backdrop-filter: blur(20px);
     border-radius: 14px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 12px 28px rgba(255, 255, 255, 0.06);
-    overflow: hidden;
+    overflow: visible;
     border: 1px solid rgba(255, 255, 255, 0.2);
     text-decoration: none;
     color: inherit;
@@ -615,17 +615,18 @@
     transform: scale(1.05);
 }
 
-/* Cuerpo de la card: mismo contenido glass que .proyecto-card-content en Proyectos */
+/* Cuerpo de la card: título, descripción (no se comprime) y botón siempre abajo */
 .wind-project-card-body {
     flex: 1;
-    min-height: 0;
-    padding: 1rem 1rem 1.25rem;
+    min-height: 140px;
+    padding: 1rem 1rem 1.25rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.4rem;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
+    overflow: visible;
 }
 
 /* Blur muy fuerte en el cuerpo de la card cuando está desplegada */
@@ -643,24 +644,23 @@
     letter-spacing: 0.02em;
     line-height: 1.25;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
 }
 
 .wind-project-card-desc {
     font-size: 0.8rem;
-    line-height: 1.4;
+    line-height: 1.45;
     color: rgba(255, 255, 255, 0.85);
     margin: 0;
-    flex: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    flex: 0 0 auto;
+    min-height: 3.6em;
 }
 
 .wind-project-card-cta {
     display: inline-flex;
     align-items: center;
-    margin-top: 0.5rem;
+    flex-shrink: 0;
+    margin-top: auto;
     padding: 0.5rem 0.85rem;
     font-size: 0.8rem;
     font-weight: 600;
@@ -987,13 +987,13 @@ a.wind-project-card-cta:hover {
         border-radius: 4px;
     }
 
-    /* Cards internas (servicios) en columna hacia abajo */
+    /* Cards internas (servicios) en columna hacia abajo, más altas para que el botón quede abajo */
     .wind-card.expanded .wind-project-card {
         flex: 0 0 auto;
         width: 100%;
         min-width: 100%;
         max-width: 100%;
-        min-height: 120px;
+        min-height: 160px;
         scroll-snap-align: none;
         margin: 0;
     }
@@ -1019,7 +1019,8 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-project-card-body {
-        padding: 0.4rem 0.5rem;
+        padding: 0.4rem 0.5rem 0.75rem;
+        min-height: 95px;
     }
 
     .wind-project-card-title,
@@ -1032,12 +1033,15 @@ a.wind-project-card-cta:hover {
         font-size: 0.65rem;
         line-height: 1.35;
         -webkit-line-clamp: 2;
+        flex: 0 0 auto;
+        min-height: 2.8em;
     }
 
     .wind-project-card-cta,
     .wind-service-card-cta {
         font-size: 0.65rem;
         padding: 0.3rem 0.5rem;
+        margin-top: auto;
     }
 
     .wind-card-title {
@@ -1125,7 +1129,8 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-project-card-body {
-        padding: 0.35rem 0.45rem;
+        padding: 0.35rem 0.45rem 0.65rem;
+        min-height: 90px;
     }
 
     .wind-project-card-title,
@@ -1136,12 +1141,15 @@ a.wind-project-card-cta:hover {
     .wind-project-card-desc,
     .wind-service-card-desc {
         font-size: 0.6rem;
+        flex: 0 0 auto;
+        min-height: 2.6em;
     }
 
     .wind-project-card-cta,
     .wind-service-card-cta {
         font-size: 0.6rem;
         padding: 0.25rem 0.45rem;
+        margin-top: auto;
     }
 
     .wind-card-title {
@@ -1200,7 +1208,8 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-project-card-body {
-        padding: 0.3rem 0.4rem;
+        padding: 0.3rem 0.4rem 0.6rem;
+        min-height: 80px;
     }
 
     .wind-project-card-title,
@@ -1212,12 +1221,15 @@ a.wind-project-card-cta:hover {
     .wind-service-card-desc {
         font-size: 0.55rem;
         -webkit-line-clamp: 2;
+        flex: 0 0 auto;
+        min-height: 2.4em;
     }
 
     .wind-project-card-cta,
     .wind-service-card-cta {
         font-size: 0.55rem;
         padding: 0.25rem 0.4rem;
+        margin-top: auto;
     }
 
     .wind-section::before {
