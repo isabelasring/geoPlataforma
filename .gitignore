@@ -7,3 +7,11 @@
 # Ignorar toda la carpeta proyectos (imágenes y medios pesados)
 # Los archivos siguen en tu PC, solo no se suben al repo
 /proyectos/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.env

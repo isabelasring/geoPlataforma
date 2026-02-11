@@ -1,0 +1,17 @@
+{
+  "name": "geoplataforma",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GeoPlataforma website served with Node.js and Express.",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "NODE_ENV=development node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -2,8 +2,8 @@
   var STORAGE_KEY = 'geoPlataforma-theme';
   var THEME_LIGHT = 'light';
   var THEME_DARK = 'dark';
-  var LOGO_LIGHT = '../img%3Avideo/isologo-01.png';
-  var LOGO_DARK = '../img%3Avideo/isologo-02.png';
+  var LOGO_LIGHT = '../assets/media/isologo-01.png';
+  var LOGO_DARK = '../assets/media/isologo-02.png';
 
   function getStoredTheme() {
     try {
