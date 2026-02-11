@@ -931,3 +931,54 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Responsive equipo: carrusel horizontal a medida que la pantalla se achica */
+@media (max-width: 900px) {
+  .about-equipo-grid-wrap {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .about-equipo-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    grid-template-columns: unset;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .about-equipo-card {
+    flex: 0 0 280px;
+    min-width: 280px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .about-equipo-grid-wrap::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .about-equipo-grid-wrap::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 3px;
+  }
+
+  .about-equipo-grid-wrap::-webkit-scrollbar-thumb {
+    background: rgba(57, 81, 59, 0.35);
+    border-radius: 3px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-equipo-card {
+    flex: 0 0 75vw;
+    min-width: 75vw;
+  }
+}

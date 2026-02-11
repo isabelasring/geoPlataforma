@@ -734,6 +734,12 @@ body.proyecto-panel-open .navbar {
         padding: 1.75rem 2rem 1.25rem;
     }
 
+    /* En mobile, las flechas Ciudades / Industria / Infraestructura bajan y se ven claramente debajo de la barra de búsqueda */
+    .proyectos-left .proyectos-service-nav-row {
+        justify-content: center;
+        margin-top: 2.25rem;
+    }
+
     .proyectos-service-nav-top {
         top: 1rem;
         right: 2rem;
