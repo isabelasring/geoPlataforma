@@ -858,6 +858,7 @@ a.wind-project-card-cta:hover {
 
     .wind-intro {
         min-height: 220px;
+        margin-top: 2rem;
         padding: 2rem 1rem 1.25rem 1rem;
         padding-top: 2.25rem;
         border-radius: 12px;
@@ -930,7 +931,7 @@ a.wind-project-card-cta:hover {
         -webkit-backdrop-filter: blur(16px);
     }
 
-    /* Botón Ver más servicios: justo debajo de las cards internas, sin hueco */
+    /* Botón Ver más servicios: justo debajo de las cards internas, centrado y más pequeño en mobile */
     .wind-card.expanded .wind-more-projects {
         position: relative;
         left: auto;
@@ -939,7 +940,11 @@ a.wind-project-card-cta:hover {
         flex-shrink: 0;
         margin: 0.75rem auto 1rem;
         z-index: 10;
-        padding: 0.6rem 1.25rem !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.45rem 1rem !important;
+        font-size: 0.75rem !important;
     }
 
     /* Contenido en columna: las 3 cards internas (solo la altura del contenido) y abajo el botón pegado */
@@ -1090,6 +1095,7 @@ a.wind-project-card-cta:hover {
 
     .wind-intro {
         min-height: 200px;
+        margin-top: 2rem;
         padding: 2rem 1rem 1rem 1rem;
         padding-top: 2rem;
     }
@@ -1192,6 +1198,7 @@ a.wind-project-card-cta:hover {
 
     .wind-intro {
         min-height: 180px;
+        margin-top: 2rem;
         padding: 1.75rem 0.875rem 0.875rem 0.875rem;
         padding-top: 2rem;
     }
