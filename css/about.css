@@ -537,6 +537,34 @@
   color: rgba(0, 0, 0, 0.65);
 }
 
+.about-equipo-card-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-top: 0.5rem;
+  border-radius: 50%;
+  background: rgba(57, 81, 59, 0.12);
+  color: var(--geo-military-green, #39513B);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.about-equipo-card-linkedin:hover {
+  background: var(--geo-military-green, #39513B);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.about-equipo-card-linkedin svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
 /* Columna derecha: Valores + Clientes apilados */
 .about-sidebar-right {
   display: flex;
