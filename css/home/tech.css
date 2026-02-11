@@ -53,7 +53,7 @@
     align-items: center;
     text-align: center;
     cursor: pointer;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.25s ease;
     opacity: 0;
     transform: perspective(1400px) rotateX(-75deg) rotateY(-20deg) scale(0.72);
     transform-style: preserve-3d;
@@ -89,7 +89,19 @@
 
 .tech-card:hover {
     background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: perspective(1400px) rotateX(0) rotateY(0) scale(1.03);
+}
+.tech-card:hover .tech-oval-wrap {
+    animation: none;
+}
+/* Sugerencia de clic: pulso suave en el icono */
+.tech-oval-wrap {
+    animation: tech-icon-pulse 2.5s ease-in-out infinite;
+}
+@keyframes tech-icon-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
 }
 
 /* Contenedor para icono o logo – en light transparencia blanca; en dark se sobrescribe */
@@ -115,6 +127,9 @@
     height: 48px;
     color: #313131;
     flex-shrink: 0;
+}
+.tech-icon-wrap .tech-icon[src] {
+    object-fit: contain;
 }
 
 .tech-oval-img {
@@ -194,11 +209,11 @@
     flex-direction: column;
     height: 100%;
 }
-.tech-panel-image-wrap {
+.tech-panel-icon-wrap {
     width: 100%;
     min-width: 0;
     flex-shrink: 0;
-    min-height: 200px;
+    min-height: 160px;
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -208,17 +223,20 @@
     padding: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
-.tech-panel-img {
-    width: 100%;
-    height: auto;
-    max-height: 280px;
+.tech-panel-icon-wrap .tech-panel-icon {
+    width: 80px;
+    height: 80px;
+    color: var(--geo-military-green);
+    stroke: currentColor;
+    flex-shrink: 0;
+}
+.tech-panel-icon-wrap .tech-panel-icon[src] {
     object-fit: contain;
-    display: block;
 }
 .tech-panel-content {
     flex: 1;
     min-height: 0;
-    padding: 2rem 1.5rem 2rem;
+    padding: 5rem 1.5rem 2rem;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -247,7 +265,17 @@
     line-height: 1.6;
     color: rgba(0, 0, 0, 0.8);
     margin: 0;
-    flex: 1;
+}
+.tech-panel-carousel-wrap {
+    margin-top: 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.06);
+    min-height: 200px;
+}
+.tech-panel-carousel-placeholder {
+    width: 100%;
+    height: 200px;
 }
 .tech-panel-close {
     position: absolute;
@@ -310,16 +338,21 @@
 }
 
 [data-theme="dark"] .tech-oval-wrap {
-    border-color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: none;
+    background: transparent;
+    box-shadow: none;
 }
 
 [data-theme="dark"] .tech-icon-wrap {
-    background: rgba(255, 255, 255, 0.08);
+    background: transparent;
 }
 
 [data-theme="dark"] .tech-icon {
     color: #fff;
+}
+
+[data-theme="dark"] .tech-icon-wrap .tech-icon[src] {
+    filter: brightness(0) invert(1);
 }
 
 [data-theme="dark"] .tech-card-title {
@@ -349,12 +382,18 @@
     box-shadow: none;
 }
 
-[data-theme="dark"] .tech-panel-image-wrap {
-    background: #313131;
+[data-theme="dark"] .tech-panel-icon-wrap {
+    background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    border-right-color: transparent;
+    border: none;
     border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .tech-panel-icon-wrap .tech-panel-icon {
+    color: #fff;
+}
+[data-theme="dark"] .tech-panel-icon-wrap .tech-panel-icon[src] {
+    filter: brightness(0) invert(1);
 }
 
 [data-theme="dark"] .tech-panel-content {
@@ -373,6 +412,10 @@
 
 [data-theme="dark"] .tech-panel-uso {
     color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] .tech-panel-carousel-wrap {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 [data-theme="dark"] .tech-panel-close {
@@ -399,11 +442,12 @@
     .tech-cards {
         grid-template-columns: repeat(2, 1fr);
     }
-    .tech-panel-image-wrap {
+    .tech-panel-icon-wrap {
         border-bottom-color: rgba(255, 255, 255, 0.2);
     }
-    .tech-panel-img {
-        max-height: 220px;
+    .tech-panel-icon-wrap .tech-panel-icon {
+        width: 64px;
+        height: 64px;
     }
 }
 

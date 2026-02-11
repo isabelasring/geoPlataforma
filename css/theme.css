@@ -582,7 +582,7 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 }
 
 [data-theme="dark"] .tech-icon-wrap {
-  background: rgba(255, 255, 255, 0.08);
+  background: transparent;
 }
 
 [data-theme="dark"] .tech-panel {
@@ -590,7 +590,7 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-[data-theme="dark"] .tech-panel-image-wrap {
+[data-theme="dark"] .tech-panel-icon-wrap {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.2);
 }
