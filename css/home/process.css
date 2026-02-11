@@ -121,7 +121,7 @@
 
 /* Cuadros: saltan a su posición con rebote */
 .process-section.process-animated .process-box {
-    animation: process-box-jump 0.7s cubic-bezier(0.34, 1.25, 0.64, 1) forwards;
+    animation: process-box-jump 0.5s cubic-bezier(0.34, 1.25, 0.64, 1) forwards;
 }
 .process-section.process-animated .process-step:nth-child(1) .process-box { animation-delay: 0.15s; }
 .process-section.process-animated .process-step:nth-child(2) .process-box { animation-delay: 0.4s; }
@@ -147,7 +147,7 @@
 
 /* Bolitas: giran al entrar */
 .process-section.process-animated .process-circle {
-    animation: process-circle-spin 0.8s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+    animation: process-circle-spin 0.55s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
 }
 .process-section.process-animated .process-step:nth-child(1) .process-circle { animation-delay: 0.05s; }
 .process-section.process-animated .process-step:nth-child(2) .process-circle { animation-delay: 0.3s; }

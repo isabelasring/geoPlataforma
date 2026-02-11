@@ -239,6 +239,28 @@
     line-height: 1.4;
 }
 
+.footer-address {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    margin: 0 0 0.75rem 0;
+}
+
+.footer-map-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--geo-military-green);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-map-link:hover {
+    color: var(--geo-military-green-hover-bg);
+    text-decoration: underline;
+}
+
 .footer-call {
     display: inline-flex;
     align-items: center;

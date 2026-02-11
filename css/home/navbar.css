@@ -330,7 +330,7 @@
     background: currentColor;
     border-radius: 1px;
     margin: 0 auto;
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    transition: transform 0.18s ease, opacity 0.18s ease;
 }
 
 .navbar.nav-mobile-open .nav-hamburger-bar:nth-child(1) {
