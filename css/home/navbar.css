@@ -145,6 +145,11 @@
     width: 100%;
 }
 
+.nav-dropdown.active::after {
+    width: 100%;
+    background: #fff;
+}
+
 .nav-links a:hover,
 .nav-dropdown-toggle:hover {
     opacity: 1;
