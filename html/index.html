@@ -347,27 +347,27 @@
                 </article>
             </div>
         </div>
-            <!-- Panel de detalle: se abre desde la derecha al hacer clic en una card -->
-            <div class="tech-panel" id="tech-panel" aria-hidden="true">
-                <div class="tech-panel-inner">
-                    <button type="button" class="tech-panel-close" id="tech-panel-close" aria-label="Cerrar panel">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                    </button>
-                    <div class="tech-panel-content">
-                        <div class="tech-panel-col tech-panel-desc">
-                            <h3 id="tech-panel-title" class="tech-panel-title"></h3>
-                            <p class="tech-panel-label">Cómo funciona</p>
-                            <p id="tech-panel-uso" class="tech-panel-uso"></p>
-                        </div>
-                        <div class="tech-panel-col tech-panel-img-wrap" id="tech-panel-gallery-space" aria-hidden="true">
-                            <div class="tech-panel-carousel-wrap">
-                                <div class="tech-panel-carousel-placeholder"></div>
-                            </div>
+        <!-- Panel pegado al bottom, sube/baja con transición; flecha abajo arriba al centro para cerrar -->
+        <div class="tech-panel" id="tech-panel" aria-hidden="true">
+            <div class="tech-panel-inner">
+                <button type="button" class="tech-panel-close tech-panel-close-arrow" id="tech-panel-close" aria-label="Bajar panel">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                </button>
+                <div class="tech-panel-content">
+                    <div class="tech-panel-col tech-panel-desc">
+                        <h3 id="tech-panel-title" class="tech-panel-title"></h3>
+                        <p class="tech-panel-label">Cómo funciona</p>
+                        <p id="tech-panel-uso" class="tech-panel-uso"></p>
+                    </div>
+                    <div class="tech-panel-col tech-panel-img-wrap" id="tech-panel-gallery-space">
+                        <div class="tech-panel-carousel-wrap">
+                            <div class="tech-panel-carousel-placeholder" id="tech-panel-img-placeholder"></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="tech-panel-backdrop" id="tech-panel-backdrop" aria-hidden="true"></div>
+        </div>
+        <div class="tech-panel-backdrop" id="tech-panel-backdrop" aria-hidden="true"></div>
     </section>
 
     <section class="process-section home-projects-section">
@@ -891,7 +891,7 @@
             });
         })();
 
-        // Panel de tecnologías: al hacer clic en una card se abre el panel con la descripción y espacio para galería
+        // Panel de tecnologías: al hacer clic en una card se abre el panel que sube desde abajo (con X para cerrar)
         (function() {
             var section = document.querySelector('.tech-section');
             var panel = document.getElementById('tech-panel');
@@ -899,6 +899,7 @@
             var closeBtn = document.getElementById('tech-panel-close');
             var panelTitle = document.getElementById('tech-panel-title');
             var panelUso = document.getElementById('tech-panel-uso');
+            var imgPlaceholder = document.getElementById('tech-panel-img-placeholder');
 
             function openPanel(card) {
                 if (!panel || !section) return;
@@ -907,6 +908,9 @@
                 if (!titleEl) return;
                 panelTitle.textContent = titleEl.textContent.trim();
                 panelUso.textContent = uso;
+                if (imgPlaceholder) {
+                    imgPlaceholder.innerHTML = '';
+                }
                 section.classList.add('tech-panel-open');
                 panel.setAttribute('aria-hidden', 'false');
                 backdrop.setAttribute('aria-hidden', 'false');
@@ -914,8 +918,8 @@
             function closePanel() {
                 if (!section) return;
                 section.classList.remove('tech-panel-open');
-                panel && panel.setAttribute('aria-hidden', 'true');
-                backdrop && backdrop.setAttribute('aria-hidden', 'true');
+                if (panel) panel.setAttribute('aria-hidden', 'true');
+                if (backdrop) backdrop.setAttribute('aria-hidden', 'true');
             }
 
             document.querySelectorAll('.tech-card').forEach(function(card) {

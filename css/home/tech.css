@@ -181,27 +181,29 @@
     height: 18px;
 }
 
-/* Panel mismo ancho que el bloque de iconos y definiciones (tech-cards), centrado, no toda la sección */
+/* Panel pegado al bottom: sube/baja con transición lenta */
 .tech-panel {
     position: absolute;
     top: 9rem;
-    bottom: 2rem;
+    bottom: 0;
     left: 50%;
     width: min(1200px, calc(100% - 4rem));
     min-height: 280px;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-top: 2px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
+    border: none;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.15);
     transform: translate(-50%, 100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.7s cubic-bezier(0.32, 0.72, 0.38, 1);
     overflow: hidden;
 }
 .tech-section.tech-panel-open .tech-panel {
     transform: translate(-50%, 0);
 }
+
 .tech-panel-inner {
     display: flex;
     flex-direction: column;
@@ -210,30 +212,6 @@
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
-}
-.tech-panel-icon-wrap {
-    width: 100%;
-    min-width: 0;
-    flex-shrink: 0;
-    min-height: 160px;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-}
-.tech-panel-icon-wrap .tech-panel-icon {
-    width: 80px;
-    height: 80px;
-    color: var(--geo-military-green);
-    stroke: currentColor;
-    flex-shrink: 0;
-}
-.tech-panel-icon-wrap .tech-panel-icon[src] {
-    object-fit: contain;
 }
 .tech-panel-content {
     flex: 1;
@@ -247,9 +225,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 }
 .tech-panel-col {
     min-width: 0;
@@ -268,6 +243,67 @@
     min-height: 0;
     width: 100%;
 }
+.tech-panel-carousel-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.06);
+    flex-shrink: 0;
+}
+.tech-panel-carousel-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+.tech-panel-carousel-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* Flecha hacia abajo arriba al centro: al hacer clic el panel baja */
+.tech-panel-close {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    color: #313131;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: color 0.2s ease, background 0.2s ease;
+    border-radius: 0 0 8px 8px;
+}
+.tech-panel-close:hover {
+    background: rgba(0, 0, 0, 0.06);
+    color: #313131;
+}
+.tech-panel-close svg {
+    width: 24px;
+    height: 24px;
+}
+.tech-panel-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+.tech-section.tech-panel-open .tech-panel-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Título, label y párrafo del detalle (reutilizan estilos del panel) */
 .tech-panel-title {
     font-size: 1.35rem;
     font-weight: 700;
@@ -288,66 +324,6 @@
     line-height: 1.6;
     color: rgba(0, 0, 0, 0.8);
     margin: 0;
-}
-/* Rectángulo siempre 16:9 */
-.tech-panel-carousel-wrap {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 12px;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.06);
-    flex-shrink: 0;
-}
-.tech-panel-carousel-placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    aspect-ratio: 16 / 9;
-}
-.tech-panel-carousel-wrap img,
-.tech-panel-carousel-wrap video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.tech-panel-close {
-    position: absolute;
-    top: max(1rem, env(safe-area-inset-top));
-    right: max(1rem, env(safe-area-inset-right));
-    left: auto;
-    width: 40px;
-    height: 40px;
-    border: none;
-    background: rgba(0, 0, 0, 0.06);
-    color: #313131;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-.tech-panel-close:hover {
-    background: rgba(0, 0, 0, 0.08);
-    color: #313131;
-}
-.tech-panel-close svg {
-    width: 20px;
-    height: 20px;
-}
-.tech-panel-backdrop {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    background: rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.22s ease;
-}
-.tech-section.tech-panel-open .tech-panel-backdrop {
-    opacity: 1;
-    pointer-events: auto;
 }
 
 /* ========== Modo oscuro: fondo oscuro y detalles blancos ========== */
@@ -412,28 +388,7 @@
     background: #313131;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    border-left-color: transparent;
     box-shadow: none;
-}
-
-[data-theme="dark"] .tech-panel-icon-wrap {
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-[data-theme="dark"] .tech-panel-icon-wrap .tech-panel-icon {
-    color: #fff;
-}
-[data-theme="dark"] .tech-panel-icon-wrap .tech-panel-icon[src] {
-    filter: brightness(0) invert(1);
-}
-
-[data-theme="dark"] .tech-panel-content {
-    background: #313131;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
 }
 
 [data-theme="dark"] .tech-panel-title {
@@ -462,30 +417,18 @@
     color: #fff;
 }
 
-[data-theme="dark"] .tech-panel-backdrop {
-    background: rgba(0, 0, 0, 0.5);
-}
-
 /* Transiciones removidas para fondo blanco */
 .tech-section::before,
 .tech-section::after {
     display: none;
 }
 
-/* Panel: cuando la pantalla no es muy alta, imagen debajo y panel más abajo (no llega al título) */
+/* Panel: pantalla baja – una columna */
 @media (max-height: 700px) {
-    .tech-panel {
-        top: 35%;
-        bottom: 1.5rem;
-        left: 50%;
-        width: min(1200px, calc(100% - 3rem));
-        min-height: 200px;
-    }
     .tech-panel-content {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
         gap: 0.5rem;
-        padding: 3.5rem 1rem 0.75rem;
+        padding: 0;
     }
     .tech-panel-desc {
         max-height: 32vh;
@@ -494,25 +437,13 @@
     }
     .tech-panel-img-wrap {
         order: 2;
-        min-height: 0;
         align-self: start;
-    }
-    .tech-panel-carousel-wrap {
-        max-width: 100%;
     }
 }
 
 @media (max-height: 550px) {
-    .tech-panel {
-        top: 45%;
-        bottom: 1rem;
-        left: 50%;
-        width: min(1200px, calc(100% - 2rem));
-        min-height: 180px;
-    }
     .tech-panel-content {
         gap: 0.35rem;
-        padding: 3rem 0.75rem 0.5rem;
     }
     .tech-panel-desc {
         max-height: 22vh;
@@ -527,28 +458,13 @@
 
 /* Panel responsive: tablet */
 @media (max-width: 900px) {
-    .tech-panel-inner {
-        padding: 1.75rem 2rem 2rem 2rem;
-    }
     .tech-cards {
         grid-template-columns: repeat(2, 1fr);
     }
-    .tech-panel-icon-wrap {
-        border-bottom-color: rgba(255, 255, 255, 0.2);
-    }
-    .tech-panel-icon-wrap .tech-panel-icon {
-        width: 64px;
-        height: 64px;
-    }
-    .tech-panel {
-        top: 8.5rem;
-        bottom: 1.5rem;
-        left: 50%;
-        width: min(1200px, calc(100% - 3rem));
-        min-height: 260px;
+    .tech-panel-inner {
+        padding: 1.75rem 2rem 2rem;
     }
     .tech-panel-content {
-        padding: 4rem 1rem 1rem;
         gap: 1rem;
     }
     .tech-panel-title {
@@ -559,22 +475,13 @@
     }
 }
 
-/* Panel responsive: tablet pequeño – una columna, menos espacio */
+/* Panel responsive: tablet pequeño – una columna */
 @media (max-width: 768px) {
     .tech-panel-inner {
-        padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-    }
-    .tech-panel {
-        top: 30%;
-        bottom: 1.25rem;
-        left: 50%;
-        width: min(1200px, calc(100% - 2.5rem));
-        min-height: 240px;
+        padding: 1.5rem 1.5rem 1.5rem;
     }
     .tech-panel-content {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        padding: 3.5rem 1rem 1rem;
         gap: 0.6rem;
     }
     .tech-panel-desc {
@@ -584,29 +491,23 @@
     }
     .tech-panel-img-wrap {
         order: 2;
-        min-height: 0;
         align-self: start;
-    }
-    .tech-panel-carousel-wrap {
-        max-width: 100%;
     }
 }
 
-/* Panel responsive: móvil – panel más abajo, poco espacio */
+/* Panel responsive: móvil */
 @media (max-width: 560px) {
     .tech-cards {
         grid-template-columns: 1fr;
     }
     .tech-panel {
-        top: 40%;
-        bottom: 1rem;
         left: 50%;
         width: min(1200px, calc(100% - 2rem));
-        min-height: 220px;
-        padding: 0;
+    }
+    .tech-panel-inner {
+        padding: 1.25rem 1rem 1rem;
     }
     .tech-panel-content {
-        padding: 3rem 0.75rem max(0.75rem, env(safe-area-inset-bottom));
         gap: 0.5rem;
     }
     .tech-panel-title {
@@ -620,8 +521,6 @@
         line-height: 1.5;
     }
     .tech-panel-close {
-        top: 0.5rem;
-        right: 0.5rem;
         width: 36px;
         height: 36px;
     }
@@ -629,25 +528,17 @@
         width: 18px;
         height: 18px;
     }
-    .tech-panel-img-wrap {
-        min-height: 0;
-    }
     .tech-panel-carousel-wrap {
         border-radius: 10px;
     }
 }
 
-/* Panel responsive: móvil muy pequeño – panel en la parte baja */
+/* Panel responsive: móvil muy pequeño */
 @media (max-width: 380px) {
-    .tech-panel {
-        top: 45%;
-        bottom: 0.75rem;
-        left: 50%;
-        width: min(1200px, calc(100% - 1.5rem));
-        min-height: 200px;
+    .tech-panel-inner {
+        padding: 1rem 0.75rem 0.75rem;
     }
     .tech-panel-content {
-        padding: 2.75rem 0.5rem max(0.5rem, env(safe-area-inset-bottom));
         gap: 0.4rem;
     }
     .tech-panel-title {
@@ -657,8 +548,6 @@
         font-size: 0.75rem;
     }
     .tech-panel-close {
-        top: 0.35rem;
-        right: 0.35rem;
         width: 32px;
         height: 32px;
     }
