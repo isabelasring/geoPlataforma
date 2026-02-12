@@ -7,7 +7,7 @@
     margin-top: 0;
 }
 
-/* Fondo: imagen industrial con blur, abarca todo el espacio incluido el top de la sección */
+/* Fondo: imagen industrial con blur (se oculta en sección de proyectos, que usa Luma) */
 .process-section-bg {
     position: absolute;
     top: -15%;
@@ -24,6 +24,56 @@
     filter: blur(10px);
     -webkit-filter: blur(10px);
     transform: scale(1.08);
+}
+
+/* Sección Proyectos en inicio: fondo Luma con blur */
+.home-projects-section .process-section-bg {
+    display: none;
+}
+.home-projects-luma-wrap {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    right: 0;
+    bottom: -10%;
+    width: 100%;
+    min-height: 120%;
+    z-index: 0;
+    overflow: hidden;
+    filter: blur(14px);
+    -webkit-filter: blur(14px);
+    transform: scale(1.15);
+}
+.home-projects-luma-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+}
+.home-projects-luma-embed {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.78vh;
+    transform: translate(-50%, -50%);
+    border: none;
+    pointer-events: none;
+}
+@media (min-aspect-ratio: 16/9) {
+    .home-projects-luma-embed {
+        width: 100vw;
+        height: calc(100vw * 9 / 16);
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    .home-projects-luma-embed {
+        width: calc(100vh * 16 / 9);
+        height: 100vh;
+    }
 }
 /* Sin ::after: no hay capa encima del fondo, evita franja oscura entre secciones */
 .process-section-bg::after {
