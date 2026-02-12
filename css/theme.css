@@ -1,9 +1,9 @@
 /* Modo oscuro: se activa con data-theme="dark" en <html> */
 
 :root {
-  /* Paleta: Verde Bosque #39513B, Beige #F4F0EF, Texto #313131, Bordes #E4E4E4, Fondo #FAFAFA */
-  --geo-military-green: #39513B;
-  --geo-military-green-hover-bg: rgba(57, 81, 59, 0.28);
+  /* Paleta: Acento #313131, Beige #F4F0EF, Texto #313131, Bordes #E4E4E4, Fondo #FAFAFA */
+  --geo-military-green: #313131;
+  --geo-military-green-hover-bg: rgba(49, 49, 49, 0.28);
   --geo-bg: #FAFAFA;
   --geo-beige: #F4F0EF;
   --geo-text: #313131;
@@ -51,14 +51,13 @@
 }
 
 [data-theme="dark"] .navbar .nav-dropdown-menu a:hover {
-  background: rgba(57, 81, 59, 0.25);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Modo oscuro: desplegables siempre oscuros (sin depender del scroll/sección) */
 [data-theme="dark"] .navbar .nav-dropdown-menu,
 [data-theme="dark"] .navbar:not(.scrolled) .nav-dropdown-menu,
 [data-theme="dark"] .navbar.scrolled .nav-dropdown-menu,
-[data-theme="dark"] .navbar.scrolled.section-green .nav-dropdown-menu,
 [data-theme="dark"] .navbar.scrolled.section-image .nav-dropdown-menu,
 [data-theme="dark"] .navbar.scrolled.section-dark .nav-dropdown-menu {
   background: rgba(20, 26, 32, 0.98);
@@ -67,7 +66,6 @@
 }
 
 [data-theme="dark"] .navbar .nav-services-panel,
-[data-theme="dark"] .navbar.scrolled.section-green .nav-services-panel,
 [data-theme="dark"] .navbar.scrolled.section-image .nav-services-panel,
 [data-theme="dark"] .navbar.scrolled.section-dark .nav-services-panel {
   background: rgba(20, 26, 32, 0.98);
@@ -92,7 +90,6 @@
 html:not([data-theme="dark"]) .navbar .nav-dropdown-menu,
 html:not([data-theme="dark"]) .navbar:not(.scrolled) .nav-dropdown-menu,
 html:not([data-theme="dark"]) .navbar.scrolled .nav-dropdown-menu,
-html:not([data-theme="dark"]) .navbar.scrolled.section-green .nav-dropdown-menu,
 html:not([data-theme="dark"]) .navbar.scrolled.section-image .nav-dropdown-menu,
 html:not([data-theme="dark"]) .navbar.scrolled.section-dark .nav-dropdown-menu {
   background: var(--geo-bg);
@@ -109,7 +106,6 @@ html:not([data-theme="dark"]) .navbar .nav-dropdown-menu a:hover {
 }
 
 html:not([data-theme="dark"]) .navbar .nav-services-panel,
-html:not([data-theme="dark"]) .navbar.scrolled.section-green .nav-services-panel,
 html:not([data-theme="dark"]) .navbar.scrolled.section-image .nav-services-panel,
 html:not([data-theme="dark"]) .navbar.scrolled.section-dark .nav-services-panel {
   background: var(--geo-bg);
@@ -194,7 +190,6 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 }
 
 /* En modo oscuro el navbar scrolled (por sección) también mantiene transparencia */
-[data-theme="dark"] .navbar.scrolled.section-green,
 [data-theme="dark"] .navbar.scrolled.section-image,
 [data-theme="dark"] .navbar.scrolled.section-dark {
   background: rgba(15, 20, 25, 0.55);
@@ -485,11 +480,11 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 }
 
 [data-theme="dark"] .blog-card-link {
-  color: #39513B;
+  color: #313131;
 }
 
 [data-theme="dark"] .blog-card-link:hover {
-  color: #39513B;
+  color: #313131;
 }
 
 [data-theme="dark"] .blog-card-link-icon {
@@ -690,7 +685,7 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 }
 
 [data-theme="dark"] .dashboard-kpi-change-up {
-  color: #39513B;
+  color: #313131;
 }
 
 [data-theme="dark"] .dashboard-kpi-change-down {
@@ -732,7 +727,7 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 
 [data-theme="dark"] .dashboard-side-card-bubble-up {
   background: rgba(34, 197, 94, 0.25);
-  color: #39513B;
+  color: #313131;
 }
 
 [data-theme="dark"] .impact-title {
@@ -748,7 +743,7 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 }
 
 [data-theme="dark"] .insights-hero-card {
-  background: #39513B;
+  background: #313131;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -1018,24 +1013,22 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 }
 
 [data-theme="dark"] .proyectos-tag {
-  background: rgba(15, 20, 25, 0.35);
+  background: transparent;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
 }
 
-[data-theme="dark"] .proyectos-tag:hover {
-  background: rgba(20, 26, 32, 0.5);
-  border-color: rgba(255, 255, 255, 0.2);
+[data-theme="dark"] .proyectos-tag:hover,
+[data-theme="dark"] .proyectos-tag.active {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.75);
   color: #fff;
 }
 
 [data-theme="dark"] .proyectos-tag.active {
-  background: rgba(57, 81, 59, 0.35);
-  border-color: rgba(57, 81, 59, 0.55);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(57, 81, 59, 0.3);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="dark"] .proyectos-search-bar {

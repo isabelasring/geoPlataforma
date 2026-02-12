@@ -75,7 +75,7 @@
     border-radius: 50%;
     border: 2px solid rgba(57, 81, 59, 0.4);
     background: rgba(57, 81, 59, 0.1);
-    color: #39513B;
+    color: #313131;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -149,7 +149,7 @@
     background-position: center;
     background-color: #313131;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    border: 3px solid #39513B;
+    border: 3px solid #313131;
     position: relative;
     overflow: hidden;
     transition: transform 0.18s ease, box-shadow 0.18s ease;
@@ -176,13 +176,13 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 24px;
-    border: 2px solid #39513B;
+    border: 2px solid #313131;
     transition: background 0.18s ease, border-color 0.18s ease;
 }
 
 .recon-item:hover {
     background: rgba(255, 255, 255, 0.4);
-    border-color: #39513B;
+    border-color: #313131;
 }
 
 @media (max-width: 768px) {

@@ -4,7 +4,7 @@
     top: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    padding: 1rem 4rem;
+    padding: 1.25rem 4.5rem;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
@@ -12,7 +12,7 @@
     border: none;
     transition: background 0.22s ease, backdrop-filter 0.22s ease, color 0.22s ease, opacity 0.22s ease, visibility 0.22s ease;
     width: 98%;
-    max-width: 1400px;
+    max-width: 1600px;
 }
 
 /* Ocultar navbar cuando hay una card expandida */
@@ -29,11 +29,6 @@
     border: none;
 }
 
-/* Secciones con fondo claro (geotrends, tech, faq): mismo tono oscuro que otras secciones */
-.navbar.scrolled.section-green {
-    background: rgba(12, 18, 28, 0.85);
-}
-
 /* Secciones con fondo de imagen (hero, wind, process, recon) */
 .navbar.scrolled.section-image {
     background: rgba(0, 0, 0, 0.5);
@@ -45,7 +40,7 @@
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -94,12 +89,13 @@
     position: relative;
 }
 
+/* Mismo tamaño de letra que párrafos StartUp/Portafolio (1.1rem) */
 .nav-links a,
 .nav-dropdown-toggle {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     transition: opacity 0.22s ease, color 0.22s ease;
     background: none;
     border: none;
@@ -178,10 +174,6 @@
 /* Misma tonalidad que el navbar según la sección */
 .navbar:not(.scrolled) .nav-dropdown-menu {
     background: rgba(0, 0, 0, 0.3);
-}
-
-.navbar.scrolled.section-green .nav-dropdown-menu {
-    background: rgba(12, 18, 28, 0.85);
 }
 
 .navbar.scrolled.section-image .nav-dropdown-menu {
@@ -288,10 +280,6 @@
 
 .nav-services-panel a:hover {
     background: rgba(255, 255, 255, 0.12);
-}
-
-.navbar.scrolled.section-green .nav-services-panel {
-    background: rgba(0, 0, 0, 0.6);
 }
 
 .navbar.scrolled.section-image .nav-services-panel,
@@ -476,7 +464,7 @@
         width: 100%;
         padding: 0.85rem 1rem;
         text-align: left;
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .nav-dropdown-toggle {

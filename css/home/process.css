@@ -285,11 +285,11 @@
 }
 
 /* Iconos con colores vivos para contraste sobre fondo oscuro */
-.process-color-1 svg { color: #39513B; }
-.process-color-2 svg { color: #39513B; }
+.process-color-1 svg { color: #313131; }
+.process-color-2 svg { color: #313131; }
 .process-color-3 svg { color: #313131; }
-.process-color-4 svg { color: #39513B; }
-.process-color-5 svg { color: #39513B; }
+.process-color-4 svg { color: #313131; }
+.process-color-5 svg { color: #313131; }
 .process-color-6 svg { color: #F4F0EF; }
 
 .process-connector {

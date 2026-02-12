@@ -7,7 +7,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #39513B;
+  background: #313131;
   color: #fff;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@
 .whatsapp-float:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 24px rgba(57, 81, 59, 0.6);
-  background: #39513B;
+  background: #313131;
   color: #fff;
 }
 

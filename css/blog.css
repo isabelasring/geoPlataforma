@@ -3,8 +3,8 @@
   --blog-ink: #313131;
   --blog-muted: rgba(49, 49, 49, 0.72);
   --blog-border: #E4E4E4;
-  --blog-accent: #39513B;
-  --blog-accent-light: #39513B;
+  --blog-accent: #313131;
+  --blog-accent-light: #313131;
 }
 
 /* Modo claro: fondo y cards blancos; navbar blanco (como en Servicios) */
@@ -232,7 +232,7 @@ html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hov
 }
 
 .blog-card-link:hover {
-  color: #39513B;
+  color: #313131;
 }
 
 .blog-card-link-icon {

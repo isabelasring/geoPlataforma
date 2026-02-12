@@ -3,8 +3,8 @@
   --about-ink: #313131;
   --about-muted: rgba(49, 49, 49, 0.72);
   --about-border: #E4E4E4;
-  --about-accent: #39513B;
-  --about-accent-light: #39513B;
+  --about-accent: #313131;
+  --about-accent-light: #313131;
   --about-glass: rgba(248, 250, 252, 0.95);
   --about-glass-border: rgba(49, 49, 49, 0.08);
   --about-glass-dark: rgba(30, 41, 59, 0.75);
@@ -296,13 +296,13 @@
 }
 
 .about-recon-card-purple .about-recon-card-btn {
-  color: #39513B;
+  color: #313131;
   border-color: rgba(57, 81, 59, 0.6);
 }
 
 .about-recon-card-purple .about-recon-card-icon {
   background: rgba(255, 255, 255, 0.15);
-  color: #39513B;
+  color: #313131;
 }
 
 .about-recon-card-purple .about-recon-card-title {
@@ -312,18 +312,18 @@
 
 .about-recon-card-purple .about-recon-card-btn:hover {
   background: rgba(57, 81, 59, 0.15);
-  border-color: #39513B;
-  color: #39513B;
+  border-color: #313131;
+  color: #313131;
 }
 
 .about-recon-card-orange .about-recon-card-btn {
-  color: #39513B;
+  color: #313131;
   border-color: rgba(57, 81, 59, 0.6);
 }
 
 .about-recon-card-orange .about-recon-card-icon {
   background: rgba(255, 255, 255, 0.15);
-  color: #39513B;
+  color: #313131;
 }
 
 .about-recon-card-orange .about-recon-card-title {
@@ -333,8 +333,8 @@
 
 .about-recon-card-orange .about-recon-card-btn:hover {
   background: rgba(57, 81, 59, 0.15);
-  border-color: #39513B;
-  color: #39513B;
+  border-color: #313131;
+  color: #313131;
 }
 
 .about-recon-card-title {
@@ -678,7 +678,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   line-height: 1.3;
-  color: var(--geo-military-green, #39513B);
+  color: var(--geo-military-green, #313131);
 }
 
 .about-equipo-card-qualification {
@@ -1375,7 +1375,7 @@
 }
 .about-clientes-icon-academia {
   background: rgba(124, 58, 237, 0.4);
-  color: #39513B;
+  color: #313131;
 }
 
 .about-clientes-info {
