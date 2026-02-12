@@ -13,7 +13,7 @@
     <nav class="navbar scrolled" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="../img%3Avideo/isologo-01.png" alt="GeoPlataforma" class="logo-img">
+                <img src="../img%3Avideo/home/isologo-02.png" alt="GeoPlataforma" class="logo-img">
             </a>
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Inicio</a></li>
@@ -82,44 +82,13 @@
     <main class="about-page">
         <div class="about-bg" aria-hidden="true"></div>
         <div class="about-layout">
-            <!-- Columna izquierda: Reconocimientos (logos) -->
-            <aside class="about-sidebar-recon" aria-label="Reconocimientos">
-                <h2 class="about-sidebar-title">Reconocimientos</h2>
-                <div class="about-recon-cards about-recon-logos">
-                    <article class="about-recon-logo">
-                        <img src="../img%3Avideo/sobreNosotros/reconocimientos/image.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy">
-                    </article>
-                    <article class="about-recon-logo">
-                        <img src="../img%3Avideo/sobreNosotros/reconocimientos/image%20copy.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy">
-                    </article>
-                    <article class="about-recon-logo">
-                        <img src="../img%3Avideo/sobreNosotros/reconocimientos/image%20copy%202.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy">
-                    </article>
-                    <article class="about-recon-logo">
-                        <img src="../img%3Avideo/sobreNosotros/reconocimientos/image%20copy%203.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy">
-                    </article>
-                    <article class="about-recon-logo">
-                        <img src="../img%3Avideo/sobreNosotros/reconocimientos/image%20copy%205.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy">
-                    </article>
-                </div>
-                <h2 class="about-sidebar-title about-sidebar-title-clientes">Clientes</h2>
-                <div class="about-sidebar-clientes about-clientes-carousel-wrap">
-                    <ul class="about-clientes-logos" aria-label="Logos de clientes">
-                        <li class="about-clientes-logo-item"><img src="../img%3Avideo/clientes/image.png" alt="Cliente" class="about-clientes-logo-img" width="120" height="48" loading="lazy"></li>
-                        <li class="about-clientes-logo-item"><img src="../img%3Avideo/clientes/image%20copy.png" alt="Cliente" class="about-clientes-logo-img" width="120" height="48" loading="lazy"></li>
-                        <li class="about-clientes-logo-item"><img src="../img%3Avideo/clientes/image%20copy%202.png" alt="Cliente" class="about-clientes-logo-img" width="120" height="48" loading="lazy"></li>
-                        <li class="about-clientes-logo-item"><img src="../img%3Avideo/clientes/image%20copy%203.png" alt="Cliente" class="about-clientes-logo-img" width="120" height="48" loading="lazy"></li>
-                    </ul>
-                </div>
-            </aside>
-
-            <!-- Centro: tabs + contenido + video -->
             <div class="about-center">
                 <div class="about-card about-main-card" aria-label="Contenido principal">
                     <div class="about-tabs" role="tablist" aria-label="Secciones">
                         <button class="about-tab active" type="button" data-tab="quienes-somos" role="tab" aria-selected="true">Quiénes somos</button>
                         <button class="about-tab" type="button" data-tab="proposito" role="tab" aria-selected="false">Propósito</button>
                         <button class="about-tab" type="button" data-tab="valores" role="tab" aria-selected="false">Valores corporativos</button>
+                        <button class="about-tab" type="button" data-tab="reconocimientos-clientes" role="tab" aria-selected="false">Reconocimientos y clientes</button>
                     </div>
                     <section class="about-panel" id="about-panel" aria-live="polite">
                         <h2 class="about-panel-title" id="about-panel-title">Quiénes somos</h2>
@@ -268,6 +237,24 @@
                         '<article class="about-valores-card about-valores-card-innovation"><span class="about-valores-card-circle" aria-hidden="true"><img src="../img%3Avideo/sobreNosotros/valores/happyFace.png" alt="" class="about-valores-card-icon-img"></span><div class="about-valores-card-text"><strong class="about-valores-card-title">Felicidad en lo que construimos</strong><span class="about-valores-card-sub">Creemos que la innovación y el impacto duradero vienen de trabajar con pasión y alegría. La felicidad impulsa la creatividad, la resiliencia y las conexiones auténticas. Hace que nuestro camino sea significativo y nuestros logros sostenibles.</span></div></article>' +
                         '<article class="about-valores-card about-valores-card-rigor"><span class="about-valores-card-circle" aria-hidden="true"><img src="../img%3Avideo/sobreNosotros/valores/team.png" alt="" class="about-valores-card-icon-img"></span><div class="about-valores-card-text"><strong class="about-valores-card-title">Unidos para resonar nuestro impacto</strong><span class="about-valores-card-sub">Logramos más, más rápido y mejor cuando trabajamos juntos. La colaboración, el propósito compartido y la ambición colectiva transforman grandes ideas en realidades poderosas.</span></div></article>' +
                         '</div>'
+                },
+                'reconocimientos-clientes': {
+                    title: 'Reconocimientos y clientes',
+                    body: '<section class="about-recon-clientes-seccion" aria-label="Reconocimientos"><h3 class="about-recon-clientes-seccion-title">Reconocimientos</h3>' +
+                        '<div class="about-recon-clientes-scroll-wrap"><div class="about-recon-logos-row">' +
+                        '<article class="about-recon-logo"><img src="../img%3Avideo/sobreNosotros/reconocimientos/image.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy"></article>' +
+                        '<article class="about-recon-logo"><img src="../img%3Avideo/sobreNosotros/reconocimientos/image%20copy.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy"></article>' +
+                        '<article class="about-recon-logo"><img src="../img%3Avideo/sobreNosotros/reconocimientos/image%20copy%202.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy"></article>' +
+                        '<article class="about-recon-logo"><img src="../img%3Avideo/sobreNosotros/reconocimientos/image%20copy%203.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy"></article>' +
+                        '<article class="about-recon-logo"><img src="../img%3Avideo/sobreNosotros/reconocimientos/image%20copy%205.png" alt="Reconocimiento" class="about-recon-logo-img" width="160" height="80" loading="lazy"></article>' +
+                        '</div></div></section>' +
+                        '<section class="about-recon-clientes-seccion" aria-label="Clientes"><h3 class="about-recon-clientes-seccion-title">Clientes</h3>' +
+                        '<div class="about-recon-clientes-scroll-wrap"><ul class="about-clientes-logos about-clientes-logos-inline" aria-label="Logos de clientes">' +
+                        '<li class="about-clientes-logo-item"><img src="../img%3Avideo/clientes/image.png" alt="Cliente" class="about-clientes-logo-img" width="120" height="48" loading="lazy"></li>' +
+                        '<li class="about-clientes-logo-item"><img src="../img%3Avideo/clientes/image%20copy.png" alt="Cliente" class="about-clientes-logo-img" width="120" height="48" loading="lazy"></li>' +
+                        '<li class="about-clientes-logo-item"><img src="../img%3Avideo/clientes/image%20copy%202.png" alt="Cliente" class="about-clientes-logo-img" width="120" height="48" loading="lazy"></li>' +
+                        '<li class="about-clientes-logo-item"><img src="../img%3Avideo/clientes/image%20copy%203.png" alt="Cliente" class="about-clientes-logo-img" width="120" height="48" loading="lazy"></li>' +
+                        '</ul></div></section>'
                 }
             };
 
