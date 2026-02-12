@@ -2,7 +2,7 @@
 .wind-section {
     position: relative;
     min-height: 85vh;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
     margin-top: -140px; /* solapa con el fade de geotrends (como hero arriba) para que no se vea la línea */
     overflow: visible;
     display: flex;
@@ -99,6 +99,7 @@
 
 /* Blur al desplegar: solo en responsive (ver @media max-width: 900px) */
 
+/* Mismo max-width que geotrends-container (1400px) para alinear título y párrafo con StartUp */
 .wind-wrap {
     position: relative;
     z-index: 1;
@@ -106,23 +107,23 @@
     grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
     gap: 0;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
     min-height: 85vh;
     align-items: center;
     padding: 0.5rem 0;
 }
 
-/* Columna izquierda: intro a los servicios (transparencia, margen pequeña a la izquierda) */
+/* Columna izquierda: alineada con el texto de la sección StartUp (mismo padding izquierdo) */
 .wind-intro-col {
     display: flex;
     align-items: center;
-    padding: 1.25rem 2rem 1.25rem 1rem;
+    padding: 1.25rem 2rem 1.25rem 0;
     min-height: 85vh;
     min-width: 0;
 }
 
-/* Panel izquierdo: en modo light glass claro (Proyectos); en dark se sobrescribe */
+/* Panel izquierdo: padding izquierdo 2rem como geotrends-content para alinear */
 .wind-intro {
     max-width: 100%;
     width: 100%;
@@ -157,8 +158,9 @@
     }
 }
 
+/* Mismo tamaño que el título de la sección StartUp (geotrends-title) */
 .wind-title {
-    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
     font-weight: 700;
     color: #fff;
     margin-bottom: 1.25rem;
@@ -166,11 +168,12 @@
     letter-spacing: -0.02em;
 }
 
+/* Mismo tamaño y tipografía que el párrafo de la sección StartUp (geotrends) */
 .wind-text {
     font-size: 1.1rem;
-    line-height: 1.65;
+    line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     max-width: 100%;
     overflow-wrap: break-word;
 }
@@ -867,13 +870,13 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-title {
-        font-size: clamp(1.25rem, 3.5vw, 1.65rem);
+        font-size: clamp(1.25rem, 3.2vw, 1.6rem);
         margin-bottom: 0.75rem;
     }
 
     .wind-text {
         font-size: 0.9rem;
-        line-height: 1.6;
+        line-height: 1.7;
         margin-bottom: 1rem;
     }
 
@@ -1102,11 +1105,12 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-title {
-        font-size: clamp(1.1rem, 4vw, 1.45rem);
+        font-size: clamp(1.15rem, 4vw, 1.45rem);
     }
 
     .wind-text {
         font-size: 0.85rem;
+        line-height: 1.7;
     }
 
     .wind-cards.is-expanded {
@@ -1209,7 +1213,8 @@ a.wind-project-card-cta:hover {
     }
 
     .wind-text {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        line-height: 1.65;
     }
 
     .wind-project-cards {
