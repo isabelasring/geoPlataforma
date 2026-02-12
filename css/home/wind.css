@@ -472,13 +472,15 @@
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
+/* Mismo estilo que títulos Portafolio/StartUp (letter-spacing, line-height); tamaño se mantiene */
 .wind-card-title {
     font-size: 1.45rem;
     font-weight: 700;
     margin-bottom: 0;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
     color: rgba(255, 255, 255, 0.98);
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4);
-    letter-spacing: 0.02em;
 }
 
 .wind-card-desc {
@@ -665,7 +667,7 @@
     font-weight: 700;
     color: rgba(255, 255, 255, 0.98);
     margin: 0;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
     line-height: 1.25;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;

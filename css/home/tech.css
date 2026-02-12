@@ -17,20 +17,26 @@
     pointer-events: none;
 }
 
+/* Mismo max-width y padding que Portafolio/StartUp para alinear título y cards a la misma línea */
 .tech-wrap {
     position: relative;
     z-index: 1;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
+/* Mismo estilo y tamaño que títulos StartUp/Portafolio; título centrado */
 .tech-section-title {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
     font-weight: 700;
-    color: #1d1818;
+    color: #313131;
     margin-bottom: 2.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.423), 0 2px 6px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .tech-cards {
@@ -149,21 +155,29 @@
     display: block;
 }
 
+/* Mismo tamaño que párrafo de Portafolio/StartUp (1.1rem, line-height 1.7); estilo título; alineado a la izquierda */
 .tech-card-title {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #313131;
     margin-top: 0;
     margin-bottom: 0.5rem;
-    line-height: 1.3;
+    line-height: 1.7;
+    letter-spacing: -0.02em;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+    text-align: left;
+    align-self: stretch;
 }
 
+/* Mismo tamaño que párrafo de Portafolio/StartUp; alineado a la izquierda */
 .tech-card-desc {
-    font-size: 0.88rem;
-    line-height: 1.5;
-    color: rgba(0, 0, 0, 0.75);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(49, 49, 49, 0.88);
     margin: 0 0 1rem;
     flex: 1;
+    text-align: left;
+    align-self: stretch;
 }
 
 .tech-card-btn {
@@ -191,13 +205,14 @@
     height: 18px;
 }
 
-/* Panel pegado al bottom: sube/baja con transición lenta */
+/* Panel pegado al bottom: mismo ancho que contenido tecnologías (1400px + 2rem); altura hasta la mitad */
 .tech-panel {
     position: absolute;
-    top: 9rem;
+    top: auto;
     bottom: 0;
     left: 50%;
-    width: min(1200px, calc(100% - 4rem));
+    width: min(1400px, calc(100% - 4rem));
+    max-height: 50vh;
     min-height: 280px;
     z-index: 10;
     background: rgba(255, 255, 255, 0.95);
