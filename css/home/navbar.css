@@ -29,9 +29,9 @@
     border: none;
 }
 
-/* Secciones con fondo verde oscuro */
+/* Secciones con fondo claro (geotrends, tech, faq): mismo tono oscuro que otras secciones */
 .navbar.scrolled.section-green {
-    background: rgba(13, 36, 24, 0.85);
+    background: rgba(12, 18, 28, 0.85);
 }
 
 /* Secciones con fondo de imagen (hero, wind, process, recon) */
@@ -137,7 +137,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #39513B;
+    background: #fff;
     transition: width 0.22s ease;
 }
 
@@ -181,7 +181,7 @@
 }
 
 .navbar.scrolled.section-green .nav-dropdown-menu {
-    background: rgba(13, 36, 24, 0.85);
+    background: rgba(12, 18, 28, 0.85);
 }
 
 .navbar.scrolled.section-image .nav-dropdown-menu {
@@ -291,7 +291,7 @@
 }
 
 .navbar.scrolled.section-green .nav-services-panel {
-    background: rgba(13, 36, 24, 0.92);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .navbar.scrolled.section-image .nav-services-panel,

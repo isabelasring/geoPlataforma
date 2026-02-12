@@ -4,7 +4,7 @@
     width: 100%;
     color: rgba(255, 255, 255, 0.9);
     overflow: hidden;
-    border-top: 2px solid rgba(57, 81, 59, 0.7);
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -190,7 +190,7 @@
     height: 40px;
     border-radius: 50%;
     background: transparent;
-    border: 2px solid rgba(57, 81, 59, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     color: rgba(255, 255, 255, 0.95);
     display: flex;
     align-items: center;
@@ -199,9 +199,9 @@
 }
 
 .footer-social-link:hover {
-    background: var(--geo-military-green);
+    background: rgba(255, 255, 255, 0.2);
     color: #fff;
-    border-color: var(--geo-military-green);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-links {
@@ -250,14 +250,14 @@
     display: inline-block;
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--geo-military-green);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     margin-bottom: 1rem;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-map-link:hover {
-    color: var(--geo-military-green-hover-bg);
+    color: rgba(255, 255, 255, 0.98);
     text-decoration: underline;
 }
 
@@ -272,13 +272,13 @@
     font-weight: 600;
     text-decoration: none;
     border-radius: 9999px;
-    border: 2px solid var(--geo-military-green);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .footer-call:hover {
-    background: var(--geo-military-green-hover-bg);
-    border-color: var(--geo-military-green);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.6);
     transform: scale(1.03);
 }
 

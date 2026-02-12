@@ -158,7 +158,7 @@
     }
 }
 
-/* Mismo tamaño que el título de la sección StartUp (geotrends-title) */
+/* Mismo tamaño y sombreado que el título de la sección StartUp (geotrends-title) */
 .wind-title {
     font-size: clamp(1.75rem, 3.2vw, 2.5rem);
     font-weight: 700;
@@ -166,6 +166,7 @@
     margin-bottom: 1.25rem;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Mismo tamaño y tipografía que el párrafo de la sección StartUp (geotrends) */

@@ -36,7 +36,7 @@
     line-height: 1.25;
     letter-spacing: -0.02em;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .tech-cards {
@@ -155,7 +155,7 @@
     display: block;
 }
 
-/* Mismo tamaño que párrafo de Portafolio/StartUp (1.1rem, line-height 1.7); estilo título; alineado a la izquierda */
+/* Mismo tamaño que párrafo de Portafolio/StartUp (1.1rem, line-height 1.7); estilo título; centrado */
 .tech-card-title {
     font-size: 1.1rem;
     font-weight: 700;
@@ -164,20 +164,18 @@
     margin-bottom: 0.5rem;
     line-height: 1.7;
     letter-spacing: -0.02em;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
-    text-align: left;
-    align-self: stretch;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-/* Mismo tamaño que párrafo de Portafolio/StartUp; alineado a la izquierda */
+/* Mismo tamaño que párrafo de Portafolio/StartUp; centrado */
 .tech-card-desc {
     font-size: 1.1rem;
     line-height: 1.7;
     color: rgba(49, 49, 49, 0.88);
     margin: 0 0 1rem;
     flex: 1;
-    text-align: left;
-    align-self: stretch;
+    text-align: center;
 }
 
 .tech-card-btn {
