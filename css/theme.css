@@ -1016,19 +1016,21 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
   background: transparent;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid #313131;
   color: #fff;
 }
 
 [data-theme="dark"] .proyectos-tag:hover,
 [data-theme="dark"] .proyectos-tag.active {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.75);
+  background: rgba(12, 18, 28, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: rgba(255, 255, 255, 0.15);
   color: #fff;
 }
 
 [data-theme="dark"] .proyectos-tag.active {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .proyectos-search-bar {
