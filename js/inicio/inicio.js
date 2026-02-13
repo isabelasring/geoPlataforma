@@ -1,0 +1,314 @@
+// Detectar sección actual y cambiar color del navbar
+function updateNavbarColor() {
+    var navbar = document.getElementById('navbar');
+    var scrollY = window.scrollY;
+    var windowHeight = window.innerHeight;
+    
+    // Remover todas las clases de sección
+    navbar.classList.remove('section-image', 'section-dark');
+    
+    if (scrollY < 50) {
+        // En el hero - transparente
+        navbar.classList.remove('scrolled');
+        return;
+    }
+    
+    navbar.classList.add('scrolled');
+    
+    // Obtener todas las secciones
+    var sections = document.querySelectorAll('section');
+    var currentSection = null;
+    
+    sections.forEach(function(section) {
+        var rect = section.getBoundingClientRect();
+        var sectionTop = rect.top + scrollY;
+        var sectionBottom = sectionTop + rect.height;
+        
+        // Si el scroll está dentro de esta sección
+        if (scrollY >= sectionTop - 100 && scrollY < sectionBottom) {
+            currentSection = section;
+        }
+    });
+    
+    if (currentSection) {
+        var sectionClass = currentSection.className;
+        
+        // Secciones con fondo oscuro (geotrends, tech, dashboard)
+        if (sectionClass.includes('geotrends-section') || 
+            sectionClass.includes('tech-section') || 
+            sectionClass.includes('dashboard-section')) {
+            navbar.classList.add('section-dark');
+        }
+        // Secciones con fondo de imagen
+        else if (sectionClass.includes('hero') || 
+                 sectionClass.includes('wind-section') || 
+                 sectionClass.includes('process-section')) {
+            navbar.classList.add('section-image');
+        }
+        // Secciones oscuras
+        else {
+            navbar.classList.add('section-dark');
+        }
+    }
+}
+
+// Actualizar al cargar y al hacer scroll
+updateNavbarColor();
+window.addEventListener('scroll', updateNavbarColor);
+
+// Marcar enlace activo según la página actual
+(function() {
+    var currentPage = window.location.pathname.split('/').pop() || 'inicio.html';
+    var navLinks = document.querySelectorAll('.nav-links > li > a');
+    
+    navLinks.forEach(function(link) {
+        var linkHref = link.getAttribute('href');
+        if (linkHref === currentPage || (currentPage === '' && linkHref === 'inicio.html')) {
+            link.classList.add('active');
+        }
+        
+        // Agregar clase activa al hacer click
+        link.addEventListener('click', function() {
+            navLinks.forEach(function(l) { l.classList.remove('active'); });
+            this.classList.add('active');
+        });
+    });
+})();
+
+// FAQ: acordeón (expandir/colapsar) + filtro por categoría
+(function() {
+    var faqSection = document.getElementById('faq-section');
+    if (!faqSection) return;
+    var items = faqSection.querySelectorAll('.faq-item');
+    var navItems = faqSection.querySelectorAll('.faq-nav-item');
+
+    items.forEach(function(item) {
+        var btn = item.querySelector('.faq-question');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+            var isOpen = item.classList.contains('faq-item-open');
+            items.forEach(function(i) {
+                i.classList.remove('faq-item-open');
+                var q = i.querySelector('.faq-question');
+                if (q) q.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('faq-item-open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    function filterByCategory(cat) {
+        items.forEach(function(item) {
+            var catItem = item.getAttribute('data-category');
+            if (catItem === cat) {
+                item.classList.remove('faq-item-hidden');
+            } else {
+                item.classList.add('faq-item-hidden');
+            }
+        });
+        navItems.forEach(function(nav) {
+            var isActive = nav.getAttribute('data-category') === cat;
+            nav.classList.toggle('active', isActive);
+            nav.setAttribute('aria-selected', isActive);
+        });
+    }
+
+    navItems.forEach(function(nav) {
+        nav.addEventListener('click', function() {
+            filterByCategory(nav.getAttribute('data-category'));
+        });
+    });
+
+    filterByCategory('general');
+})();
+
+// Geotrends: animar texto (giro) y bolita cuando la sección entra en vista al hacer scroll
+(function() {
+    var section = document.querySelector('.geotrends-section');
+    if (!section) return;
+    var animated = false;
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                section.classList.add('geotrends-animated');
+            }
+        });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    observer.observe(section);
+})();
+
+// Wind (Transformación Territorial): animar tarjeta izquierda (desliza) y tarjetas derecha (caen) al hacer scroll
+(function() {
+    var section = document.querySelector('.wind-section');
+    if (!section) return;
+    var animated = false;
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                section.classList.add('wind-animated');
+            }
+        });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    observer.observe(section);
+})();
+
+// Tecnologías: animar carticas (giran como pelotas y se acomodan) al hacer scroll
+(function() {
+    var section = document.querySelector('.tech-section');
+    if (!section) return;
+    var animated = false;
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                section.classList.add('tech-animated');
+            }
+        });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    observer.observe(section);
+})();
+
+// Orden metodológico: bolitas giran y cuadros saltan al hacer scroll
+(function() {
+    var section = document.querySelector('.process-section');
+    if (!section) return;
+    var animated = false;
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                section.classList.add('process-animated');
+            }
+        });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    observer.observe(section);
+})();
+
+// Carrusel de proyectos (Home): flechas anterior/siguiente
+(function() {
+    var wrap = document.querySelector('.home-projects-section .home-projects-carousel-wrap');
+    if (!wrap) return;
+    var track = wrap.querySelector('.home-projects-track');
+    var prevBtn = wrap.querySelector('.home-projects-carousel-prev');
+    var nextBtn = wrap.querySelector('.home-projects-carousel-next');
+    var cardWidth = 320;
+    var gap = 20;
+
+    function go(delta) {
+        if (!track) return;
+        var scrollAmount = (cardWidth + gap) * delta;
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function() { go(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { go(1); });
+})();
+
+// Tarjetas wind (Inicio): al hacer clic, expandir y ocultar las otras; al volver a hacer clic, restaurar las 3
+(function() {
+    var windSection = document.querySelector('.wind-section');
+    var windCards = document.querySelectorAll('.wind-card');
+    var windCardsContainer = document.querySelector('.wind-cards');
+    function restoreAll() {
+        windCards.forEach(function(c) {
+            c.classList.remove('expanded');
+            c.classList.remove('hidden');
+        });
+        windCardsContainer && windCardsContainer.classList.remove('is-expanded');
+        windSection && windSection.classList.remove('wind-card-expanded');
+    }
+    windCards.forEach(function(card) {
+        var closeBtn = card.querySelector('.wind-card-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                restoreAll();
+            });
+        }
+        card.addEventListener('click', function(e) {
+            if (e.target.closest('.wind-card-close')) return;
+            var isExpanded = card.classList.contains('expanded');
+            if (isExpanded) {
+                restoreAll();
+                return;
+            }
+
+            // Expandir la actual y ocultar las demás
+            restoreAll();
+            card.classList.add('expanded');
+            windCardsContainer && windCardsContainer.classList.add('is-expanded');
+            windSection && windSection.classList.add('wind-card-expanded');
+            windCards.forEach(function(other) {
+                if (other !== card) other.classList.add('hidden');
+            });
+
+            // Asegurar que la card expandida quede visible dentro del carrusel
+            try {
+                card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+            } catch (err) {
+                // scrollIntoView options no soportadas: fallback
+                card.scrollIntoView(true);
+            }
+        });
+    });
+
+    // Carrusel interno (servicios): scroll con flechas; evitar que el clic cierre la card principal
+    document.querySelectorAll('.wind-inner-carousel-wrap').forEach(function(wrap) {
+        var track = wrap.querySelector('.wind-project-cards');
+        var prevBtn = wrap.querySelector('.wind-inner-carousel-prev');
+        var nextBtn = wrap.querySelector('.wind-inner-carousel-next');
+        if (!track || !prevBtn || !nextBtn) return;
+        function scrollBy(direction, e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            var step = track.offsetWidth * 0.6;
+            track.scrollBy({ left: direction * step, behavior: 'smooth' });
+        }
+        prevBtn.addEventListener('click', function(e) { scrollBy(-1, e); });
+        nextBtn.addEventListener('click', function(e) { scrollBy(1, e); });
+    });
+})();
+
+// Panel de tecnologías: al hacer clic en una card se abre el panel que sube desde abajo (con X para cerrar)
+(function() {
+    var section = document.querySelector('.tech-section');
+    var panel = document.getElementById('tech-panel');
+    var backdrop = document.getElementById('tech-panel-backdrop');
+    var closeBtn = document.getElementById('tech-panel-close');
+    var panelTitle = document.getElementById('tech-panel-title');
+    var panelUso = document.getElementById('tech-panel-uso');
+    var imgPlaceholder = document.getElementById('tech-panel-img-placeholder');
+
+    function openPanel(card) {
+        if (!panel || !section) return;
+        var titleEl = card.querySelector('.tech-card-title');
+        var uso = card.getAttribute('data-tech-uso') || '';
+        if (!titleEl) return;
+        panelTitle.textContent = titleEl.textContent.trim();
+        panelUso.textContent = uso;
+        if (imgPlaceholder) {
+            imgPlaceholder.innerHTML = '';
+        }
+        section.classList.add('tech-panel-open');
+        panel.setAttribute('aria-hidden', 'false');
+        backdrop.setAttribute('aria-hidden', 'false');
+    }
+    function closePanel() {
+        if (!section) return;
+        section.classList.remove('tech-panel-open');
+        if (panel) panel.setAttribute('aria-hidden', 'true');
+        if (backdrop) backdrop.setAttribute('aria-hidden', 'true');
+    }
+
+    document.querySelectorAll('.tech-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+            openPanel(card);
+        });
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closePanel);
+    if (backdrop) backdrop.addEventListener('click', closePanel);
+})();

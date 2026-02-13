@@ -473,6 +473,7 @@ body.proyecto-panel-open .navbar {
     transition: visibility 0.22s ease, opacity 0.22s ease;
 }
 
+
 /* Panel más largo, misma transparencia que las cards */
 .proyecto-panel {
     position: fixed;
@@ -856,3 +857,4 @@ body.proyecto-panel-open .navbar {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
+
