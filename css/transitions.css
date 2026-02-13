@@ -35,6 +35,12 @@ main,
   animation: contentFadeIn 0.8s ease-out 0.2s forwards;
 }
 
+/* Excluir sección de tecnologías de la transición de páginas */
+.tech-section {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
 @keyframes contentFadeIn {
   from {
     opacity: 0;

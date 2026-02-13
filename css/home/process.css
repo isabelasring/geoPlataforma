@@ -426,19 +426,19 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 12px 28px rgba(255, 255, 255, 0.06);
+    box-shadow: none;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
 }
 
 .home-project-card:hover {
     transform: translateY(-6px);
     background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 18px 36px rgba(255, 255, 255, 0.08);
+    box-shadow: none;
 }
 
 .home-project-card-img {
@@ -485,13 +485,13 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-color: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
 }
 
 [data-theme="dark"] .home-project-card:hover {
     background: rgba(15, 20, 25, 0.4);
     border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+    box-shadow: none;
 }
 
 [data-theme="dark"] .home-project-card-img {
