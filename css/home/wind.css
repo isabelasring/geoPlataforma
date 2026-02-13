@@ -412,7 +412,7 @@
     inset: 0;
     background-size: cover;
     background-position: center;
-    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
 }
 
 /* Primera card: imagen anclada a la izquierda para que no se vea cortada */
@@ -422,6 +422,12 @@
 
 .wind-card:hover .wind-card-img {
     transform: scale(1.08);
+}
+
+/* Cuando la card está expandida: aplicar blur a la imagen de fondo */
+.wind-card.expanded .wind-card-img {
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
 }
 
 /* Modo claro: degradado suave abajo para que el texto blanco con sombra se lea bien (estilo Proyectos) */
@@ -439,9 +445,9 @@
     background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.6) 100%);
 }
 
-/* Expandida: solo blur suave debajo de la imagen, sin barra sólida */
+/* Expandida: sin gradiente, fondo completamente transparente */
 .wind-card.expanded::after {
-    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.06) 40%, rgba(255, 255, 255, 0.25) 100%);
+    background: transparent;
 }
 
 .wind-card-overlay {
@@ -465,7 +471,7 @@
 
 /* Expandida: sin barra blanca, solo el blur de abajo de la imagen */
 .wind-card.expanded .wind-card-overlay {
-    background: transparent !important;
+    display: none !important;
 }
 
 .wind-card.expanded .wind-card-title {
@@ -567,10 +573,10 @@
     inset: -1.5rem;
     bottom: -1.5rem;
     z-index: -1;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
-    border-radius: 16px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 0;
     pointer-events: none;
 }
 
@@ -769,11 +775,11 @@ a.wind-project-card-cta:hover {
 }
 
 [data-theme="dark"] .wind-card.expanded .wind-card-overlay {
-    background: transparent !important;
+    display: none !important;
 }
 
 [data-theme="dark"] .wind-card.expanded::after {
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.08) 40%, rgba(0, 0, 0, 0.35) 100%);
+    background: transparent;
 }
 
 [data-theme="dark"] .wind-card.expanded .wind-card-title {
@@ -786,9 +792,9 @@ a.wind-project-card-cta:hover {
 }
 
 [data-theme="dark"] .wind-card.expanded .wind-project-cards::before {
-    background: rgba(15, 20, 25, 0.2);
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 /* Tonalidad oscura pero bien transparente para que se vea el fondo (no fondo entero) */
