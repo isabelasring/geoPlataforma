@@ -210,67 +210,88 @@ window.addEventListener('scroll', updateNavbarColor);
 
 // Tarjetas wind (Inicio): al hacer clic, expandir y ocultar las otras; al volver a hacer clic, restaurar las 3
 (function() {
-    var windSection = document.querySelector('.wind-section');
-    var windCards = document.querySelectorAll('.wind-card');
-    var windCardsContainer = document.querySelector('.wind-cards');
-    function restoreAll() {
-        windCards.forEach(function(c) {
-            c.classList.remove('expanded');
-            c.classList.remove('hidden');
+    function initWindCards() {
+        var windSection = document.querySelector('.wind-section');
+        var windCards = document.querySelectorAll('.wind-card');
+        var windCardsContainer = document.querySelector('.wind-cards');
+        
+        if (!windCards.length) return;
+        
+        function restoreAll() {
+            windCards.forEach(function(c) {
+                c.classList.remove('expanded');
+                c.classList.remove('hidden');
+            });
+            if (windCardsContainer) windCardsContainer.classList.remove('is-expanded');
+            if (windSection) windSection.classList.remove('wind-card-expanded');
+        }
+        
+        windCards.forEach(function(card) {
+            var closeBtn = card.querySelector('.wind-card-close');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    restoreAll();
+                });
+            }
+            
+            card.addEventListener('click', function(e) {
+                // No expandir si se hace clic en elementos específicos
+                if (e.target.closest('.wind-card-close') || 
+                    e.target.closest('.wind-project-card') || 
+                    e.target.closest('.wind-inner-carousel-prev') || 
+                    e.target.closest('.wind-inner-carousel-next')) {
+                    return;
+                }
+                
+                var isExpanded = card.classList.contains('expanded');
+                if (isExpanded) {
+                    restoreAll();
+                    return;
+                }
+
+                // Expandir la actual y ocultar las demás
+                restoreAll();
+                card.classList.add('expanded');
+                if (windCardsContainer) windCardsContainer.classList.add('is-expanded');
+                if (windSection) windSection.classList.add('wind-card-expanded');
+                windCards.forEach(function(other) {
+                    if (other !== card) other.classList.add('hidden');
+                });
+
+                // Asegurar que la card expandida quede visible dentro del carrusel
+                try {
+                    card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+                } catch (err) {
+                    // scrollIntoView options no soportadas: fallback
+                    card.scrollIntoView(true);
+                }
+            });
         });
-        windCardsContainer && windCardsContainer.classList.remove('is-expanded');
-        windSection && windSection.classList.remove('wind-card-expanded');
+
+        // Carrusel interno (servicios): scroll con flechas; evitar que el clic cierre la card principal
+        document.querySelectorAll('.wind-inner-carousel-wrap').forEach(function(wrap) {
+            var track = wrap.querySelector('.wind-project-cards');
+            var prevBtn = wrap.querySelector('.wind-inner-carousel-prev');
+            var nextBtn = wrap.querySelector('.wind-inner-carousel-next');
+            if (!track || !prevBtn || !nextBtn) return;
+            function scrollBy(direction, e) {
+                if (e) { e.preventDefault(); e.stopPropagation(); }
+                var step = track.offsetWidth * 0.6;
+                track.scrollBy({ left: direction * step, behavior: 'smooth' });
+            }
+            prevBtn.addEventListener('click', function(e) { scrollBy(-1, e); });
+            nextBtn.addEventListener('click', function(e) { scrollBy(1, e); });
+        });
     }
-    windCards.forEach(function(card) {
-        var closeBtn = card.querySelector('.wind-card-close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                restoreAll();
-            });
-        }
-        card.addEventListener('click', function(e) {
-            if (e.target.closest('.wind-card-close')) return;
-            var isExpanded = card.classList.contains('expanded');
-            if (isExpanded) {
-                restoreAll();
-                return;
-            }
-
-            // Expandir la actual y ocultar las demás
-            restoreAll();
-            card.classList.add('expanded');
-            windCardsContainer && windCardsContainer.classList.add('is-expanded');
-            windSection && windSection.classList.add('wind-card-expanded');
-            windCards.forEach(function(other) {
-                if (other !== card) other.classList.add('hidden');
-            });
-
-            // Asegurar que la card expandida quede visible dentro del carrusel
-            try {
-                card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
-            } catch (err) {
-                // scrollIntoView options no soportadas: fallback
-                card.scrollIntoView(true);
-            }
-        });
-    });
-
-    // Carrusel interno (servicios): scroll con flechas; evitar que el clic cierre la card principal
-    document.querySelectorAll('.wind-inner-carousel-wrap').forEach(function(wrap) {
-        var track = wrap.querySelector('.wind-project-cards');
-        var prevBtn = wrap.querySelector('.wind-inner-carousel-prev');
-        var nextBtn = wrap.querySelector('.wind-inner-carousel-next');
-        if (!track || !prevBtn || !nextBtn) return;
-        function scrollBy(direction, e) {
-            if (e) { e.preventDefault(); e.stopPropagation(); }
-            var step = track.offsetWidth * 0.6;
-            track.scrollBy({ left: direction * step, behavior: 'smooth' });
-        }
-        prevBtn.addEventListener('click', function(e) { scrollBy(-1, e); });
-        nextBtn.addEventListener('click', function(e) { scrollBy(1, e); });
-    });
+    
+    // Ejecutar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWindCards);
+    } else {
+        initWindCards();
+    }
 })();
 
 // Panel de tecnologías: al hacer clic en una card se abre el panel que sube desde abajo (con X para cerrar)

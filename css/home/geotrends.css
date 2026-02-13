@@ -101,7 +101,7 @@
     font-size: 1rem;
     text-decoration: none;
     border-radius: 9999px;
-    border: 2px solid var(--geo-military-green);
+    border: 2px solid #ffffff;
     cursor: pointer;
     transition: all 0.2s ease;
     align-self: flex-start;
@@ -111,7 +111,7 @@
 .geotrends-cta:active,
 .geotrends-cta:focus {
     background: var(--geo-military-green-hover-bg);
-    border-color: var(--geo-military-green);
+    border-color: #ffffff;
     color: var(--geo-military-green);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(57, 81, 59, 0.2);

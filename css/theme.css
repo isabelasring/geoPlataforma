@@ -898,11 +898,12 @@ html:not([data-theme="dark"]) .navbar.nav-mobile-open .nav-services-panel a {
 
 [data-theme="dark"] .geotrends-cta {
   color: #fff;
-  border-color: var(--geo-military-green);
+  border-color: #ffffff;
 }
 
 [data-theme="dark"] .geotrends-cta:hover {
   background: var(--geo-military-green-hover-bg);
+  border-color: #ffffff;
   color: #fff;
 }
 

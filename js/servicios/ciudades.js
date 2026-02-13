@@ -57,6 +57,52 @@ renderServicesBar();
 setActivePanelFromHash();
 window.addEventListener('hashchange', setActivePanelFromHash);
 
+// Servicios: expandir card al clic (contenido dentro de la misma card)
+(function() {
+    function setupCardExpansion() {
+        var cards = document.querySelectorAll('.section-card');
+        cards.forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                // No expandir si se hace clic en elementos específicos
+                if (e.target.closest('.section-card-back') || 
+                    e.target.closest('.section-card-proyectos-link') || 
+                    e.target.closest('.section-card-carousel-prev') || 
+                    e.target.closest('.section-card-carousel-next')) {
+                    return;
+                }
+                
+                // Cerrar otras cards expandidas
+                var expanded = document.querySelector('.section-content .section-card.expanded');
+                if (expanded && expanded !== card) {
+                    expanded.classList.remove('expanded');
+                }
+                
+                // Toggle de la card actual
+                card.classList.toggle('expanded');
+            });
+        });
+
+        // Botón de cerrar
+        document.querySelectorAll('.section-card-back').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var card = btn.closest('.section-card');
+                if (card) {
+                    card.classList.remove('expanded');
+                }
+            });
+        });
+    }
+    
+    // Ejecutar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupCardExpansion);
+    } else {
+        setupCardExpansion();
+    }
+})();
+
 // Carrusel interno por card
 document.querySelectorAll('.section-card').forEach(function(card) {
     var track = card.querySelector('.section-card-carousel-track');
