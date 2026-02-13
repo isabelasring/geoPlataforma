@@ -72,8 +72,10 @@ html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hov
 .blog-section {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  width: 98%; /* Mismo ancho que el navbar */
+  max-width: 1700px; /* Un poco más ancho que el navbar (1600px) */
   margin: 0 auto;
+  padding: 0 4.5rem; /* Mismo padding que el navbar */
 }
 
 .blog-wrap {
@@ -86,30 +88,37 @@ html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hov
 }
 
 .blog-title {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem); /* Mismo tamaño que otros títulos */
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em; /* Mismo letter-spacing que otros títulos */
   color: var(--blog-ink);
-  margin: 0 0 0.5rem;
+  margin: 2rem 0 0.5rem; /* Margin-top agregado */
+  text-transform: lowercase; /* Mismo estilo que otros títulos */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Mismo sombreado */
+}
+.blog-title::first-letter {
   text-transform: uppercase;
 }
 
 .blog-title-underline {
   display: block;
-  width: 60px;
+  width: 56px; /* Mismo ancho que contacto */
   height: 4px;
-  margin: 0 auto 1rem;
-  background: var(--blog-accent);
+  margin: 0 auto 1.25rem; /* Mismo margen que contacto */
+  background: var(--geo-military-green); /* Mismo color verde que contacto */
   border-radius: 2px;
 }
 
 .blog-desc {
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 1.1rem; /* Mismo tamaño que los párrafos */
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none; /* Sin mayúsculas */
   color: var(--blog-muted);
-  margin: 0;
+  margin: 0 auto;
+  max-width: 800px; /* Limitar ancho para mejor legibilidad */
+  text-align: center; /* Centrado */
+  line-height: 1.7; /* Mismo line-height que los párrafos */
 }
 
 .blog-search-form {
@@ -164,30 +173,34 @@ html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hov
 
 .blog-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* 4 cards por fila */
   gap: 2rem;
 }
 
 .blog-card {
-  background: #F4F0EF;
-  border: none;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1); /* Misma tonalidad que cards de proyectos */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Mismo borde que cards de proyectos */
+  border-radius: 16px; /* Mismo border-radius que cards de proyectos */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.2s ease;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease; /* Misma transición que cards de proyectos */
 }
 
 .blog-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px); /* Mismo hover que cards de proyectos */
+  background: rgba(255, 255, 255, 0.15); /* Mismo hover que cards de proyectos */
+  border-color: rgba(255, 255, 255, 0.3); /* Mismo hover que cards de proyectos */
 }
 
 .blog-card-img {
   width: 100%;
   aspect-ratio: 16 / 10;
-  background-size: cover;
-  background-position: center;
-  background-color: #E4E4E4;
+  background-image: none !important; /* Sin imágenes */
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro sólido */
+  display: block;
 }
 
 .blog-card-body {
@@ -202,14 +215,14 @@ html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hov
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--blog-ink);
+  color: #fff; /* Texto blanco para cards transparentes oscuras */
   margin: 0 0 0.5rem;
   line-height: 1.3;
 }
 
 .blog-card-intro {
   font-size: 0.875rem;
-  color: var(--blog-muted);
+  color: rgba(255, 255, 255, 0.85); /* Texto blanco con opacidad para cards transparentes oscuras */
   line-height: 1.5;
   margin: 0 0 1rem;
   flex: 1;
@@ -225,14 +238,14 @@ html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hov
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--blog-accent);
+  color: #fff !important; /* Texto blanco forzado */
   text-decoration: none;
   margin-left: auto;
   transition: color 0.2s ease;
 }
 
 .blog-card-link:hover {
-  color: #313131;
+  color: #fff !important; /* Mantener blanco en hover */
 }
 
 .blog-card-link-icon {
@@ -241,32 +254,75 @@ html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hov
   justify-content: center;
   width: 32px;
   height: 32px;
-  border: 1px solid var(--blog-border);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Borde blanco */
   border-radius: 50%;
+  color: #fff; /* Flecha blanca */
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .blog-card-link:hover .blog-card-link-icon {
-  background: var(--blog-accent);
-  border-color: var(--blog-accent);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff; /* Mantener blanco */
 }
 
 .blog-card-link-icon svg {
   width: 14px;
   height: 14px;
+  color: #fff !important; /* Asegurar que la flecha sea blanca */
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Dark mode: misma tonalidad que cards de proyectos */
+[data-theme="dark"] .blog-card {
+  background: rgba(15, 20, 25, 0.28);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .blog-card:hover {
+  background: rgba(15, 20, 25, 0.4);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 1200px) {
+  .blog-cards {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards en pantallas medianas */
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 900px) {
   .blog-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards en tablets */
     gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-cards {
+    grid-template-columns: 1fr; /* 1 card en móvil */
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .blog-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 2rem;
   }
 }
 
 @media (max-width: 560px) {
   .blog-page {
     padding: 7rem 1rem 3rem;
+  }
+
+  .blog-section {
+    padding: 0 1rem;
   }
 
   .blog-header {
@@ -276,4 +332,9 @@ html:not([data-theme="dark"]) body.page-blog .navbar.scrolled .nav-theme-btn:hov
   .blog-search-form {
     margin-bottom: 2rem;
   }
+}
+
+/* Dark mode: línea del título igual que contacto */
+[data-theme="dark"] .blog-title-underline {
+  background: rgba(255, 255, 255, 0.4);
 }

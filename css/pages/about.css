@@ -12,6 +12,7 @@
 }
 
 /* Navbar con la misma transparencia que el inicio: oscuro, blur, sin borde */
+/* Asegurar que el navbar tenga el mismo tamaño que en inicio */
 .page-about .navbar {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
@@ -19,16 +20,23 @@
   border: none;
   border-radius: 50px;
   box-shadow: none;
+  padding: 1.25rem 4.5rem !important; /* Mismo padding que inicio */
 }
 .page-about .navbar .logo {
   color: #fff;
 }
 .page-about .navbar .logo-img {
   filter: brightness(0) invert(1);
+  height: 72px !important; /* Mismo tamaño de logo que inicio */
+  width: auto;
+  max-width: 320px;
+  object-fit: contain;
 }
 .page-about .navbar .nav-links a,
 .page-about .navbar .nav-dropdown-toggle {
   color: #fff;
+  font-size: 1.1rem !important; /* Mismo tamaño de fuente que inicio */
+  font-weight: 500;
 }
 .page-about .navbar .nav-dropdown-menu {
   background: rgba(0, 0, 0, 0.3);
@@ -38,6 +46,7 @@
 }
 .page-about .navbar .nav-dropdown-menu a {
   color: #fff;
+  font-size: 0.9rem !important; /* Mismo tamaño de fuente que inicio */
 }
 .page-about .navbar .nav-dropdown-menu a:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -52,6 +61,8 @@
   /* Espacio para navbar fixed (logo alto + padding + top) */
   padding-top: 132px;
   color: var(--about-ink);
+  /* Aumentar el tamaño general para que se vea igual de grande que las demás secciones */
+  font-size: 1.15rem; /* Aumentar tamaño base de fuente */
 }
 
 /* Fondo: imagen aérea ciudad/valle con blur (igual que en Proyectos) */
@@ -99,21 +110,22 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.25;
+  text-align: center;
+  margin: 2rem 0 0;
   text-transform: lowercase;
   color: #fff;
-  margin: 0;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 .about-hero-title::first-letter {
   text-transform: uppercase;
 }
 
-/* Layout: mismo ancho que navbar (98% / max 1600px, padding 4.5rem) */
+/* Layout: un poco más ancho que navbar para más espacio */
 .about-layout {
   position: relative;
   z-index: 1;
   width: 98%;
-  max-width: 1600px;
+  max-width: 1720px; /* Un tris más corto que 1750px */
   margin: 0 auto;
   padding: 0 4.5rem;
   display: grid;
@@ -496,11 +508,12 @@
 
 /* Mismo tamaño, estilo y sombreado que títulos de inicio; minúscula con primera letra mayúscula */
 .about-panel-title {
-  margin: 0 0 0.75rem;
+  margin: 2rem 0 0.75rem;
   font-size: clamp(1.75rem, 3.2vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.25;
+  text-align: center;
   text-transform: lowercase;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -715,9 +728,9 @@
 }
 
 .about-equipo-card-qualification {
-  font-size: 0.75rem;
+  font-size: 1.1rem; /* Mismo tamaño que los párrafos */
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 1.7; /* Mismo line-height que los párrafos */
   color: rgba(0, 0, 0, 0.65);
 }
 
@@ -785,7 +798,7 @@
 }
 
 .about-equipo-compact .about-equipo-card-qualification {
-  font-size: 0.65rem;
+  font-size: 0.95rem; /* Aumentar para mantener proporción con el tamaño base */
 }
 
 .about-equipo-compact .about-equipo-card-body .about-equipo-card-linkedin {
@@ -824,15 +837,16 @@
   margin-bottom: 1.75rem;
 }
 
-/* Mismo tamaño, estilo y sombreado que títulos de inicio; minúscula con primera letra mayúscula */
+/* Mismo tamaño, estilo y sombreado que "Quiénes somos" */
 .about-equipo-meet-title {
   font-size: clamp(1.75rem, 3.2vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.25;
+  text-align: center;
   text-transform: lowercase;
   color: #fff;
-  margin: 0 0 0.5rem;
+  margin: 2rem 0 0.75rem; /* Mismo margin que .about-panel-title */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 .about-equipo-meet-title::first-letter {
@@ -1550,6 +1564,10 @@
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
+  
+  .about-page {
+    font-size: 1rem; /* Reducir en responsive */
+  }
 }
 
 @media (max-width: 900px) {
@@ -1652,15 +1670,16 @@
   margin-bottom: 2.5rem;
 }
 
-/* Mismo tamaño, estilo y sombreado que títulos de inicio; minúscula con primera letra mayúscula */
+/* Mismo tamaño, estilo y sombreado que "Quiénes somos" */
 .about-equipo-detalle-title {
   font-size: clamp(1.75rem, 3.2vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.25;
+  text-align: center;
   text-transform: lowercase;
   color: #fff;
-  margin: 0 0 0.5rem;
+  margin: 2rem 0 0.75rem; /* Mismo margin que .about-panel-title */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 .about-equipo-detalle-title::first-letter {
@@ -1672,7 +1691,8 @@
   font-size: 1.1rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.92);
-  margin: 0;
+  margin: 0.5rem 0 0;
+  text-align: center;
   max-width: 520px;
   margin-left: auto;
   margin-right: auto;
@@ -1758,8 +1778,8 @@
 }
 
 .about-equipo-detalle-funciones li {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 1.1rem; /* Mismo tamaño que los párrafos */
+  line-height: 1.7; /* Mismo line-height que los párrafos */
   color: rgba(255, 255, 255, 0.9);
   padding-left: 1.5rem;
   position: relative;
@@ -1831,6 +1851,6 @@
   }
 
   .about-equipo-detalle-funciones li {
-    font-size: 0.85rem;
+    font-size: 1rem; /* Reducir ligeramente en responsive pero mantener proporción */
   }
 }
