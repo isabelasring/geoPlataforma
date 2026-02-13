@@ -314,6 +314,43 @@ window.addEventListener('scroll', updateNavbarColor);
         if (imgPlaceholder) {
             imgPlaceholder.innerHTML = '';
         }
+        
+        // Calcular la posición vertical del card clickeado para alinear el panel
+        var cardRect = card.getBoundingClientRect();
+        var sectionRect = section.getBoundingClientRect();
+        var cardCenterY = cardRect.top + (cardRect.height / 2) - sectionRect.top;
+        
+        // Ajustar el top del panel para que esté alineado con el card
+        // En pantallas angostas (≤900px) el panel sale desde la derecha
+        var isNarrowScreen = window.innerWidth <= 900;
+        if (isNarrowScreen) {
+            // Convertir la posición del card a porcentaje relativo a la altura de la sección
+            var sectionHeight = sectionRect.height;
+            var topPercent = (cardCenterY / sectionHeight) * 100;
+            
+            // Obtener la altura del panel para verificar si se sale de la sección
+            var panelHeight = panel.offsetHeight || panel.getBoundingClientRect().height;
+            var panelHeightPercent = (panelHeight / sectionHeight) * 100;
+            
+            // Si el panel se sale de la sección (topPercent + panelHeightPercent > 100)
+            // Ajustar el top para que quepa, ocupando un poco del renglón de arriba
+            if (topPercent + panelHeightPercent > 100) {
+                // Calcular cuánto se sale
+                var overflow = (topPercent + panelHeightPercent) - 100;
+                // Ajustar el top restando el overflow más un pequeño margen
+                topPercent = topPercent - overflow - 2; // 2% de margen extra
+            }
+            
+            // Limitar el porcentaje para que el panel no se salga de la pantalla
+            var minTop = 2; // mínimo 2% desde arriba
+            var maxTop = 98; // máximo 98% desde arriba
+            topPercent = Math.max(minTop, Math.min(maxTop, topPercent));
+            panel.style.top = topPercent + '%';
+        } else {
+            // En pantallas anchas, el panel se mantiene desde abajo
+            panel.style.top = 'auto';
+        }
+        
         section.classList.add('tech-panel-open');
         panel.setAttribute('aria-hidden', 'false');
         backdrop.setAttribute('aria-hidden', 'false');
@@ -321,7 +358,16 @@ window.addEventListener('scroll', updateNavbarColor);
     function closePanel() {
         if (!section) return;
         section.classList.remove('tech-panel-open');
-        if (panel) panel.setAttribute('aria-hidden', 'true');
+        if (panel) {
+            panel.setAttribute('aria-hidden', 'true');
+            // Resetear el top para que la próxima vez use el valor por defecto
+            var isNarrowScreen = window.innerWidth <= 900;
+            if (isNarrowScreen) {
+                panel.style.top = '50%';
+            } else {
+                panel.style.top = 'auto';
+            }
+        }
         if (backdrop) backdrop.setAttribute('aria-hidden', 'true');
     }
 
