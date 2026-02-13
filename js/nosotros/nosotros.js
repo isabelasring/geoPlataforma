@@ -44,6 +44,7 @@
     var panelTitle = document.getElementById('about-panel-title');
     var panelBody = document.getElementById('about-panel-body');
     var gridWrap = document.getElementById('about-equipo-grid');
+    var detalleWrap = document.querySelector('.about-equipo-detalle-wrap');
 
     function showPanel(key) {
         var c = content[key];
@@ -52,6 +53,7 @@
             panel.hidden = false;
             panel.removeAttribute('aria-hidden');
             panel.style.opacity = '1';
+            panel.setAttribute('data-tab-active', key);
         }
         if (panelBody && panelTitle) {
             panelBody.style.opacity = '0';
@@ -72,6 +74,16 @@
                 gridWrap.setAttribute('aria-hidden', 'true');
             }
         }
+        // Mostrar/ocultar sección detallada solo en "Quiénes somos"
+        if (detalleWrap) {
+            if (key === 'quienes-somos') {
+                detalleWrap.setAttribute('data-visible', 'true');
+                detalleWrap.style.display = 'block';
+            } else {
+                detalleWrap.setAttribute('data-visible', 'false');
+                detalleWrap.style.display = 'none';
+            }
+        }
     }
 
     tabs.forEach(function(tab) {
@@ -87,5 +99,15 @@
             tab.setAttribute('aria-selected', 'true');
         });
     });
+
+    // Mostrar sección detallada al cargar si "Quiénes somos" está activa por defecto
+    var activeTab = document.querySelector('.about-tab.active');
+    if (activeTab) {
+        var activeKey = activeTab.getAttribute('data-tab');
+        if (activeKey === 'quienes-somos' && detalleWrap) {
+            detalleWrap.setAttribute('data-visible', 'true');
+            detalleWrap.style.display = 'block';
+        }
+    }
 
 })();
