@@ -466,6 +466,19 @@
 }
 
 /* Cuando el panel está abierto, ocultar el navbar */
+/* Asegurar que el logo se muestre correctamente en proyectos */
+.proyectos-page .navbar .logo-img,
+body.proyectos-page .navbar .logo-img,
+body .navbar .logo-img {
+    filter: brightness(0) invert(1) !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: auto !important;
+    height: 72px !important;
+    max-width: 320px !important;
+}
+
 body.proyecto-panel-open .navbar {
     visibility: hidden;
     opacity: 0;

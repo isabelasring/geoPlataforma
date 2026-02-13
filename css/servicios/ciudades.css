@@ -633,8 +633,15 @@ body.page-servicios .navbar.scrolled .logo {
     color: #313131;
 }
 
+body.page-servicios .navbar .logo-img,
 body.page-servicios .navbar.scrolled .logo-img {
-    filter: none;
+    filter: brightness(0) invert(1) !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: auto !important;
+    height: 72px !important;
+    max-width: 320px !important;
 }
 
 body.page-servicios .navbar.scrolled .nav-links a,
