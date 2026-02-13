@@ -5,6 +5,7 @@
     height: 100vh;
     min-height: 100vh;
     padding-top: 140px; /* espacio para navbar fijo: óvalos más abajo */
+    margin-top: 2rem; /* margin-top para que no se vea pegado al navbar */
     background: #313131;
     gap: 0;
 }
@@ -29,6 +30,13 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     z-index: 5;
     background: #FAFAFA;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* En responsive, ocultar las tags superiores */
+@media (max-width: 900px) {
+    .section-services-top {
+        display: none;
+    }
 }
 
 .section-services-top .section-service-pill {
@@ -95,10 +103,19 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     height: 100%;
     min-height: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: #FAFAFA;
     border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.section-label-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .section-label-text {
@@ -112,6 +129,132 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     margin: 0;
     opacity: 0;
     animation: label-fade-in 0.35s ease-out 0.14s forwards;
+}
+
+.section-label-toggle {
+    display: none; /* Oculto por defecto, visible solo en responsive */
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #313131;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.section-label-toggle-icon {
+    width: 20px;
+    height: 20px;
+    color: #313131;
+    transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .section-label-toggle-icon {
+    color: #fff;
+}
+
+/* En responsive, el ícono del toggle debe ser blanco */
+@media (max-width: 900px) {
+    .section-label-toggle-icon {
+        color: #fff;
+    }
+}
+
+.section-label-toggle[aria-expanded="true"] .section-label-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.section-label-dropdown {
+    display: none; /* Oculto por defecto */
+    width: 100%;
+    padding: 1rem;
+    background: #313131;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-label-dropdown[aria-hidden="false"] {
+    display: block;
+}
+
+/* Estilos para los pills dentro del dropdown */
+.section-label-dropdown .section-service-pill {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.22s ease;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.section-label-dropdown .section-service-pill:last-child {
+    margin-bottom: 0;
+}
+
+.section-label-dropdown .section-service-pill:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(4px);
+}
+
+.section-label-dropdown .section-service-pill.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.section-services-top-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0;
+}
+
+.section-services-top-mobile .section-service-pill {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.22s ease;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+}
+
+.section-services-top-mobile .section-service-pill:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(4px);
+}
+
+.section-services-top-mobile .section-service-pill.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes label-fade-in {
@@ -529,15 +672,26 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     /* Título CIUDADES/INDUSTRIA justo debajo de los tags, siempre visible */
     .section-label {
         width: 100%;
-        min-height: 56px;
-        height: 56px;
+        min-height: auto;
+        height: auto;
         flex-shrink: 0;
         order: -1;
         border-right: none;
         border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .section-label-header {
+        display: flex;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        position: relative;
+        background: #313131;
     }
 
     .section-label-text {
@@ -546,6 +700,28 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
         font-weight: 700;
         opacity: 1;
         animation: none;
+        margin: 0;
+        color: #fff;
+    }
+
+    .section-label-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: static;
+        transform: none;
+        margin-left: 1rem;
+    }
+
+    .section-label-dropdown {
+        display: none;
+        padding: 1rem 1.5rem;
+        background: #313131;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .section-label-dropdown[aria-hidden="false"] {
+        display: block;
     }
 
     .section-content {

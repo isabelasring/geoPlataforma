@@ -37,6 +37,19 @@ function renderServicesBar() {
     });
 }
 
+function renderServicesBarMobile() {
+    var barMobile = document.getElementById('section-services-bar-mobile');
+    if (!barMobile) return;
+    barMobile.innerHTML = '';
+    serviciosCiudades.forEach(function(s) {
+        var a = document.createElement('a');
+        a.href = '#' + s.id;
+        a.className = 'section-service-pill';
+        a.textContent = s.label;
+        barMobile.appendChild(a);
+    });
+}
+
 function setActivePanelFromHash() {
     var hash = window.location.hash;
     var id = hash ? hash.slice(1) : firstCardId;
@@ -53,7 +66,39 @@ function setActivePanelFromHash() {
     });
 }
 
+// Toggle del dropdown móvil
+(function() {
+    var toggle = document.getElementById('section-label-toggle');
+    var dropdown = document.getElementById('section-label-dropdown');
+    
+    if (toggle && dropdown) {
+        toggle.addEventListener('click', function() {
+            var isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', !isExpanded);
+            dropdown.setAttribute('aria-hidden', isExpanded);
+        });
+        
+        // Cerrar dropdown al hacer clic en un pill y evitar scroll
+        dropdown.addEventListener('click', function(e) {
+            if (e.target.classList.contains('section-service-pill')) {
+                e.preventDefault();
+                var href = e.target.getAttribute('href');
+                if (href) {
+                    var id = href.slice(1);
+                    // Cambiar el hash sin hacer scroll
+                    history.replaceState(null, null, '#' + id);
+                    // Actualizar el panel activo
+                    setActivePanelFromHash();
+                }
+                toggle.setAttribute('aria-expanded', 'false');
+                dropdown.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+})();
+
 renderServicesBar();
+renderServicesBarMobile();
 setActivePanelFromHash();
 window.addEventListener('hashchange', setActivePanelFromHash);
 
