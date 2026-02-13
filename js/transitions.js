@@ -17,8 +17,30 @@
     // Marcar el body como cargado para evitar parpadeo
     document.body.classList.add('loaded');
 
+    // Posicionar la página arriba al cargar
+    scrollToTop();
+
     // Interceptar clics en enlaces de navegación
     setupNavigationTransitions();
+  }
+
+  function scrollToTop() {
+    // Scroll suave al top de la página al cargar
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant' // Usar 'instant' para que sea inmediato sin animación
+    });
+
+    // También asegurar que el scroll esté en 0 después de un breve delay
+    // por si hay contenido que se carga dinámicamente
+    setTimeout(function() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+    }, 100);
   }
 
   function setupNavigationTransitions() {
@@ -60,7 +82,13 @@
     if (event.persisted) {
       document.body.classList.remove('page-transitioning');
       document.body.classList.add('loaded');
+      scrollToTop();
     }
+  });
+
+  // También hacer scroll al top cuando se carga la página normalmente
+  window.addEventListener('load', function() {
+    scrollToTop();
   });
 
 })();
