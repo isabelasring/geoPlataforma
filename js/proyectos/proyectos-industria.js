@@ -96,6 +96,76 @@
         }
     });
 
+    // Renderizar tags en el dropdown móvil
+    function renderMobileTags() {
+        var mobileContainer = document.getElementById('proyectos-tags-mobile');
+        if (!mobileContainer) return;
+        mobileContainer.innerHTML = '';
+        tags.forEach(function(tag) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'proyectos-tag';
+            btn.setAttribute('data-servicio', tag.getAttribute('data-servicio'));
+            btn.setAttribute('role', 'tab');
+            btn.textContent = tag.textContent;
+            if (tag.classList.contains('active')) {
+                btn.classList.add('active');
+            }
+            mobileContainer.appendChild(btn);
+        });
+    }
+
+    // Toggle del dropdown móvil
+    (function() {
+        var toggle = document.getElementById('proyectos-filters-toggle');
+        var dropdown = document.getElementById('proyectos-filters-dropdown');
+        var page = document.querySelector('.proyectos-page');
+        
+        if (toggle && dropdown) {
+            toggle.addEventListener('click', function() {
+                var isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', !isExpanded);
+                dropdown.setAttribute('aria-hidden', isExpanded);
+                // Agregar/quitar clase para ajustar el contenido
+                if (page) {
+                    if (!isExpanded) {
+                        page.classList.add('dropdown-open');
+                    } else {
+                        page.classList.remove('dropdown-open');
+                    }
+                }
+            });
+            
+            // Cerrar dropdown al hacer clic en un tag y evitar scroll
+            dropdown.addEventListener('click', function(e) {
+                if (e.target.classList.contains('proyectos-tag')) {
+                    e.preventDefault();
+                    var servicio = e.target.getAttribute('data-servicio');
+                    if (servicio) {
+                        var url = new URL(window.location.href);
+                        url.searchParams.set('servicio', servicio);
+                        window.history.replaceState({}, '', url);
+                        // Actualizar tags activos
+                        tags.forEach(function(t) { t.classList.remove('active'); });
+                        var clickedTag = Array.from(tags).find(function(t) { return t.getAttribute('data-servicio') === servicio; });
+                        if (clickedTag) clickedTag.classList.add('active');
+                        toggleIndustryCards();
+                        // Actualizar tags móviles
+                        renderMobileTags();
+                    }
+                    toggle.setAttribute('aria-expanded', 'false');
+                    dropdown.setAttribute('aria-hidden', 'true');
+                    // Quitar clase cuando se cierra
+                    if (page) {
+                        page.classList.remove('dropdown-open');
+                    }
+                }
+            });
+        }
+        
+        renderMobileTags();
+    })();
+
     tags.forEach(function(btn) {
         btn.addEventListener('click', function() {
             tags.forEach(function(t) { t.classList.remove('active'); });
@@ -105,6 +175,14 @@
             url.searchParams.set('servicio', s);
             window.history.replaceState({}, '', url);
             toggleIndustryCards();
+            // Actualizar tags móviles
+            var mobileContainer = document.getElementById('proyectos-tags-mobile');
+            if (mobileContainer) {
+                var mobileTags = mobileContainer.querySelectorAll('.proyectos-tag');
+                mobileTags.forEach(function(t) { t.classList.remove('active'); });
+                var activeMobile = Array.from(mobileTags).find(function(t) { return t.getAttribute('data-servicio') === s; });
+                if (activeMobile) activeMobile.classList.add('active');
+            }
         });
     });
 

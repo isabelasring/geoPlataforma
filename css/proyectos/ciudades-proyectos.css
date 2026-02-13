@@ -376,12 +376,141 @@
     align-items: center;
 }
 
+/* Header móvil para filtros (solo visible en responsive) */
+.proyectos-filters-header {
+    display: none; /* Oculto por defecto, visible solo en responsive */
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: #313131;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+}
+
+.proyectos-filters-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.proyectos-filters-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 32px;
+    height: 32px;
+    z-index: 10;
+}
+
+.proyectos-filters-toggle-icon {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.proyectos-filters-toggle[aria-expanded="true"] .proyectos-filters-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.proyectos-filters-dropdown {
+    display: none; /* Oculto por defecto */
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: #313131;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.proyectos-filters-dropdown[aria-hidden="false"] {
+    display: block;
+}
+
+.proyectos-tags-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.proyectos-tags-mobile .proyectos-tag {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.proyectos-tags-mobile .proyectos-tag:last-child {
+    margin-bottom: 0;
+}
+
+.proyectos-tags-mobile .proyectos-tag:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(4px);
+}
+
+.proyectos-tags-mobile .proyectos-tag.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
 .proyectos-tags-top {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
     flex-wrap: wrap;
+}
+
+/* En responsive, ocultar las tags superiores */
+@media (max-width: 900px) {
+    .proyectos-tags-top {
+        display: none;
+    }
+    .proyectos-filters-header {
+        display: flex;
+    }
+    .proyectos-filters-container {
+        padding: 0;
+        align-items: stretch;
+        position: relative; /* Para que el dropdown absoluto funcione */
+    }
+    .proyectos-search-bar {
+        margin-top: 0.5rem;
+    }
+    /* Cuando el dropdown está abierto, reducir el padding del contenido */
+    .proyectos-filters-dropdown[aria-hidden="false"] ~ .proyectos-search-bar {
+        margin-top: 0.25rem;
+    }
+    /* Reducir padding-top del contenido cuando el dropdown está abierto */
+    .proyectos-page.dropdown-open .proyectos-content {
+        padding-top: 120px !important;
+    }
 }
 
 .proyectos-tag {
@@ -764,6 +893,11 @@ body.proyecto-panel-open .navbar {
         padding: 400px 2rem 3rem;
         gap: 2rem;
     }
+    
+    /* Reducir padding cuando el dropdown está abierto */
+    .proyectos-page.dropdown-open .proyectos-content {
+        padding-top: 120px !important;
+    }
 
     .proyectos-left {
         flex: 1;
@@ -818,6 +952,11 @@ body.proyecto-panel-open .navbar {
 
     .proyectos-content {
         padding: 380px 1.5rem 3rem;
+    }
+    
+    /* Reducir padding cuando el dropdown está abierto */
+    .proyectos-page.dropdown-open .proyectos-content {
+        padding-top: 100px !important;
     }
 
     .proyectos-title {

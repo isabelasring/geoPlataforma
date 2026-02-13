@@ -111,6 +111,19 @@
         <div class="proyectos-hero-overlay" aria-hidden="true"></div>
         
         <div class="proyectos-filters-container">
+            <div class="proyectos-filters-header">
+                <h2 class="proyectos-filters-title">Ciudades</h2>
+                <button type="button" class="proyectos-filters-toggle" id="proyectos-filters-toggle" aria-expanded="false" aria-label="Desplegar filtros">
+                    <svg class="proyectos-filters-toggle-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+            <div class="proyectos-filters-dropdown" id="proyectos-filters-dropdown" aria-hidden="true">
+                <div class="proyectos-tags-mobile" role="tablist" id="proyectos-tags-mobile">
+                    <!-- Tags will be rendered here by JS -->
+                </div>
+            </div>
             <div class="proyectos-tags-top" role="tablist">
                 <button type="button" class="proyectos-tag active" data-servicio="iot" role="tab">IoT</button>
                 <button type="button" class="proyectos-tag" data-servicio="mapas-ruido" role="tab">Mapas de ruido</button>
