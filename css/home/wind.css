@@ -276,11 +276,10 @@
     border: none;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: none;
-    transition: flex 0.26s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s ease, box-shadow 0.22s ease;
+    transition: flex 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s ease, box-shadow 0.15s ease, opacity 0.1s ease, visibility 0.1s ease, width 0.15s ease;
     scroll-snap-align: start;
     opacity: 0;
     transform: translateY(-180px);
-    transition: flex 0.26s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s ease, box-shadow 0.22s ease;
 }
 
 .wind-section.wind-animated .wind-card {
@@ -317,10 +316,24 @@
     min-width: 75%;
     max-width: 92%;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 1;
+    visibility: visible;
 }
 
 .wind-card.hidden {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    flex: 0 0 0;
+    min-width: 0;
+    width: 0;
+    overflow: hidden;
+    transition: opacity 0.1s ease, visibility 0.1s ease, flex 0.15s cubic-bezier(0.4, 0, 0.2, 1), width 0.15s ease;
+}
+
+/* Asegurar que las cards visibles (sin clase hidden) tengan opacity y visibility correctos */
+.wind-card:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Botón cerrar (X) - visible solo cuando la card está expandida */
@@ -551,7 +564,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(12px);
-    transition: opacity 0.18s ease 0.1s, visibility 0.18s ease 0.1s, transform 0.18s ease 0.1s;
+    transition: opacity 0.1s ease, visibility 0.1s ease, transform 0.1s ease;
     padding: 0 0.5rem;
     box-sizing: border-box;
     isolation: isolate;
