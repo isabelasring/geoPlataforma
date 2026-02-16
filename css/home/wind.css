@@ -928,6 +928,14 @@ a.wind-project-card-cta:hover {
         min-height: auto;
         display: flex;
         align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Cuando hay una card expandida, eliminar padding lateral */
+    .wind-section.wind-card-expanded .wind-carousel-col {
+        padding-left: 0;
+        padding-right: 0;
     }
     
     .wind-cards-wrap {
@@ -935,12 +943,14 @@ a.wind-project-card-cta:hover {
         gap: 0.75rem;
         width: 100%;
         display: flex;
+        padding-left: 0;
     }
     
     .wind-cards {
         gap: 0.75rem;
         display: flex;
         width: 100%;
+        padding: 0;
     }
     
     .wind-card {
@@ -967,6 +977,7 @@ a.wind-project-card-cta:hover {
         margin: 0;
         flex: 1 1 100%;
         order: -1;
+        box-sizing: border-box;
     }
     
     [data-theme="dark"] .wind-card.expanded {
@@ -1044,7 +1055,7 @@ a.wind-project-card-cta:hover {
         padding: 0.4rem 0.75rem;
     }
     
-    /* Botón ver más */
+    /* Botón ver más - centrado */
     .wind-card.expanded .wind-more-projects {
         position: relative;
         left: auto;
@@ -1053,6 +1064,15 @@ a.wind-project-card-cta:hover {
         margin: 0.5rem auto 0;
         padding: 0.5rem 1rem !important;
         font-size: 0.75rem !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+    }
+    
+    /* Asegurar que el contenedor del botón esté centrado */
+    .wind-card.expanded .wind-inner-carousel-wrap {
+        align-items: center;
     }
     
     /* Reducir espacio cuando está expandida */
