@@ -509,7 +509,12 @@
     }
     /* Reducir padding-top del contenido cuando el dropdown está abierto */
     .proyectos-page.dropdown-open .proyectos-content {
-        padding-top: 120px !important;
+        padding-top: 20px !important;
+    }
+    
+    /* Reducir el top del contenedor de filtros cuando el dropdown está abierto */
+    .proyectos-page.dropdown-open .proyectos-filters-container {
+        top: 70px !important;
     }
 }
 
@@ -896,7 +901,12 @@ body.proyecto-panel-open .navbar {
     
     /* Reducir padding cuando el dropdown está abierto */
     .proyectos-page.dropdown-open .proyectos-content {
-        padding-top: 120px !important;
+        padding-top: 20px !important;
+    }
+    
+    /* Reducir el top del contenedor de filtros cuando el dropdown está abierto */
+    .proyectos-page.dropdown-open .proyectos-filters-container {
+        top: 70px !important;
     }
 
     .proyectos-left {
@@ -956,7 +966,12 @@ body.proyecto-panel-open .navbar {
     
     /* Reducir padding cuando el dropdown está abierto */
     .proyectos-page.dropdown-open .proyectos-content {
-        padding-top: 100px !important;
+        padding-top: 10px !important;
+    }
+    
+    /* Reducir el top del contenedor de filtros cuando el dropdown está abierto */
+    .proyectos-page.dropdown-open .proyectos-filters-container {
+        top: 60px !important;
     }
 
     .proyectos-title {

@@ -847,482 +847,286 @@ a.wind-project-card-cta:hover {
     color: rgba(255, 255, 255, 0.85);
 }
 
+/* ========== RESPONSIVE ========== */
+/* Primero: las cards se organizan verticalmente cuando la pantalla se achica */
+@media (max-width: 1200px) {
+    .wind-cards {
+        flex-direction: column;
+        gap: 1rem;
+        min-height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+    
+    .wind-card {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        flex: 1 1 auto;
+        min-height: 300px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* Forzar visibilidad en responsive */
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        visibility: visible !important;
+    }
+    
+    .wind-card:last-child {
+        border-bottom: none;
+    }
+}
+
 @media (max-width: 900px) {
-    /* Solo en responsive: sección más alta, blur al desplegar */
+    /* Layout en columna */
     .wind-section {
         margin-top: -100px;
-        padding-top: 0;
-        min-height: 92vh;
+        padding: 0 1rem;
+        min-height: auto;
     }
-
+    
+    .wind-section::before {
+        height: 120px;
+    }
+    
+    .wind-wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 0;
+        padding: 1.5rem 0 1rem;
+        min-height: auto;
+    }
+    
+    /* Texto introductorio */
+    .wind-intro-col {
+        padding: 1.5rem 0 0.5rem;
+        min-height: auto;
+    }
+    
+    .wind-intro {
+        min-height: auto;
+        margin-top: 0;
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .wind-title {
+        font-size: clamp(1.25rem, 4vw, 1.6rem);
+        margin-bottom: 0.75rem;
+    }
+    
+    .wind-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Cards en columna */
+    .wind-carousel-col {
+        padding: 0.5rem 0 0.5rem;
+        min-height: auto;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .wind-cards-wrap {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        display: flex;
+    }
+    
+    .wind-cards {
+        gap: 0.75rem;
+        display: flex;
+        width: 100%;
+    }
+    
+    .wind-card {
+        min-height: 250px;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        visibility: visible !important;
+    }
+    
+    /* Ocultar cards no expandidas solo cuando hay una expandida */
+    .wind-cards.is-expanded .wind-card:not(.expanded) {
+        display: none;
+    }
+    
+    /* Card expandida - ocupa todo el espacio */
+    .wind-card.expanded {
+        width: 100%;
+        min-height: auto;
+        background: rgba(10, 14, 26, 0.3);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 12px;
+        padding: 0;
+        margin: 0;
+        flex: 1 1 100%;
+        order: -1;
+    }
+    
+    [data-theme="dark"] .wind-card.expanded {
+        background: rgba(15, 20, 25, 0.4);
+    }
+    
+    /* Blur al expandir */
     .wind-section.wind-card-expanded .wind-section-bg {
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
     }
-
+    
     .wind-section.wind-card-expanded .wind-video-bg {
         filter: blur(12px);
         -webkit-filter: blur(12px);
     }
-
-    .wind-section::before {
-        height: 140px;
-    }
-
-    .wind-wrap {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        min-height: 92vh;
-        padding: 1.5rem 0 1.25rem;
-    }
-
-    .wind-intro-col {
-        min-height: auto;
-        padding: 2rem 1rem 0.75rem 1rem;
-        padding-top: 2.25rem;
-    }
-
-    .wind-intro {
-        min-height: 220px;
-        margin-top: 2rem;
-        padding: 2rem 1rem 1.25rem 1rem;
-        padding-top: 2.25rem;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .wind-title {
-        font-size: clamp(1.25rem, 3.2vw, 1.6rem);
-        margin-bottom: 0.75rem;
-    }
-
-    .wind-text {
-        font-size: 0.9rem;
-        line-height: 1.7;
-        margin-bottom: 1rem;
-    }
-
-    .wind-carousel-col {
-        min-height: auto;
-        padding: 0.5rem 1rem 1rem;
-    }
-
-    .wind-cards-wrap {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .wind-cards {
-        flex-direction: column;
-        min-height: auto;
-        order: 1;
-        width: 100%;
-        justify-content: flex-start;
-        gap: 1rem;
-        overflow-x: visible;
-        overflow-y: visible;
-        scroll-snap-type: none;
-    }
-
-    .wind-cards.is-expanded {
-        min-height: auto;
-    }
-
-    .wind-card {
-        flex: 0 0 auto;
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        min-height: 280px;
-    }
-
-    .wind-card.expanded {
-        flex: 0 0 auto;
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        min-height: auto;
-        background: rgba(10, 14, 26, 0.25);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-radius: 12px;
+    
+    /* Contenido interno de card expandida - mostrar verticalmente */
+    .wind-card.expanded .wind-inner-carousel-wrap {
         display: flex;
         flex-direction: column;
-        align-items: stretch;
+        padding: 1rem;
+        gap: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
-
-    [data-theme="dark"] .wind-card.expanded {
-        background: rgba(15, 20, 25, 0.4);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+    
+    .wind-card.expanded .wind-inner-carousel-wrap .wind-project-cards {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0;
+        margin: 0;
+        max-width: none;
+        width: 100%;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
     }
-
-    /* Botón Ver más servicios: justo debajo de las cards internas, centrado y más pequeño en mobile */
+    
+    .wind-card.expanded .wind-project-card {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        margin: 0;
+        flex: 0 0 auto;
+    }
+    
+    .wind-card.expanded .wind-project-card-img {
+        height: 80px;
+        min-height: 80px;
+    }
+    
+    .wind-card.expanded .wind-project-card-body {
+        padding: 0.5rem;
+    }
+    
+    .wind-card.expanded .wind-project-card-title {
+        font-size: 0.8rem;
+    }
+    
+    .wind-card.expanded .wind-project-card-desc {
+        font-size: 0.7rem;
+        line-height: 1.4;
+    }
+    
+    .wind-card.expanded .wind-project-card-cta {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.75rem;
+    }
+    
+    /* Botón ver más */
     .wind-card.expanded .wind-more-projects {
         position: relative;
         left: auto;
         bottom: auto;
         transform: none;
-        flex-shrink: 0;
-        margin: 0.75rem auto 1rem;
-        z-index: 10;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.45rem 1rem !important;
+        margin: 0.5rem auto 0;
+        padding: 0.5rem 1rem !important;
         font-size: 0.75rem !important;
     }
-
-    /* Contenido en columna: las 3 cards internas (solo la altura del contenido) y abajo el botón pegado */
-    .wind-card.expanded .wind-inner-carousel-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
+    
+    /* Reducir espacio cuando está expandida */
+    .wind-section.wind-card-expanded {
+        padding-bottom: 0.5rem;
+    }
+    
+    .wind-section.wind-card-expanded .wind-wrap {
+        padding: 1rem 0 0.5rem;
         gap: 0;
-        position: relative;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        flex: 0 0 auto;
-        max-height: none;
-        padding: 1rem 0.75rem 0;
-        box-sizing: border-box;
-        overflow: visible;
     }
-
-    .wind-card.expanded .wind-inner-carousel-wrap .wind-project-cards {
-        position: relative;
-        left: auto;
-        right: auto;
-        margin: 0;
-        max-width: none;
-        flex: 0 0 auto;
-        min-width: 0;
-        bottom: auto;
-        max-height: none;
+    
+    .wind-section.wind-card-expanded .wind-intro-col {
+        padding-bottom: 0.25rem;
+    }
+    
+    .wind-section.wind-card-expanded .wind-intro {
+        padding-bottom: 0.75rem;
+    }
+    
+    .wind-section.wind-card-expanded .wind-text {
+        margin-bottom: 0.25rem;
+    }
+    
+    .wind-section.wind-card-expanded .wind-carousel-col {
+        padding-top: 0;
         padding-bottom: 0;
-        flex-direction: column;
-        overflow-x: visible;
-        overflow-y: visible;
-        scroll-snap-type: none;
-        gap: 0.75rem;
-        padding: 0.5rem 0;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .wind-card.expanded .wind-inner-carousel-prev,
-    .wind-card.expanded .wind-inner-carousel-next {
-        display: none;
-    }
-
-    .wind-project-cards {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        gap: 0.5rem;
-        padding: 0.5rem;
-        max-height: none;
-        justify-content: flex-start;
-    }
-
-    .wind-project-cards::-webkit-scrollbar {
-        height: 4px;
-    }
-
-    .wind-project-cards::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 4px;
-    }
-
-    /* Cards internas (servicios) en columna hacia abajo, más altas para que el botón quede abajo */
-    .wind-card.expanded .wind-project-card {
-        flex: 0 0 auto;
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        min-height: 160px;
-        scroll-snap-align: none;
-        margin: 0;
-    }
-
-    .wind-project-card {
-        flex: 0 0 58%;
-        min-width: 58%;
-        max-width: 58%;
-        max-height: none;
-        min-height: 150px;
-        scroll-snap-align: center;
-        margin: 0 auto;
-    }
-
-    .wind-card.expanded .wind-project-card-img {
-        height: 80px;
-        min-height: 80px;
-    }
-
-    .wind-project-card-img {
-        height: 70px;
-        min-height: 70px;
-    }
-
-    .wind-project-card-body {
-        padding: 0.4rem 0.5rem 0.75rem;
-        min-height: 95px;
-    }
-
-    .wind-project-card-title,
-    .wind-service-card-title {
-        font-size: 0.75rem;
-    }
-
-    .wind-project-card-desc,
-    .wind-service-card-desc {
-        font-size: 0.65rem;
-        line-height: 1.35;
-        -webkit-line-clamp: 2;
-        flex: 0 0 auto;
-        min-height: 2.8em;
-    }
-
-    .wind-project-card-cta,
-    .wind-service-card-cta {
-        font-size: 0.65rem;
-        padding: 0.3rem 0.5rem;
-        margin-top: auto;
-    }
-
-    .wind-card-title {
-        font-size: 1.1rem;
-    }
-
-    .wind-card-desc {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .wind-section {
-        margin-top: -80px;
-        min-height: auto;
-    }
-
-    .wind-wrap {
-        padding: 1rem 0 1rem;
-    }
-
-    .wind-intro-col {
-        padding: 1.75rem 1rem 0.5rem 1rem;
-        padding-top: 2rem;
-    }
-
-    .wind-intro {
-        min-height: 200px;
-        margin-top: 2rem;
-        padding: 2rem 1rem 1rem 1rem;
-        padding-top: 2rem;
-    }
-
-    .wind-title {
-        font-size: clamp(1.15rem, 4vw, 1.45rem);
-    }
-
-    .wind-text {
-        font-size: 0.85rem;
-        line-height: 1.7;
-    }
-
-    .wind-cards.is-expanded {
-        min-height: auto;
-    }
-
-    .wind-card.expanded {
-        min-height: auto;
-    }
-
-    .wind-cards {
-        flex-direction: column;
-        min-height: auto;
-        gap: 1rem;
-    }
-
-    .wind-card {
-        flex: 0 0 auto;
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        min-height: 260px;
-    }
-
-    .wind-card.expanded {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .wind-project-cards {
-        gap: 0.4rem;
-        padding: 0.4rem;
-    }
-
-    .wind-project-card {
-        flex: 0 0 55%;
-        min-width: 55%;
-        max-width: 55%;
-        min-height: 180px;
-        scroll-snap-align: center;
-        margin: 0 auto;
-    }
-
-    .wind-project-card-img {
-        height: 60px;
-        min-height: 60px;
-    }
-
-    .wind-project-card-body {
-        padding: 0.35rem 0.45rem 0.65rem;
-        min-height: 90px;
-    }
-
-    .wind-project-card-title,
-    .wind-service-card-title {
-        font-size: 0.7rem;
-    }
-
-    .wind-project-card-desc,
-    .wind-service-card-desc {
-        font-size: 0.6rem;
-        flex: 0 0 auto;
-        min-height: 2.6em;
-    }
-
-    .wind-project-card-cta,
-    .wind-service-card-cta {
-        font-size: 0.6rem;
-        padding: 0.25rem 0.45rem;
-        margin-top: auto;
-    }
-
-    .wind-card-title {
-        font-size: 1rem;
-    }
-
-    .wind-card-desc {
-        font-size: 0.75rem;
     }
 }
 
 @media (max-width: 600px) {
-    .wind-wrap {
-        padding: 1.5rem 0 1rem;
+    .wind-section {
+        padding: 0 0.75rem;
     }
-
-    .wind-intro-col {
-        padding-top: 2rem;
-    }
-
+    
     .wind-intro {
-        min-height: 180px;
-        margin-top: 2rem;
-        padding: 1.75rem 0.875rem 0.875rem 0.875rem;
-        padding-top: 2rem;
+        padding: 1.25rem 0.875rem;
     }
-
+    
     .wind-title {
         font-size: 1.1rem;
     }
-
+    
     .wind-text {
         font-size: 0.85rem;
-        line-height: 1.65;
     }
-
-    .wind-project-cards {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 0.4rem;
-        padding: 0.4rem;
+    
+    .wind-card {
+        min-height: 220px;
     }
-
-    .wind-project-card {
-        flex: 0 0 62%;
-        min-width: 62%;
-        max-width: 62%;
-        min-height: 180px;
-        scroll-snap-align: center;
-        margin: 0 auto;
+    
+    .wind-card.expanded .wind-project-card-img {
+        height: 60px;
+        min-height: 60px;
     }
-
-    .wind-project-card-img {
-        height: 50px;
-        min-height: 50px;
+    
+    .wind-card.expanded .wind-project-card-title {
+        font-size: 0.75rem;
     }
-
-    .wind-project-card-body {
-        padding: 0.3rem 0.4rem 0.6rem;
-        min-height: 80px;
-    }
-
-    .wind-project-card-title,
-    .wind-service-card-title {
+    
+    .wind-card.expanded .wind-project-card-desc {
         font-size: 0.65rem;
     }
-
-    .wind-project-card-desc,
-    .wind-service-card-desc {
-        font-size: 0.55rem;
-        -webkit-line-clamp: 2;
-        flex: 0 0 auto;
-        min-height: 2.4em;
+    
+    .wind-card.expanded .wind-project-card-cta {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.65rem;
     }
-
-    .wind-project-card-cta,
-    .wind-service-card-cta {
-        font-size: 0.55rem;
-        padding: 0.25rem 0.4rem;
-        margin-top: auto;
-    }
-
-    .wind-section::before {
-        height: 100px;
-    }
-
-    .wind-cards.is-expanded {
-        min-height: auto;
-    }
-
-    .wind-card.expanded {
-        min-height: auto;
-    }
-
-    .wind-cards {
-        flex-direction: column;
-        min-height: auto;
-        gap: 0.75rem;
-    }
-
-    .wind-card {
-        flex: 0 0 auto;
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        min-height: 240px;
-    }
-
-    .wind-card.expanded {
-        width: 100%;
-        max-width: 100%;
-    }
-
+    
     .wind-card-title {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
-
+    
     .wind-card-desc {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 }
