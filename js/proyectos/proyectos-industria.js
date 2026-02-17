@@ -68,6 +68,15 @@
         // CORNARE en industria: SOLO aparece en "clasificacion-fuentes"
         var servicioPermitidoCORNARE = 'clasificacion-fuentes';
         
+        // Servicios permitidos para ARCLAD - SOLO estos 4
+        var serviciosPermitidosARCLAD = ['control-ruido', 'clasificacion-fuentes', 'modelacion-ruido', 'fotogrametria'];
+        
+        // CCR Palagua en industria: SOLO aparece en "fotogrametria"
+        var servicioPermitidoCCRPalagua = 'fotogrametria';
+        
+        // Campaña política en industria: SOLO aparece en "geoespacial"
+        var servicioPermitidoCampanaPolitica = 'geoespacial';
+        
         // Obtener todas las cards visibles actualmente ANTES de ocultar
         var visibleCards = Array.from(allCards).filter(function(card) {
             var computedStyle = window.getComputedStyle(card);
@@ -85,6 +94,30 @@
                     cardsToShow.push(card);
                 }
                 return; // No verificar más para CORNARE
+            }
+            
+            // ARCLAD: SOLO aparece en Control de ruido, Clasificación de fuentes, Modelación de ruido y Fotogrametría
+            if (proyectoId === 'arclad') {
+                if (serviciosPermitidosARCLAD.indexOf(servicioActivo) !== -1) {
+                    cardsToShow.push(card);
+                }
+                return; // No verificar más para ARCLAD
+            }
+            
+            // CCR Palagua: SOLO aparece en "fotogrametria"
+            if (proyectoId === 'ccr-palagua') {
+                if (servicioActivo === servicioPermitidoCCRPalagua) {
+                    cardsToShow.push(card);
+                }
+                return; // No verificar más para CCR Palagua
+            }
+            
+            // Campaña política: SOLO aparece en "geoespacial"
+            if (proyectoId === 'campana-politica') {
+                if (servicioActivo === servicioPermitidoCampanaPolitica) {
+                    cardsToShow.push(card);
+                }
+                return; // No verificar más para Campaña política
             }
             
             // Para otras cards, verificar sus servicios
@@ -173,7 +206,8 @@
         MINEROS_BIC_IMAGES: typeof MINEROS_BIC_IMAGES !== 'undefined' ? MINEROS_BIC_IMAGES : [],
         PEPSICO_IMAGES: typeof PEPSICO_IMAGES !== 'undefined' ? PEPSICO_IMAGES : [],
         SPIA_IMAGES: typeof SPIA_IMAGES !== 'undefined' ? SPIA_IMAGES : [],
-        CORNARE_IMAGES: typeof CORNARE_IMAGES !== 'undefined' ? CORNARE_IMAGES : []
+        CORNARE_IMAGES: typeof CORNARE_IMAGES !== 'undefined' ? CORNARE_IMAGES : [],
+        CAMPANA_POLITICA_IMAGES: typeof CAMPANA_POLITICA_IMAGES !== 'undefined' ? CAMPANA_POLITICA_IMAGES : []
     };
     document.querySelectorAll('.proyecto-card[data-carpeta]').forEach(function(card) {
         var imgDiv = card.querySelector('.proyecto-card-img[data-img-from]');
@@ -355,6 +389,9 @@
         } else if (proyectoId === 'cornare' && typeof CORNARE_IMAGES !== 'undefined' && CORNARE_IMAGES.length) {
             images = CORNARE_IMAGES;
             folder = 'CORNARE';
+        } else if (proyectoId === 'campana-politica' && typeof CAMPANA_POLITICA_IMAGES !== 'undefined' && CAMPANA_POLITICA_IMAGES.length) {
+            images = CAMPANA_POLITICA_IMAGES;
+            folder = 'campanaPolitica';
         }
         var base = folder ? (INDUSTRIA_IMAGES_BASE + folder + '/') : '';
         return { images: images, base: base };

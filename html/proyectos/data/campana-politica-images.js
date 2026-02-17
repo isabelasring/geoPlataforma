@@ -1,0 +1,1 @@
+var CAMPANA_POLITICA_IMAGES = [];
