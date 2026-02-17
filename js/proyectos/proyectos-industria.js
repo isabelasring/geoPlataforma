@@ -243,10 +243,10 @@
                         if (clickedTag) clickedTag.classList.add('active');
                         // Actualizar tags móviles
                         renderMobileTags();
-                        // Ejecutar toggle DESPUÉS de actualizar los tags
-                        setTimeout(function() {
+                        // Ejecutar toggle DESPUÉS de actualizar los tags, usando requestAnimationFrame para asegurar que el DOM esté actualizado
+                        requestAnimationFrame(function() {
                             toggleIndustryCards();
-                        }, 0);
+                        });
                     }
                     toggle.setAttribute('aria-expanded', 'false');
                     dropdown.setAttribute('aria-hidden', 'true');
@@ -280,10 +280,10 @@
                 if (activeMobile) activeMobile.classList.add('active');
             }
             
-            // Ejecutar toggle DESPUÉS de actualizar los tags, con un pequeño delay para asegurar que el DOM esté actualizado
-            setTimeout(function() {
+            // Ejecutar toggle DESPUÉS de actualizar los tags, usando requestAnimationFrame para asegurar que el DOM esté actualizado
+            requestAnimationFrame(function() {
                 toggleIndustryCards();
-            }, 0);
+            });
         });
     });
 
