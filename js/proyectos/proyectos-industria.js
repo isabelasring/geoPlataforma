@@ -27,48 +27,125 @@
     var idx = tagMap[servicio] !== undefined ? tagMap[servicio] : 0;
     tags.forEach(function(t, i) { t.classList.toggle('active', i === idx); });
 
+    function animateCardsOut(cards, callback) {
+        if (!cards || cards.length === 0) {
+            if (callback) callback();
+            return;
+        }
+        cards.forEach(function(card) {
+            card.classList.add('exiting');
+        });
+        setTimeout(function() {
+            if (callback) callback();
+        }, 400);
+    }
+    
+    function animateCardsIn(cards) {
+        if (!cards || cards.length === 0) return;
+        cards.forEach(function(card, index) {
+            card.style.display = 'block';
+            card.classList.remove('exiting');
+            card.classList.add('animating');
+            card.style.animation = 'none';
+            // Forzar reflow para reiniciar la animación
+            void card.offsetWidth;
+            card.style.animation = '';
+            card.style.animationDelay = (index * 0.05) + 's';
+        });
+    }
+    
+    var emptyMsg = document.getElementById('proyectos-empty-message');
+    var carouselTrack = document.getElementById('industria-carousel-track');
+    var allCards = document.querySelectorAll('.proyecto-card');
+    
     function toggleIndustryCards() {
         var activeTag = document.querySelector('.proyectos-tag.active');
-        var s = activeTag ? (activeTag.getAttribute('data-servicio') || '').trim() : '';
-        var isControlRuido = s === 'control-ruido';
-        var isClasificacionFuentes = s === 'clasificacion-fuentes';
-        var isModelacionRuido = s === 'modelacion-ruido';
-        var isFotogrametria = s === 'fotogrametria';
-        var isMedicionVibraciones = s === 'medicion-vibraciones';
-        var isHolografiaAcustica = s === 'holografia-acustica';
-        var isModelacionRuidoSubacuatico = s === 'modelacion-ruido-subacuatico';
-        var isMedicionRuidoSubacuatico = s === 'medicion-ruido-subacuatico';
-        var showArclad = isControlRuido || isClasificacionFuentes || isModelacionRuido || isFotogrametria;
-        var showPepsico = isControlRuido || isClasificacionFuentes || isModelacionRuido || isFotogrametria;
-        var showSpia = isModelacionRuidoSubacuatico || isMedicionRuidoSubacuatico;
-        var showColcafe = isControlRuido || isHolografiaAcustica || isMedicionVibraciones;
-        var refineria = document.querySelector('.proyecto-card-refineria');
-        var vivaMagdalena = document.querySelector('.proyecto-card-viva-magdalena');
-        var arclad = document.querySelector('.proyecto-card-arclad');
-        var segovia = document.querySelector('.proyecto-card-segovia');
-        var ccrPalagua = document.querySelector('.proyecto-card-ccr-palagua');
-        var colcafe = document.querySelector('.proyecto-card-colcafe');
-        var cerrejon = document.querySelector('.proyecto-card-cerrejon');
-        var minerosBic = document.querySelector('.proyecto-card-mineros-bic');
-        var pepsico = document.querySelector('.proyecto-card-pepsico');
-        var spia = document.querySelector('.proyecto-card-spia');
-        var emptyMsg = document.getElementById('proyectos-empty-message');
-        var carouselTrack = document.getElementById('industria-carousel-track');
-        var hasAnyProject = isControlRuido || showArclad || isMedicionVibraciones || isFotogrametria || showColcafe || isHolografiaAcustica || showPepsico || showSpia;
-        if (refineria) refineria.style.display = isControlRuido ? 'block' : 'none';
-        if (vivaMagdalena) vivaMagdalena.style.display = isControlRuido ? 'block' : 'none';
-        if (arclad) arclad.style.display = showArclad ? 'block' : 'none';
-        if (segovia) segovia.style.display = isMedicionVibraciones ? 'block' : 'none';
-        if (ccrPalagua) ccrPalagua.style.display = isFotogrametria ? 'block' : 'none';
-        if (colcafe) colcafe.style.display = showColcafe ? 'block' : 'none';
-        if (cerrejon) cerrejon.style.display = isHolografiaAcustica ? 'block' : 'none';
-        if (minerosBic) minerosBic.style.display = isHolografiaAcustica ? 'block' : 'none';
-        if (pepsico) pepsico.style.display = showPepsico ? 'block' : 'none';
-        if (spia) spia.style.display = showSpia ? 'block' : 'none';
+        if (!activeTag) return;
+        
+        var servicioActivo = (activeTag.getAttribute('data-servicio') || '').trim().toLowerCase();
+        if (!servicioActivo) return;
+        
+        // CORNARE en industria: SOLO aparece en "clasificacion-fuentes"
+        var servicioPermitidoCORNARE = 'clasificacion-fuentes';
+        
+        // Obtener todas las cards visibles actualmente
+        var visibleCards = Array.from(allCards).filter(function(card) {
+            return card.style.display !== 'none' && !card.classList.contains('exiting');
+        });
+        
+        // Determinar qué cards deben mostrarse
+        var cardsToShow = [];
+        allCards.forEach(function(card) {
+            var proyectoId = card.getAttribute('data-proyecto');
+            
+            // CORNARE: SOLO aparece en "clasificacion-fuentes"
+            if (proyectoId === 'cornare') {
+                if (servicioActivo === servicioPermitidoCORNARE) {
+                    cardsToShow.push(card);
+                }
+                return; // No verificar más para CORNARE
+            }
+            
+            // Para otras cards, verificar sus servicios
+            var servicios = card.getAttribute('data-servicios') || card.getAttribute('data-servicio') || '';
+            if (!servicios) return;
+            
+            var serviciosArray = servicios.toLowerCase().trim().split(/\s+/).filter(function(s) {
+                return s.trim().length > 0;
+            });
+            
+            if (serviciosArray.indexOf(servicioActivo) !== -1) {
+                cardsToShow.push(card);
+            }
+        });
+        
+        var hasAnyProject = cardsToShow.length > 0;
+        
+        // Ocultar todas las cards primero
+        allCards.forEach(function(card) {
+            card.classList.remove('exiting', 'animating');
+            card.style.display = 'none';
+        });
+        
+        // Actualizar mensaje y carousel
         if (emptyMsg) emptyMsg.style.display = hasAnyProject ? 'none' : 'flex';
         if (carouselTrack) carouselTrack.style.display = hasAnyProject ? 'flex' : 'none';
+        
+        // Si hay cards para mostrar
+        if (hasAnyProject) {
+            // Si había cards visibles, animar salida primero
+            if (visibleCards.length > 0) {
+                animateCardsOut(visibleCards, function() {
+                    // Mostrar nuevas cards y animar entrada
+                    cardsToShow.forEach(function(card) {
+                        card.style.display = 'block';
+                    });
+                    setTimeout(function() {
+                        animateCardsIn(cardsToShow);
+                    }, 10);
+                });
+            } else {
+                // No había cards visibles, mostrar directamente
+                cardsToShow.forEach(function(card) {
+                    card.style.display = 'block';
+                });
+                setTimeout(function() {
+                    animateCardsIn(cardsToShow);
+                }, 10);
+            }
+        }
     }
     toggleIndustryCards();
+    
+    // Animar cards iniciales
+    setTimeout(function() {
+        var initialCards = Array.from(allCards).filter(function(card) {
+            return card.style.display !== 'none';
+        });
+        if (initialCards.length > 0) {
+            animateCardsIn(initialCards);
+        }
+    }, 150);
 
     /* Asignar imagen de cada tarjeta desde los arrays en data/*.js y base ../../img:video/proyectos/industria/ */
     var arrByName = {
@@ -81,7 +158,8 @@
         CERREJON_IMAGES: typeof CERREJON_IMAGES !== 'undefined' ? CERREJON_IMAGES : [],
         MINEROS_BIC_IMAGES: typeof MINEROS_BIC_IMAGES !== 'undefined' ? MINEROS_BIC_IMAGES : [],
         PEPSICO_IMAGES: typeof PEPSICO_IMAGES !== 'undefined' ? PEPSICO_IMAGES : [],
-        SPIA_IMAGES: typeof SPIA_IMAGES !== 'undefined' ? SPIA_IMAGES : []
+        SPIA_IMAGES: typeof SPIA_IMAGES !== 'undefined' ? SPIA_IMAGES : [],
+        CORNARE_IMAGES: typeof CORNARE_IMAGES !== 'undefined' ? CORNARE_IMAGES : []
     };
     document.querySelectorAll('.proyecto-card[data-carpeta]').forEach(function(card) {
         var imgDiv = card.querySelector('.proyecto-card-img[data-img-from]');
@@ -251,6 +329,9 @@
         } else if (proyectoId === 'spia' && typeof SPIA_IMAGES !== 'undefined' && SPIA_IMAGES.length) {
             images = SPIA_IMAGES;
             folder = 'spia';
+        } else if (proyectoId === 'cornare' && typeof CORNARE_IMAGES !== 'undefined' && CORNARE_IMAGES.length) {
+            images = CORNARE_IMAGES;
+            folder = 'CORNARE';
         }
         var base = folder ? (INDUSTRIA_IMAGES_BASE + folder + '/') : '';
         return { images: images, base: base };

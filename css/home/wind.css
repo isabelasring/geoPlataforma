@@ -871,7 +871,7 @@ a.wind-project-card-cta:hover {
         transform: translateY(0) !important;
         visibility: visible !important;
     }
-    
+
     .wind-card:last-child {
         border-bottom: none;
     }
@@ -884,11 +884,11 @@ a.wind-project-card-cta:hover {
         padding: 0 1rem;
         min-height: auto;
     }
-    
+
     .wind-section::before {
         height: 120px;
     }
-    
+
     .wind-wrap {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
@@ -896,13 +896,13 @@ a.wind-project-card-cta:hover {
         padding: 1.5rem 0 1rem;
         min-height: auto;
     }
-    
+
     /* Texto introductorio */
     .wind-intro-col {
         padding: 1.5rem 0 0.5rem;
         min-height: auto;
     }
-    
+
     .wind-intro {
         min-height: auto;
         margin-top: 0;
@@ -910,18 +910,18 @@ a.wind-project-card-cta:hover {
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .wind-title {
         font-size: clamp(1.25rem, 4vw, 1.6rem);
         margin-bottom: 0.75rem;
     }
-    
+
     .wind-text {
         font-size: 0.9rem;
         line-height: 1.7;
         margin-bottom: 0.75rem;
     }
-    
+
     /* Cards en columna */
     .wind-carousel-col {
         padding: 0.5rem 0 0.5rem;
@@ -947,7 +947,7 @@ a.wind-project-card-cta:hover {
         padding-left: 0;
         padding-right: 0;
     }
-    
+
     .wind-cards-wrap {
         flex-direction: column;
         gap: 0.75rem;
@@ -956,7 +956,7 @@ a.wind-project-card-cta:hover {
         padding-left: 0;
         padding-right: 0;
     }
-    
+
     .wind-cards {
         gap: 0.75rem;
         display: flex;
@@ -992,7 +992,7 @@ a.wind-project-card-cta:hover {
         box-sizing: border-box;
         max-width: 100%;
     }
-    
+
     [data-theme="dark"] .wind-card.expanded {
         background: rgba(15, 20, 25, 0.4);
     }
@@ -1002,12 +1002,12 @@ a.wind-project-card-cta:hover {
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
     }
-    
+
     .wind-section.wind-card-expanded .wind-video-bg {
         filter: blur(12px);
         -webkit-filter: blur(12px);
     }
-    
+
     /* Contenido interno de card expandida - mostrar verticalmente */
     .wind-card.expanded .wind-inner-carousel-wrap {
         display: flex;
@@ -1017,7 +1017,7 @@ a.wind-project-card-cta:hover {
         width: 100%;
         box-sizing: border-box;
     }
-    
+
     .wind-card.expanded .wind-inner-carousel-wrap .wind-project-cards {
         position: relative;
         display: flex;
@@ -1035,7 +1035,7 @@ a.wind-project-card-cta:hover {
         visibility: visible;
         transform: none;
     }
-    
+
     .wind-card.expanded .wind-project-card {
         width: 100%;
         min-width: 100%;
@@ -1044,16 +1044,16 @@ a.wind-project-card-cta:hover {
         margin: 0;
         flex: 0 0 auto;
     }
-    
+
     .wind-card.expanded .wind-project-card-img {
         height: 80px;
         min-height: 80px;
     }
-    
+
     .wind-card.expanded .wind-project-card-body {
         padding: 0.5rem;
     }
-    
+
     .wind-card.expanded .wind-project-card-title {
         font-size: 0.8rem;
     }
@@ -1062,7 +1062,7 @@ a.wind-project-card-cta:hover {
         font-size: 0.7rem;
         line-height: 1.4;
     }
-    
+
     .wind-card.expanded .wind-project-card-cta {
         font-size: 0.7rem;
         padding: 0.4rem 0.75rem;
@@ -1082,34 +1082,34 @@ a.wind-project-card-cta:hover {
         justify-content: center;
         align-self: center;
     }
-    
+
     /* Asegurar que el contenedor del botón esté centrado */
     .wind-card.expanded .wind-inner-carousel-wrap {
         align-items: center;
     }
-    
+
     /* Reducir espacio cuando está expandida */
     .wind-section.wind-card-expanded {
         padding-bottom: 0.5rem;
     }
-    
+
     .wind-section.wind-card-expanded .wind-wrap {
         padding: 1rem 0 0.5rem;
         gap: 0;
     }
-    
+
     .wind-section.wind-card-expanded .wind-intro-col {
         padding-bottom: 0.25rem;
     }
-    
+
     .wind-section.wind-card-expanded .wind-intro {
         padding-bottom: 0.75rem;
     }
-    
+
     .wind-section.wind-card-expanded .wind-text {
         margin-bottom: 0.25rem;
     }
-    
+
     .wind-section.wind-card-expanded .wind-carousel-col {
         padding-top: 0;
         padding-bottom: 0;
@@ -1120,19 +1120,19 @@ a.wind-project-card-cta:hover {
     .wind-section {
         padding: 0 0.75rem;
     }
-    
+
     .wind-intro {
         padding: 1.25rem 0.875rem;
     }
-    
+
     .wind-title {
         font-size: 1.1rem;
     }
-    
+
     .wind-text {
         font-size: 0.85rem;
     }
-    
+
     .wind-card {
         min-height: 220px;
     }
@@ -1145,20 +1145,20 @@ a.wind-project-card-cta:hover {
     .wind-card.expanded .wind-project-card-title {
         font-size: 0.75rem;
     }
-    
+
     .wind-card.expanded .wind-project-card-desc {
         font-size: 0.65rem;
     }
-    
+
     .wind-card.expanded .wind-project-card-cta {
         font-size: 0.65rem;
         padding: 0.35rem 0.65rem;
     }
-    
+
     .wind-card-title {
         font-size: 1rem;
     }
-    
+
     .wind-card-desc {
         font-size: 0.75rem;
     }

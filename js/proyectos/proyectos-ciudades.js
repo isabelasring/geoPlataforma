@@ -21,19 +21,158 @@
     var idx = tagMap[servicio] !== undefined ? tagMap[servicio] : 0;
     tags.forEach(function(t, i) { t.classList.toggle('active', i === idx); });
 
-    var amvaCard = document.querySelector('.proyecto-card-amva-usb');
     var emptyMsg = document.getElementById('ciudades-empty-message');
     var carouselTrack = document.getElementById('ciudades-carousel-track');
+    var allCards = document.querySelectorAll('.proyecto-card');
+    
+    function animateCardsOut(cards, callback) {
+        if (!cards || cards.length === 0) {
+            if (callback) callback();
+            return;
+        }
+        cards.forEach(function(card) {
+            card.classList.add('exiting');
+        });
+        setTimeout(function() {
+            if (callback) callback();
+        }, 400);
+    }
+    
+    function animateCardsIn(cards) {
+        if (!cards || cards.length === 0) return;
+        cards.forEach(function(card, index) {
+            card.style.display = 'block';
+            card.classList.remove('exiting');
+            card.classList.add('animating');
+            card.style.animation = 'none';
+            // Forzar reflow para reiniciar la animación
+            void card.offsetWidth;
+            card.style.animation = '';
+            card.style.animationDelay = (index * 0.05) + 's';
+        });
+    }
+    
     function toggleCiudadesCards() {
         var activeTag = document.querySelector('.proyectos-tag.active');
-        var s = activeTag ? (activeTag.getAttribute('data-servicio') || '').trim() : '';
-        var showAmva = s === 'iot' || s === 'webgis';
-        var hasAnyProject = showAmva;
-        if (amvaCard) amvaCard.style.display = showAmva ? 'block' : 'none';
+        if (!activeTag) return;
+        
+        var servicioActivo = (activeTag.getAttribute('data-servicio') || '').trim().toLowerCase();
+        if (!servicioActivo) return;
+        
+        // Servicios permitidos para AMVA-USB - SOLO estos 2
+        var serviciosPermitidosAMVA = ['iot', 'webgis'];
+        
+        // Servicios permitidos para CORNARE - SOLO estos 4
+        var serviciosPermitidosCORNARE = ['iot', 'mapas-ruido', 'webgis', 'descontaminacion'];
+        
+        // Servicios permitidos para Modelo de Gestión Medellín - SOLO estos 2
+        var serviciosPermitidosMedellin = ['iot', 'descontaminacion'];
+        
+        // Servicios permitidos para Observatorio Envigado - SOLO estos 2
+        var serviciosPermitidosEnvigado = ['webgis', 'geoespacial'];
+        
+        // Obtener todas las cards visibles actualmente
+        var visibleCards = Array.from(allCards).filter(function(card) {
+            return card.style.display !== 'none' && !card.classList.contains('exiting');
+        });
+        
+        // Determinar qué cards deben mostrarse
+        var cardsToShow = [];
+        allCards.forEach(function(card) {
+            var proyectoId = card.getAttribute('data-proyecto');
+            
+            // AMVA-USB: SOLO aparece en IoT y Ecosistemas WEBGIS
+            if (proyectoId === 'amva-usb') {
+                if (serviciosPermitidosAMVA.indexOf(servicioActivo) !== -1) {
+                    cardsToShow.push(card);
+                }
+                return; // No verificar más para AMVA-USB
+            }
+            
+            // CORNARE: SOLO aparece en los 4 tags específicos
+            if (proyectoId === 'cornare') {
+                if (serviciosPermitidosCORNARE.indexOf(servicioActivo) !== -1) {
+                    cardsToShow.push(card);
+                }
+                return; // No verificar más para CORNARE
+            }
+            
+            // Modelo de Gestión Medellín: SOLO aparece en IoT y Descontaminación
+            if (proyectoId === 'modelo-gestion-medellin') {
+                if (serviciosPermitidosMedellin.indexOf(servicioActivo) !== -1) {
+                    cardsToShow.push(card);
+                }
+                return; // No verificar más para Modelo de Gestión Medellín
+            }
+            
+            // Observatorio Envigado: SOLO aparece en WEBGIS y Analítica geoespacial
+            if (proyectoId === 'observatorio-envigado') {
+                if (serviciosPermitidosEnvigado.indexOf(servicioActivo) !== -1) {
+                    cardsToShow.push(card);
+                }
+                return; // No verificar más para Observatorio Envigado
+            }
+            
+            // Para otras cards, verificar sus servicios
+            var servicios = card.getAttribute('data-servicios') || '';
+            if (!servicios) return;
+            
+            var serviciosArray = servicios.toLowerCase().trim().split(/\s+/).filter(function(s) {
+                return s.trim().length > 0;
+            });
+            
+            if (serviciosArray.indexOf(servicioActivo) !== -1) {
+                cardsToShow.push(card);
+            }
+        });
+        
+        var hasAnyProject = cardsToShow.length > 0;
+        
+        // Ocultar todas las cards primero
+        allCards.forEach(function(card) {
+            card.classList.remove('exiting', 'animating');
+            card.style.display = 'none';
+        });
+        
+        // Actualizar mensaje y carousel
         if (emptyMsg) emptyMsg.style.display = hasAnyProject ? 'none' : 'flex';
         if (carouselTrack) carouselTrack.style.display = hasAnyProject ? 'flex' : 'none';
+        
+        // Si hay cards para mostrar
+        if (hasAnyProject) {
+            // Si había cards visibles, animar salida primero
+            if (visibleCards.length > 0) {
+                animateCardsOut(visibleCards, function() {
+                    // Mostrar nuevas cards y animar entrada
+                    cardsToShow.forEach(function(card) {
+                        card.style.display = 'block';
+                    });
+                    setTimeout(function() {
+                        animateCardsIn(cardsToShow);
+                    }, 10);
+                });
+            } else {
+                // No había cards visibles, mostrar directamente
+                cardsToShow.forEach(function(card) {
+                    card.style.display = 'block';
+                });
+                setTimeout(function() {
+                    animateCardsIn(cardsToShow);
+                }, 10);
+            }
+        }
     }
     toggleCiudadesCards();
+    
+    // Animar cards iniciales
+    setTimeout(function() {
+        var initialCards = Array.from(allCards).filter(function(card) {
+            return card.style.display !== 'none';
+        });
+        if (initialCards.length > 0) {
+            animateCardsIn(initialCards);
+        }
+    }, 150);
 
     // Renderizar tags en el dropdown móvil
     function renderMobileTags() {
@@ -166,6 +305,15 @@
         if (proyectoId === 'amva-usb' && typeof AMVA_USB_IMAGES !== 'undefined' && AMVA_USB_IMAGES.length) {
             images = AMVA_USB_IMAGES;
             base = '../proyectos/ciudades/AMVA-USB/';
+        } else if (proyectoId === 'cornare' && typeof CORNARE_IMAGES !== 'undefined' && CORNARE_IMAGES.length) {
+            images = CORNARE_IMAGES;
+            base = '../proyectos/ciudades/CORNARE/';
+        } else if (proyectoId === 'modelo-gestion-medellin' && typeof MODELO_GESTION_MEDELLIN_IMAGES !== 'undefined' && MODELO_GESTION_MEDELLIN_IMAGES.length) {
+            images = MODELO_GESTION_MEDELLIN_IMAGES;
+            base = '../proyectos/ciudades/MODELO-GESTION-MEDELLIN/';
+        } else if (proyectoId === 'observatorio-envigado' && typeof OBSERVATORIO_ENVIGADO_IMAGES !== 'undefined' && OBSERVATORIO_ENVIGADO_IMAGES.length) {
+            images = OBSERVATORIO_ENVIGADO_IMAGES;
+            base = '../proyectos/ciudades/OBSERVATORIO-ENVIGADO/';
         }
         if (images.length === 0) return;
         panelCarouselImages = images.map(function(f) { return base + f; });
@@ -235,26 +383,38 @@
     if (closeBtn) closeBtn.addEventListener('click', closeProyectoPanel);
     if (backdrop) backdrop.addEventListener('click', closeProyectoPanel);
 
-    /* Abrir panel al llegar desde inicio con ?proyecto=amva-usb */
+    /* Abrir panel al llegar desde inicio con ?proyecto=xxx */
     var openParams = new URLSearchParams(window.location.search);
     var openProyectoId = openParams.get('proyecto');
-    if (openProyectoId === 'amva-usb' && amvaCard) {
-        var tagIoT = document.querySelector('.proyectos-tag[data-servicio="iot"]');
-        if (tagIoT) { tags.forEach(function(t) { t.classList.remove('active'); }); tagIoT.classList.add('active'); }
-        toggleCiudadesCards();
-        setTimeout(function() {
-            var titulo = amvaCard.getAttribute('data-proyecto-titulo') || '';
-            var desc = amvaCard.getAttribute('data-proyecto-desc-long') || amvaCard.getAttribute('data-proyecto-desc') || '';
-            var categoria = amvaCard.getAttribute('data-proyecto-categoria') || '';
-            var ano = amvaCard.getAttribute('data-proyecto-ano') || '';
-            var cliente = amvaCard.getAttribute('data-proyecto-cliente') || '';
-            buildPanelCarousel('amva-usb', titulo);
-            if (panelTitle) panelTitle.textContent = titulo;
-            if (panelCategoria) panelCategoria.textContent = categoria;
-            if (panelAno) panelAno.textContent = ano;
-            if (panelCliente) panelCliente.textContent = cliente;
-            if (panelDesc) panelDesc.textContent = desc;
-            openProyectoPanel();
-        }, 100);
+    if (openProyectoId) {
+        var proyectoCard = document.querySelector('.proyecto-card[data-proyecto="' + openProyectoId + '"]');
+        if (proyectoCard) {
+            // Determinar qué tag activar según los servicios del proyecto
+            var servicios = proyectoCard.getAttribute('data-servicios') || '';
+            var serviciosArray = servicios.toLowerCase().split(/\s+/).filter(function(s) { return s.length > 0; });
+            if (serviciosArray.length > 0) {
+                var firstServicio = serviciosArray[0];
+                var tagToActivate = document.querySelector('.proyectos-tag[data-servicio="' + firstServicio + '"]');
+                if (tagToActivate) {
+                    tags.forEach(function(t) { t.classList.remove('active'); });
+                    tagToActivate.classList.add('active');
+                }
+            }
+            toggleCiudadesCards();
+            setTimeout(function() {
+                var titulo = proyectoCard.getAttribute('data-proyecto-titulo') || '';
+                var desc = proyectoCard.getAttribute('data-proyecto-desc-long') || proyectoCard.getAttribute('data-proyecto-desc') || '';
+                var categoria = proyectoCard.getAttribute('data-proyecto-categoria') || '';
+                var ano = proyectoCard.getAttribute('data-proyecto-ano') || '';
+                var cliente = proyectoCard.getAttribute('data-proyecto-cliente') || '';
+                buildPanelCarousel(openProyectoId, titulo);
+                if (panelTitle) panelTitle.textContent = titulo;
+                if (panelCategoria) panelCategoria.textContent = categoria;
+                if (panelAno) panelAno.textContent = ano;
+                if (panelCliente) panelCliente.textContent = cliente;
+                if (panelDesc) panelDesc.textContent = desc;
+                openProyectoPanel();
+            }, 100);
+        }
     }
 })();
