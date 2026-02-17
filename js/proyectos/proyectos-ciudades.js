@@ -71,9 +71,10 @@
         // Servicios permitidos para Observatorio Envigado - SOLO estos 2
         var serviciosPermitidosEnvigado = ['webgis', 'geoespacial'];
         
-        // Obtener todas las cards visibles actualmente
+        // Obtener todas las cards visibles actualmente ANTES de ocultar
         var visibleCards = Array.from(allCards).filter(function(card) {
-            return card.style.display !== 'none' && !card.classList.contains('exiting');
+            var computedStyle = window.getComputedStyle(card);
+            return computedStyle.display !== 'none' && computedStyle.visibility !== 'hidden';
         });
         
         // Determinar qué cards deben mostrarse
@@ -86,7 +87,7 @@
                 if (serviciosPermitidosAMVA.indexOf(servicioActivo) !== -1) {
                     cardsToShow.push(card);
                 }
-                return; // No verificar más para AMVA-USB
+                return;
             }
             
             // CORNARE: SOLO aparece en los 4 tags específicos
@@ -94,7 +95,7 @@
                 if (serviciosPermitidosCORNARE.indexOf(servicioActivo) !== -1) {
                     cardsToShow.push(card);
                 }
-                return; // No verificar más para CORNARE
+                return;
             }
             
             // Modelo de Gestión Medellín: SOLO aparece en IoT y Descontaminación
@@ -102,7 +103,7 @@
                 if (serviciosPermitidosMedellin.indexOf(servicioActivo) !== -1) {
                     cardsToShow.push(card);
                 }
-                return; // No verificar más para Modelo de Gestión Medellín
+                return;
             }
             
             // Observatorio Envigado: SOLO aparece en WEBGIS y Analítica geoespacial
@@ -110,7 +111,7 @@
                 if (serviciosPermitidosEnvigado.indexOf(servicioActivo) !== -1) {
                     cardsToShow.push(card);
                 }
-                return; // No verificar más para Observatorio Envigado
+                return;
             }
             
             // Para otras cards, verificar sus servicios
@@ -128,9 +129,22 @@
         
         var hasAnyProject = cardsToShow.length > 0;
         
-        // Ocultar todas las cards primero
+        // Verificar si las cards que deben mostrarse son las mismas que las visibles
+        var visibleIds = visibleCards.map(function(c) { return c.getAttribute('data-proyecto'); }).sort().join(',');
+        var toShowIds = cardsToShow.map(function(c) { return c.getAttribute('data-proyecto'); }).sort().join(',');
+        
+        // Si son las mismas cards, no hacer nada
+        if (visibleIds === toShowIds && visibleIds.length > 0) {
+            return;
+        }
+        
+        // Limpiar todas las clases de animación
         allCards.forEach(function(card) {
             card.classList.remove('exiting', 'animating');
+        });
+        
+        // Ocultar todas las cards primero
+        allCards.forEach(function(card) {
             card.style.display = 'none';
         });
         
@@ -223,13 +237,16 @@
                         var url = new URL(window.location.href);
                         url.searchParams.set('servicio', servicio);
                         window.history.replaceState({}, '', url);
-                        // Actualizar tags activos
+                        // Actualizar tags activos primero
                         tags.forEach(function(t) { t.classList.remove('active'); });
                         var clickedTag = Array.from(tags).find(function(t) { return t.getAttribute('data-servicio') === servicio; });
                         if (clickedTag) clickedTag.classList.add('active');
-                        toggleCiudadesCards();
                         // Actualizar tags móviles
                         renderMobileTags();
+                        // Ejecutar toggle DESPUÉS de actualizar los tags
+                        setTimeout(function() {
+                            toggleCiudadesCards();
+                        }, 0);
                     }
                     toggle.setAttribute('aria-expanded', 'false');
                     dropdown.setAttribute('aria-hidden', 'true');
@@ -246,13 +263,14 @@
 
     tags.forEach(function(btn) {
         btn.addEventListener('click', function() {
+            // Actualizar tags activos primero
             tags.forEach(function(t) { t.classList.remove('active'); });
             btn.classList.add('active');
             var s = btn.getAttribute('data-servicio');
             var url = new URL(window.location.href);
             url.searchParams.set('servicio', s);
             window.history.replaceState({}, '', url);
-            toggleCiudadesCards();
+            
             // Actualizar tags móviles
             var mobileContainer = document.getElementById('proyectos-tags-mobile');
             if (mobileContainer) {
@@ -261,6 +279,11 @@
                 var activeMobile = Array.from(mobileTags).find(function(t) { return t.getAttribute('data-servicio') === s; });
                 if (activeMobile) activeMobile.classList.add('active');
             }
+            
+            // Ejecutar toggle DESPUÉS de actualizar los tags, con un pequeño delay para asegurar que el DOM esté actualizado
+            setTimeout(function() {
+                toggleCiudadesCards();
+            }, 0);
         });
     });
 
