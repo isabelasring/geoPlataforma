@@ -383,18 +383,6 @@
         display: flex;
     }
 
-    /* Modo claro: hamburguesa visible (color oscuro sobre navbar claro) */
-    html:not([data-theme="dark"]) .nav-hamburger {
-        color: #313131;
-        background: rgba(0, 0, 0, 0.08);
-    }
-    html:not([data-theme="dark"]) .nav-hamburger:hover {
-        background: rgba(0, 0, 0, 0.12);
-    }
-    html:not([data-theme="dark"]) .nav-hamburger-bar {
-        background: currentColor;
-    }
-
     .navbar {
         flex-wrap: wrap;
         padding: 0.75rem 1.25rem;

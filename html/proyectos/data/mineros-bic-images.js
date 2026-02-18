@@ -1,3 +1,3 @@
 var MINEROS_BIC_IMAGES = [
-  "IMG_3163.JPG", "IMG_3169.JPG", "IMG_3198.JPG", "IMG_3201.JPG", "IMG_3205.JPG", "IMG_3256.JPG"
+  "1_web_optimized.webp", "2_web_optimized.webp", "3_web_optimized.webp", "4_web_optimized.webp", "5_web_optimized.webp"
 ];

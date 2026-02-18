@@ -8,17 +8,6 @@
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/proyectos/ciudades-proyectos.css">
     <link rel="stylesheet" href="../css/transitions.css">
-    <style>
-        /* Imagen de fondo específica para proyectos industria: 360 PepsiCo con blur */
-        .proyectos-hero-bg {
-            background-image: url('../img:video/proyectos/360_PEPSICO_60.jpg');
-            background-size: cover;
-            background-position: center;
-            filter: blur(10px);
-            -webkit-filter: blur(10px);
-            transform: scale(1.08);
-        }
-    </style>
 </head>
 <body>
 
@@ -118,7 +107,11 @@
     </nav>
 
     <main class="proyectos-page">
-        <div class="proyectos-hero-bg" aria-hidden="true"></div>
+        <div class="proyectos-hero-bg" aria-hidden="true">
+            <video class="proyectos-hero-video" autoplay muted loop playsinline aria-hidden="true">
+                <source src="../img:video/proyectos/fondos/industria.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="proyectos-hero-overlay" aria-hidden="true"></div>
         
         <div class="proyectos-filters-container">
@@ -182,8 +175,9 @@
                     <div class="proyectos-carousel">
                         <p class="proyectos-empty-message" id="proyectos-empty-message" style="display: none;" aria-live="polite">No hay proyectos disponibles</p>
                         <div class="carousel-track" id="industria-carousel-track">
-                            <article class="proyecto-card proyecto-card-refineria" data-servicio="control-ruido" data-proyecto="refineria-cartagena" data-carpeta="refineriaCartagena" style="display: none;"
+                            <article class="proyecto-card proyecto-card-refineria" data-servicio="control-ruido" data-proyecto="refineria-cartagena" data-carpeta="refineria" style="display: none;"
                                 data-proyecto-titulo="Refinería Cartagena" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="Refinería de Cartagena"
+                                data-proyecto-img="../img:video/proyectos/refineria/portada.webp"
                                 data-proyecto-desc="Control de ruido y gestión ambiental industrial">
                                 <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle Refinería Cartagena">
                                     <div class="proyecto-card-img" data-img-from="REFINERIA_CARTAGENA_IMAGES"></div>
@@ -193,19 +187,20 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="proyecto-card proyecto-card-viva-magdalena" data-servicio="control-ruido" data-proyecto="viva-magdalena" data-carpeta="vivaMagdalena" style="display: none;"
-                                data-proyecto-titulo="Viva Magdalena" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="Viva Magdalena"
+                            <article class="proyecto-card proyecto-card-alma-magdalena" data-servicio="control-ruido" data-proyecto="alma-magdalena" data-carpeta="almaMagdalena" style="display: none;"
+                                data-proyecto-titulo="Alma Magdalena" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="Alma Magdalena"
                                 data-proyecto-desc="Análisis acústico y control de ruido industrial">
-                                <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle Viva Magdalena">
-                                    <div class="proyecto-card-img" data-img-from="VIVA_MAGDALENA_IMAGES"></div>
+                                <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle Alma Magdalena">
+                                    <div class="proyecto-card-img" data-img-from="ALMA_MAGDALENA_IMAGES"></div>
                                     <div class="proyecto-card-content">
-                                        <h3 class="proyecto-card-title">Viva Magdalena</h3>
+                                        <h3 class="proyecto-card-title">Alma Magdalena</h3>
                                         <p class="proyecto-card-desc">Análisis acústico y control de ruido industrial</p>
                                     </div>
                                 </div>
                             </article>
-                            <article class="proyecto-card proyecto-card-arclad" data-servicios="control-ruido clasificacion-fuentes modelacion-ruido fotogrametria" data-proyecto="arclad" data-carpeta="ARCLAD" style="display: none;"
+                            <article class="proyecto-card proyecto-card-arclad" data-servicios="control-ruido clasificacion-fuentes modelacion-ruido fotogrametria" data-proyecto="arclad" data-carpeta="arclad" style="display: none;"
                                 data-proyecto-titulo="ARCLAD" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="ARCLAD"
+                                data-proyecto-img="../img:video/proyectos/arclad/portada_web.webp"
                                 data-proyecto-desc="Control de ruido, clasificación de fuentes y modelación acústica industrial">
                                 <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle ARCLAD">
                                     <div class="proyecto-card-img" data-img-from="ARCLAD_IMAGES"></div>
@@ -228,6 +223,7 @@
                             </article>
                             <article class="proyecto-card proyecto-card-segovia" data-servicio="medicion-vibraciones" data-proyecto="segovia" data-carpeta="segovia" style="display: none;"
                                 data-proyecto-titulo="Segovia" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="Segovia"
+                                data-proyecto-img="../img:video/proyectos/segovia/portada.webp"
                                 data-proyecto-desc="Medición de vibraciones y monitoreo industrial">
                                 <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle Segovia">
                                     <div class="proyecto-card-img" data-img-from="SEGOVIA_IMAGES"></div>
@@ -237,8 +233,9 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="proyecto-card proyecto-card-ccr-palagua" data-servicio="fotogrametria" data-proyecto="ccr-palagua" data-carpeta="ccrPalagua" style="display: none;"
+                            <article class="proyecto-card proyecto-card-ccr-palagua" data-servicio="fotogrametria" data-proyecto="ccr-palagua" data-carpeta="promigas" style="display: none;"
                                 data-proyecto-titulo="CCR Palagua" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="CCR Palagua"
+                                data-proyecto-img="../img:video/proyectos/promigas/portada.webp"
                                 data-proyecto-desc="Fotogrametría y levantamiento geoespacial industrial">
                                 <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle CCR Palagua">
                                     <div class="proyecto-card-img" data-img-from="CCR_PALAGUA_IMAGES"></div>
@@ -261,6 +258,7 @@
                             </article>
                             <article class="proyecto-card proyecto-card-colcafe" data-servicios="control-ruido holografia-acustica medicion-vibraciones" data-proyecto="colcafe" data-carpeta="colcafe" style="display: none;"
                                 data-proyecto-titulo="Colcafé" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="Colcafé"
+                                data-proyecto-img="../img:video/proyectos/colcafe/portada_web_light.webp"
                                 data-proyecto-desc="Control de ruido, holografía acústica y medición de vibraciones">
                                 <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle Colcafé">
                                     <div class="proyecto-card-img" data-img-from="COLCAFE_IMAGES"></div>
@@ -272,6 +270,7 @@
                             </article>
                             <article class="proyecto-card proyecto-card-cerrejon" data-servicios="holografia-acustica" data-proyecto="cerrejon" data-carpeta="cerrejon" style="display: none;"
                                 data-proyecto-titulo="Cerrejón" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="Cerrejón"
+                                data-proyecto-img="../img:video/proyectos/cerrejon/portada_web_opt.webp"
                                 data-proyecto-desc="Holografía acústica y diagnóstico de fuentes de ruido industrial">
                                 <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle Cerrejón">
                                     <div class="proyecto-card-img" data-img-from="CERREJON_IMAGES"></div>
@@ -281,8 +280,9 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="proyecto-card proyecto-card-mineros-bic" data-servicios="holografia-acustica" data-proyecto="mineros-bic" data-carpeta="minerosBic" style="display: none;"
+                            <article class="proyecto-card proyecto-card-mineros-bic" data-servicios="holografia-acustica" data-proyecto="mineros-bic" data-carpeta="minerosbic" style="display: none;"
                                 data-proyecto-titulo="Mineros BIC" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="Mineros BIC"
+                                data-proyecto-img="../img:video/proyectos/minerosbic/portada_web_optimized.webp"
                                 data-proyecto-desc="Holografía acústica y diagnóstico de fuentes de ruido industrial">
                                 <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle Mineros BIC">
                                     <div class="proyecto-card-img" data-img-from="MINEROS_BIC_IMAGES"></div>
@@ -292,8 +292,21 @@
                                     </div>
                                 </div>
                             </article>
+                            <article class="proyecto-card proyecto-card-p-and-g" data-servicios="holografia-acustica" data-proyecto="p-and-g" data-carpeta="p&g" style="display: none;"
+                                data-proyecto-titulo="Procter and Gamble" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="Procter and Gamble"
+                                data-proyecto-img="../img:video/proyectos/p&g/portada_web_clean.webp"
+                                data-proyecto-desc="Holografía acústica y diagnóstico de fuentes de ruido industrial">
+                                <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle Procter and Gamble">
+                                    <div class="proyecto-card-img" data-img-from="P_AND_G_IMAGES"></div>
+                                    <div class="proyecto-card-content">
+                                        <h3 class="proyecto-card-title">Procter and Gamble</h3>
+                                        <p class="proyecto-card-desc">Holografía acústica y diagnóstico de fuentes de ruido industrial</p>
+                                    </div>
+                                </div>
+                            </article>
                             <article class="proyecto-card proyecto-card-pepsico" data-servicios="control-ruido clasificacion-fuentes modelacion-ruido fotogrametria" data-proyecto="pepsico" data-carpeta="pepsico" style="display: none;"
                                 data-proyecto-titulo="PepsiCo" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="PepsiCo"
+                                data-proyecto-img="../img:video/proyectos/pepsico/portada.webp"
                                 data-proyecto-desc="Control de ruido, clasificación de fuentes, modelación de ruido y fotogrametría">
                                 <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle PepsiCo">
                                     <div class="proyecto-card-img" data-img-from="PEPSICO_IMAGES"></div>
@@ -305,6 +318,7 @@
                             </article>
                             <article class="proyecto-card proyecto-card-spia" data-servicios="modelacion-ruido-subacuatico medicion-ruido-subacuatico" data-proyecto="spia" data-carpeta="spia" style="display: none;"
                                 data-proyecto-titulo="SPIA" data-proyecto-categoria="industria" data-proyecto-ano="2024" data-proyecto-cliente="SPIA"
+                                data-proyecto-img="../img:video/proyectos/spia/portada.webp"
                                 data-proyecto-desc="Medición y modelación de ruido subacuático">
                                 <div class="proyecto-card-link-wrap" role="button" tabindex="0" aria-label="Ver detalle SPIA">
                                     <div class="proyecto-card-img" data-img-from="SPIA_IMAGES"></div>
@@ -357,7 +371,7 @@
         <div class="proyecto-panel-backdrop" id="proyecto-panel-backdrop" aria-hidden="true"></div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer footer-proyectos">
         <div class="footer-bg" aria-hidden="true">
             <div class="footer-bg-fallback"></div>
             <div class="footer-video-container">
@@ -366,7 +380,7 @@
                 </video>
             </div>
             <div class="footer-luma-wrap" aria-hidden="true">
-                <iframe class="footer-luma-embed" src="https://lumalabs.ai/embed/a01cac2e-7732-4525-84e0-9006e7410ddf?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" allowfullscreen allow="autoplay; fullscreen; xr-spatial-tracking" title="Luma - Fondo footer"></iframe>
+                <iframe class="footer-luma-embed" src="https://lumalabs.ai/embed/e36f0cf1-66b8-4613-8bd0-0f0c545b36bd?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false" allowfullscreen allow="autoplay; fullscreen; xr-spatial-tracking" title="Luma - Fondo footer"></iframe>
             </div>
         </div>
         <div class="footer-overlay"></div>
@@ -414,7 +428,7 @@
     </footer>
 
     <script src="proyectos/data/refineria-cartagena-images.js"></script>
-    <script src="proyectos/data/viva-magdalena-images.js"></script>
+    <script src="proyectos/data/alma-magdalena-images.js"></script>
     <script src="proyectos/data/arclad-images.js"></script>
     <script src="proyectos/data/segovia-images.js"></script>
     <script src="proyectos/data/ccr-palagua-images.js"></script>
@@ -422,6 +436,7 @@
     <script src="proyectos/data/colcafe-images.js"></script>
     <script src="proyectos/data/cerrejon-images.js"></script>
     <script src="proyectos/data/mineros-bic-images.js"></script>
+    <script src="proyectos/data/p-and-g-images.js"></script>
     <script src="proyectos/data/pepsico-images.js"></script>
     <script src="proyectos/data/spia-images.js"></script>
     <script src="../js/transitions.js"></script>

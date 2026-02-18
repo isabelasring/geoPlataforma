@@ -120,6 +120,14 @@
                 return; // No verificar más para Campaña política
             }
             
+            // P&G: SOLO aparece en "holografia-acustica"
+            if (proyectoId === 'p-and-g') {
+                if (servicioActivo === 'holografia-acustica') {
+                    cardsToShow.push(card);
+                }
+                return; // No verificar más para P&G
+            }
+            
             // Para otras cards, verificar sus servicios
             var servicios = card.getAttribute('data-servicios') || card.getAttribute('data-servicio') || '';
             if (!servicios) return;
@@ -197,13 +205,14 @@
     /* Asignar imagen de cada tarjeta desde los arrays en data/*.js y base ../../img:video/proyectos/industria/ */
     var arrByName = {
         REFINERIA_CARTAGENA_IMAGES: typeof REFINERIA_CARTAGENA_IMAGES !== 'undefined' ? REFINERIA_CARTAGENA_IMAGES : [],
-        VIVA_MAGDALENA_IMAGES: typeof VIVA_MAGDALENA_IMAGES !== 'undefined' ? VIVA_MAGDALENA_IMAGES : [],
+        ALMA_MAGDALENA_IMAGES: typeof ALMA_MAGDALENA_IMAGES !== 'undefined' ? ALMA_MAGDALENA_IMAGES : [],
         ARCLAD_IMAGES: typeof ARCLAD_IMAGES !== 'undefined' ? ARCLAD_IMAGES : [],
         SEGOVIA_IMAGES: typeof SEGOVIA_IMAGES !== 'undefined' ? SEGOVIA_IMAGES : [],
         CCR_PALAGUA_IMAGES: typeof CCR_PALAGUA_IMAGES !== 'undefined' ? CCR_PALAGUA_IMAGES : [],
         COLCAFE_IMAGES: typeof COLCAFE_IMAGES !== 'undefined' ? COLCAFE_IMAGES : [],
         CERREJON_IMAGES: typeof CERREJON_IMAGES !== 'undefined' ? CERREJON_IMAGES : [],
         MINEROS_BIC_IMAGES: typeof MINEROS_BIC_IMAGES !== 'undefined' ? MINEROS_BIC_IMAGES : [],
+        P_AND_G_IMAGES: typeof P_AND_G_IMAGES !== 'undefined' ? P_AND_G_IMAGES : [],
         PEPSICO_IMAGES: typeof PEPSICO_IMAGES !== 'undefined' ? PEPSICO_IMAGES : [],
         SPIA_IMAGES: typeof SPIA_IMAGES !== 'undefined' ? SPIA_IMAGES : [],
         CORNARE_IMAGES: typeof CORNARE_IMAGES !== 'undefined' ? CORNARE_IMAGES : [],
@@ -212,6 +221,11 @@
     document.querySelectorAll('.proyecto-card[data-carpeta]').forEach(function(card) {
         var imgDiv = card.querySelector('.proyecto-card-img[data-img-from]');
         if (!imgDiv) return;
+        var proyectoImg = card.getAttribute('data-proyecto-img');
+        if (proyectoImg) {
+            imgDiv.style.backgroundImage = "url('" + proyectoImg + "')";
+            return;
+        }
         var varName = imgDiv.getAttribute('data-img-from');
         var carpeta = card.getAttribute('data-carpeta');
         var arr = arrByName[varName];
@@ -358,34 +372,47 @@
         var folder = '';
         if (proyectoId === 'refineria-cartagena' && typeof REFINERIA_CARTAGENA_IMAGES !== 'undefined' && REFINERIA_CARTAGENA_IMAGES.length) {
             images = REFINERIA_CARTAGENA_IMAGES;
-            folder = 'refineriaCartagena';
-        } else if (proyectoId === 'viva-magdalena' && typeof VIVA_MAGDALENA_IMAGES !== 'undefined' && VIVA_MAGDALENA_IMAGES.length) {
-            images = VIVA_MAGDALENA_IMAGES;
-            folder = 'vivaMagdalena';
+            base = '../img:video/proyectos/refineria/';
+            return { images: images, base: base };
+        } else if (proyectoId === 'alma-magdalena' && typeof ALMA_MAGDALENA_IMAGES !== 'undefined' && ALMA_MAGDALENA_IMAGES.length) {
+            images = ALMA_MAGDALENA_IMAGES;
+            folder = 'almaMagdalena';
         } else if (proyectoId === 'arclad' && typeof ARCLAD_IMAGES !== 'undefined' && ARCLAD_IMAGES.length) {
             images = ARCLAD_IMAGES;
-            folder = 'ARCLAD';
+            base = '../img:video/proyectos/arclad/';
+            return { images: images, base: base };
         } else if (proyectoId === 'segovia' && typeof SEGOVIA_IMAGES !== 'undefined' && SEGOVIA_IMAGES.length) {
             images = SEGOVIA_IMAGES;
-            folder = 'segovia';
+            base = '../img:video/proyectos/segovia/';
+            return { images: images, base: base };
         } else if (proyectoId === 'ccr-palagua' && typeof CCR_PALAGUA_IMAGES !== 'undefined' && CCR_PALAGUA_IMAGES.length) {
             images = CCR_PALAGUA_IMAGES;
-            folder = 'ccrPalagua';
+            base = '../img:video/proyectos/promigas/';
+            return { images: images, base: base };
         } else if (proyectoId === 'colcafe' && typeof COLCAFE_IMAGES !== 'undefined' && COLCAFE_IMAGES.length) {
             images = COLCAFE_IMAGES;
-            folder = 'colcafe';
+            base = '../img:video/proyectos/colcafe/';
+            return { images: images, base: base };
         } else if (proyectoId === 'cerrejon' && typeof CERREJON_IMAGES !== 'undefined' && CERREJON_IMAGES.length) {
             images = CERREJON_IMAGES;
-            folder = 'cerrejon';
+            base = '../img:video/proyectos/cerrejon/';
+            return { images: images, base: base };
         } else if (proyectoId === 'mineros-bic' && typeof MINEROS_BIC_IMAGES !== 'undefined' && MINEROS_BIC_IMAGES.length) {
             images = MINEROS_BIC_IMAGES;
-            folder = 'minerosBic';
+            base = '../img:video/proyectos/minerosbic/';
+            return { images: images, base: base };
+        } else if (proyectoId === 'p-and-g' && typeof P_AND_G_IMAGES !== 'undefined' && P_AND_G_IMAGES.length) {
+            images = P_AND_G_IMAGES;
+            base = '../img:video/proyectos/p&g/';
+            return { images: images, base: base };
         } else if (proyectoId === 'pepsico' && typeof PEPSICO_IMAGES !== 'undefined' && PEPSICO_IMAGES.length) {
             images = PEPSICO_IMAGES;
-            folder = 'pepsico';
+            base = '../img:video/proyectos/pepsico/';
+            return { images: images, base: base };
         } else if (proyectoId === 'spia' && typeof SPIA_IMAGES !== 'undefined' && SPIA_IMAGES.length) {
             images = SPIA_IMAGES;
-            folder = 'spia';
+            base = '../img:video/proyectos/spia/';
+            return { images: images, base: base };
         } else if (proyectoId === 'cornare' && typeof CORNARE_IMAGES !== 'undefined' && CORNARE_IMAGES.length) {
             images = CORNARE_IMAGES;
             folder = 'CORNARE';
@@ -476,9 +503,9 @@
     var openParams = new URLSearchParams(window.location.search);
     var openProyectoId = openParams.get('proyecto');
     var proyectoToServicio = {
-        'refineria-cartagena': 'control-ruido', 'viva-magdalena': 'control-ruido', 'arclad': 'control-ruido',
+        'refineria-cartagena': 'control-ruido', 'alma-magdalena': 'control-ruido', 'arclad': 'control-ruido',
         'segovia': 'medicion-vibraciones', 'ccr-palagua': 'fotogrametria', 'colcafe': 'control-ruido',
-        'cerrejon': 'holografia-acustica', 'mineros-bic': 'holografia-acustica', 'pepsico': 'control-ruido',
+        'cerrejon': 'holografia-acustica', 'mineros-bic': 'holografia-acustica', 'p-and-g': 'holografia-acustica', 'pepsico': 'control-ruido',
         'spia': 'modelacion-ruido-subacuatico'
     };
     if (openProyectoId && proyectoToServicio[openProyectoId] !== undefined) {

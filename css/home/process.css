@@ -26,11 +26,11 @@
     transform: scale(1.08);
 }
 
-/* Sección Proyectos en inicio: fondo Luma con blur */
+/* Sección Proyectos en inicio: fondo video con blur */
 .home-projects-section .process-section-bg {
     display: none;
 }
-.home-projects-luma-wrap {
+.home-projects-video-wrap {
     position: absolute;
     top: -10%;
     left: 0;
@@ -40,37 +40,39 @@
     min-height: 120%;
     z-index: 0;
     overflow: hidden;
-    filter: blur(14px);
-    -webkit-filter: blur(14px);
-    transform: scale(1.15);
+    pointer-events: none;
 }
-.home-projects-luma-wrap::after {
+.home-projects-video-wrap::after {
     content: '';
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.35);
     pointer-events: none;
+    z-index: 1;
 }
-.home-projects-luma-embed {
+.home-projects-video-bg {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 100vw;
-    height: 56.25vw;
-    min-height: 100vh;
-    min-width: 177.78vh;
+    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
     transform: translate(-50%, -50%);
-    border: none;
+    object-fit: cover;
     pointer-events: none;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    z-index: 0;
 }
 @media (min-aspect-ratio: 16/9) {
-    .home-projects-luma-embed {
+    .home-projects-video-bg {
         width: 100vw;
         height: calc(100vw * 9 / 16);
     }
 }
 @media (max-aspect-ratio: 16/9) {
-    .home-projects-luma-embed {
+    .home-projects-video-bg {
         width: calc(100vh * 16 / 9);
         height: 100vh;
     }

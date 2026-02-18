@@ -99,8 +99,8 @@
     transform: translate(-50%, -50%);
     border: none;
     pointer-events: none;
-    filter: blur(10px);
-    -webkit-filter: blur(10px);
+    filter: blur(15px);
+    -webkit-filter: blur(15px);
 }
 
 @media (min-aspect-ratio: 16/9) {
@@ -302,4 +302,22 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+}
+
+/* Footer gris oscuro para páginas de proyectos */
+.footer-proyectos .footer-overlay {
+    background: rgba(45, 45, 45, 0.95);
+}
+
+.footer-proyectos .footer-bg-fallback {
+    background: rgba(45, 45, 45, 0.95);
+}
+
+/* Ocultar animación Luma en páginas de proyectos */
+.footer-proyectos .footer-luma-wrap {
+    display: none;
+}
+
+.footer-proyectos .footer-video-container {
+    display: none;
 }

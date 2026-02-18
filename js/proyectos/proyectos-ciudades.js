@@ -327,7 +327,7 @@
         var base = '';
         if (proyectoId === 'amva-usb' && typeof AMVA_USB_IMAGES !== 'undefined' && AMVA_USB_IMAGES.length) {
             images = AMVA_USB_IMAGES;
-            base = '../proyectos/ciudades/AMVA-USB/';
+            base = '../img:video/proyectos/amvausb/';
         } else if (proyectoId === 'cornare' && typeof CORNARE_IMAGES !== 'undefined' && CORNARE_IMAGES.length) {
             images = CORNARE_IMAGES;
             base = '../proyectos/ciudades/CORNARE/';
