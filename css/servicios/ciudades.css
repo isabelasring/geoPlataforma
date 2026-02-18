@@ -452,6 +452,29 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
 }
 
 /* Columna izquierda: carrusel de imágenes visible */
+.section-card-image-wrap {
+    position: relative;
+    flex: 1 1 42%;
+    min-width: 0;
+    max-width: 50%;
+    padding: 1.5rem 1rem;
+    z-index: 0.5;
+    overflow: hidden;
+    order: 1;
+}
+
+.section-card-image {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    height: 80vh;
+    max-height: 650px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+}
+
 .section-card-carousel-wrap {
     position: relative;
     flex: 1 1 42%;
@@ -759,6 +782,21 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
         justify-content: flex-start;
         padding: 1rem;
         overflow-y: auto;
+    }
+
+    .section-card-image-wrap {
+        flex: 0 0 auto;
+        max-width: none;
+        width: 100%;
+        min-height: 280px;
+        padding: 1rem 0.5rem;
+        order: 1;
+    }
+
+    .section-card-image {
+        min-height: 280px;
+        height: 280px;
+        max-height: 280px;
     }
 
     .section-card-carousel-wrap {
