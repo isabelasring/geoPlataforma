@@ -480,6 +480,40 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     background-repeat: no-repeat;
 }
 
+/* Regla específica para imágenes en industria - ocupan más espacio vertical, solo margen abajo */
+.section-card[data-servicio="iot"] .section-card-image,
+.section-card[data-servicio="control-ruido"] .section-card-image,
+.section-card[data-servicio="clasificacion-fuentes"] .section-card-image,
+.section-card[data-servicio="modelacion-ruido"] .section-card-image,
+.section-card[data-servicio="holografia-acustica"] .section-card-image,
+.section-card[data-servicio="medicion-vibraciones"] .section-card-image,
+.section-card[data-servicio="modelacion-vibraciones"] .section-card-image,
+.section-card[data-servicio="modelacion-ruido-subacuatico"] .section-card-image,
+.section-card[data-servicio="medicion-ruido-subacuatico"] .section-card-image,
+.section-card[data-servicio="geoespacial"] .section-card-image,
+.section-card[data-servicio="fotogrametria"] .section-card-image {
+    width: 90%;
+    min-height: 500px;
+    max-height: calc(100vh - 280px);
+    margin: auto auto 2rem auto;
+}
+
+.section-card[data-servicio="iot"] .section-card-image-wrap,
+.section-card[data-servicio="control-ruido"] .section-card-image-wrap,
+.section-card[data-servicio="clasificacion-fuentes"] .section-card-image-wrap,
+.section-card[data-servicio="modelacion-ruido"] .section-card-image-wrap,
+.section-card[data-servicio="holografia-acustica"] .section-card-image-wrap,
+.section-card[data-servicio="medicion-vibraciones"] .section-card-image-wrap,
+.section-card[data-servicio="modelacion-vibraciones"] .section-card-image-wrap,
+.section-card[data-servicio="modelacion-ruido-subacuatico"] .section-card-image-wrap,
+.section-card[data-servicio="medicion-ruido-subacuatico"] .section-card-image-wrap,
+.section-card[data-servicio="geoespacial"] .section-card-image-wrap,
+.section-card[data-servicio="fotogrametria"] .section-card-image-wrap {
+    padding-bottom: 2rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+}
+
 /* Fondo más claro en modo claro */
 html:not([data-theme="dark"]) .section-card-image {
     background-color: #f5f5f5;
