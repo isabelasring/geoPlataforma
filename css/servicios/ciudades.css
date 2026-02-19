@@ -463,11 +463,12 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    height: 100%;
 }
 
 .section-card-image {
-    width: 85%;
-    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
     margin: auto;
     border-radius: 12px;
     object-fit: cover;
@@ -490,8 +491,8 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
 .section-card[data-servicio="medicion-ruido-subacuatico"] .section-card-image,
 .section-card[data-servicio="geoespacial"] .section-card-image,
 .section-card[data-servicio="fotogrametria"] .section-card-image {
-    width: 90%;
-    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
     margin: auto auto 2rem auto;
 }
 
@@ -511,12 +512,11 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     padding-top: 0.5rem;
 }
 
-/* Videos también con proporción 16:9 */
+/* Videos ocupan todo el espacio */
 .section-card-image video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    aspect-ratio: 16 / 9;
 }
 
 /* Fondo más claro en modo claro */
@@ -843,8 +843,8 @@ html:not([data-theme="dark"]) .section-card-image {
     }
 
     .section-card-image {
-        width: 90%;
-        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: 100%;
         margin: 0 auto;
     }
 
