@@ -474,7 +474,7 @@ html:not([data-theme="dark"]) body.page-servicios .section-content {
     border-radius: 12px;
     object-fit: contain;
     display: block;
-    background-color: #1a1a1a;
+    background-color: #1a1a1a00;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
